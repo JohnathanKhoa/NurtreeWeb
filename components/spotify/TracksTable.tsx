@@ -67,7 +67,7 @@ export default function TracksTable({
         {tracks?.map((track, index) => (
           <>
           <div onClick={() => (redirect(`${index}`))}
-            className={`grid py-2 px-4 grid-cols-12 hover:bg-zinc-700 truncate ${
+            className={`grid py-2 px-4 grid-cols-12 cursor-pointer hover:bg-zinc-700 truncate ${
               index === i ? "bg-zinc-400 bg-opacity-50" : "bg-transparent"
               
             }`}

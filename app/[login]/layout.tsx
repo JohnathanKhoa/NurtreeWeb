@@ -4,8 +4,8 @@ import { Montserrat } from "next/font/google";
 const fontFamily = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Nurtree - Login",
-  description: "Authenticate with Premium Spotify",
+  title: "Login with Spotify",
+  description: "Login page to authenticate through Spotify",
 };
 
 export default function LoginPageLayout({

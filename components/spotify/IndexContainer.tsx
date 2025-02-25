@@ -37,7 +37,7 @@ export default function IndexContainer({
         <div className="flex flex-col md:flex-row gap-6 m-4">
       {playlist && (
         <>
-        <div className="flex md:items-end items-center gap-6 md:m-4">
+        <div className="flex items-center gap-6 md:m-4">
           {playlist.images.length > 0 ? (
             <Image
               src={playlist.images[0].url}
@@ -82,11 +82,11 @@ export default function IndexContainer({
               )}
             </div>
             </div>
-            <div className="md:flex hidden self-center gap-6 m-4"><MdPlayArrow size={50}/></div>
+            {/* <div className="md:flex hidden self-center gap-6 m-4"><MdPlayArrow size={50}/></div> */}
           </div>
           
           
-          <div className="flex md:justify-center items-end gap-6 md:m-4">
+          <div className="flex md:justify-center items-center gap-6 md:m-4">
           
           {
             <Image

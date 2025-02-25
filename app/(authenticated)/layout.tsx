@@ -11,7 +11,7 @@ const fontFamily = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Nurtree",
-  description: "A blend of Spotify and Youtube",
+  description: "Spotify and Youtube API",
 };
 
 export default function RootLayout({

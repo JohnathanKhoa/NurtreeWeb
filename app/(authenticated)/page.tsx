@@ -58,12 +58,13 @@ export default async function Home() {
       </h1> 
 
       <h1 className="my-5 mt-16 text-3xl font-bold">Your Spotify Statistics</h1>
+      <h1 className="mt-16">Top Artists this month</h1>
+      <ArtistCards artists={topArtists} />
+
+      
       <h1 className="">Top Tracks this month</h1>
       <TrackCards tracks={topTracks} />
 
-
-      <h1 className="mt-16">Top Artists this month</h1>
-      <ArtistCards artists={topArtists} />
 
       <h1 className="mt-16">New releases for you</h1>
       <AlbumCards albums={newReleases} />

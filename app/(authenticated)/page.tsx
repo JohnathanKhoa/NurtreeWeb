@@ -55,7 +55,7 @@ export default async function Home() {
     <section className="flex flex-col items-center">
       <h1 className="mb-5 text-3xl font-bold">Hello, {session?.user.name}!</h1>
       <h1 className="flex items-center gap-3 px-2 my-1 text-gray">
-      Choose a playlist from your library <MenuIcon height={25} /> to get the top music video for each track
+      Choose a playlist from your library <MenuIcon className="md:flex hidden" height={25} /> to get the top music video for each track
       </h1> 
 
       <h1 className="my-5 mt-16 text-3xl font-bold">Your Spotify Statistics</h1>

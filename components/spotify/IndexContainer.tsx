@@ -37,7 +37,7 @@ export default function IndexContainer({
         <div className="flex flex-col md:flex-row gap-6 m-4">
       {playlist && (
         <>
-        <div className="flex items-end gap-6 m-4">
+        <div className="flex md:items-end items-center gap-6 md:m-4">
           {playlist.images.length > 0 ? (
             <Image
               src={playlist.images[0].url}
@@ -55,7 +55,7 @@ export default function IndexContainer({
 
           <div className="visible flex flex-col gap-3">
             <h5 className="text-xs font-bold uppercase shadow-2xl">Spotify {playlist.type}</h5>
-            <h2 className="md:text-4xl text-2xl font-bold">{playlist.name}</h2>
+            <h2 className="md:text-4xl text-xl font-bold">{playlist.name}</h2>
 
             {playlist.description && (
               <p className={styles.description + " font-medium mt-3"}>
@@ -63,7 +63,7 @@ export default function IndexContainer({
               </p>
             )}
 
-            <div className="md:flex hidden items-center text-sm font-semibold">
+            <div className="md:flex hidden items-center md:font-semibold md:text-sm text-xs ">
               <span>{playlist.owner?.display_name}</span>
               {playlist.followers.total > 0 && (
                 <>
@@ -86,7 +86,7 @@ export default function IndexContainer({
           </div>
           
           
-          <div className="flex md:justify-center items-end gap-6 m-4">
+          <div className="flex md:justify-center items-end gap-6 md:m-4">
           
           {
             <Image
@@ -103,7 +103,7 @@ export default function IndexContainer({
           <h1> {tracks[index].artists.map((artist, index) => (
                           <a
                             key={artist.id}
-                            className=""
+                            className="text-xs md:text-sm md:font-semibold"
                           >
                             {index !== 0 ? `, ${artist.name}` : artist.name}
                           </a>

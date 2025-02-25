@@ -22,10 +22,18 @@ const authOptions: NextAuthOptions = {
         token.id = account.id;
         token.expires_at = account.expires_at;
         token.accessToken = account.access_token;
+        token.refreshToken = account.refresh_token;
+        
       }
       return token;
     },
     async session({ session, token }) {
+      
+      if (session.expires as unknown as Date <= new Date()){
+        token.accessToken = token.refreshToken;
+        session.user = token;
+        return session;
+      }
       session.user = token;
       return session;
     },

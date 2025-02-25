@@ -36,7 +36,7 @@ export default function TracksTable({
     <div>
       {showHeader && (
         <>
-          <div className="md:contents hidden sticky w-full z-10">
+          <div className="sticky w-full z-10">
           <header className="grid grid-cols-12 gap-2 p-4 pb-1 text-gray">
             <div className="col-span-1 font-semibold tracking-wider text-left uppercase">
               #
@@ -49,11 +49,11 @@ export default function TracksTable({
               Title
             </div>
             {showAlbum && (
-              <div className="col-span-4 text-sm font-semibold text-left">
+              <div className="md:visible invisible col-span-4 text-sm font-semibold text-left">
                 Album
               </div>
             )}
-            <div className="col-span-1 font-semibold text-left">
+            <div className="md:visible invisible col-span-1 font-semibold text-left">
               <Clock3 size={16} />
             </div>
           </header>
@@ -126,7 +126,7 @@ export default function TracksTable({
                         {track.artists.map((artist, index) => (
                           <a
                             key={artist.id + track.id + keyCount++}
-                            className="hover:text-white hover:underline"
+                            className="hover:text-white"
                           >
                             {index !== 0 ? `, ${artist.name}` : artist.name}
                           </a>

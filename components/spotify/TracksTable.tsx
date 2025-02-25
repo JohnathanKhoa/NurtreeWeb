@@ -36,7 +36,7 @@ export default function TracksTable({
     <div>
       {showHeader && (
         <>
-          <div className="sticky w-full z-10">
+          <div className="sticky w-full -z-10">
           <header className="grid grid-cols-12 gap-2 p-4 pb-1 text-gray">
             <div className="col-span-1 font-semibold tracking-wider text-left uppercase">
               #

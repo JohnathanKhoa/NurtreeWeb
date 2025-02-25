@@ -6,6 +6,7 @@ import Image from "next/image";
 import SpotifyImage from '@/public/images/spotify_logo.png'
 import YoutubeImage from '@/public/images/yt_logo_mono_dark.png'
 import Link from "next/link";
+import BuyMeACoffee from "@/components/BuyMeACoffee";
 require('dotenv').config()
 
 export default function Login() {
@@ -53,9 +54,9 @@ export default function Login() {
       <div className="text-center text-balance flex-col items-center justify-center">
         Don't have an account? <Link className="underline" href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F">Sign up</Link> on their official website
       </div>
-      {/* <div className="text-center text-balance">
-        <Link className="underline" href="">Use demo features</Link> without an account
-      </div> */}
+      <div className="text-center text-balance pt-10">
+        <BuyMeACoffee/>
+      </div> 
       </div>
     </div>
     </>

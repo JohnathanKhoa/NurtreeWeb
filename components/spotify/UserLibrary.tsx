@@ -15,6 +15,7 @@ interface Props {
 export default function UserLibrary({
   playlists,
 }: Props) {
+  let keycount = 0;
   return (
     <div className="">
       <div className="">
@@ -26,7 +27,7 @@ export default function UserLibrary({
             {playlists.map((playlist) => (
               <MenuItem>
                 <LibraryItemCard
-                key={playlist.id}
+                key={playlist.id + keycount++}
                 entity={playlist}
                 type="playlists"
                 subtitle={playlist.owner.display_name}

@@ -125,7 +125,7 @@ export default function TracksTable({
                       <span className="truncate">
                         {track.artists.map((artist, index) => (
                           <a
-                            key={artist.id + track.id}
+                            key={artist.id + track.id + keyCount++}
                             className="hover:text-white hover:underline"
                           >
                             {index !== 0 ? `, ${artist.name}` : artist.name}

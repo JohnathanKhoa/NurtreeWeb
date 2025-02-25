@@ -13,7 +13,8 @@ import { redirect } from "next/navigation";
 
 
 export const metadata = {
-  title: "Welcome to Nurtree",
+  title: "Nurtree",
+  description: "A blend of Spotify and Youtube",
 };
 
 export default async function Home() {

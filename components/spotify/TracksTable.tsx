@@ -14,10 +14,10 @@ interface Props {
   showCover?: boolean;
   showAlbum?: boolean;
   showSubtitle?: boolean;
-  i: number;
+  i?: number;
   //color: Promise<string>;
-  trackIndex: number;
-  currentIndex: Dispatch<SetStateAction<number>>;
+  trackIndex?: number;
+  currentIndex?: Dispatch<SetStateAction<number>>;
 }
 
 export default function TracksTable({

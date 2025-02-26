@@ -53,21 +53,21 @@ export default async function Home() {
   return (
 
     <section className="flex flex-col items-center">
-      <h1 className="mb-5 text-3xl font-bold">Hello, {session?.user.name}!</h1>
-      <h1 className="flex items-center gap-3 px-2 my-1 text-gray">
+      <h1 className="mb-5 text-xl font-bold">Greetings, {session?.user.name}!</h1>
+      {/* <h1 className="flex items-center gap-3 px-2 my-1 text-gray">
       Choose a playlist from your library <MenuIcon className="md:flex hidden" height={25} /> to get the top music video for each track
-      </h1> 
+      </h1>  */}
 
-      <h1 className="my-5 mt-16 text-3xl font-bold">Your Spotify Statistics</h1>
-      <h1 className="mt-16">Top Artists this month</h1>
+      <h1 className="text-3xl font-bold">Your Spotify Statistics</h1>
+      <h1 className="mt-4">Top Artists this month</h1>
       <ArtistCards artists={topArtists} />
 
       
-      <h1 className="">Top Tracks this month</h1>
+      <h1 className="mt-4">Top Tracks this month</h1>
       <TrackCards tracks={topTracks} />
 
 
-      <h1 className="mt-16">New releases for you</h1>
+      <h1 className="mt-4">New releases for you</h1>
       <AlbumCards albums={newReleases} />
       
     </section>

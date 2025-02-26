@@ -1,7 +1,9 @@
+'use client'
 import { Track } from "@/types/types";
 import { Music } from "lucide-react";
 import Image from "next/image";
 import CardItemGrid from "./CardItemGrid";
+import { usePathname, useRouter } from "next/navigation";
 
 
 interface Props {
@@ -10,6 +12,8 @@ interface Props {
 }
 
 export default function TrackCards({ tracks }: Props) {
+    const pathname = usePathname();
+    const router = useRouter();
   return (
     <CardItemGrid>
       {tracks?.map((track: Track) => {
@@ -17,8 +21,8 @@ export default function TrackCards({ tracks }: Props) {
           return null;
         }
         return (
-          <div key={track.id} >
-            <div className="h-full p-4 transition duration-300 bg-paper-500">
+          <div className="cursor-pointer" key={track.id} onClick={() => router.replace(`/tracks/${track.id}/0`)}>
+            <div className="h-full p-4 transition duration-300 bg-paper-500 hover:opacity-80">
               <div className="relative">
                 {track.album.images.length > 0 ? (
                   <Image
@@ -26,7 +30,7 @@ export default function TrackCards({ tracks }: Props) {
                     alt={track.name}
                     height={160}
                     width={160}
-                    className="object-cover w-full rounded-md aspect-square"
+                    className=" object-cover w-full rounded-md aspect-square"
                   />
                 ) : (
                   <div className="w-full h-40">

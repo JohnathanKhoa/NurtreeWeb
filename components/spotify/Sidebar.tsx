@@ -10,6 +10,8 @@ import SpotifyImage from '@/public/images/spotify_logo.png'
 import YoutubeImage from '@/public/images/yt_logo_mono_dark.png'
 import NurtreeImage from '@/public/images/nurtree.png'
 import LogoutButton from "./LogoutButton";
+import SearchBar from "./SearchBar";
+import SearchInput from "./SearchInput";
 
 
 export default async function Sidebar() {
@@ -33,6 +35,7 @@ export default async function Sidebar() {
         <UserLibrary
         playlists={playlists}
         />
+        <SearchInput/>
         {/* <Image className="rounded-xl object-scale-down w-7 h-7 justify-self-center" src={NurtreeImage} alt="NurtreeImage"/> */}
         <div className="flex flex-row">
         <SidebarLinksList />

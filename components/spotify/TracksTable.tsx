@@ -4,7 +4,7 @@ import { Track } from "@/types/types";
 import { fmtMSS } from "@/util/clientUtils";
 import { Clock3, Music } from "lucide-react";
 import Image from "next/image";
-import { redirect } from "next/navigation";
+import { redirect, usePathname, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
 import { MdPlayArrow } from "react-icons/md";
 
@@ -28,9 +28,16 @@ export default function TracksTable({
   showAlbum = false,
   i,
 }: Props) {
-
+  const pathname = usePathname();
+  const router = useRouter();
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   let keyCount = 0;
+
+  function handleClick(track: Track, index) {
+    if (pathname.includes("/playlists")){
+      redirect(`${index}`)
+    } else {router.replace(`/tracks/${track.id}/0`)}
+  }
 
   return (
     <div>
@@ -66,8 +73,8 @@ export default function TracksTable({
       <div className="w-full col-span-12 mt-2">
         {tracks?.map((track, index) => (
           <>
-          <div onClick={() => (redirect(`${index}`))}
-            className={`grid py-2 px-4 grid-cols-12 cursor-pointer hover:bg-zinc-700 truncate ${
+          <div onClick={() => (handleClick(track, index))}
+            className={`z-49 grid py-2 px-4 grid-cols-12 cursor-pointer hover:bg-zinc-700 truncate ${
               index === i ? "bg-zinc-400 bg-opacity-50" : "bg-transparent"
               
             }`}
@@ -126,7 +133,8 @@ export default function TracksTable({
                         {track.artists.map((artist, index) => (
                           <a
                             key={artist.id + track.id + keyCount++}
-                            className="hover:text-white"
+                            // className="hover:text-white hover:underline z-50"
+                            // href={`/artists/${artist.id}`}
                           >
                             {index !== 0 ? `, ${artist.name}` : artist.name}
                           </a>
@@ -140,8 +148,12 @@ export default function TracksTable({
 
             {showAlbum && (
               <div className="md:flex hidden items-center w-10/12 col-span-4 text-sm text-gray">
-                {track.album.name}
-                
+                <a
+                  // href={`/albums/${track.album.id}`}
+                  // className="truncate hover:text-white hover:underline z-50"
+                >
+                  {track.album.name}
+                </a>
               </div>
             )}
 

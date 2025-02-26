@@ -1,5 +1,6 @@
 import { Music } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   images: any;
@@ -13,20 +14,24 @@ interface Props {
 
 export default function CardItem({
   images,
+  id,
   altTitle,
   heading,
   subheading,
   imageRounded = false,
+  type
 }: Props) {
+
+  
   return (
-    <div>
-      <div className="h-full p-4 transition duration-300 rounded-lg bg-paper-500">
+    <Link href={type === 'playlists' ? `/${type}/${id}/0` : `/${type}/${id}`}>
+      <div className="h-full p-4 transition duration-300 rounded-lg bg-paper-500 hover:opacity-80">
         {images.length > 0 ? (
           <Image
             src={images[0].url}
             alt={altTitle}
-            height={160}
-            width={160}
+            height={500}
+            width={500}
             className={`aspect-square object-cover w-full ${
               imageRounded ? "rounded-full" : "rounded-md"
             }`}
@@ -43,6 +48,6 @@ export default function CardItem({
           </h6>
         )}
       </div>
-    </div>
+    </Link>
   );
 }

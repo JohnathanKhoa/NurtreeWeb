@@ -10,6 +10,7 @@ export default function ArtistCards({ artists }: Props) {
   return (
     <CardItemGrid>
       {artists?.map((artist) => (
+        <div>
         <CardItem
           key={artist.id}
           id={artist.id}
@@ -20,6 +21,7 @@ export default function ArtistCards({ artists }: Props) {
           type="artists"
           imageRounded
         />
+        </div>
       ))}
     </CardItemGrid>
   );

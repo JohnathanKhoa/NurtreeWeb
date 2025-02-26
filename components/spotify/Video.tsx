@@ -7,7 +7,7 @@ interface Props {
     tracksLength: number;
     index: number;
     id: string;
-    currentIndex: Dispatch<SetStateAction<number>>;
+    currentIndex?: Dispatch<SetStateAction<number>>;
     
 }
 

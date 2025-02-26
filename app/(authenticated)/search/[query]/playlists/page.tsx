@@ -7,13 +7,13 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next/types";
 
 interface Props {
-  params: {
+  params: Promise<{
     query: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const query = params.query;
+  const query = (await params).query;
   return {
     title: `Playlists related to "${query}"`,
   };
@@ -25,7 +25,7 @@ export default async function PlaylistSearchResultPage({ params }: Props) {
     redirect("/login");
   }
 
-  const query = decodeURI(params.query);
+  const query = decodeURI((await params).query);
 
   const playlistResponse = await getSearchItems(session, "playlist", query, 50);
 

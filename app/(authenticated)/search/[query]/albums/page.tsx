@@ -7,13 +7,13 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next/types";
 
 interface Props {
-  params: {
+  params: Promise<{
     query: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const query = params.query;
+  const query = (await params).query;
   return {
     title: `Albums related to "${query}"`,
   };
@@ -25,7 +25,7 @@ export default async function AlbumsSearchResultPage({ params }: Props) {
     redirect("/login");
   }
 
-  const query = decodeURI(params.query);
+  const query = decodeURI((await params).query);
 
   const albumResponse = await getSearchItems(session, "album", query, 50);
 

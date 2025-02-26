@@ -7,13 +7,13 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next/types";
 
 interface Props {
-  params: {
+  params: Promise<{
     query: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const query = params.query;
+  const query = (await params).query;
   return {
     title: `Tracks related to "${query}"`,
   };
@@ -25,7 +25,7 @@ export default async function TrackSearchResultPage({ params }: Props) {
     redirect("/login");
   }
 
-  const query = params.query;
+  const query = (await params).query;
 
   const tracks = (await getSearchItems(session, "track", query, 50).then(
     (data) => data.tracks.items

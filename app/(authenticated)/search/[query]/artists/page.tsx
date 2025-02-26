@@ -7,13 +7,13 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next/types";
 
 interface Props {
-  params: {
+  params: Promise<{
     query: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const query = params.query;
+  const query = (await params).query;
   return {
     title: `Artists related to "${query}"`,
   };
@@ -25,7 +25,7 @@ export default async function ArtistsSearchResultPage({ params }: Props) {
     redirect("/login");
   }
 
-  const query = decodeURI(params.query);
+  const query = decodeURI((await params).query);
 
   const artistResponse = await getSearchItems(session, "artist", query, 50);
   const artists = artistResponse.artists.items as Artist[];

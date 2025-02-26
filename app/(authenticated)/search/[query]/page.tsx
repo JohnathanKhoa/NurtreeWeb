@@ -9,13 +9,13 @@ import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 interface Props {
-  params: {
+  params: Promise<{
     query: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const query = params.query;
+  const query = (await params).query;
   return {
     title: `Search results for "${query}"`,
   };
@@ -28,7 +28,7 @@ export default async function SearchResults({ params }: Props) {
     redirect("/login");
   }
 
-  const query = decodeURI(params.query);
+  const query = decodeURI((await params).query);
 
   const searchResults = await getSearchItems(session, "all", query);
 

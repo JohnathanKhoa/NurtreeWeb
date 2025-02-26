@@ -8,9 +8,9 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 interface Props {
-  params: {
+  params: Promise<{
     albumId: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

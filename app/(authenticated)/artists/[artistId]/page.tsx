@@ -10,9 +10,9 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next/types";
 
 interface Props {
-  params: {
+  params: Promise<{
     artistId: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

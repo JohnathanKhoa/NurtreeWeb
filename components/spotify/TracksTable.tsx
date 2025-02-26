@@ -33,7 +33,7 @@ export default function TracksTable({
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   let keyCount = 0;
 
-  function handleClick(track: Track, index) {
+  function handleClick(track: Track, index: number) {
     if (pathname.includes("/playlists")){
       redirect(`${index}`)
     } else {router.replace(`/tracks/${track.id}/0`)}

@@ -37,7 +37,7 @@ export default function TracksTable({
     if (pathname.includes("/playlists")){
       redirect(`${index}`)
     } else {
-      window.history.pushState('',`/tracks/${track.id}/0`)
+      //window.history.pushState('',`/tracks/${track.id}/0`)
       
       router.replace(`/tracks/${track.id}/0`)
     }

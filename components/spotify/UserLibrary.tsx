@@ -21,7 +21,7 @@ export default function UserLibrary({
       <div className="">
         <Menu>
           <MenuButton as={Fragment}>
-            {({ active }) => <button className={clsx(active)}>{active === true ? <MenuIcon height={25} /> : <MenuIcon size={25} className="animate-bounce"/>}</button>}
+            {({ active }) => <button className={clsx(active)}>{active === true ? <MenuIcon height={25} /> : <MenuIcon size={25} className=""/>}</button>}
           </MenuButton>
           <MenuItems anchor="bottom" className="overflow-auto scrollbar-hide bg-zinc-800 rounded-xl opacity-80">
             <div className="sticky top-0 bg-black text-center ring-white ring-1 font-semibold">Your Playlist Library</div>

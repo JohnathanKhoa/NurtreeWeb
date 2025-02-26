@@ -36,7 +36,11 @@ export default function TracksTable({
   function handleClick(track: Track, index: number) {
     if (pathname.includes("/playlists")){
       redirect(`${index}`)
-    } else {router.replace(`/tracks/${track.id}/0`)}
+    } else {
+      window.history.pushState('',`/tracks/${track.id}/0`)
+      
+      router.replace(`/tracks/${track.id}/0`)
+    }
   }
 
   return (

@@ -3,7 +3,8 @@ import { Track } from "@/types/types";
 import { Music } from "lucide-react";
 import Image from "next/image";
 import CardItemGrid from "./CardItemGrid";
-import { usePathname, useRouter } from "next/navigation";
+
+import Link from "next/link";
 
 
 interface Props {
@@ -12,8 +13,7 @@ interface Props {
 }
 
 export default function TrackCards({ tracks }: Props) {
-    const pathname = usePathname();
-    const router = useRouter();
+    
   return (
     <CardItemGrid>
       {tracks?.map((track: Track) => {
@@ -21,7 +21,7 @@ export default function TrackCards({ tracks }: Props) {
           return null;
         }
         return (
-          <div className="cursor-pointer" key={track.id} onClick={() => router.replace(`/tracks/${track.id}/0`)}>
+          <Link className="cursor-pointer" key={track.id} href={`/tracks/${track.id}/0`}>
             <div className="h-full p-4 transition duration-300 bg-paper-500 hover:opacity-80">
               <div className="relative">
                 {track.album.images.length > 0 ? (
@@ -43,7 +43,7 @@ export default function TrackCards({ tracks }: Props) {
                 {track.artists[0].name}
               </h6>
             </div>
-          </div>
+          </Link>
         );
       })}
     </CardItemGrid>

@@ -12,6 +12,7 @@ import NurtreeImage from '@/public/images/nurtree.png'
 import LogoutButton from "./LogoutButton";
 import SearchBar from "./SearchBar";
 import SearchInput from "./SearchInput";
+import RouterButtons from "./RouterButtons";
 
 
 export default async function Sidebar() {
@@ -31,10 +32,13 @@ export default async function Sidebar() {
   return (
     <header className="md:sticky  items-center w-full text-sm rounded-lg">
       <div className="flex flex-row items-center justify-between p-4 rounded-lg bg-paper-700">
-      
+        <div className="flex flex-row">
+        <RouterButtons/>
         <UserLibrary
         playlists={playlists}
         />
+        
+        </div>
         <SearchInput/>
         {/* <Image className="rounded-xl object-scale-down w-7 h-7 justify-self-center" src={NurtreeImage} alt="NurtreeImage"/> */}
         <div className="flex flex-row">

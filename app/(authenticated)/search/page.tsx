@@ -5,7 +5,7 @@ import { getAuthSession } from "@/util/serverUtils";
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Spotify - Search",
+  title: "Nurtree - Search",
 };
 
 export default async function BrowseCategoriesPage() {

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const artistId = (await params).artistId;
   const artist = await getArtistById(session, artistId);
   return {
-    title: `Spotify - ${artist.name}`,
+    title: `Nurtree - ${artist.name}`,
   };
 }
 

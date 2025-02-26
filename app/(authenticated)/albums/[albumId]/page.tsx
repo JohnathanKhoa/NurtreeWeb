@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const albumId = (await params).albumId;
   const album = await getAlbumById(session, albumId);
   return {
-    title: `Spotify - ${album.name}`,
+    title: `Nurtree - ${album.name}`,
   };
 }
 

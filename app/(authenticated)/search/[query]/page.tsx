@@ -37,7 +37,7 @@ export default async function SearchResults({ params }: Props) {
       <SearchFilters />
 
       <div className="flex flex-col items-stretch -mt-8">
-        <h1 className="-mb-4">Tracks</h1>
+        <h1 className="flex items-center justify-center border-t-2">Tracks</h1>
         <TracksTable
           tracks={searchResults.tracks.items}
           showAlbum
@@ -48,21 +48,21 @@ export default async function SearchResults({ params }: Props) {
 
       {searchResults.artists.items.length > 0 && (
         <div>
-          <h1>Artists</h1>
+          <h1 className="flex items-center justify-center border-t-2">Artists</h1>
           <ArtistCards artists={searchResults.artists.items} />
         </div>
       )}
 
       {searchResults.albums.items.length > 0 && (
         <div>
-          <h1>Albums</h1>
+          <h1 className="flex items-center justify-center border-t-2">Albums</h1>
           <AlbumCards albums={searchResults.albums.items} />
         </div>
       )}
 
       {searchResults.playlists.items.length > 0 && (
         <div>
-          <h1>Playlists</h1>
+          <h1 className="flex items-center justify-center border-t-2">Playlists</h1>
           <PlaylistCards playlists={searchResults.playlists.items} />
         </div>
       )}

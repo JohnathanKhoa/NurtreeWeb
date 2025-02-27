@@ -9,6 +9,7 @@ import { Artist, Damon2Items, Track } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";
 import { redirect } from "next/navigation";
 import VideoCarousel from "@/components/spotify/VideoCarousel";
+import getRandomNumbers from "@/components/Random";
 
 interface Props {
   params: Promise<{
@@ -36,7 +37,7 @@ export default async function Home({ params }: Props) {
 
   const topTracks = (await getTopItems({
     session,
-    limit: 50,
+    limit: 20,
     type: "tracks",
   }).then((data) => data.items)) as Track[];
 
@@ -59,25 +60,7 @@ export default async function Home({ params }: Props) {
   // };
     //let youtubeVideo = await getYoutubeVideoDamon(session, topTracks[index]);
     //let id = youtubeVideo.id;
-    function getRandomNumbers(min: number, max: number, count: number): number[] {
-      if (max - min + 1 < count) {
-        throw new Error("Range is smaller than the number of requested random numbers.");
-      }
     
-      const numbers: number[] = [];
-      for (let i = min; i <= max; i++) {
-        numbers.push(i);
-      }
-    
-      const result: number[] = [];
-      for (let i = 0; i < count; i++) {
-        const randomIndex = Math.floor(Math.random() * numbers.length);
-        result.push(numbers[randomIndex]);
-        numbers.splice(randomIndex, 1);
-      }
-    
-      return result;
-    }
     
     // Example usage
     const min = 0;

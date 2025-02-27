@@ -87,7 +87,7 @@ export default async function ArtistPage({ params }: Props) {
       </div>
 
       <div className="my-8">
-        <h1>Popular</h1>
+        <h1 className="flex items-center justify-center border-t-2">Popular</h1>
         <div className="my-2">
           <TracksTable tracks={artistTopTracks.tracks} showCover />
         </div>
@@ -95,21 +95,21 @@ export default async function ArtistPage({ params }: Props) {
 
       {artistAlbums?.items.length > 0 && (
         <div className="mt-12">
-          <h1>Albums</h1>
+          <h1 className="flex items-center justify-center border-t-2">Albums</h1>
           <AlbumCards albums={artistAlbums.items} />
         </div>
       )}
 
       {artistSingles?.items.length > 0 && (
         <div className="mt-12">
-          <h1>Singles</h1>
+          <h1 className="flex items-center justify-center border-t-2">Singles</h1>
           <AlbumCards albums={artistSingles.items} />
         </div>
       )}
 
       {artistAppearsOn?.items.length > 0 && (
         <div className="mt-12">
-          <h1>Appears on</h1>
+          <h1 className="flex items-center justify-center border-t-2">Appears on</h1>
           <AlbumCards albums={artistAppearsOn.items} />
         </div>
       )}
@@ -123,7 +123,7 @@ export default async function ArtistPage({ params }: Props) {
 
       {relatedArtists?.artists.length > 0 && (
         <div className="mt-12">
-          <h1>Fans also like</h1>
+          <h1 className="flex items-center justify-center border-t-2">Fans also like</h1>
           <ArtistCards artists={relatedArtists.artists} />
         </div>
       )}

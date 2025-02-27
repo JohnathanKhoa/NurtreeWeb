@@ -81,7 +81,7 @@ export default async function TrackPage({ params }: Props) {
                            </div>
                           </div>
                           <div className="relative w-full overflow-auto scrollbar-hide">
-                                    <TracksTable user={currentUser} playlists={playlists} tracks={tracks} showHeader showSubtitle />
+                                    <TracksTable user={currentUser.id} playlists={playlists} tracks={tracks} showHeader showSubtitle />
                                     </div>
             </div>
         </div>

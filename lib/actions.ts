@@ -48,7 +48,7 @@ export const addTrack = async (
 export const addNewPlaylist = async (
   session: AuthSession,
   userId: string,
-  data
+  data:Object
 ):Promise<Playlist> => {
   return customPost(
     `https://api.spotify.com/v1/users/${userId}/playlists`,

@@ -20,7 +20,7 @@ export async function POST(req: Request, {
     const trackId = (await data).trackId;
     const track = await getTrackById(session!, trackId);
     const name = track.name;
-    const body = { name:  name };
+    const body:Object = { name:  name };
     const uri = track.uri;
     const trackBody:Data = { uris: [ uri ]}
     const result = await addNewPlaylist(session!, userId, body);

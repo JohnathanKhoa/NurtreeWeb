@@ -64,8 +64,8 @@ export default function TrackCarousel({ tracks }: Props) {
                   <Image
                     src={track.album.images[0].url}
                     alt={track.name}
-                    height={1000}
-                    width={1000}
+                    height={350}
+                    width={350}
                     className="  rounded-md aspect-square"
                   />
                 ) : (

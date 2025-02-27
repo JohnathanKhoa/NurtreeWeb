@@ -139,7 +139,7 @@ export default async function Home() {
 
       
       
-      <div className="flex h-full w-full">
+      <div className="my-16 flex  w-1/2 items-center justify-center">
       <TrackCarousel tracks={randomSuggestions}/>
       </div>
       {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite tracks</h1> */}

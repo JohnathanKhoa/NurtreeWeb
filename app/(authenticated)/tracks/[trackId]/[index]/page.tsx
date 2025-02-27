@@ -1,11 +1,11 @@
 import IndexContainer from "@/components/spotify/IndexContainer";
 import Video from "@/components/spotify/Video";
-import { getTrackById, getUserLikedPlaylists, getYoutubeVideoDamon } from "@/lib/actions";
+import { getMe, getTrackById, getUserAllPlaylists, getUserLikedPlaylists, getYoutubeVideoDamon } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import Image from "next/image";
-import { Track } from "@/types/types";
+import { Track, User } from "@/types/types";
 import TracksTable from "@/components/spotify/TracksTable";
 
 interface Props {
@@ -44,10 +44,12 @@ export default async function TrackPage({ params }: Props) {
   const tracks: Track[] = [];
   tracks.push(track)
   const [playlists] = await Promise.all([
-          getUserLikedPlaylists(session),
+          getUserAllPlaylists(session, 100),
           //getUserLikedSongs(session).then((data) => data.total),
         ]);
-
+  const currentUser = (await getMe({
+        session,
+      }).then((data) => data)) as User;
     return (
         <div className="scrollbar-hide">
             <div className="flex flex-col ">
@@ -79,7 +81,7 @@ export default async function TrackPage({ params }: Props) {
                            </div>
                           </div>
                           <div className="relative w-full overflow-auto scrollbar-hide">
-                                    <TracksTable playlists={playlists} tracks={tracks} showHeader showSubtitle />
+                                    <TracksTable user={currentUser} playlists={playlists} tracks={tracks} showHeader showSubtitle />
                                     </div>
             </div>
         </div>

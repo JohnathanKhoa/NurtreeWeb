@@ -22,7 +22,7 @@ export default function Video({tracksLength, index, id, currentIndex, play}: Pro
       <YouTube
         videoId={id}
         className="absolute size-full content-center "
-        onEnd={() => index + 1 >= tracksLength ? redirect(`${0}`) : redirect(`${index+1}`)}
+        onEnd={() => play === 1 ? index + 1 >= tracksLength ? redirect(`${0}`) : redirect(`${index+1}`) : <></>}
         opts={{
           width: '100%',
           height: '100%',

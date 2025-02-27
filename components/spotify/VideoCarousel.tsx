@@ -1,12 +1,17 @@
+"use client"
 import { Carousel } from "flowbite-react";
 import Video from "./Video";
 import Image from "next/image";
 import type { CustomFlowbiteTheme } from "flowbite-react";
 import { Damon2Items, Track } from "@/types/types";
 
+
+
 interface Props {
     topTracks: Track[];
     youtubeVideo:Damon2Items[];
+    i: number;
+    
   }
 
   const customTheme: CustomFlowbiteTheme["carousel"] = {
@@ -36,15 +41,9 @@ interface Props {
     }
   };
   
-  const customButtonTheme: CustomFlowbiteTheme = {
-    button: {
-      color: {
-        primary: "bg-red-500 hover:bg-red-600",
-      },
-    },
-  };
+  
 
-export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
+export default function VideoCarousel({ topTracks, youtubeVideo, i }: Props) {
   let keycount = 0;
     return(
         <div className="flex flex-col w-full items-center">
@@ -66,7 +65,7 @@ export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
                         className="self-center shadow-2xl object-contain rounded-3xl md:w-40 w-20 md:h-40 h-20"
                         priority />}
                       <div className="md:flex flex-col gap-3">
-                        
+                      <h5 className="text-xs font-bold uppercase shadow-2xl">Top Tracks For You</h5>
                         <h2 className="md:text-4xl text-xl font-bold">{topTracks[index].name}</h2>
                         <h1> {topTracks[index].artists.map((artist, index) => (
                           <a

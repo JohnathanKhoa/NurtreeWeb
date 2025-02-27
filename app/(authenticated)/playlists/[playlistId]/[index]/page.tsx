@@ -1,4 +1,4 @@
-import { getMe, getPlaylistById, getUserLikedPlaylists, getYoutubeVideoDamon, getYoutubeVideoDamonDetails } from "@/lib/actions";
+import { getMe, getPlaylistById, getUserAllPlaylists, getUserLikedPlaylists, getYoutubeVideoDamon, getYoutubeVideoDamonDetails } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { Track, User } from "@/types/types";
@@ -46,7 +46,7 @@ export default async function PlaylistPage({ params }: Props) {
         .filter((item: any) => item.track !== null)
         .map((item: any) => item.track);
   const [playlists] = await Promise.all([
-          getUserLikedPlaylists(session),
+          getUserAllPlaylists(session, 100),
           //getUserLikedSongs(session).then((data) => data.total),
         ]);
   const currentUser = (await getMe({

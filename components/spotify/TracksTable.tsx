@@ -37,7 +37,7 @@ export default function TracksTable({
     if (pathname.includes("/playlists")){
       redirect(`${index}`)
     } else {
-      //window.history.pushState('',`/tracks/${track.id}/0`)
+      window.history.pushState(null, '', `/tracks/${track.id}/0`)
       
       router.replace(`/tracks/${track.id}/0`)
     }
@@ -76,7 +76,7 @@ export default function TracksTable({
       {/* Table Rows */}
       <div className="w-full col-span-12 mt-2">
         {tracks?.map((track, index) => (
-          <>
+          <div key={keyCount++}>
           <div onClick={() => (handleClick(track, index))}
             className={`z-49 grid py-2 px-4 grid-cols-12 cursor-pointer hover:bg-zinc-700 truncate ${
               index === i ? "bg-zinc-400 bg-opacity-50" : "bg-transparent"
@@ -165,7 +165,7 @@ export default function TracksTable({
               {fmtMSS(track.duration_ms)}
             </small>
           </div>
-          </>
+          </div>
         ))}
       </div>
       

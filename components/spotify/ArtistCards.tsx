@@ -7,10 +7,11 @@ interface Props {
 }
 
 export default function ArtistCards({ artists }: Props) {
+  let keycount = 0;
   return (
     <CardItemGrid>
       {artists?.map((artist) => (
-        <div>
+        <div key={keycount++}>
         <CardItem
           key={artist.id}
           id={artist.id}

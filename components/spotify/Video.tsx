@@ -8,13 +8,13 @@ interface Props {
     index: number;
     id: string;
     currentIndex?: Dispatch<SetStateAction<number>>;
-    
+    play: number
 }
 
 
 
 
-export default function Video({tracksLength, index, id, currentIndex}: Props) {
+export default function Video({tracksLength, index, id, currentIndex, play}: Props) {
   
   return ( 
     
@@ -28,7 +28,7 @@ export default function Video({tracksLength, index, id, currentIndex}: Props) {
           height: '100%',
           title: '',
           playerVars: {
-            autoplay: 1,
+            autoplay: play,
             controls: 1,
             cc_load_policy: 0,
             fs: 1,

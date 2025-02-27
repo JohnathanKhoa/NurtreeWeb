@@ -28,6 +28,7 @@ export default function RootLayout({
     
       <body className="bg-black"
       >
+        
         <Particles
         className="fixed inset-0 -z-10 animate-fade-in overflow-auto scrollbar-hide"
         quantity={200}

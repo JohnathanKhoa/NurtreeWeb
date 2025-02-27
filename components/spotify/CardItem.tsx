@@ -21,10 +21,10 @@ export default function CardItem({
   imageRounded = false,
   type
 }: Props) {
-
+  let keycount = 0;
   
   return (
-    <Link href={type === 'playlists' ? `/${type}/${id}/0` : `/${type}/${id}`}>
+    <Link key={keycount++} href={type === 'playlists' ? `/${type}/${id}/0` : `/${type}/${id}`}>
       <div className="h-full p-4 transition duration-300 rounded-lg bg-paper-500 hover:opacity-80">
         {images.length > 0 ? (
           <Image

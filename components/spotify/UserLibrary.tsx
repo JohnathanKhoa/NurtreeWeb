@@ -26,7 +26,7 @@ export default function UserLibrary({
           <MenuItems anchor="bottom" className="overflow-auto scrollbar-hide bg-zinc-800 rounded-xl opacity-80">
             <div className="sticky top-0 bg-black text-center ring-white ring-1 font-semibold">Your Playlist Library</div>
             {playlists.map((playlist) => (
-              <MenuItem>
+              <MenuItem key={keycount++}>
                 <LibraryItemCard
                 key={playlist.id + keycount++}
                 entity={playlist}

@@ -45,7 +45,7 @@ export default async function TrackPage({ params }: Props) {
         <div className="scrollbar-hide">
             <div className="flex flex-col ">
                 <div className="sticky h-1/3 aspect-video top-1/5 max-h-[1048px] ">
-                    {<Video tracksLength={0} id={result.id} index={0} />}
+                    {<Video tracksLength={0} id={result.id} index={0} play={1}/>}
                 </div>
                 <div className="flex md:justify-center items-center gap-6 md:m-4">
                           

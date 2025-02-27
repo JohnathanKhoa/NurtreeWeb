@@ -31,7 +31,7 @@ export default function IndexContainer({
     <>
       <div className="flex flex-col ">
           <div className="sticky h-1/3 aspect-video top-1/5 max-h-[1048px] ">
-              {<Video tracksLength={tracks.length} id={track} index={index} currentIndex={setCurrentIndex}/>}
+              {<Video tracksLength={tracks.length} id={track} index={index} currentIndex={setCurrentIndex} play={1}/>}
           
           </div>
         <div className="flex flex-col md:flex-row gap-6 m-4">

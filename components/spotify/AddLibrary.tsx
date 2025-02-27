@@ -13,10 +13,7 @@ interface Props {
   trackId: string;
   user: string
 }
-const stopPropagation = (e) => {
-  e.stopPropagation();
-  e.nativeEvent.stopImmediatePropagation();
-};
+
 
 async function handleClick(user:string, trackId:string) {
   const response = await fetch(`/api/users/${user}/playlists/${trackId}`, {
@@ -33,7 +30,7 @@ export default function AddLibrary({
   trackId,
   user
 }: Props) {
-  const router = useRouter();
+  
   let keycount = 0;
   return (
     <div className="">

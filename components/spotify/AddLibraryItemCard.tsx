@@ -13,10 +13,7 @@ interface Props {
   trackId: string;
   entity: Playlist
 }
-const stopPropagation = (e) => {
-  e.stopPropagation();
-  e.nativeEvent.stopImmediatePropagation();
-};
+
 async function handleClick(playlistId:string, trackId:string) {
   const response = await fetch(`/api/playlists/${playlistId}/tracks/${trackId}`, {
     method: 'POST',

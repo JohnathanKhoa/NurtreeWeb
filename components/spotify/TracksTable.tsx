@@ -47,10 +47,7 @@ export default function TracksTable({
       router.replace(`/tracks/${track.id}/0`)
     }
   }
-  const stopPropagation = (e) => {
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-  };
+  
   return (
     <div>
       {showHeader && (

@@ -17,8 +17,8 @@ interface Props {
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
       base: "block place-content-center w-full flex flex-wrap",
-      leftControl: "flex w-1/2 place-content-left left-0 top-2/3 items-center justify-center  ",
-      rightControl: "flex w-1/2 place-content-right right-0 top-2/3 items-center justify-center "
+      leftControl: "md:flex hidden w-1/2 place-content-left left-0 top-2/3 items-center justify-center  ",
+      rightControl: "md:flex hidden w-1/2 place-content-right right-0 top-2/3 items-center justify-center "
     },
     indicators: {
       active: {
@@ -75,6 +75,7 @@ export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
                             {index !== 0 ? `, ${artist.name}` : artist.name}
                           </a>
                         ))}</h1>
+                        <div></div>
                       </div>
                     </div></div>
                 ))}

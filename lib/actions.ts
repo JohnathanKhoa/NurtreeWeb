@@ -13,8 +13,10 @@ import {
   Damon2,
   Damon2Items,
   User,
+  Data,
+  Snapshot,
 } from "@/types/types";
-import { customGet } from "@/util/serverUtils";
+import { customGet, customPost } from "@/util/serverUtils";
 const { YTSearcher } = require('ytsearcher');
 const YTKey = process.env.YOUTUBE_API_KEY;
 const searcher = new YTSearcher(YTKey);
@@ -28,6 +30,30 @@ export const getMe = async ({
   return customGet(
     "https://api.spotify.com/v1/me",
     session
+  );
+};
+
+export const addTrack = async (
+  session: AuthSession,
+  playlistId: string,
+  data:Data
+):Promise<Snapshot> => {
+  return customPost(
+    `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
+    session,
+    data
+  );
+};
+
+export const addNewPlaylist = async (
+  session: AuthSession,
+  userId: string,
+  data
+):Promise<Playlist> => {
+  return customPost(
+    `https://api.spotify.com/v1/users/${userId}/playlists`,
+    session,
+    data
   );
 };
 
@@ -169,26 +195,67 @@ export const getUserLikedSongs = async (
   };
 };
 
-export const getUserLikedPlaylists = async (
-  session: AuthSession
-): Promise<Playlist[]> => {
-  const currUrl = "https://api.spotify.com/v1/me/playlists?offset="
-  let offset = 0;
+export const getTotalPlaylists = async (
+  session: AuthSession,
+  
+): Promise<number> => {
+  const currUrl = `https://api.spotify.com/v1/me/playlists?offset=${0}&limit=${1}`
   
   const data = await customGet(
-    currUrl + offset,
+    currUrl,
+    session
+  );
+  const userData = data;
+  return userData.total;
+};
+
+export const getUserLikedPlaylists = async (
+  session: AuthSession,
+  offset: number,
+  limit: number
+): Promise<Playlist[]> => {
+  const currUrl = `https://api.spotify.com/v1/me/playlists?offset=${offset}&limit=${limit}`
+  
+  const data = await customGet(
+    currUrl,
     session
   );
   const userData = data;
   
-    offset = offset + 50;
-    const nextdata = await customGet(
-      currUrl + offset,
-      session
-    )
-    userData.items.push(...nextdata.items);
+    
+    // const nextdata = await customGet(
+    //   currUrl + offset+'&limit=50',
+    //   session
+    // )
+    // userData.items.push(...nextdata.items);
   
   return userData.items;
+  
+};
+
+export const getUserAllPlaylists = async (
+  session: AuthSession,
+  total: number
+): Promise<Playlist[]> => {
+
+  const all: Playlist[] = [];
+  //const total = await getTotalPlaylists(session);
+
+  let offset = 0;
+  let limit = 50;
+  while (offset < total){
+    let playlists: Playlist[] = await getUserLikedPlaylists(session, offset, limit);
+    playlists
+      .map((item: any) => all.push(item));
+      if (offset + limit > total){
+        offset = offset + total - limit - 1;
+      } else {
+        offset = offset + limit;
+      }
+    
+  }
+  
+  return all;
   
 };
 

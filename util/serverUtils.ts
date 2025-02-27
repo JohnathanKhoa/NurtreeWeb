@@ -1,7 +1,7 @@
 "use server";
 
 import authOptions from "@/lib/configs/auth/authOptions"
-import { AuthSession } from "@/types/types";
+import { AuthSession, Data } from "@/types/types";
 import { getServerSession } from "next-auth/next";
 
 export const customGet = async (url: string, session: AuthSession | null) => {
@@ -12,6 +12,23 @@ export const customGet = async (url: string, session: AuthSession | null) => {
     headers: {
       Authorization: `Bearer ${session.user.accessToken}`,
     },
+  }).then((res) => res.json());
+
+  return res;
+};
+
+export const customPost = async (url: string, session: AuthSession | null, data) => {
+  if (!session) {
+    return null;
+  }
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${session.user.accessToken}`,
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin' : '*',
+    },
+    body: JSON.stringify(data)
   }).then((res) => res.json());
 
   return res;

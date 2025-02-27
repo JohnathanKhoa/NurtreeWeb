@@ -30,8 +30,8 @@ export default function CardItem({
           <Image
             src={images[0].url}
             alt={altTitle}
-            height={500}
-            width={500}
+            height={2000}
+            width={2000}
             className={`aspect-square object-cover w-full ${
               imageRounded ? "rounded-full" : "rounded-md"
             }`}
@@ -41,9 +41,9 @@ export default function CardItem({
             <Music className="w-full h-full bg-paper " />
           </div>
         )}
-        <h3 className="mt-5 font-bold truncate">{heading}</h3>
+        <h3 className="mt-5 font-bold text-center truncate">{heading}</h3>
         {subheading && (
-          <h6 className="mt-1 text-xs font-semibold truncate text-gray">
+          <h6 className="mt-1 text-xs text-center font-semibold truncate text-gray">
             {subheading}
           </h6>
         )}

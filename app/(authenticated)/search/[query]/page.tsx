@@ -3,7 +3,7 @@ import ArtistCards from "@/components/spotify/ArtistCards";
 import PlaylistCards from "@/components/spotify/PlaylistCards";
 import SearchFilters from "@/components/spotify/SearchFilters";
 import TracksTable from "@/components/spotify/TracksTable";
-import { getSearchItems } from "@/lib/actions";
+import { getSearchItems, getUserLikedPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
@@ -31,7 +31,10 @@ export default async function SearchResults({ params }: Props) {
   const query = decodeURI((await params).query);
 
   const searchResults = await getSearchItems(session, "all", query);
-
+  const [playlists] = await Promise.all([
+          getUserLikedPlaylists(session),
+          //getUserLikedSongs(session).then((data) => data.total),
+        ]);
   return (
     <div className="mx-2 flex flex-col items-stretch gap-8">
       <SearchFilters />
@@ -39,6 +42,7 @@ export default async function SearchResults({ params }: Props) {
       <div className="flex flex-col items-stretch -mt-8">
         <h1 className="flex items-center justify-center border-t-2">Tracks</h1>
         <TracksTable
+          playlists={playlists}
           tracks={searchResults.tracks.items}
           showAlbum
           showCover

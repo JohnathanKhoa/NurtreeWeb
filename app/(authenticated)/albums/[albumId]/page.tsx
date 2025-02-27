@@ -1,8 +1,9 @@
 import TracksTable from "@/components/spotify/TracksTable";
-import { getAlbumById } from "@/lib/actions";
+import { getAlbumById, getMe, getUserLikedPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Dot, Music } from "lucide-react";
 import { Metadata } from "next";
+import { User } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -33,9 +34,15 @@ export default async function AlbumPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
+  const currentUser = (await getMe({
+      session,
+    }).then((data) => data)) as User;
   const albumId = (await params).albumId;
   const album = await getAlbumById(session, albumId);
-
+  const [playlists] = await Promise.all([
+          getUserLikedPlaylists(session),
+          //getUserLikedSongs(session).then((data) => data.total),
+        ]);
   return (
     <>
       <div className="mx-2 flex items-end gap-6">
@@ -82,7 +89,7 @@ export default async function AlbumPage({ params }: Props) {
         )}
       </div>
 
-      <TracksTable tracks={album.tracks.items} showHeader showSubtitle />
+      <TracksTable user={currentUser.id} playlists={playlists} tracks={album.tracks.items} showHeader showSubtitle />
     </>
   );
 }

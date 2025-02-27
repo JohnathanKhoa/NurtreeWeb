@@ -15,6 +15,8 @@ interface Props {
   track: string;
   playlist: Playlist
   index: number;
+  playlists: Playlist[];
+  user: string;
 }
 
 
@@ -23,6 +25,8 @@ export default function IndexContainer({
   tracks,
   track,
   index,
+  playlists,
+  user
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   let v = new Vibrant(playlist.images[0].url);
@@ -108,6 +112,7 @@ export default function IndexContainer({
                             {index !== 0 ? `, ${artist.name}` : artist.name}
                           </a>
                         ))}</h1>
+                        
            </div>
           </div>
         </>
@@ -121,9 +126,10 @@ export default function IndexContainer({
               showHeader
               showSubtitle
               i={index}
-              
+              playlists={playlists}
               currentIndex={setCurrentIndex}
               trackIndex={currentIndex}
+              user={user}
           />
         </div>
       </div>

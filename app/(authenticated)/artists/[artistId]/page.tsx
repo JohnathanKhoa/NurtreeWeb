@@ -1,9 +1,10 @@
 import AlbumCards from "@/components/spotify/AlbumCards";
 import ArtistCards from "@/components/spotify/ArtistCards";
 import TracksTable from "@/components/spotify/TracksTable";
-import { getArtistById, getArtistDiscography } from "@/lib/actions";
+import { getArtistById, getArtistDiscography, getMe, getUserLikedPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Music } from "lucide-react";
+import { User } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -35,8 +36,14 @@ export default async function ArtistPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
+  const currentUser = (await getMe({
+      session,
+    }).then((data) => data)) as User;
   const artistId = (await params).artistId;
-
+  const [playlists] = await Promise.all([
+          getUserLikedPlaylists(session),
+          //getUserLikedSongs(session).then((data) => data.total),
+        ]);
   const [
     artist,
     artistTopTracks,
@@ -89,7 +96,7 @@ export default async function ArtistPage({ params }: Props) {
       <div className="my-8">
         <h1 className="flex items-center justify-center border-t-2">Popular</h1>
         <div className="my-2">
-          <TracksTable tracks={artistTopTracks.tracks} showCover />
+          <TracksTable user={currentUser.id} playlists={playlists} tracks={artistTopTracks.tracks} showCover />
         </div>
       </div>
 

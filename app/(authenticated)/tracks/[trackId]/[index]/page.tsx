@@ -1,6 +1,6 @@
 import IndexContainer from "@/components/spotify/IndexContainer";
 import Video from "@/components/spotify/Video";
-import { getTrackById, getYoutubeVideoDamon } from "@/lib/actions";
+import { getTrackById, getUserLikedPlaylists, getYoutubeVideoDamon } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
@@ -43,7 +43,10 @@ export default async function TrackPage({ params }: Props) {
   const result = await getYoutubeVideoDamon(session, track);
   const tracks: Track[] = [];
   tracks.push(track)
-
+  const [playlists] = await Promise.all([
+          getUserLikedPlaylists(session),
+          //getUserLikedSongs(session).then((data) => data.total),
+        ]);
 
     return (
         <div className="scrollbar-hide">
@@ -76,7 +79,7 @@ export default async function TrackPage({ params }: Props) {
                            </div>
                           </div>
                           <div className="relative w-full overflow-auto scrollbar-hide">
-                                    <TracksTable tracks={tracks} showHeader showSubtitle />
+                                    <TracksTable playlists={playlists} tracks={tracks} showHeader showSubtitle />
                                     </div>
             </div>
         </div>

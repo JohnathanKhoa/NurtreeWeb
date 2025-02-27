@@ -1,4 +1,5 @@
 import {
+  getUserAllPlaylists,
   getUserLikedPlaylists,
   getUserLikedSongs,
 } from "@/lib/actions";
@@ -24,10 +25,11 @@ export default async function Sidebar() {
 
   
 
-  const [playlists, likedSongsCount] = await Promise.all([
-    getUserLikedPlaylists(session),
-    getUserLikedSongs(session).then((data) => data.total),
+  const [playlists] = await Promise.all([
+    getUserAllPlaylists(session, 100),
+    //getUserLikedSongs(session).then((data) => data.total),
   ]);
+  console.log(playlists)
 
   return (
     <header className="md:sticky  items-center w-full text-sm rounded-lg">

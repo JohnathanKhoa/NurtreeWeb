@@ -1,6 +1,6 @@
 import SearchFilters from "@/components/spotify/SearchFilters";
 import TracksTable from "@/components/spotify/TracksTable";
-import { getSearchItems } from "@/lib/actions";
+import { getSearchItems, getUserLikedPlaylists } from "@/lib/actions";
 import { Track } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";
 import { redirect } from "next/navigation";
@@ -24,7 +24,10 @@ export default async function TrackSearchResultPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
-
+  const [playlists] = await Promise.all([
+          getUserLikedPlaylists(session),
+          //getUserLikedSongs(session).then((data) => data.total),
+        ]);
   const query = (await params).query;
 
   const tracks = (await getSearchItems(session, "track", query, 50).then(
@@ -34,7 +37,7 @@ export default async function TrackSearchResultPage({ params }: Props) {
   return (
     <>
       <SearchFilters />
-      <TracksTable tracks={tracks} showCover showSubtitle />
+      <TracksTable playlists={playlists} tracks={tracks} showCover showSubtitle />
     </>
   );
 }

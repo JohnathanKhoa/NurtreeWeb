@@ -14,6 +14,15 @@ export interface AuthSession extends Omit<DefaultSession, "user"> {
   user: AuthUser;
 }
 
+interface Snapshot {
+  snapshot_id: string;
+
+}
+interface Data {
+  uris: string[];
+  position?: number;
+}
+
 interface ExplicitContent {
   filter_enabled: boolean;
   filter_locked: boolean;
@@ -87,6 +96,8 @@ export interface Track {
   artists: Artist[];
   duration_ms: number;
   preview_url: string;
+  uri: string;
+  popularity: Integer;
 }
 
 export interface Playlist {
@@ -101,13 +112,14 @@ export interface Playlist {
     id: string;
     display_name?: string;
   };
-  items?: [{ added_at: string; track: Track }];
+  items?: [{ added_at: string; track: Track; }];
   tracks: {
     items: [{ added_at: string; track: Track }];
     total: number;
   };
   type: string;
   total?: number;
+  public: boolean
 }
 
 export interface SearchResults {

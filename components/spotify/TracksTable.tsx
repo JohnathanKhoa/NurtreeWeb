@@ -1,12 +1,13 @@
 "use client"
 
-import { Track } from "@/types/types";
+import { Playlist, Track } from "@/types/types";
 import { fmtMSS } from "@/util/clientUtils";
 import { Clock3, Music } from "lucide-react";
 import Image from "next/image";
 import { redirect, usePathname, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
 import { MdPlayArrow } from "react-icons/md";
+import  AddButton  from "./AddButton";
 
 interface Props {
   tracks: Track[];
@@ -18,6 +19,8 @@ interface Props {
   //color: Promise<string>;
   trackIndex?: number;
   currentIndex?: Dispatch<SetStateAction<number>>;
+  playlists: Playlist[];
+  user: string;
 }
 
 export default function TracksTable({
@@ -27,6 +30,8 @@ export default function TracksTable({
   showHeader = false,
   showAlbum = false,
   i,
+  playlists,
+  user
 }: Props) {
   const pathname = usePathname();
   const router = useRouter();
@@ -42,7 +47,10 @@ export default function TracksTable({
       router.replace(`/tracks/${track.id}/0`)
     }
   }
-
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+  };
   return (
     <div>
       {showHeader && (
@@ -60,7 +68,7 @@ export default function TracksTable({
               Title
             </div>
             {showAlbum && (
-              <div className="md:visible invisible col-span-4 text-sm font-semibold text-left">
+              <div className="md:visible invisible col-span-3 text-sm font-semibold text-left">
                 Album
               </div>
             )}
@@ -77,7 +85,7 @@ export default function TracksTable({
       <div className="w-full col-span-12 mt-2">
         {tracks?.map((track, index) => (
           <div key={keyCount++}>
-          <div onClick={() => (handleClick(track, index))}
+          <div onClick={() => { (handleClick(track, index))}}
             className={`z-49 grid py-2 px-4 grid-cols-12 cursor-pointer hover:bg-zinc-700 truncate ${
               index === i ? "bg-zinc-400 bg-opacity-50" : "bg-transparent"
               
@@ -98,7 +106,7 @@ export default function TracksTable({
             )}
             <div
               className={`${
-                showAlbum ? "col-span-6" : "col-span-10"
+                showAlbum ? "md:col-span-6 col-span-10 truncate" : "col-span-10 truncate"
               } flex items-center w-full`}
             >
               <div className="flex items-center w-screen gap-4">
@@ -151,7 +159,7 @@ export default function TracksTable({
             </div>
 
             {showAlbum && (
-              <div className="md:flex hidden items-center w-10/12 col-span-4 text-sm text-gray">
+              <div className="md:flex hidden items-center w-10/12 md:col-span-3 text-sm text-gray">
                 <a
                   // href={`/albums/${track.album.id}`}
                   // className="truncate hover:text-white hover:underline z-50"
@@ -161,12 +169,20 @@ export default function TracksTable({
               </div>
             )}
 
-            <small className="md:flex hidden items-center col-span-1 text-sm font-medium text-gray ">
+            <small className="md:flex hidden items-center md:col-span-1 text-sm font-medium text-gray ">
               {fmtMSS(track.duration_ms)}
             </small>
+            <div className="flex col-span-1 col-end-13 items-center  text-sm font-medium text-gray ">
+          
           </div>
           </div>
+          <div className="absolute right-0 -translate-y-11">
+          <AddButton  user={user} trackId={track.id} playlists={playlists}/>
+          </div>
+          </div>
+          
         ))}
+        
       </div>
       
     </div>

@@ -22,14 +22,14 @@ export default function TrackCards({ tracks }: Props) {
         }
         return (
           <Link className="cursor-pointer" key={track.id} href={`/tracks/${track.id}/0`}>
-            <div className="h-full p-4 transition duration-300 bg-paper-500 hover:opacity-80">
+            <div className="h-full w-full p-4 transition duration-300 bg-paper-500 hover:opacity-80">
               <div className="relative">
                 {track.album.images.length > 0 ? (
                   <Image
                     src={track.album.images[0].url}
                     alt={track.name}
-                    height={160}
-                    width={160}
+                    height={2000}
+                    width={2000}
                     className=" object-cover w-full rounded-md aspect-square"
                   />
                 ) : (

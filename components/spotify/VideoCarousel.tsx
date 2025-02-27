@@ -10,7 +10,7 @@ import { Damon2Items, Track } from "@/types/types";
 interface Props {
     topTracks: Track[];
     youtubeVideo:Damon2Items[];
-    i: number;
+    
     
   }
 
@@ -43,7 +43,7 @@ interface Props {
   
   
 
-export default function VideoCarousel({ topTracks, youtubeVideo, i }: Props) {
+export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
   let keycount = 0;
     return(
         <div className="flex flex-col w-full items-center">

@@ -12,6 +12,7 @@ import {
   Damon,
   Damon2,
   Damon2Items,
+  User,
 } from "@/types/types";
 import { customGet } from "@/util/serverUtils";
 const { YTSearcher } = require('ytsearcher');
@@ -19,6 +20,16 @@ const YTKey = process.env.YOUTUBE_API_KEY;
 const searcher = new YTSearcher(YTKey);
 const youtubesearchapi = require("youtube-search-api");
 
+export const getMe = async ({
+  session
+}:{
+  session: AuthSession
+}):Promise<User> => {
+  return customGet(
+    "https://api.spotify.com/v1/me",
+    session
+  );
+};
 
 export const getNewReleases = async (
   session: AuthSession

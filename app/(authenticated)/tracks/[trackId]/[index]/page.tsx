@@ -5,6 +5,8 @@ import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import Image from "next/image";
+import { Track } from "@/types/types";
+import TracksTable from "@/components/spotify/TracksTable";
 
 interface Props {
     params: Promise<{
@@ -38,7 +40,9 @@ export default async function TrackPage({ params }: Props) {
   const trackId = param.trackId;
   const track = await getTrackById(session, trackId);
   
-    const result = await getYoutubeVideoDamon(session, track);
+  const result = await getYoutubeVideoDamon(session, track);
+  const tracks: Track[] = [];
+  tracks.push(track)
 
 
     return (
@@ -71,6 +75,9 @@ export default async function TrackPage({ params }: Props) {
                                         ))}</h1>
                            </div>
                           </div>
+                          <div className="relative w-full overflow-auto scrollbar-hide">
+                                    <TracksTable tracks={tracks} showHeader showSubtitle />
+                                    </div>
             </div>
         </div>
     );

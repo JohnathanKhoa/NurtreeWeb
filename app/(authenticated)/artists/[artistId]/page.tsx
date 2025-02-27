@@ -1,7 +1,7 @@
 import AlbumCards from "@/components/spotify/AlbumCards";
 import ArtistCards from "@/components/spotify/ArtistCards";
 import TracksTable from "@/components/spotify/TracksTable";
-import { getArtistById, getArtistDiscography, getMe, getUserLikedPlaylists } from "@/lib/actions";
+import { getArtistById, getArtistDiscography, getMe, getUserAllPlaylists, getUserLikedPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Music } from "lucide-react";
 import { User } from "next-auth";
@@ -41,7 +41,7 @@ export default async function ArtistPage({ params }: Props) {
     }).then((data) => data)) as User;
   const artistId = (await params).artistId;
   const [playlists] = await Promise.all([
-          getUserLikedPlaylists(session),
+          getUserAllPlaylists(session, 100),
           //getUserLikedSongs(session).then((data) => data.total),
         ]);
   const [

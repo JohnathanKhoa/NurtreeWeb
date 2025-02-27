@@ -1,5 +1,5 @@
 import TracksTable from "@/components/spotify/TracksTable";
-import { getAlbumById, getMe, getUserLikedPlaylists } from "@/lib/actions";
+import { getAlbumById, getMe, getUserAllPlaylists, getUserLikedPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Dot, Music } from "lucide-react";
 import { Metadata } from "next";
@@ -40,7 +40,7 @@ export default async function AlbumPage({ params }: Props) {
   const albumId = (await params).albumId;
   const album = await getAlbumById(session, albumId);
   const [playlists] = await Promise.all([
-          getUserLikedPlaylists(session),
+          getUserAllPlaylists(session, 100),
           //getUserLikedSongs(session).then((data) => data.total),
         ]);
   return (

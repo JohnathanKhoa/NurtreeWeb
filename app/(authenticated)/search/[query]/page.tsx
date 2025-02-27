@@ -3,9 +3,11 @@ import ArtistCards from "@/components/spotify/ArtistCards";
 import PlaylistCards from "@/components/spotify/PlaylistCards";
 import SearchFilters from "@/components/spotify/SearchFilters";
 import TracksTable from "@/components/spotify/TracksTable";
-import { getSearchItems, getUserLikedPlaylists } from "@/lib/actions";
+import { getMe, getSearchItems, getUserAllPlaylists, getUserLikedPlaylists } from "@/lib/actions";
+import { User } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
+
 import { redirect } from "next/navigation";
 
 interface Props {
@@ -31,8 +33,11 @@ export default async function SearchResults({ params }: Props) {
   const query = decodeURI((await params).query);
 
   const searchResults = await getSearchItems(session, "all", query);
+  const currentUser = (await getMe({
+        session,
+      }).then((data) => data)) as User;
   const [playlists] = await Promise.all([
-          getUserLikedPlaylists(session),
+          getUserAllPlaylists(session, 100),
           //getUserLikedSongs(session).then((data) => data.total),
         ]);
   return (
@@ -47,6 +52,7 @@ export default async function SearchResults({ params }: Props) {
           showAlbum
           showCover
           showSubtitle
+          user={currentUser.id}
         />
       </div>
 

@@ -17,7 +17,7 @@ export const customGet = async (url: string, session: AuthSession | null) => {
   return res;
 };
 
-export const customPost = async (url: string, session: AuthSession | null, data) => {
+export const customPost = async (url: string, session: AuthSession | null, data:Object) => {
   if (!session) {
     return null;
   }

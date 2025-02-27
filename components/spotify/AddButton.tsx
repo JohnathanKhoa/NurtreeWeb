@@ -12,10 +12,7 @@ interface Props {
   user: string;
 }
 
-const stopPropagation = (e) => {
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-  };
+
 
 export default function AddButton({playlists, trackId, user}:Props) {
     let keycount = 0;

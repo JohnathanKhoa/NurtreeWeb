@@ -23,7 +23,7 @@ async function handleClick(user:string, trackId:string) {
     },
     
   });
-  console.log(response);
+  
 }
 export default function AddLibrary({
   playlists,

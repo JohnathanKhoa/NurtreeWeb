@@ -24,7 +24,7 @@ async function handleClick(playlistId:string, trackId:string) {
   });
   
   
-  console.log(response);
+  
 }
 export default function LibraryItemCard({ playlistId, trackId, entity }: Props) {
     const router = useRouter();

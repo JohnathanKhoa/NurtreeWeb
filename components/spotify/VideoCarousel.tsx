@@ -17,27 +17,27 @@ interface Props {
 
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
-      base: "block place-content-center w-full flex flex-wrap",
-      leftControl: "flex w-1/2 place-content-left left-0 top-2/3 items-center justify-center ",
-      rightControl: "flex w-1/2 place-content-right right-0 top-2/3 items-center justify-center "
+      base: " block place-content-center w-full flex flex-wrap  ",
+      leftControl: "hidden",
+      rightControl: "hidden"
     },
     indicators: {
       active: {
-        off: "hidden bg-white/50 hover:bg-white  dark:hover:bg-gray-800",
-        on: "hidden bg-white dark:bg-gray-800",
+        off: " bg-white/50 hover:bg-white  dark:hover:bg-gray-800",
+        on: " bg-white dark:bg-gray-800",
       },
       wrapper: "flex w-full bot-1/2 place-content-center  flex  space-x-3"
     },
     
     item: {
-      base: "left-1/2 block w-full  ",
+      base: " block w-full  ",
       wrapper: {
         on: "w-full flex-shrink-0 transform cursor-grab snap-center",
         off: "w-full flex-shrink-0 transform cursor-grab snap-center",
       }
     },
     scrollContainer: {
-      base: "flex h-full snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg",
+      base: "relative flex flex-row h-full snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg",
       snap: "snap-x"
     }
   };
@@ -48,8 +48,8 @@ export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
   const [slideState, setSlideState] = useState(true);
   let keycount = 0;
     return(
-        <div className="flex flex-col w-full items-center">
-            <div className="flex flex-col w-full">
+        
+            <div className="relative flex w-full">
               <Carousel slide={slideState} theme={customTheme} >
                 
                 {topTracks?.map((track, index) => (
@@ -57,7 +57,7 @@ export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
                   <div key={keycount++}><div className="sticky w-full aspect-video max-h-[1048px] ">
         
                     {<Video setSlideState={setSlideState} tracksLength={0} id={youtubeVideo[index].id} index={0} play={0}/>}
-                  </div><div className="flex justify-center items-center gap-6 my-4">
+                  </div><div className="flex justify-center items-center gap-6 my-2">
         
                       {<Image
                         src={topTracks[index].album?.images[0].url}
@@ -84,7 +84,5 @@ export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
                 
               </Carousel>
               </div>
-              </div>
-
     )
 }

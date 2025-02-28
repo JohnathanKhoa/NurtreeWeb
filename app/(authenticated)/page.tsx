@@ -2,6 +2,7 @@ import AlbumCards from "@/components/spotify/AlbumCards";
 import ArtistCards from "@/components/spotify/ArtistCards";
 import Image from "next/image";
 import {
+  getArtistTopTrack,
   getMe,
   getNewReleases,
   getTopItems,
@@ -45,7 +46,7 @@ export default async function Home() {
 
   const topArtists = (await getTopItems({
     session,
-    limit: 20,
+    limit: 50,
     type: "artists",
   }).then((data) => data.items)) as Artist[];
 
@@ -62,27 +63,38 @@ export default async function Home() {
   //     videoTrack.push(mostPopular[i]);
   //   }
   
-    const min = 0;
-    const max = topTracks.length-1;
-    const count = 1;
+  const min = 0;
+  const max = topArtists.length-1;
+  const count = 3;
+  const randomNumbers = getRandomNumbers(min, max, count);
+  const randomTracks: Track[] = [];
+  const randomSuggestions: Track[] = [];
+  const randomArtists: Artist[] = [];
+  console.log(randomNumbers)
+  for (let i = 0; i < count; i++){
     
+    randomArtists.push(topArtists[randomNumbers[i]]);
     
+    // const result = await getYoutubeVideoDamon(session, topTracks[randomNumbers[0]]);
+    // youtubeVideo.push(result);
+    // randomTracks.push(topTracks[randomNumbers[0]]);
+  }
+  console.log(randomArtists)
+  for (let i = 0; i < randomArtists.length; i++){
+    const topResult = await getArtistTopTrack(session, randomArtists[i].id);
     
-      
-      const randomTracks: Track[] = [];
-      const randomSuggestions: Track[] = [];
-  
-       for (let i = 0; i < 3; i++){
-         const randomNumbers = getRandomNumbers(min, max, count);
-         const result = await getYoutubeVideoDamon(session, topTracks[randomNumbers[0]]);
-         youtubeVideo.push(result);
-         randomTracks.push(topTracks[randomNumbers[0]]);
-       }
-      for (let i = 0; i < 9; i++){
-        const randomNumbers = getRandomNumbers(min, max, count);
-        randomSuggestions.push(topTracks[randomNumbers[0]]);
-      }
-      const total = await getTotalPlaylists(session);
+    const video = await getYoutubeVideoDamon(session, topResult[0].tracks[0]);
+    randomTracks.push(topResult[0].tracks[0]);
+    
+    youtubeVideo.push(video);
+  }
+  console.log(randomTracks)
+  console.log(youtubeVideo)
+  for (let i = 0; i < 9; i++){
+    const randomNumbers = getRandomNumbers(min, max, count);
+    randomSuggestions.push(topTracks[randomNumbers[0]]);
+  }
+  const total = await getTotalPlaylists(session);
   // const publicPlaylists: Playlist[] = [];
   // const total = await getTotalPlaylists(session);
 

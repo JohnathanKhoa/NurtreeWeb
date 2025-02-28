@@ -126,6 +126,20 @@ export const getArtistDiscography = async (
   return Promise.all(promises);
 };
 
+export const getArtistTopTrack = async (
+  session: AuthSession,
+  artistId: string
+) => {
+  const baseUrl = `https://api.spotify.com/v1/artists/${artistId}`;
+
+  const urls = [
+    "/top-tracks?market=from_token",
+  ];
+
+  const promises = urls.map((url) => customGet(`${baseUrl}${url}`, session));
+  return Promise.all(promises);
+};
+
 export const getCategoryById = async (
   session: AuthSession,
   categoryId: string

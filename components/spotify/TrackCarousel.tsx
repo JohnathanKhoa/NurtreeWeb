@@ -19,15 +19,15 @@ interface Props {
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
       base: "block place-content-center w-full flex flex-wrap",
-      leftControl: "hidden flex w-1/2 place-content-left left-0 top-2/3 items-center justify-center  ",
-      rightControl: "hidden flex w-1/2 place-content-right right-0 top-2/3 items-center justify-center "
+      leftControl: "w-1/4 place-content-left  ",
+      rightControl: ""
     },
     indicators: {
       active: {
         off: " bg-white/50 hover:bg-white  dark:hover:bg-gray-800",
         on: " bg-white dark:bg-gray-800",
       },
-      wrapper: "flex w-full bot-1/2 place-content-center  flex my-4 space-x-3"
+      wrapper: "flex w-full bot-1/2 place-content-center  flex translate-y-20  space-x-3"
     },
     
     item: {

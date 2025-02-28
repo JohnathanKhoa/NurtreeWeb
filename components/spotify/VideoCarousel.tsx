@@ -18,15 +18,15 @@ interface Props {
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
       base: " block place-content-center w-full flex flex-wrap  ",
-      leftControl: "hidden",
-      rightControl: "hidden"
+      leftControl: "w-1/2 place-content-left ",
+      rightControl: ""
     },
     indicators: {
       active: {
         off: " bg-white/50 hover:bg-white  dark:hover:bg-gray-800",
         on: " bg-white dark:bg-gray-800",
       },
-      wrapper: "flex w-full bot-1/2 place-content-center  flex  space-x-3"
+      wrapper: "flex w-full bot-1/2 place-content-center  flex translate-y-5  space-x-3"
     },
     
     item: {
@@ -57,7 +57,7 @@ export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
                   <div key={keycount++}><div className="sticky w-full aspect-video max-h-[1048px] ">
         
                     {<Video setSlideState={setSlideState} tracksLength={0} id={youtubeVideo[index].id} index={0} play={0}/>}
-                  </div><div className="flex justify-center items-center gap-6 my-2">
+                  </div><div className="flex justify-center items-center gap-6 mt-2">
         
                       {<Image
                         src={topTracks[index].album?.images[0].url}

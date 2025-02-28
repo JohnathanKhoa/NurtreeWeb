@@ -26,7 +26,7 @@ export default function RootLayout({
           
             <div className="grid grid-cols-10 gap-2 scrollbar-hide">
               
-              <div className="flex flex-col h-full col-span-full overflow-auto rounded-lg bg-paper-700 scrollbar-hide">
+              <div className="flex flex-col h-full col-span-full overflow-hidden rounded-lg bg-paper-700 scrollbar-hide">
               <Sidebar/>
                 
                 <main className="">{children}</main>

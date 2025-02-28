@@ -19,8 +19,8 @@ interface Props {
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
       base: "block place-content-center w-full flex flex-wrap",
-      leftControl: "invisible md:flex hidden w-1/2 place-content-left left-0 top-2/3 items-center justify-center  ",
-      rightControl: "invisible md:flex hidden w-1/2 place-content-right right-0 top-2/3 items-center justify-center "
+      leftControl: "flex w-1/2 place-content-left left-0 top-2/3 items-center justify-center  ",
+      rightControl: "flex w-1/2 place-content-right right-0 top-2/3 items-center justify-center "
     },
     indicators: {
       active: {

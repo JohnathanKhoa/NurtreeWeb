@@ -9,7 +9,7 @@ import parse from "html-react-parser";
 import styles from "@/styles/Description.module.css";
 import { Vibrant } from "node-vibrant/browser";
 import { MdPlayArrow } from "react-icons/md";
-
+import {Wave} from "@foobar404/wave";
 interface Props {
   tracks: Track[];
   track: string;
@@ -30,6 +30,8 @@ export default function IndexContainer({
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   let v = new Vibrant(playlist.images[0].url);
+
+
 
   return (
     <>
@@ -57,7 +59,7 @@ export default function IndexContainer({
             </div>
           )}
 
-          <div className="visible flex flex-col gap-3">
+          <div className="visible flex flex-col ">
             <h5 className="text-xs font-bold uppercase shadow-2xl">Spotify {playlist.type}</h5>
             <h2 className="md:text-4xl text-xl font-bold">{playlist.name}</h2>
 
@@ -88,7 +90,9 @@ export default function IndexContainer({
             </div>
             {/* <div className="md:flex hidden self-center gap-6 m-4"><MdPlayArrow size={50}/></div> */}
           </div>
-          
+          <div id="#canvasElmId" className="flex">
+
+          </div>
           
           <div className="flex md:justify-center items-center gap-6 md:m-4">
           
@@ -101,7 +105,7 @@ export default function IndexContainer({
             className="self-center shadow-2xl object-contain rounded-3xl md:w-40 w-20 md:h-40 h-20"
             priority
             />}
-          <div className="md:flex flex-col gap-3">
+          <div className="md:flex flex-col">
           <h5 className="text-xs font-bold uppercase shadow-2xl">Currently Playing</h5>
           <h2 className="md:text-4xl text-xl font-bold">{tracks[index].name}</h2>
           <h1> {tracks[index].artists.map((artist, index) => (

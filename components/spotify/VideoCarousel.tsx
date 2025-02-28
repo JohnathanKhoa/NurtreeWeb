@@ -4,6 +4,7 @@ import Video from "./Video";
 import Image from "next/image";
 import type { CustomFlowbiteTheme } from "flowbite-react";
 import { Damon2Items, Track } from "@/types/types";
+import { useState } from "react";
 
 
 
@@ -44,18 +45,19 @@ interface Props {
   
 
 export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
+  const [slideState, setSlideState] = useState(true);
   let keycount = 0;
     return(
         <div className="flex flex-col w-full items-center">
             <div className="flex flex-col w-full">
-              <Carousel slide={false} theme={customTheme} >
+              <Carousel slide={slideState} theme={customTheme} >
                 
                 {topTracks?.map((track, index) => (
                   
                   <div key={keycount++}><div className="sticky w-full aspect-video max-h-[1048px] ">
         
-                    {<Video tracksLength={0} id={youtubeVideo[index].id} index={0} play={0}/>}
-                  </div><div className="flex justify-center items-center gap-6 md:m-4">
+                    {<Video setSlideState={setSlideState} tracksLength={0} id={youtubeVideo[index].id} index={0} play={0}/>}
+                  </div><div className="flex justify-center items-center gap-6 my-4">
         
                       {<Image
                         src={topTracks[index].album?.images[0].url}

@@ -17,6 +17,7 @@ import getRandomNumbers from "@/components/Random";
 import TrackCards from "@/components/spotify/TrackCards";
 import ArtistCarousel from "@/components/spotify/ArtistCarousel";
 import TrackCarousel from "@/components/spotify/TrackCarousel";
+import { it } from "node:test";
 
 
 
@@ -34,14 +35,17 @@ export default async function Home() {
   
   const topTracks = (await getTopItems({
     session,
-    limit: 20,
+    limit: 50,
     type: "tracks",
   }).then((data) => data.items)) as Track[];
 
+  // const mostPopular = topTracks.filter(item => item.popularity >= 84)
+  //   .map((item) => item) as Track[];
+  //   console.log(mostPopular)
 
   const topArtists = (await getTopItems({
     session,
-    limit: 10,
+    limit: 20,
     type: "artists",
   }).then((data) => data.items)) as Artist[];
 
@@ -50,9 +54,13 @@ export default async function Home() {
   //   item.popularity >= 70;
   // }).map((item) => mostPopular.push(item)) ;
 
-  const currentUser = (await getMe({
-    session,
-  }).then((data) => data)) as User;
+  const youtubeVideo: Damon2Items[] = [];
+  // const videoTrack: Track[] = [];
+  //   for (let i = 0; i < mostPopular.length; i++){
+  //     const result = await getYoutubeVideoDamon(session, mostPopular[i])
+  //     youtubeVideo.push(result);
+  //     videoTrack.push(mostPopular[i]);
+  //   }
   
     const min = 0;
     const max = topTracks.length-1;
@@ -60,16 +68,16 @@ export default async function Home() {
     
     
     
-      const youtubeVideo: Damon2Items[] = [];
+      
       const randomTracks: Track[] = [];
       const randomSuggestions: Track[] = [];
   
-      for (let i = 0; i < 3; i++){
-        const randomNumbers = getRandomNumbers(min, max, count);
-        const result = await getYoutubeVideoDamon(session, topTracks[randomNumbers[0]]);
-        youtubeVideo.push(result);
-        randomTracks.push(topTracks[randomNumbers[0]]);
-      }
+       for (let i = 0; i < 3; i++){
+         const randomNumbers = getRandomNumbers(min, max, count);
+         const result = await getYoutubeVideoDamon(session, topTracks[randomNumbers[0]]);
+         youtubeVideo.push(result);
+         randomTracks.push(topTracks[randomNumbers[0]]);
+       }
       for (let i = 0; i < 9; i++){
         const randomNumbers = getRandomNumbers(min, max, count);
         randomSuggestions.push(topTracks[randomNumbers[0]]);
@@ -103,7 +111,7 @@ export default async function Home() {
       Choose a playlist from your library <MenuIcon className="md:flex hidden" height={25} /> to get the top music video for each track
       </h1>  */}
       {/* <h1 className="font-bold underline">Top music videos for you</h1> */}
-      <div className="mb-8">
+      <div className="">
       <VideoCarousel topTracks={randomTracks} youtubeVideo={youtubeVideo}  />
       </div>
       {/* <div className="pt-4 flex flex-row w-full items-center justify-center gap-6 border-t-2">
@@ -129,12 +137,12 @@ export default async function Home() {
       
       </div> */}
       
-      <div className="flex h-1/2 w-screen items-center justify-center">
-      <div className="flex h-1/2 w-1/2">
+      <div className="flex h-1/2 w-1/2 items-center justify-center">
+      
       <ArtistCarousel artists={topArtists}/>
       </div>
       
-      </div>
+      
       {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite artists</h1> */}
 
       

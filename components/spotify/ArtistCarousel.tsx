@@ -17,13 +17,13 @@ interface Props {
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
       base: "block place-content-center w-full flex flex-wrap",
-      leftControl: "md:flex hidden w-1/2 place-content-left left-0 top-2/3 items-center justify-center  ",
-      rightControl: "md:flex hidden w-1/2 place-content-right right-0 top-2/3 items-center justify-center "
+      leftControl: "invisible md:flex hidden w-1/2 place-content-left left-0 top-2/3   ",
+      rightControl: "invisible md:flex hidden w-1/2 place-content-right right-0 top-2/3 items-right justify-end "
     },
     indicators: {
       active: {
-        off: " bg-white/50 hover:bg-white  dark:hover:bg-gray-800",
-        on: "bg-white dark:bg-gray-800",
+        off: "invisible bg-white/50 hover:bg-white  dark:hover:bg-gray-800",
+        on: "invisible bg-white dark:bg-gray-800",
       },
       wrapper: "flex w-full bot-1/2 place-content-center  flex  space-x-3"
     },
@@ -47,7 +47,7 @@ export default function ArtistCarousel({ artists }: Props) {
   let keycount = 0;
     return(
         <div className="flex flex-col w-full items-center">
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-screen p-4 md:w-1/2">
               <Carousel slide={true} theme={customTheme} >
                 
                 {artists?.map((artist) => (

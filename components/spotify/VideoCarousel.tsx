@@ -17,16 +17,16 @@ interface Props {
 
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
-      base: " block place-content-center w-full flex flex-wrap  ",
-      leftControl: "w-1/2 place-content-left ",
-      rightControl: ""
+      base: " block  w-full flex flex-wrap  ",
+      leftControl: "hidden",
+      rightControl: "hidden",
     },
     indicators: {
       active: {
         off: " bg-white/50 hover:bg-white  dark:hover:bg-gray-800",
         on: " bg-white dark:bg-gray-800",
       },
-      wrapper: "flex w-full bot-1/2 place-content-center  flex translate-y-5  space-x-3"
+      wrapper: "flex w-full bot-1/2 place-content-center  flex   space-x-3"
     },
     
     item: {
@@ -37,7 +37,7 @@ interface Props {
       }
     },
     scrollContainer: {
-      base: "relative flex flex-row h-full snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg",
+      base: "block flex  h-full snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg",
       snap: "snap-x"
     }
   };

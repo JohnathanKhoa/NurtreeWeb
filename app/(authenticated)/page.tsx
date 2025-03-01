@@ -80,7 +80,7 @@ export default async function Home() {
   const randomTracks: Track[] = [];
   const randomSuggestions: Track[] = [];
   const randomArtists: Artist[] = [];
-  console.log(randomNumbers)
+  
   for (let i = 0; i < count; i++){
     
     randomArtists.push(topArtists[randomNumbers[i]]);
@@ -89,7 +89,7 @@ export default async function Home() {
     // youtubeVideo.push(result);
     // randomTracks.push(topTracks[randomNumbers[0]]);
   }
-  console.log(randomArtists)
+  
   for (let i = 0; i < randomArtists.length; i++){
     const topResult = await getArtistTopTrack(session, randomArtists[i].id);
     const randomTopTrack = getRandomNumbers(0, 3, 1);
@@ -98,8 +98,7 @@ export default async function Home() {
     
     youtubeVideo.push(video);
   }
-  console.log(randomTracks)
-  console.log(youtubeVideo)
+  
   for (let i = 0; i < 9; i++){
     const randomNumbers = getRandomNumbers(min, max, count);
     randomSuggestions.push(topTracks[randomNumbers[0]]);

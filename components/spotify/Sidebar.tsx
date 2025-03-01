@@ -29,7 +29,7 @@ export default async function Sidebar() {
     getUserAllPlaylists(session, 100),
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
-  console.log(playlists)
+  
 
   return (
     <header className="md:sticky  items-center w-full text-sm rounded-lg">

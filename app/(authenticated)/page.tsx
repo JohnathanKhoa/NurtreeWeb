@@ -7,6 +7,7 @@ import {
   getNewReleases,
   getTopItems,
   getTotalPlaylists,
+  getUserAllPlaylists,
   getUserLikedPlaylists,
   getYoutubeVideoDamon,
 } from "@/lib/actions";
@@ -40,6 +41,14 @@ export default async function Home() {
     type: "tracks",
   }).then((data) => data.items)) as Track[];
 
+  const currentUser = (await getMe({
+    session,
+  }).then((data) => data)) as User;
+
+  const [playlists] = await Promise.all([
+            getUserAllPlaylists(session, 100),
+            //getUserLikedSongs(session).then((data) => data.total),
+          ]);
   // const mostPopular = topTracks.filter(item => item.popularity >= 84)
   //   .map((item) => item) as Track[];
   //   console.log(mostPopular)
@@ -66,7 +75,8 @@ export default async function Home() {
   const min = 0;
   const max = topArtists.length-1;
   const count = 3;
-  const randomNumbers = getRandomNumbers(min, max, count);
+  const randomNumbers = getRandomNumbers(0, topArtists.length-1, 3);
+  
   const randomTracks: Track[] = [];
   const randomSuggestions: Track[] = [];
   const randomArtists: Artist[] = [];
@@ -82,9 +92,9 @@ export default async function Home() {
   console.log(randomArtists)
   for (let i = 0; i < randomArtists.length; i++){
     const topResult = await getArtistTopTrack(session, randomArtists[i].id);
-    
-    const video = await getYoutubeVideoDamon(session, topResult[0].tracks[0]);
-    randomTracks.push(topResult[0].tracks[0]);
+    const randomTopTrack = getRandomNumbers(0, 3, 1);
+    const video = await getYoutubeVideoDamon(session, topResult[0].tracks[randomTopTrack[0]]);
+    randomTracks.push(topResult[0].tracks[randomTopTrack[0]]);
     
     youtubeVideo.push(video);
   }
@@ -124,7 +134,7 @@ export default async function Home() {
       </h1>  */}
       {/* <h1 className="font-bold underline">Top music videos for you</h1> */}
       <div className="">
-      <VideoCarousel topTracks={randomTracks} youtubeVideo={youtubeVideo}  />
+      <VideoCarousel user={currentUser.id} playlists={playlists} topTracks={randomTracks} youtubeVideo={youtubeVideo}  />
       </div>
       {/* <div className="pt-4 flex flex-row w-full items-center justify-center gap-6 border-t-2">
       

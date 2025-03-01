@@ -3,15 +3,17 @@ import { Carousel } from "flowbite-react";
 import Video from "./Video";
 import Image from "next/image";
 import type { CustomFlowbiteTheme } from "flowbite-react";
-import { Damon2Items, Track } from "@/types/types";
+import { Damon2Items, Playlist, Track } from "@/types/types";
 import { useState } from "react";
+import AddButton from "./AddButton";
 
 
 
 interface Props {
     topTracks: Track[];
     youtubeVideo:Damon2Items[];
-    
+    user: string;
+    playlists: Playlist[];
     
   }
 
@@ -44,7 +46,7 @@ interface Props {
   
   
 
-export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
+export default function VideoCarousel({ topTracks, youtubeVideo, user, playlists }: Props) {
   const [slideState, setSlideState] = useState(true);
   let keycount = 0;
     return(
@@ -77,7 +79,9 @@ export default function VideoCarousel({ topTracks, youtubeVideo }: Props) {
                             {index !== 0 ? `, ${artist.name}` : artist.name}
                           </a>
                         ))}</h1>
-                        <div></div>
+                        <div><div className="absolute right-0 -translate-y-11">
+                                  <AddButton  user={user} trackId={track.id} playlists={playlists}/>
+                                  </div></div>
                       </div>
                     </div></div>
                 ))}

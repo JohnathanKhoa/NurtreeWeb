@@ -427,7 +427,7 @@ export const getYoutubeVideo = async (
   const name = track.name;
   const artist = track.artists[0].name;
   
-  const result = searcher.search(name + artist, {type:'video'}, {maxResults:1});
+  const result = searcher.search(name + " " + artist + " " + "official music video", {type:'video'}, {maxResults:1});
   
   return await result;
 };

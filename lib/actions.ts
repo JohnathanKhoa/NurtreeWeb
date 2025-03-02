@@ -440,7 +440,7 @@ export const getYoutubeVideoDamon = async (
   const name = track.name;
   const artist = track.artists[0].name;
 
-  const res =  await youtubesearchapi.GetListByKeyword(name + artist, [false], [1], [{type:"video"}]);
+  const res =  await youtubesearchapi.GetListByKeyword(name + " " + artist + " " + "official music video", [false], [1], [{type:"video"}]);
   const items = await res.items[0];
   
   return await items;

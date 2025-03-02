@@ -18,17 +18,19 @@ export default function Login() {
 
   return (
     <>
-    <div className="flex flex-col py-10 items-center content-center  h-screen gap-10">
+    <div className="flex flex-col py-10 items-center content-center  h-screen md:gap-10 gap-4">
+      <div className="md:h-1/4"></div>
       <div className="text-center text-balance flex flex-col items-center justify-center">
       Play all the top music videos using your own curated Spotify playlists
       </div>
-      <div className="flex  flex-col w-screen items-center justify-center gap-x-6">
+      <div className="flex md:h-full md:w-full flex-col w-screen items-center justify-center gap-x-6">
         Nurtree, a blend of
         <Image
           src={SpotifyImage}
           alt="spotify logo"
           width={320}
           height={96}
+          className="md:h-[96px] md:w-[320px] h-1/2 w-1/2"
         />
       <a className="flex flex-col items-center justify-center text-3xl">
         +
@@ -37,7 +39,8 @@ export default function Login() {
           src={YoutubeImage}
           alt="youtube logo"
           width={320}
-          height={96}
+          
+          className="md:h-auto md:w-[320px] h-1/2 w-1/2"
         />
         
       </div>

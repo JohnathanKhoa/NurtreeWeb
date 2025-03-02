@@ -20,6 +20,7 @@ import TrackCards from "@/components/spotify/TrackCards";
 import ArtistCarousel from "@/components/spotify/ArtistCarousel";
 import TrackCarousel from "@/components/spotify/TrackCarousel";
 import { it } from "node:test";
+import PlaylistCards from "@/components/spotify/PlaylistCards";
 
 
 
@@ -103,7 +104,7 @@ export default async function Home() {
     const randomNumbers = getRandomNumbers(min, max, count);
     randomSuggestions.push(topTracks[randomNumbers[0]]);
   }
-  const total = await getTotalPlaylists(session);
+  // const total = await getTotalPlaylists(session);
   // const publicPlaylists: Playlist[] = [];
   // const total = await getTotalPlaylists(session);
 
@@ -119,9 +120,9 @@ export default async function Home() {
   //     } else {
   //       offset = offset + limit;
   //     }
-    
   // }
   // console.log('Length' + publicPlaylists.length)
+  // console.log(publicPlaylists)
   
 
   return (
@@ -156,6 +157,9 @@ export default async function Home() {
       </div>
       </div>
       
+      </div> */}
+      {/* <div className="flex h-1/2 w-1/2 items-center justify-center">
+        <PlaylistCards playlists={publicPlaylists}/>
       </div> */}
       
       <div className="flex h-1/2 w-1/2 items-center justify-center">

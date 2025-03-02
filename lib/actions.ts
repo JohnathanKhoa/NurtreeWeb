@@ -209,6 +209,22 @@ export const getUserLikedSongs = async (
   };
 };
 
+export const getUserPlaylists = async (
+  session: AuthSession,
+  user: string
+): Promise<Playlist[]> => {
+  const currUrl = `https://api.spotify.com/v1/users/${user}/playlists`
+  
+  const data = await customGet(
+    currUrl,
+    session
+  );
+  const userData = data;
+  console.log(userData)
+  return userData.items;
+};
+
+
 export const getTotalPlaylists = async (
   session: AuthSession,
   

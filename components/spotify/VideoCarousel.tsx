@@ -19,7 +19,7 @@ interface Props {
 
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
-      base: " block  w-full flex flex-wrap  ",
+      base: " block  w-screen flex flex-col  ",
       leftControl: "hidden",
       rightControl: "hidden",
     },
@@ -28,7 +28,7 @@ interface Props {
         off: " bg-white/50 hover:bg-white  dark:hover:bg-gray-800",
         on: " bg-white dark:bg-gray-800",
       },
-      wrapper: "flex w-full bot-1/2 place-content-center  flex   space-x-3"
+      wrapper: "pt-4 flex w-full bot-1/2 place-content-center  flex   space-x-3"
     },
     
     item: {

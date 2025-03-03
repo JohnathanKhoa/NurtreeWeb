@@ -19,7 +19,7 @@ interface Props {
 
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
-      base: " block  w-screen flex flex-col  ",
+      base: " block  w-full max-h-[1048px] flex flex-col  ",
       leftControl: "hidden",
       rightControl: "hidden",
     },

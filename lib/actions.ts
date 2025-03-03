@@ -459,18 +459,7 @@ export const getYoutubeVideoDamonDetails = async (
   return await items;
 };
 
-export const getYoutubeVideoDamon2 = async (
-  track: Track
-): Promise<Damon2Items> => {
 
-  const name = track.name;
-  const artist = track.artists[0].name;
-
-  const res =  await youtubesearchapi.GetListByKeyword(name + artist, [false], [1], [{type:"video"}]);
-  const items = await res.items[0];
-  
-  return await items;
-};
 
 
 

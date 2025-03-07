@@ -36,7 +36,7 @@ export default function IndexContainer({
   return (
     <>
       <div className="flex flex-col ">
-          <div className="sticky h-1/3 aspect-video top-1/5 max-h-[1048px] ">
+          <div className="sticky h-1/3 aspect-video top-1/5 xl:max-h-[650px] 2xl:max-h-[1048px] ">
               {<Video tracksLength={tracks.length} id={track} index={index} currentIndex={setCurrentIndex} play={1}/>}
           
           </div>

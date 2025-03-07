@@ -1,6 +1,8 @@
 import AlbumCards from "@/components/spotify/AlbumCards";
 import ArtistCards from "@/components/spotify/ArtistCards";
 import Image from "next/image";
+import { Heading, Subheading } from '@/components/heading'
+import {Divider} from '@/components/divider'
 import {
   getArtistTopTrack,
   getMe,
@@ -21,6 +23,7 @@ import ArtistCarousel from "@/components/spotify/ArtistCarousel";
 import TrackCarousel from "@/components/spotify/TrackCarousel";
 import { it } from "node:test";
 import PlaylistCards from "@/components/spotify/PlaylistCards";
+import { getGreeting } from "@/util/clientUtils";
 
 
 
@@ -93,7 +96,7 @@ export default async function Home() {
   
   for (let i = 0; i < randomArtists.length; i++){
     const topResult = await getArtistTopTrack(session, randomArtists[i].id);
-    const randomTopTrack = getRandomNumbers(0, 3, 1);
+    const randomTopTrack = getRandomNumbers(0, 2, 1);
     const video = await getYoutubeVideoDamon(session, topResult[0].tracks[randomTopTrack[0]]);
     randomTracks.push(topResult[0].tracks[randomTopTrack[0]]);
     
@@ -123,11 +126,13 @@ export default async function Home() {
   // }
   // console.log('Length' + publicPlaylists.length)
   // console.log(publicPlaylists)
-  
+  const user = session.user
 
   return (
 
     <section className="flex flex-col items-center">
+      <Heading>Good {getGreeting()}, {user.name}</Heading>
+      
       {/* <h1 className="mb-5 text-xl font-bold">Greetings, {session?.user.name}!</h1> */}
       {/* <h1 className="flex items-center gap-3 px-2 my-1 text-gray">
       Choose a playlist from your library <MenuIcon className="md:flex hidden" height={25} /> to get the top music video for each track
@@ -136,6 +141,7 @@ export default async function Home() {
       <div className="">
       <VideoCarousel user={currentUser.id} playlists={playlists} topTracks={randomTracks} youtubeVideo={youtubeVideo}  />
       </div>
+      <Divider className=""/>
       {/* <div className="pt-4 flex flex-row w-full items-center justify-center gap-6 border-t-2">
       
       <div className="flex flex-row items-center justify-center gap-6">
@@ -161,20 +167,21 @@ export default async function Home() {
       {/* <div className="flex h-1/2 w-1/2 items-center justify-center">
         <PlaylistCards playlists={publicPlaylists}/>
       </div> */}
-      
-      <div className="flex h-1/2 w-1/2 items-center justify-center">
+      <div className="flex w-1/2 items-center justify-center">
       
       <ArtistCarousel artists={topArtists}/>
       </div>
+      <div className="my-16 flex  w-1/2 items-center justify-center">
+      <TrackCarousel tracks={randomSuggestions}/>
+      </div>
+      
       
       
       {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite artists</h1> */}
 
       
       
-      <div className="my-16 flex  w-1/2 items-center justify-center">
-      <TrackCarousel tracks={randomSuggestions}/>
-      </div>
+      
       {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite tracks</h1> */}
     </section>
   );

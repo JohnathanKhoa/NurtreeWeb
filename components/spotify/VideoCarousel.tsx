@@ -51,7 +51,7 @@ export default function VideoCarousel({ topTracks, youtubeVideo, user, playlists
   let keycount = 0;
     return(
         
-            <div className="relative flex w-full">
+            <div className="relative flex max-w-[720px]">
               <Carousel slide={slideState} theme={customTheme} >
                 
                 {topTracks?.map((track, index) => (

@@ -31,8 +31,8 @@ interface Props {
     item: {
       base: " block w-full  ",
       wrapper: {
-        on: "w-full flex-shrink-0 transform cursor-grab snap-center",
-        off: "w-full flex-shrink-0 transform cursor-grab snap-center",
+        on: "w-full flex-shrink-0  cursor-grab snap-center",
+        off: "w-full flex-shrink-0  cursor-grab snap-center",
       }
     },
     scrollContainer: {
@@ -47,7 +47,7 @@ export default function ArtistCarousel({ artists }: Props) {
   let keycount = 0;
     return(
         <div className="flex flex-col w-full items-center">
-            <div className="flex flex-col w-screen p-4 md:w-1/2">
+            <div className="flex flex-col  p-4 w-[390px]">
               <Carousel slide={true} theme={customTheme} >
                 
                 {artists?.map((artist) => (
@@ -60,7 +60,7 @@ export default function ArtistCarousel({ artists }: Props) {
                           altTitle={artist.name}
                           subheading="Artist"
                           type="artists"
-                          imageRounded
+                          
                         />
                         </div>
                       ))}

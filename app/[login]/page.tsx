@@ -124,7 +124,7 @@ export default function Login() {
             src={AppSS}
             width={2432}
             height={1442}
-            className="w-[48rem] max-w-none rounded-xl  shadow-xl  sm:w-[57rem] md:-ml-4 lg:-ml-0"
+            className="w-screen -ml-6 max-w-none rounded-xl  shadow-xl  sm:w-[57rem] md:-ml-4 lg:-ml-0"
           />
         </div>
       </div>

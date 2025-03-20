@@ -20,10 +20,9 @@ export default function SidebarLinksList() {
             pathname === "/" ? activeLink : inactiveLink
           }`}
         >
-          <Home height={25} className=""/>
+          <Home height={25} className="" />
         </li>
       </Link>
     </ul>
-    
   );
 }

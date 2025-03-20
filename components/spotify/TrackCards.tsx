@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Track } from "@/types/types";
 import { Music } from "lucide-react";
 import Image from "next/image";
@@ -6,14 +6,11 @@ import CardItemGrid from "./CardItemGrid";
 
 import Link from "next/link";
 
-
 interface Props {
   tracks: Track[];
-  
 }
 
 export default function TrackCards({ tracks }: Props) {
-    
   return (
     <CardItemGrid>
       {tracks?.map((track: Track) => {
@@ -21,7 +18,11 @@ export default function TrackCards({ tracks }: Props) {
           return null;
         }
         return (
-          <Link className="cursor-pointer" key={track.id} href={`/tracks/${track.id}/0`}>
+          <Link
+            className="cursor-pointer"
+            key={track.id}
+            href={`/tracks/${track.id}/0`}
+          >
             <div className="h-full w-full p-4 transition duration-300 bg-paper-500 hover:opacity-80">
               <div className="relative">
                 {track.album.images.length > 0 ? (

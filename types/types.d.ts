@@ -16,7 +16,6 @@ export interface AuthSession extends Omit<DefaultSession, "user"> {
 
 interface Snapshot {
   snapshot_id: string;
-
 }
 interface Data {
   uris: string[];
@@ -37,7 +36,6 @@ interface Followers {
   total: number;
 }
 
-
 interface User {
   country: string;
   display_name: string;
@@ -52,7 +50,6 @@ interface User {
   type: string;
   uri: string;
 }
-
 
 interface Image {
   height: number | null;
@@ -112,14 +109,14 @@ export interface Playlist {
     id: string;
     display_name?: string;
   };
-  items?: [{ added_at: string; track: Track; }];
+  items?: [{ added_at: string; track: Track }];
   tracks: {
     items: [{ added_at: string; track: Track }];
     total: number;
   };
   type: string;
   total?: number;
-  public: boolean
+  public: boolean;
 }
 
 export interface SearchResults {
@@ -210,7 +207,7 @@ export interface Suggestion {
 }
 
 export interface Damon2 {
-  items:Damon2Items[];
+  items: Damon2Items[];
   nextPage: {};
 }
 
@@ -221,7 +218,7 @@ export interface Damon2Items {
   title: string;
   channelTitle: string;
   shortBylineText: { runs: [Array] };
-  length: { accessibility: [Object], simpleText: '2:58' };
+  length: { accessibility: [Object]; simpleText: "2:58" };
   isLive: false;
 }
 

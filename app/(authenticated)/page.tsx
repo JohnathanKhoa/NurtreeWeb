@@ -1,8 +1,8 @@
 import AlbumCards from "@/components/spotify/AlbumCards";
 import ArtistCards from "@/components/spotify/ArtistCards";
 import Image from "next/image";
-import { Heading, Subheading } from '@/components/heading'
-import {Divider} from '@/components/divider'
+import { Heading, Subheading } from "@/components/heading";
+import { Divider } from "@/components/divider";
 import {
   getArtistTopTrack,
   getMe,
@@ -25,8 +25,6 @@ import { it } from "node:test";
 import PlaylistCards from "@/components/spotify/PlaylistCards";
 import { getGreeting } from "@/util/clientUtils";
 
-
-
 export const metadata = {
   title: "Nurtree",
   description: "A blend of Spotify and Youtube",
@@ -38,7 +36,7 @@ export default async function Home() {
   if (!session) {
     redirect("/login");
   }
-  
+
   const topTracks = (await getTopItems({
     session,
     limit: 50,
@@ -50,9 +48,9 @@ export default async function Home() {
   }).then((data) => data)) as User;
 
   const [playlists] = await Promise.all([
-            getUserAllPlaylists(session, 100),
-            //getUserLikedSongs(session).then((data) => data.total),
-          ]);
+    getUserAllPlaylists(session, 100),
+    //getUserLikedSongs(session).then((data) => data.total),
+  ]);
   // const mostPopular = topTracks.filter(item => item.popularity >= 84)
   //   .map((item) => item) as Track[];
   //   console.log(mostPopular)
@@ -62,6 +60,8 @@ export default async function Home() {
     limit: 50,
     type: "artists",
   }).then((data) => data.items)) as Artist[];
+
+  const newReleases = await getNewReleases(session);
 
   // const mostPopular:Track[] = [];
   // topTracks.filter((item) => {
@@ -75,35 +75,37 @@ export default async function Home() {
   //     youtubeVideo.push(result);
   //     videoTrack.push(mostPopular[i]);
   //   }
-  
+
   const min = 0;
-  const max = topArtists.length-1;
+  const max = topArtists.length - 1;
   const count = 3;
-  const randomNumbers = getRandomNumbers(0, topArtists.length-1, 3);
-  
+  const randomNumbers = getRandomNumbers(0, topArtists.length - 1, 3);
+
   const randomTracks: Track[] = [];
   const randomSuggestions: Track[] = [];
   const randomArtists: Artist[] = [];
-  
-  for (let i = 0; i < count; i++){
-    
+
+  for (let i = 0; i < count; i++) {
     randomArtists.push(topArtists[randomNumbers[i]]);
-    
+
     // const result = await getYoutubeVideoDamon(session, topTracks[randomNumbers[0]]);
     // youtubeVideo.push(result);
     // randomTracks.push(topTracks[randomNumbers[0]]);
   }
-  
-  for (let i = 0; i < randomArtists.length; i++){
+
+  for (let i = 0; i < randomArtists.length; i++) {
     const topResult = await getArtistTopTrack(session, randomArtists[i].id);
     const randomTopTrack = getRandomNumbers(0, 2, 1);
-    const video = await getYoutubeVideoDamon(session, topResult[0].tracks[randomTopTrack[0]]);
+    const video = await getYoutubeVideoDamon(
+      session,
+      topResult[0].tracks[randomTopTrack[0]]
+    );
     randomTracks.push(topResult[0].tracks[randomTopTrack[0]]);
-    
+
     youtubeVideo.push(video);
   }
-  
-  for (let i = 0; i < 9; i++){
+
+  for (let i = 0; i < 9; i++) {
     const randomNumbers = getRandomNumbers(min, max, count);
     randomSuggestions.push(topTracks[randomNumbers[0]]);
   }
@@ -126,22 +128,28 @@ export default async function Home() {
   // }
   // console.log('Length' + publicPlaylists.length)
   // console.log(publicPlaylists)
-  const user = session.user
+  const user = session.user;
 
   return (
-
     <section className="flex flex-col items-center">
-      <Heading>Good {getGreeting()}, {user.name}</Heading>
-      
+      <Heading>
+        Good {getGreeting()}, {user.name}
+      </Heading>
+
       {/* <h1 className="mb-5 text-xl font-bold">Greetings, {session?.user.name}!</h1> */}
       {/* <h1 className="flex items-center gap-3 px-2 my-1 text-gray">
       Choose a playlist from your library <MenuIcon className="md:flex hidden" height={25} /> to get the top music video for each track
       </h1>  */}
       {/* <h1 className="font-bold underline">Top music videos for you</h1> */}
       <div className="">
-      <VideoCarousel user={currentUser.id} playlists={playlists} topTracks={randomTracks} youtubeVideo={youtubeVideo}  />
+        <VideoCarousel
+          user={currentUser.id}
+          playlists={playlists}
+          topTracks={randomTracks}
+          youtubeVideo={youtubeVideo}
+        />
       </div>
-      <Divider className=""/>
+      <Divider className="" />
       {/* <div className="pt-4 flex flex-row w-full items-center justify-center gap-6 border-t-2">
       
       <div className="flex flex-row items-center justify-center gap-6">
@@ -168,20 +176,14 @@ export default async function Home() {
         <PlaylistCards playlists={publicPlaylists}/>
       </div> */}
       <div className="flex w-1/2 items-center justify-center">
-      
-      <ArtistCarousel artists={topArtists}/>
+        <ArtistCarousel artists={topArtists} />
       </div>
       <div className="my-16 flex  w-1/2 items-center justify-center">
-      <TrackCarousel tracks={randomSuggestions}/>
+        <TrackCarousel tracks={randomSuggestions} />
       </div>
-      
-      
-      
+
       {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite artists</h1> */}
 
-      
-      
-      
       {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite tracks</h1> */}
     </section>
   );

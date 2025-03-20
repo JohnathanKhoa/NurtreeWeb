@@ -3,7 +3,12 @@ import ArtistCards from "@/components/spotify/ArtistCards";
 import PlaylistCards from "@/components/spotify/PlaylistCards";
 import SearchFilters from "@/components/spotify/SearchFilters";
 import TracksTable from "@/components/spotify/TracksTable";
-import { getMe, getSearchItems, getUserAllPlaylists, getUserLikedPlaylists } from "@/lib/actions";
+import {
+  getMe,
+  getSearchItems,
+  getUserAllPlaylists,
+  getUserLikedPlaylists,
+} from "@/lib/actions";
 import { User } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
@@ -34,12 +39,12 @@ export default async function SearchResults({ params }: Props) {
 
   const searchResults = await getSearchItems(session, "all", query);
   const currentUser = (await getMe({
-        session,
-      }).then((data) => data)) as User;
+    session,
+  }).then((data) => data)) as User;
   const [playlists] = await Promise.all([
-          getUserAllPlaylists(session, 100),
-          //getUserLikedSongs(session).then((data) => data.total),
-        ]);
+    getUserAllPlaylists(session, 100),
+    //getUserLikedSongs(session).then((data) => data.total),
+  ]);
   return (
     <div className="mx-2 flex flex-col items-stretch gap-8">
       <SearchFilters />
@@ -58,21 +63,27 @@ export default async function SearchResults({ params }: Props) {
 
       {searchResults.artists.items.length > 0 && (
         <div>
-          <h1 className="flex items-center justify-center border-t-2">Artists</h1>
+          <h1 className="flex items-center justify-center border-t-2">
+            Artists
+          </h1>
           <ArtistCards artists={searchResults.artists.items} />
         </div>
       )}
 
       {searchResults.albums.items.length > 0 && (
         <div>
-          <h1 className="flex items-center justify-center border-t-2">Albums</h1>
+          <h1 className="flex items-center justify-center border-t-2">
+            Albums
+          </h1>
           <AlbumCards albums={searchResults.albums.items} />
         </div>
       )}
 
       {searchResults.playlists.items.length > 0 && (
         <div>
-          <h1 className="flex items-center justify-center border-t-2">Playlists</h1>
+          <h1 className="flex items-center justify-center border-t-2">
+            Playlists
+          </h1>
           <PlaylistCards playlists={searchResults.playlists.items} />
         </div>
       )}

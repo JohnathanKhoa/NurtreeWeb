@@ -11,15 +11,9 @@ interface Props {
   type: "artists" | "playlists" | "albums";
   entity: Album | Artist | Playlist;
   subtitle?: string;
-  
 }
 
-
-
-
-
 export default function LibraryItemCard({ type, entity, subtitle }: Props) {
-  
   const pathname = usePathname();
 
   const href = `${type}/${entity.id}`;
@@ -27,17 +21,16 @@ export default function LibraryItemCard({ type, entity, subtitle }: Props) {
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
-  
 
   return (
-    
-    <a onClick={() => setIsOpen(true)}
+    <a
+      onClick={() => setIsOpen(true)}
       href={`/${href}/0`}
       className={`${
         pathname === href ? "bg-paper-400" : ""
       } flex items-center p-2 gap-3 rounded-md text-white cursor-pointer  hover:bg-zinc-500`}
     >
-      {isOpen && <LoadingDots/>}
+      {isOpen && <LoadingDots />}
       <Image
         src={entity.images[0].url}
         alt={entity.name}
@@ -56,8 +49,6 @@ export default function LibraryItemCard({ type, entity, subtitle }: Props) {
           <span className="mt-1 text-xs font-medium text-gray">{subtitle}</span>
         )} */}
       </div>
-      
     </a>
-    
   );
 }

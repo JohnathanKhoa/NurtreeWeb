@@ -1,7 +1,13 @@
 import AlbumCards from "@/components/spotify/AlbumCards";
 import ArtistCards from "@/components/spotify/ArtistCards";
 import TracksTable from "@/components/spotify/TracksTable";
-import { getArtistById, getArtistDiscography, getMe, getUserAllPlaylists, getUserLikedPlaylists } from "@/lib/actions";
+import {
+  getArtistById,
+  getArtistDiscography,
+  getMe,
+  getUserAllPlaylists,
+  getUserLikedPlaylists,
+} from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Music } from "lucide-react";
 import { User } from "next-auth";
@@ -37,13 +43,13 @@ export default async function ArtistPage({ params }: Props) {
     redirect("/login");
   }
   const currentUser = (await getMe({
-      session,
-    }).then((data) => data)) as User;
+    session,
+  }).then((data) => data)) as User;
   const artistId = (await params).artistId;
   const [playlists] = await Promise.all([
-          getUserAllPlaylists(session, 100),
-          //getUserLikedSongs(session).then((data) => data.total),
-        ]);
+    getUserAllPlaylists(session, 100),
+    //getUserLikedSongs(session).then((data) => data.total),
+  ]);
   const [
     artist,
     artistTopTracks,
@@ -96,27 +102,38 @@ export default async function ArtistPage({ params }: Props) {
       <div className="my-8">
         <h1 className="flex items-center justify-center border-t-2">Popular</h1>
         <div className="my-2">
-          <TracksTable user={currentUser.id} playlists={playlists} tracks={artistTopTracks.tracks} showCover />
+          <TracksTable
+            user={currentUser.id}
+            playlists={playlists}
+            tracks={artistTopTracks.tracks}
+            showCover
+          />
         </div>
       </div>
 
       {artistAlbums?.items.length > 0 && (
         <div className="mt-12">
-          <h1 className="flex items-center justify-center border-t-2">Albums</h1>
+          <h1 className="flex items-center justify-center border-t-2">
+            Albums
+          </h1>
           <AlbumCards albums={artistAlbums.items} />
         </div>
       )}
 
       {artistSingles?.items.length > 0 && (
         <div className="mt-12">
-          <h1 className="flex items-center justify-center border-t-2">Singles</h1>
+          <h1 className="flex items-center justify-center border-t-2">
+            Singles
+          </h1>
           <AlbumCards albums={artistSingles.items} />
         </div>
       )}
 
       {artistAppearsOn?.items.length > 0 && (
         <div className="mt-12">
-          <h1 className="flex items-center justify-center border-t-2">Appears on</h1>
+          <h1 className="flex items-center justify-center border-t-2">
+            Appears on
+          </h1>
           <AlbumCards albums={artistAppearsOn.items} />
         </div>
       )}
@@ -130,7 +147,9 @@ export default async function ArtistPage({ params }: Props) {
 
       {relatedArtists?.artists.length > 0 && (
         <div className="mt-12">
-          <h1 className="flex items-center justify-center border-t-2">Fans also like</h1>
+          <h1 className="flex items-center justify-center border-t-2">
+            Fans also like
+          </h1>
           <ArtistCards artists={relatedArtists.artists} />
         </div>
       )}

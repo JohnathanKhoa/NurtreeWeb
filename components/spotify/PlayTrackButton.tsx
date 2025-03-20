@@ -9,20 +9,12 @@ interface Props {
   className?: string;
 }
 
-export default function PlayTrackButton({
-  variant = "simple",
-
-}: Props) {
-
+export default function PlayTrackButton({ variant = "simple" }: Props) {
   return (
-    
-      <MdPlayArrow
-        className={
-          variant === "filled"
-            ? "text-paper-700"
-            : "flex items-center text-white"
-        }
-      />
-    
+    <MdPlayArrow
+      className={
+        variant === "filled" ? "text-paper-700" : "flex items-center text-white"
+      }
+    />
   );
 }

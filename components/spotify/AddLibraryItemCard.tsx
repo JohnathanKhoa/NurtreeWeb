@@ -11,27 +11,31 @@ import { useRouter } from "next/navigation";
 interface Props {
   playlistId: string;
   trackId: string;
-  entity: Playlist
+  entity: Playlist;
 }
 
-async function handleClick(playlistId:string, trackId:string) {
-  const response = await fetch(`/api/playlists/${playlistId}/tracks/${trackId}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    
-  });
-  
-  
-  
+async function handleClick(playlistId: string, trackId: string) {
+  const response = await fetch(
+    `/api/playlists/${playlistId}/tracks/${trackId}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 }
-export default function LibraryItemCard({ playlistId, trackId, entity }: Props) {
-    const router = useRouter();
+export default function LibraryItemCard({
+  playlistId,
+  trackId,
+  entity,
+}: Props) {
+  const router = useRouter();
   return (
-    
-    <div 
-      onClick={() => { handleClick(playlistId, trackId)}}
+    <div
+      onClick={() => {
+        handleClick(playlistId, trackId);
+      }}
       className="flex items-center p-2 gap-3 rounded-md text-white cursor-pointer  hover:bg-zinc-500"
     >
       <Image
@@ -47,8 +51,6 @@ export default function LibraryItemCard({ playlistId, trackId, entity }: Props) 
           {entity.name}
         </h6>
       </div>
-      
     </div>
-    
   );
 }

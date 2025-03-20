@@ -12,16 +12,16 @@ export default function ArtistCards({ artists }: Props) {
     <CardItemGrid>
       {artists?.map((artist) => (
         <div key={keycount++}>
-        <CardItem
-          key={artist.id}
-          id={artist.id}
-          heading={artist.name}
-          images={artist.images}
-          altTitle={artist.name}
-          subheading="Artist"
-          type="artists"
-          imageRounded
-        />
+          <CardItem
+            key={artist.id}
+            id={artist.id}
+            heading={artist.name}
+            images={artist.images}
+            altTitle={artist.name}
+            subheading="Artist"
+            type="artists"
+            imageRounded
+          />
         </div>
       ))}
     </CardItemGrid>

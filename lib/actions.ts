@@ -17,27 +17,24 @@ import {
   Snapshot,
 } from "@/types/types";
 import { customGet, customPost } from "@/util/serverUtils";
-const { YTSearcher } = require('ytsearcher');
+const { YTSearcher } = require("ytsearcher");
 const YTKey = process.env.YOUTUBE_API_KEY;
 const searcher = new YTSearcher(YTKey);
 const youtubesearchapi = require("youtube-search-api");
 
 export const getMe = async ({
-  session
-}:{
-  session: AuthSession
-}):Promise<User> => {
-  return customGet(
-    "https://api.spotify.com/v1/me",
-    session
-  );
+  session,
+}: {
+  session: AuthSession;
+}): Promise<User> => {
+  return customGet("https://api.spotify.com/v1/me", session);
 };
 
 export const addTrack = async (
   session: AuthSession,
   playlistId: string,
-  data:Data
-):Promise<Snapshot> => {
+  data: Data
+): Promise<Snapshot> => {
   return customPost(
     `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
     session,
@@ -48,8 +45,8 @@ export const addTrack = async (
 export const addNewPlaylist = async (
   session: AuthSession,
   userId: string,
-  data:Object
-):Promise<Playlist> => {
+  data: Object
+): Promise<Playlist> => {
   return customPost(
     `https://api.spotify.com/v1/users/${userId}/playlists`,
     session,
@@ -132,9 +129,7 @@ export const getArtistTopTrack = async (
 ) => {
   const baseUrl = `https://api.spotify.com/v1/artists/${artistId}`;
 
-  const urls = [
-    "/top-tracks?market=from_token",
-  ];
+  const urls = ["/top-tracks?market=from_token"];
 
   const promises = urls.map((url) => customGet(`${baseUrl}${url}`, session));
   return Promise.all(promises);
@@ -158,7 +153,7 @@ export const getPlaylistsByCategory = async (
     `https://api.spotify.com/v1/browse/categories/${categoryId}/playlists`,
     session
   );
-  
+
   return data.playlists.items;
 };
 
@@ -213,28 +208,20 @@ export const getUserPlaylists = async (
   session: AuthSession,
   user: string
 ): Promise<Playlist[]> => {
-  const currUrl = `https://api.spotify.com/v1/users/${user}/playlists`
-  
-  const data = await customGet(
-    currUrl,
-    session
-  );
+  const currUrl = `https://api.spotify.com/v1/users/${user}/playlists`;
+
+  const data = await customGet(currUrl, session);
   const userData = data;
-  console.log(userData)
+  console.log(userData);
   return userData.items;
 };
 
-
 export const getTotalPlaylists = async (
-  session: AuthSession,
-  
+  session: AuthSession
 ): Promise<number> => {
-  const currUrl = `https://api.spotify.com/v1/me/playlists?offset=${0}&limit=${1}`
-  
-  const data = await customGet(
-    currUrl,
-    session
-  );
+  const currUrl = `https://api.spotify.com/v1/me/playlists?offset=${0}&limit=${1}`;
+
+  const data = await customGet(currUrl, session);
   const userData = data;
   return userData.total;
 };
@@ -244,72 +231,60 @@ export const getUserLikedPlaylists = async (
   offset: number,
   limit: number
 ): Promise<Playlist[]> => {
-  const currUrl = `https://api.spotify.com/v1/me/playlists?offset=${offset}&limit=${limit}`
-  
-  const data = await customGet(
-    currUrl,
-    session
-  );
+  const currUrl = `https://api.spotify.com/v1/me/playlists?offset=${offset}&limit=${limit}`;
+
+  const data = await customGet(currUrl, session);
   const userData = data;
-  
-    
-    // const nextdata = await customGet(
-    //   currUrl + offset+'&limit=50',
-    //   session
-    // )
-    // userData.items.push(...nextdata.items);
-  
+
+  // const nextdata = await customGet(
+  //   currUrl + offset+'&limit=50',
+  //   session
+  // )
+  // userData.items.push(...nextdata.items);
+
   return userData.items;
-  
 };
 
 export const getUserAllPlaylists = async (
   session: AuthSession,
   total: number
 ): Promise<Playlist[]> => {
-
   const all: Playlist[] = [];
   //const total = await getTotalPlaylists(session);
 
   let offset = 0;
   let limit = 50;
-  while (offset < total){
-    let playlists: Playlist[] = await getUserLikedPlaylists(session, offset, limit);
-    playlists
-      .map((item: any) => all.push(item));
-      if (offset + limit > total){
-        offset = offset + total - limit - 1;
-      } else {
-        offset = offset + limit;
-      }
-    
+  while (offset < total) {
+    let playlists: Playlist[] = await getUserLikedPlaylists(
+      session,
+      offset,
+      limit
+    );
+    playlists.map((item: any) => all.push(item));
+    if (offset + limit > total) {
+      offset = offset + total - limit - 1;
+    } else {
+      offset = offset + limit;
+    }
   }
-  
+
   return all;
-  
 };
 
 export const getUserPublicPlaylists = async (
   session: AuthSession
 ): Promise<Playlist[]> => {
-  const currUrl = "https://api.spotify.com/v1/me/playlists?offset="
+  const currUrl = "https://api.spotify.com/v1/me/playlists?offset=";
   let offset = 0;
-  
-  const data = await customGet(
-    currUrl + offset,
-    session
-  );
+
+  const data = await customGet(currUrl + offset, session);
   const userData = data;
-  
-    offset = offset + 50;
-    const nextdata = await customGet(
-      currUrl + offset,
-      session
-    )
-    userData.items.push(...nextdata.items);
-  
+
+  offset = offset + 50;
+  const nextdata = await customGet(currUrl + offset, session);
+  userData.items.push(...nextdata.items);
+
   return userData.items;
-  
 };
 
 export const getPlaylistById = async (
@@ -334,8 +309,6 @@ export const getPlaylistById = async (
 
   return playlist;
 };
-
-
 
 export const getCategories = async (
   session: AuthSession
@@ -423,12 +396,15 @@ export const getYoutubeVideo = async (
   session: AuthSession,
   track: Track
 ): Promise<YTSearch> => {
-
   const name = track.name;
   const artist = track.artists[0].name;
-  
-  const result = searcher.search(name + " " + artist + " " + "official music video", {type:'video'}, {maxResults:1});
-  
+
+  const result = searcher.search(
+    name + " " + artist + " " + "official music video",
+    { type: "video" },
+    { maxResults: 1 }
+  );
+
   return await result;
 };
 
@@ -436,13 +412,17 @@ export const getYoutubeVideoDamon = async (
   session: AuthSession,
   track: Track
 ): Promise<Damon2Items> => {
-
   const name = track.name;
   const artist = track.artists[0].name;
 
-  const res =  await youtubesearchapi.GetListByKeyword(name + " " + artist + " " + "official music video", [false], [1], [{type:"video"}]);
+  const res = await youtubesearchapi.GetListByKeyword(
+    name + " " + artist + " " + "official music video",
+    [false],
+    [1],
+    [{ type: "video" }]
+  );
   const items = await res.items[0];
-  
+
   return await items;
 };
 
@@ -450,16 +430,10 @@ export const getYoutubeVideoDamonDetails = async (
   session: AuthSession,
   id: string
 ): Promise<any> => {
-
   const videoId = id;
 
-  const res =  await youtubesearchapi.GetVideoDetails(videoId);
+  const res = await youtubesearchapi.GetVideoDetails(videoId);
   const items = await res;
-  
+
   return await items;
 };
-
-
-
-
-

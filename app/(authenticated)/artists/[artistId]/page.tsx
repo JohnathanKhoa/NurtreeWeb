@@ -67,7 +67,7 @@ export default async function ArtistPage({ params }: Props) {
           <>
             {artist.images.length > 0 ? (
               <Image
-                src={artist.images[0].url}
+                src={artist.images[1].url}
                 alt={artist.name}
                 height={200}
                 width={200}

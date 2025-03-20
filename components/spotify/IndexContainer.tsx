@@ -1,5 +1,5 @@
 "use client";
-import { Track, Playlist } from "@/types/types";
+import { Track, Playlist, Artist } from "@/types/types";
 import { useState } from "react";
 import TracksTable from "./TracksTable";
 import Video from "./Video";
@@ -10,6 +10,7 @@ import styles from "@/styles/Description.module.css";
 import { Vibrant } from "node-vibrant/browser";
 import { MdPlayArrow } from "react-icons/md";
 import { Wave } from "@foobar404/wave";
+import DescriptionBar from "./DescriptionBar";
 interface Props {
   tracks: Track[];
   track: string;
@@ -17,6 +18,7 @@ interface Props {
   index: number;
   playlists: Playlist[];
   user: string;
+  artist: Artist;
 }
 
 export default function IndexContainer({
@@ -26,6 +28,7 @@ export default function IndexContainer({
   index,
   playlists,
   user,
+  artist,
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   let v = new Vibrant(playlist.images[0].url);
@@ -47,7 +50,7 @@ export default function IndexContainer({
         <div className="flex flex-col md:flex-row gap-6 m-4 ">
           {playlist && (
             <>
-              <div className="flex items-center gap-6 md:m-4 ">
+              {/* <div className="flex items-center gap-6 md:m-4 ">
                 {playlist.images.length > 0 ? (
                   <Image
                     src={playlist.images[0].url}
@@ -98,41 +101,11 @@ export default function IndexContainer({
                     )}
                   </div>
                 </div>
-                {/* <div className="md:flex hidden self-center gap-6 m-4"><MdPlayArrow size={50}/></div> */}
-              </div>
-              <div id="#canvasElmId" className="flex"></div>
+                 <div className="md:flex hidden self-center gap-6 m-4"><MdPlayArrow size={50}/></div> 
+              </div> */}
+              {/* <div  className="flex"></div> */}
 
-              <div className="flex md:justify-center items-center gap-6 md:m-4">
-                {
-                  <Image
-                    src={tracks[index].album?.images[0].url}
-                    alt={playlist.name}
-                    height={250}
-                    width={250}
-                    className="self-center shadow-2xl object-contain rounded-3xl md:w-40 w-20 md:h-40 h-20"
-                    priority
-                  />
-                }
-                <div className="md:flex flex-col">
-                  <h5 className="text-xs font-bold uppercase shadow-2xl">
-                    Currently Playing
-                  </h5>
-                  <h2 className="md:text-4xl text-xl font-bold">
-                    {tracks[index].name}
-                  </h2>
-                  <h1>
-                    {" "}
-                    {tracks[index].artists.map((artist, index) => (
-                      <a
-                        key={artist.id}
-                        className="text-xs md:text-sm md:font-semibold"
-                      >
-                        {index !== 0 ? `, ${artist.name}` : artist.name}
-                      </a>
-                    ))}
-                  </h1>
-                </div>
-              </div>
+              <DescriptionBar artist={artist} track={tracks[index]} />
             </>
           )}
         </div>

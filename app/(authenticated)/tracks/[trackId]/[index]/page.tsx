@@ -1,6 +1,7 @@
 import IndexContainer from "@/components/spotify/IndexContainer";
 import Video from "@/components/spotify/Video";
 import {
+  getArtistById,
   getMe,
   getTrackById,
   getUserAllPlaylists,
@@ -13,6 +14,7 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 import { Track, User } from "@/types/types";
 import TracksTable from "@/components/spotify/TracksTable";
+import DescriptionBar from "@/components/spotify/DescriptionBar";
 
 interface Props {
   params: Promise<{
@@ -52,6 +54,7 @@ export default async function TrackPage({ params }: Props) {
     getUserAllPlaylists(session, 100),
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
+  const artist = await getArtistById(session, track.artists[0].id);
   const currentUser = (await getMe({
     session,
   }).then((data) => data)) as User;
@@ -61,35 +64,7 @@ export default async function TrackPage({ params }: Props) {
         <div className="sticky h-1/3 aspect-video top-1/5 max-h-[1048px] ">
           {<Video tracksLength={0} id={result.id} index={0} play={1} />}
         </div>
-        <div className="flex md:justify-center items-center gap-6 md:m-4">
-          {
-            <Image
-              src={track.album?.images[0].url}
-              alt={track.name}
-              height={250}
-              width={250}
-              className="self-center shadow-2xl object-contain rounded-3xl md:w-40 w-20 md:h-40 h-20"
-              priority
-            />
-          }
-          <div className="md:flex flex-col gap-3">
-            <h5 className="text-xs font-bold uppercase shadow-2xl">
-              Currently Playing
-            </h5>
-            <h2 className="md:text-4xl text-xl font-bold">{track.name}</h2>
-            <h1>
-              {" "}
-              {track.artists.map((artist, index) => (
-                <a
-                  key={artist.id}
-                  className="text-xs md:text-sm md:font-semibold"
-                >
-                  {index !== 0 ? `, ${artist.name}` : artist.name}
-                </a>
-              ))}
-            </h1>
-          </div>
-        </div>
+        <DescriptionBar artist={artist} track={track} />
         <div className="relative w-full overflow-auto scrollbar-hide">
           <TracksTable
             user={currentUser.id}

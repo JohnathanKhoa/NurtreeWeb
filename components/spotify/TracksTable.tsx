@@ -36,6 +36,7 @@ export default function TracksTable({
   const pathname = usePathname();
   const router = useRouter();
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
+  const [tableIsOpen, setTableIsOpen] = useState<boolean | null>(false);
   let keyCount = 0;
 
   function handleClick(track: Track, index: number) {

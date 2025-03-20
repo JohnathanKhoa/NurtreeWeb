@@ -1,4 +1,5 @@
 import {
+  getArtistById,
   getMe,
   getPlaylistById,
   getUserAllPlaylists,
@@ -52,6 +53,10 @@ export default async function PlaylistPage({ params }: Props) {
     getUserAllPlaylists(session, 100),
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
+  const artist = await getArtistById(
+    session,
+    playlistTracks[index].artists[0].id
+  );
   const currentUser = (await getMe({
     session,
   }).then((data) => data)) as User;
@@ -68,6 +73,7 @@ export default async function PlaylistPage({ params }: Props) {
             .filter((item: any) => item.track !== null)
             .map((item: any) => item.track)}
           track={result.id}
+          artist={artist}
           index={index}
           playlists={playlists}
           user={currentUser.id}

@@ -24,6 +24,8 @@ export default function RootLayout({
     <html lang="en" className="overflow-auto scrollbar-hide">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
       </Head>
     
       <body className="bg-black"

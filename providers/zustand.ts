@@ -40,3 +40,4 @@ export const useStore = create<ZustandState>((set) => ({
       currentTrack: track,
     })),
 }));
+

@@ -15,7 +15,7 @@ import SearchBar from "./SearchBar";
 import SearchInput from "./SearchInput";
 import RouterButtons from "./RouterButtons";
 
-export default async function Sidebar() {
+export default async function NavigationBar() {
   const session = await getAuthSession();
 
   if (!session) {

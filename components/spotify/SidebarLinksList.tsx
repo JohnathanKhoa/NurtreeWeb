@@ -10,7 +10,7 @@ export default function SidebarLinksList() {
   const activeLink = "bg-paper-400 text-white";
   const inactiveLink = "bg-transparent text-gray";
   const linkStyle =
-    "flex items-start gap-4 px-2 rounded-md cursor-pointer  hover:text-white";
+    "flex items-start gap-4 px-2 rounded-md cursor-pointer  ";
 
   return (
     <ul className="">

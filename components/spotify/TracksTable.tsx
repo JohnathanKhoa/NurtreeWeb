@@ -50,20 +50,20 @@ export default function TracksTable({
     }
   }
 
-  function handleTableVisibility() {
-    setTableIsOpen(!tableIsOpen);
-  }
+  // function handleTableVisibility() {
+  //   setTableIsOpen(!tableIsOpen);
+  // }
 
   return (
     <>
-      <div className={`${tableIsOpen ? "" : "bottom-0"} flex justify-center`}>
+      {/* <div className={`${tableIsOpen ? "" : "bottom-0"} flex justify-center`}>
         <div className="">
           <button className="flex" onClick={() => setTableIsOpen(!tableIsOpen)}>
             {tableIsOpen ? <ArrowBigDownDash /> : <ArrowBigUpDash />}
           </button>
         </div>
       </div>
-      <div className={`${tableIsOpen ? "visible" : "hidden"}`}>
+      <div className={`${tableIsOpen ? "visible" : "hidden"}`}> */}
         <>
           {showHeader && (
             <>
@@ -196,7 +196,7 @@ export default function TracksTable({
             ))}
           </div>
         </>
-      </div>
+      {/* </div> */}
     </>
   );
 }

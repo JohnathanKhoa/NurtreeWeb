@@ -1,6 +1,7 @@
 import AlbumCards from "@/components/spotify/AlbumCards";
 import ArtistCards from "@/components/spotify/ArtistCards";
 import Image from "next/image";
+import SpotifyImage from "@/public/images/spotify_logo.png";
 import { Heading, Subheading } from "@/components/heading";
 import { Divider } from "@/components/divider";
 import {
@@ -26,7 +27,7 @@ import PlaylistCards from "@/components/spotify/PlaylistCards";
 import { getGreeting } from "@/util/clientUtils";
 
 export const metadata = {
-  title: "Nurtree",
+  title: "Nurtree - Powered by Spotify",
   description: "A blend of Spotify and Youtube",
 };
 
@@ -132,9 +133,10 @@ export default async function Home() {
 
     return (
       <section className="flex flex-col items-center">
-        <Heading>
+        
+        {/* <Heading className="m-4">
           Good {getGreeting()}, {user.name}
-        </Heading>
+        </Heading> */}
 
         {/* <h1 className="mb-5 text-xl font-bold">Greetings, {session?.user.name}!</h1> */}
         {/* <h1 className="flex items-center gap-3 px-2 my-1 text-gray">

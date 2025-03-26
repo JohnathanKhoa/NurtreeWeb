@@ -61,6 +61,8 @@ export default async function PlaylistPage({ params }: Props) {
     session,
   }).then((data) => data)) as User;
 
+  
+
   if (index !== undefined) {
     //const track = await getTrackById(session, trackId);
     const result = await getYoutubeVideoDamon(session, playlistTracks[index]);

@@ -96,12 +96,11 @@ export default function Login() {
               <h2 className="text-base/7 font-semibold text-indigo-400">
                 Watch Music Videos
               </h2>
-              <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
-                Nurtree
-              </p>
+              <div className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
+                Nurtree <div className="text-sm font-normal">powered by </div><Image className="w-20" src={SpotifyImage} alt={""} />
+              </div>
               <p className="mt-6 text-lg/8 text-gray-300">
-                Play all the top music videos using your own curated Spotify
-                playlists
+                Play all the top music videos using your own curated Spotify playlists
               </p>
               <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-300 lg:max-w-none">
                 {features.map((feature) => (

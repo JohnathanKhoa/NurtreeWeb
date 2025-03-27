@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import LibraryItemCard from "./LibraryItemCard";
 import clsx from "clsx";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans();
+const fontFamily = Nunito_Sans({preload: false});
 interface Props {
   playlists: Playlist[];
 }

@@ -14,7 +14,7 @@ import { signOut } from "next-auth/react";
 import UserLibrary from "./UserLibrary";
 import BuyMeACoffee from "../BuyMeACoffee";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans();
+const fontFamily = Nunito_Sans({preload: false});
 require("dotenv").config();
 
 interface Props {

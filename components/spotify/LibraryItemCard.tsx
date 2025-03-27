@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import LoadingDots from "./LoadingDots";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans();
+const fontFamily = Nunito_Sans({preload: false});
 interface Props {
   type: "artists" | "playlists" | "albums";
   entity: Album | Artist | Playlist;

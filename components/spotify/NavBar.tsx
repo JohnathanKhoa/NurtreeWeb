@@ -5,7 +5,7 @@ import SpotifyImage from "@/public/images/spotify_logo.png";
 import SearchInput from "./SearchInput";
 import Hamburger from "./Hamburger";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans();
+const fontFamily = Nunito_Sans({preload: false});
 
 export default async function NavBar() {
   const session = await getAuthSession();

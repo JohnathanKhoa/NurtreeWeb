@@ -1,19 +1,13 @@
 "use client";
 import React from "react";
-
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import SpotifyImage from "@/public/images/spotify_logo.png";
-import YoutubeImage from "@/public/images/yt_logo_mono_dark.png";
-import Link from "next/link";
-import BuyMeACoffee from "@/components/BuyMeACoffee";
 import {
   MusicalNoteIcon,
   LockClosedIcon,
   ServerIcon,
 } from "@heroicons/react/20/solid";
-import AppSS from "@/public/images/app-ss-2.jpg";
-import { Button } from "@/components/button";
 require("dotenv").config();
 
 const features = [
@@ -97,10 +91,12 @@ export default function Login() {
                 Watch Music Videos
               </h2>
               <div className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
-                Nurtree <div className="text-sm font-normal">powered by </div><Image className="w-20" src={SpotifyImage} alt={""} />
+                Nurtree <div className="text-sm font-normal">powered by </div>
+                <Image className="w-20" src={SpotifyImage} alt={""} />
               </div>
               <p className="mt-6 text-lg/8 text-gray-300">
-                Play all the top music videos using your own curated Spotify playlists
+                Play all the top music videos using your own curated Spotify
+                playlists
               </p>
               <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-300 lg:max-w-none">
                 {features.map((feature) => (

@@ -1,6 +1,4 @@
 import { Artist, Track } from "@/types/types";
-import { color } from "framer-motion";
-import Image from "next/image";
 import { Spotify } from "react-spotify-embed";
 
 interface Props {

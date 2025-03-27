@@ -6,11 +6,7 @@ import {
   Playlist,
   Track,
   TrackAnalysis,
-  YoutubeVideo,
-  Thumbnail,
   YTSearch,
-  Damon,
-  Damon2,
   Damon2Items,
   User,
   Data,
@@ -437,7 +433,3 @@ export const getYoutubeVideoDamonDetails = async (
 
   return await items;
 };
-
-
-
-

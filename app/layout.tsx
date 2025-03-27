@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/navbar";
 import Particles from "@/components/particles";
 import Head from "next/head";
-
+import SpotifyImage from "@/public/images/spotify_logo.png";
+import YoutubeImage from "@/public/images/yt_logo_mono_dark.png";
+import NurtreeImage from "@/public/images/nurtree.png";
+import { Nunito_Sans } from "next/font/google";
+const fontFamily = Nunito_Sans();
 export const metadata: Metadata = {
-  title: "jkn95dev",
-  description: "Nurtree",
+  title: "Nurtree",
+  description:
+    "Play all the top music videos using your own curated Spotify playlists",
+  authors: [{ name: "Johnathan Khoa Nguyen", url: "https://jkn95.dev" }],
+  keywords: "Spotify, YouTube, Music, Videos, Playlists, Nurtree",
+  openGraph: {
+    images: [
+      { url: NurtreeImage.src, alt: "Nurtree Logo" },
+      { url: SpotifyImage.src, alt: "Spotify Logo" },
+      { url: YoutubeImage.src, alt: "YouTube Logo" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +43,7 @@ export default function RootLayout({
             quantity={200}
           />
 
-          <div className="overflow-auto scrollbar-hide">{children}</div>
+          <div className={fontFamily.className + "overflow-auto scrollbar-hide"}>{children}</div>
         </body>
       </html>
     </>

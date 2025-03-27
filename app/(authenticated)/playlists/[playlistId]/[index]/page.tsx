@@ -3,9 +3,7 @@ import {
   getMe,
   getPlaylistById,
   getUserAllPlaylists,
-  getUserLikedPlaylists,
   getYoutubeVideoDamon,
-  getYoutubeVideoDamonDetails,
 } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
@@ -60,8 +58,6 @@ export default async function PlaylistPage({ params }: Props) {
   const currentUser = (await getMe({
     session,
   }).then((data) => data)) as User;
-
-  
 
   if (index !== undefined) {
     //const track = await getTrackById(session, trackId);

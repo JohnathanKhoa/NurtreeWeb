@@ -3,12 +3,7 @@ import ArtistCards from "@/components/spotify/ArtistCards";
 import PlaylistCards from "@/components/spotify/PlaylistCards";
 import SearchFilters from "@/components/spotify/SearchFilters";
 import TracksTable from "@/components/spotify/TracksTable";
-import {
-  getMe,
-  getSearchItems,
-  getUserAllPlaylists,
-  getUserLikedPlaylists,
-} from "@/lib/actions";
+import { getMe, getSearchItems, getUserAllPlaylists } from "@/lib/actions";
 import { User } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
@@ -50,7 +45,7 @@ export default async function SearchResults({ params }: Props) {
       <SearchFilters />
 
       <div className="flex flex-col items-stretch -mt-8">
-      <div className="col-span-12 border-b border-zinc-500"></div>
+        <div className="col-span-12 border-b border-zinc-500"></div>
         <h1 className="flex items-center justify-center">Tracks</h1>
         <TracksTable
           playlists={playlists}
@@ -65,9 +60,7 @@ export default async function SearchResults({ params }: Props) {
       {searchResults.artists.items.length > 0 && (
         <div>
           <div className="col-span-12 border-b border-zinc-500"></div>
-          <h1 className="flex items-center justify-center">
-            Artists
-          </h1>
+          <h1 className="flex items-center justify-center">Artists</h1>
           <ArtistCards artists={searchResults.artists.items} />
         </div>
       )}
@@ -75,9 +68,7 @@ export default async function SearchResults({ params }: Props) {
       {searchResults.albums.items.length > 0 && (
         <div>
           <div className="col-span-12 border-b border-zinc-500"></div>
-          <h1 className="flex items-center justify-center">
-            Albums
-          </h1>
+          <h1 className="flex items-center justify-center">Albums</h1>
           <AlbumCards albums={searchResults.albums.items} />
         </div>
       )}
@@ -85,9 +76,7 @@ export default async function SearchResults({ params }: Props) {
       {searchResults.playlists.items.length > 0 && (
         <div>
           <div className="col-span-12 border-b border-zinc-500"></div>
-          <h1 className="flex items-center justify-center">
-            Playlists
-          </h1>
+          <h1 className="flex items-center justify-center">Playlists</h1>
           <PlaylistCards playlists={searchResults.playlists.items} />
         </div>
       )}

@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 import { NextAuthProvider } from "@/providers/NextAuthProvider";
-import { Montserrat } from "next/font/google";
-const fontFamily = Montserrat({ subsets: ["latin"] });
+import { Nunito_Sans } from "next/font/google";
+const fontFamily = Nunito_Sans();
 
 export const metadata = {
   title: "Login with Spotify",

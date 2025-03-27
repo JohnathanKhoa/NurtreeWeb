@@ -1,10 +1,8 @@
 "use client";
 import { Carousel } from "flowbite-react";
-import Video from "./Video";
 import Image from "next/image";
 import type { CustomFlowbiteTheme } from "flowbite-react";
-import { Artist, Damon2Items, Track } from "@/types/types";
-import CardItem from "./CardItem";
+import { Track } from "@/types/types";
 import Link from "next/link";
 import { Music } from "lucide-react";
 

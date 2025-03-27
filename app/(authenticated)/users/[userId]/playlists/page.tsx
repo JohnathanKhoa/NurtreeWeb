@@ -1,12 +1,5 @@
 import PlaylistCards from "@/components/spotify/PlaylistCards";
-import {
-  getTrackById,
-  addNewPlaylist,
-  addTrack,
-  getUserAllPlaylists,
-  getUserPlaylists,
-} from "@/lib/actions";
-import { Data } from "@/types/types";
+import { getUserPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { redirect } from "next/navigation";
 

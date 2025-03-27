@@ -6,13 +6,11 @@ import {
   getArtistDiscography,
   getMe,
   getUserAllPlaylists,
-  getUserLikedPlaylists,
 } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Music } from "lucide-react";
 import { User } from "next-auth";
 import Image from "next/image";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Metadata } from "next/types";
 
@@ -100,7 +98,8 @@ export default async function ArtistPage({ params }: Props) {
       </div>
 
       <div className="my-8">
-        <h1 className="flex items-center justify-center border-t-2">Popular</h1>
+      <div className="col-span-12 border-b border-zinc-500"></div>
+        <h1 className="flex items-center justify-center">Popular</h1>
         <div className="my-2">
           <TracksTable
             user={currentUser.id}
@@ -113,7 +112,8 @@ export default async function ArtistPage({ params }: Props) {
 
       {artistAlbums?.items.length > 0 && (
         <div className="mt-12">
-          <h1 className="flex items-center justify-center border-t-2">
+          <div className="col-span-12 border-b border-zinc-500"></div>
+          <h1 className="flex items-center justify-center">
             Albums
           </h1>
           <AlbumCards albums={artistAlbums.items} />
@@ -122,7 +122,8 @@ export default async function ArtistPage({ params }: Props) {
 
       {artistSingles?.items.length > 0 && (
         <div className="mt-12">
-          <h1 className="flex items-center justify-center border-t-2">
+          <div className="col-span-12 border-b border-zinc-500"></div>
+          <h1 className="flex items-center justify-center">
             Singles
           </h1>
           <AlbumCards albums={artistSingles.items} />
@@ -131,7 +132,8 @@ export default async function ArtistPage({ params }: Props) {
 
       {artistAppearsOn?.items.length > 0 && (
         <div className="mt-12">
-          <h1 className="flex items-center justify-center border-t-2">
+          <div className="col-span-12 border-b border-zinc-500"></div>
+          <h1 className="flex items-center justify-center">
             Appears on
           </h1>
           <AlbumCards albums={artistAppearsOn.items} />
@@ -147,7 +149,8 @@ export default async function ArtistPage({ params }: Props) {
 
       {relatedArtists?.artists.length > 0 && (
         <div className="mt-12">
-          <h1 className="flex items-center justify-center border-t-2">
+          <div className="col-span-12 border-b border-zinc-500"></div>
+          <h1 className="flex items-center justify-center">
             Fans also like
           </h1>
           <ArtistCards artists={relatedArtists.artists} />

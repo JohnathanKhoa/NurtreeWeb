@@ -1,11 +1,6 @@
 import SearchFilters from "@/components/spotify/SearchFilters";
 import TracksTable from "@/components/spotify/TracksTable";
-import {
-  getMe,
-  getSearchItems,
-  getUserAllPlaylists,
-  getUserLikedPlaylists,
-} from "@/lib/actions";
+import { getMe, getSearchItems, getUserAllPlaylists } from "@/lib/actions";
 import { Track, User } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";
 import { redirect } from "next/navigation";

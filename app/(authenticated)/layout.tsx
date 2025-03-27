@@ -1,20 +1,9 @@
 import "@/app/globals.css";
-import Header from "@/components/spotify/Header";
 import { NextAuthProvider } from "@/providers/NextAuthProvider";
-import Sidebar from "@/components/spotify/Sidebar";
+import NavBar from "@/components/spotify/NavBar";
 import TrackPlayerProvider from "@/providers/TrackPlayerProvider";
-import { Montserrat } from "next/font/google";
-import Image from "next/image";
-import SpotifyImage from "@/public/images/spotify_logo.png";
-//import { Navbar, NavbarItem, NavbarSection } from "@/components/catalyst/navbar";
-
-const fontFamily = Montserrat({ subsets: ["latin"] });
-
-export const metadata = {
-  title: "Nurtree",
-  description: "Spotify and Youtube API",
-};
-
+import { Nunito_Sans } from "next/font/google";
+const fontFamily = Nunito_Sans();
 export default function RootLayout({
   children,
 }: {
@@ -25,9 +14,9 @@ export default function RootLayout({
       <TrackPlayerProvider>
         <div className="grid grid-cols-10 gap-2 scrollbar-hide">
           <div className="flex flex-col h-full col-span-full overflow-hidden rounded-lg bg-paper-700 scrollbar-hide">
-            <Sidebar />
+            <NavBar />
 
-            <main className="">{children}</main>
+            <main className={fontFamily.className}>{children}</main>
           </div>
         </div>
       </TrackPlayerProvider>

@@ -1,22 +1,13 @@
-import {
-  getUserAllPlaylists,
-  getUserLikedPlaylists,
-  getUserLikedSongs,
-} from "@/lib/actions";
+import { getUserAllPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import Image from "next/image";
-import SidebarLinksList from "./SidebarLinksList";
-import UserLibrary from "./UserLibrary";
 import SpotifyImage from "@/public/images/spotify_logo.png";
-import YoutubeImage from "@/public/images/yt_logo_mono_dark.png";
-import NurtreeImage from "@/public/images/nurtree.png";
-import LogoutButton from "./LogoutButton";
-import SearchBar from "./SearchBar";
 import SearchInput from "./SearchInput";
-import RouterButtons from "./RouterButtons";
 import Hamburger from "./Hamburger";
+import { Nunito_Sans } from "next/font/google";
+const fontFamily = Nunito_Sans();
 
-export default async function Sidebar() {
+export default async function NavBar() {
   const session = await getAuthSession();
 
   if (!session) {
@@ -36,7 +27,7 @@ export default async function Sidebar() {
           {/* <UserLibrary playlists={playlists} /> */}
           <div className="flex flex-row items-start gap-2">
             <Hamburger playlists={playlists} />
-            <div className=" text-lg font-semibold tracking-tight text-pretty text-white ">
+            <div className={fontFamily.className + " text-xl font-semibold tracking-tight text-pretty text-white "}>
               Nurtree
             </div>
           </div>

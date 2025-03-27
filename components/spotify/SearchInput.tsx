@@ -22,7 +22,7 @@ export default function SearchInput() {
       <Search className="text-paper-600" />
 
       <input
-        className="flex-grow w-full text-sm font-semibold bg-transparent text-white focus:outline-none"
+        className="flex-grow w-full text-sm font-normal bg-transparent text-white focus:outline-none"
         placeholder=""
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}

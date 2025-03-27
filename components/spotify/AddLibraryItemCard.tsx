@@ -1,11 +1,7 @@
 "use client";
 
-import { Album, Artist, Playlist } from "@/types/types";
+import { Playlist } from "@/types/types";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import LoadingDots from "./LoadingDots";
 import { useRouter } from "next/navigation";
 
 interface Props {

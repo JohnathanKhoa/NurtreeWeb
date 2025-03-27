@@ -8,11 +8,13 @@ import {
 } from "@headlessui/react";
 import { Playlist } from "@/types/types";
 import { Menu as MenuIcon } from "lucide-react";
-import { Fragment } from "react";
-import LibraryItemCard from "./LibraryItemCard";
+import { Fragment, useState } from "react";
 import clsx from "clsx";
 import { signOut } from "next-auth/react";
 import UserLibrary from "./UserLibrary";
+import BuyMeACoffee from "../BuyMeACoffee";
+import { Nunito_Sans } from "next/font/google";
+const fontFamily = Nunito_Sans();
 require("dotenv").config();
 
 interface Props {
@@ -26,8 +28,10 @@ export default function Hamburger({ playlists }: Props) {
     signOut({ callbackUrl: url + "/login" });
   };
 
+  const [tableIsOpen, setTableIsOpen] = useState<boolean | null>(false);
+
   return (
-    <div className="">
+    <div className={fontFamily.className}>
       <div className="">
         <Menu>
           <MenuButton as={Fragment}>
@@ -43,11 +47,11 @@ export default function Hamburger({ playlists }: Props) {
           </MenuButton>
           <MenuItems
             anchor="bottom"
-            className="overflow-auto rounded-sm w-48 p-6 bg-zinc-500 bg-opacity-50 backdrop-blur-lg"
+            className={fontFamily.className + "overflow-auto rounded-sm w-64 p-6  bg-zinc-500 bg-opacity-50 backdrop-blur-lg"}
           >
             <MenuItem key={keycount++}>
               <div className="rounded-sm hover:text-zinc-400 transition duration-300">
-                <a className="" href="/">
+                <a className={fontFamily.className} href="/">
                   Home
                 </a>
               </div>
@@ -61,7 +65,13 @@ export default function Hamburger({ playlists }: Props) {
             <MenuSeparator className="my-1 h-px bg-black" />
             <MenuItem key={keycount++}>
               <div className="rounded-sm hover:text-zinc-400 transition duration-300">
-                <button onClick={logout}>Logout</button>
+                <button className={fontFamily.className} onClick={logout}>Logout</button>
+              </div>
+            </MenuItem>
+            <MenuSeparator className="my-1 h-px bg-black" />
+            <MenuItem key={keycount++}>
+              <div className="rounded-sm hover:text-zinc-400 transition duration-300">
+                <BuyMeACoffee/>
               </div>
             </MenuItem>
           </MenuItems>

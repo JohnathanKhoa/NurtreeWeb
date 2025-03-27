@@ -1,5 +1,5 @@
 "use client";
-import { Link, Home, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 export default function SearchBar() {

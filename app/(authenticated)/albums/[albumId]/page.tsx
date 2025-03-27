@@ -1,10 +1,5 @@
 import TracksTable from "@/components/spotify/TracksTable";
-import {
-  getAlbumById,
-  getMe,
-  getUserAllPlaylists,
-  getUserLikedPlaylists,
-} from "@/lib/actions";
+import { getAlbumById, getMe, getUserAllPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Dot, Music } from "lucide-react";
 import { Metadata } from "next";

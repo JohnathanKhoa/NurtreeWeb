@@ -1,11 +1,11 @@
 "use client";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { Playlist } from "@/types/types";
-import { Menu as MenuIcon } from "lucide-react";
 import { Fragment } from "react";
 import LibraryItemCard from "./LibraryItemCard";
 import clsx from "clsx";
-
+import { Nunito_Sans } from "next/font/google";
+const fontFamily = Nunito_Sans();
 interface Props {
   playlists: Playlist[];
 }
@@ -21,12 +21,12 @@ export default function UserLibrary({ playlists }: Props) {
             {({ active }) => (
               <button className={clsx(active)}>
                 {active === true ? (
-                  <div className="flex flex-row">
+                  <div className={fontFamily.className + "flex flex-row"}>
                     {/* <MenuIcon height={25} /> */}
                     Playlists
                   </div>
                 ) : (
-                  <div className="flex flex-row">
+                  <div className={fontFamily.className + "flex flex-row"}>
                     {/* <MenuIcon height={25} /> */}
                     Playlists
                   </div>
@@ -36,7 +36,7 @@ export default function UserLibrary({ playlists }: Props) {
           </MenuButton>
           <MenuItems
             anchor="bottom"
-            className="overflow-auto scrollbar-hide  bg-zinc-800 rounded-xl opacity-80"
+            className="overflow-auto scrollbar-hide rounded-sm bg-zinc-500 bg-opacity-50 backdrop-blur-lg"
           >
             {/* <div className="sticky top-0 bg-black text-center ">
               Your Playlist Library

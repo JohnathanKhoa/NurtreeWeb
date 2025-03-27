@@ -1,12 +1,10 @@
 "use client";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { Playlist } from "@/types/types";
-import { Menu as MenuIcon, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { Fragment } from "react";
-import LibraryItemCard from "./LibraryItemCard";
 import clsx from "clsx";
 import AddLibraryItemCard from "./AddLibraryItemCard";
-import { useRouter } from "next/navigation";
 
 interface Props {
   playlists: Playlist[];

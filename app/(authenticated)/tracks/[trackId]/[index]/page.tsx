@@ -1,17 +1,14 @@
-import IndexContainer from "@/components/spotify/IndexContainer";
 import Video from "@/components/spotify/Video";
 import {
   getArtistById,
   getMe,
   getTrackById,
   getUserAllPlaylists,
-  getUserLikedPlaylists,
   getYoutubeVideoDamon,
 } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
-import Image from "next/image";
 import { Track, User } from "@/types/types";
 import TracksTable from "@/components/spotify/TracksTable";
 import DescriptionBar from "@/components/spotify/DescriptionBar";

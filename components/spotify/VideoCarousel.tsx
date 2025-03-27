@@ -1,11 +1,9 @@
 "use client";
 import { Carousel } from "flowbite-react";
 import Video from "./Video";
-import Image from "next/image";
 import type { CustomFlowbiteTheme } from "flowbite-react";
 import { Damon2Items, Playlist, Track } from "@/types/types";
 import { useState } from "react";
-import AddButton from "./AddButton";
 import DescriptionBar from "./DescriptionBar";
 
 interface Props {
@@ -45,8 +43,6 @@ const customTheme: CustomFlowbiteTheme["carousel"] = {
 export default function VideoCarousel({
   topTracks,
   youtubeVideo,
-  user,
-  playlists,
 }: Props) {
   const [slideState, setSlideState] = useState(true);
   let keycount = 0;

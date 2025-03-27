@@ -2,11 +2,11 @@
 
 import { Album, Artist, Playlist } from "@/types/types";
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import LoadingDots from "./LoadingDots";
-
+import { Nunito_Sans } from "next/font/google";
+const fontFamily = Nunito_Sans();
 interface Props {
   type: "artists" | "playlists" | "albums";
   entity: Album | Artist | Playlist;
@@ -28,7 +28,7 @@ export default function LibraryItemCard({ type, entity, subtitle }: Props) {
       href={`/${href}/0`}
       className={`${
         pathname === href ? "bg-paper-400" : ""
-      } flex items-center p-2 gap-3 rounded-md text-white cursor-pointer  hover:bg-zinc-500`}
+      } flex items-center p-2 gap-3 rounded-md text-white cursor-pointer  hover:bg-zinc-300 hover:bg-opacity-50 hover:backdrop-blur-lg`}
     >
       {isOpen && <LoadingDots />}
       <Image
@@ -42,7 +42,7 @@ export default function LibraryItemCard({ type, entity, subtitle }: Props) {
       />
 
       <div className="truncate">
-        <h6 className="w-full text-sm font-semibold truncate hover:text-white">
+        <h6 className={fontFamily.className + "w-full text-sm truncate hover:text-white"}>
           {entity.name}
         </h6>
         {/* {type !== "artists" && (

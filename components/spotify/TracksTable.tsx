@@ -2,7 +2,7 @@
 
 import { Playlist, Track } from "@/types/types";
 import { fmtMSS } from "@/util/clientUtils";
-import { Clock3, Music, ArrowBigUpDash, ArrowBigDownDash } from "lucide-react";
+import { Clock3, Music } from "lucide-react";
 import Image from "next/image";
 import { redirect, usePathname, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
@@ -75,12 +75,12 @@ export default function TracksTable({
                 <div
                   className={`${
                     showAlbum ? "col-span-6" : "col-span-10"
-                  } text-sm font-thin text-left`}
+                  }  font-thin text-left`}
                 >
                   Title
                 </div>
                 {showAlbum && (
-                  <div className="md:visible invisible col-span-3 text-sm font-thin text-left">
+                  <div className="md:visible invisible col-span-3  font-thin text-left">
                     Album
                   </div>
                 )}
@@ -109,11 +109,11 @@ export default function TracksTable({
                 onMouseLeave={() => setHoveredRow(null)}
               >
                 {hoveredRow === index ? (
-                  <span className="flex items-center col-span-1 text-sm text-zinc-400">
+                  <span className="flex items-center col-span-1  text-zinc-400">
                     <MdPlayArrow />
                   </span>
                 ) : (
-                  <span className="flex items-center col-span-1 text-sm text-zinc-400">
+                  <span className="flex items-center col-span-1  text-zinc-400">
                     {index + 1}
                   </span>
                 )}
@@ -144,12 +144,12 @@ export default function TracksTable({
                       ))}
 
                     <div className="w-full pr-3 truncate">
-                      <a className="w-10/12 text-sm font-medium text-ellipsis pr-4">
+                      <a className="w-10/12  font-medium text-ellipsis pr-4">
                         {track.name}
                       </a>
 
                       {showSubtitle && (
-                        <div className="flex items-center w-full gap-1 pr-4 text-sm text-zinc-400">
+                        <div className="flex items-center w-full gap-1 pr-4  text-zinc-400">
                           <span className="truncate">
                             {track.artists.map((artist, index) => (
                               <a
@@ -168,7 +168,7 @@ export default function TracksTable({
                 </div>
 
                 {showAlbum && (
-                  <div className="md:flex hidden items-center w-10/12 md:col-span-3 text-sm text-zinc-400">
+                  <div className="md:flex hidden items-center w-10/12 md:col-span-3  text-zinc-400">
                     <a
                     // href={`/albums/${track.album.id}`}
                     // className="truncate hover:text-white hover:underline z-50"
@@ -178,10 +178,10 @@ export default function TracksTable({
                   </div>
                 )}
 
-                <small className="md:flex hidden items-center md:col-span-1 text-sm font-medium text-zinc-400 ">
+                <small className="md:flex hidden items-center md:col-span-1  font-medium text-zinc-400 ">
                   {fmtMSS(track.duration_ms)}
                 </small>
-                <div className="flex col-span-1 col-end-13 items-center  text-sm font-medium text-gray "></div>
+                <div className="flex col-span-1 col-end-13 items-center   font-medium text-gray "></div>
               </div>
               <div className="absolute right-0 -translate-y-11">
                 <AddButton

@@ -1,7 +1,7 @@
 "use server";
 
 import authOptions from "@/lib/configs/auth/authOptions";
-import { AuthSession, Data } from "@/types/types";
+import { AuthSession } from "@/types/types";
 import { getServerSession } from "next-auth/next";
 
 export const customGet = async (url: string, session: AuthSession | null) => {

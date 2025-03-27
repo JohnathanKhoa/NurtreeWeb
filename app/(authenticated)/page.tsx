@@ -1,29 +1,19 @@
-import AlbumCards from "@/components/spotify/AlbumCards";
-import ArtistCards from "@/components/spotify/ArtistCards";
-import Image from "next/image";
-import SpotifyImage from "@/public/images/spotify_logo.png";
-import { Heading, Subheading } from "@/components/heading";
-import { Divider } from "@/components/divider";
+import { Heading } from "@/components/heading";
 import {
   getArtistTopTrack,
   getMe,
   getNewReleases,
   getTopItems,
-  getTotalPlaylists,
   getUserAllPlaylists,
-  getUserLikedPlaylists,
   getYoutubeVideoDamon,
 } from "@/lib/actions";
-import { Artist, Damon2Items, Playlist, Track, User } from "@/types/types";
+import { Artist, Damon2Items, Track, User } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";
 import { redirect } from "next/navigation";
 import VideoCarousel from "@/components/spotify/VideoCarousel";
 import getRandomNumbers from "@/components/Random";
-import TrackCards from "@/components/spotify/TrackCards";
 import ArtistCarousel from "@/components/spotify/ArtistCarousel";
 import TrackCarousel from "@/components/spotify/TrackCarousel";
-import { it } from "node:test";
-import PlaylistCards from "@/components/spotify/PlaylistCards";
 import { getGreeting } from "@/util/clientUtils";
 
 export const metadata = {
@@ -133,7 +123,6 @@ export default async function Home() {
 
     return (
       <section className="flex flex-col items-center">
-        
         {/* <Heading className="m-4">
           Good {getGreeting()}, {user.name}
         </Heading> */}
@@ -151,7 +140,7 @@ export default async function Home() {
             youtubeVideo={youtubeVideo}
           />
         </div>
-        <Divider className="" />
+        {/* <Divider className="" /> */}
         {/* <div className="pt-4 flex flex-row w-full items-center justify-center gap-6 border-t-2">
       
       <div className="flex flex-row items-center justify-center gap-6">

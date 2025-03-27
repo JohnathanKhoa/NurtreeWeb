@@ -21,9 +21,15 @@ export default function UserLibrary({ playlists }: Props) {
             {({ active }) => (
               <button className={clsx(active)}>
                 {active === true ? (
-                  <MenuIcon height={25} />
+                  <div className="flex flex-row">
+                    {/* <MenuIcon height={25} /> */}
+                    Playlists
+                  </div>
                 ) : (
-                  <MenuIcon size={25} className="" />
+                  <div className="flex flex-row">
+                    {/* <MenuIcon height={25} /> */}
+                    Playlists
+                  </div>
                 )}
               </button>
             )}
@@ -32,9 +38,9 @@ export default function UserLibrary({ playlists }: Props) {
             anchor="bottom"
             className="overflow-auto scrollbar-hide  bg-zinc-800 rounded-xl opacity-80"
           >
-            <div className="sticky top-0 bg-black text-center ring-white ring-1 font-semibold">
+            {/* <div className="sticky top-0 bg-black text-center ">
               Your Playlist Library
-            </div>
+            </div> */}
             {playlists?.map((playlist) => (
               <MenuItem key={keycount++}>
                 <LibraryItemCard

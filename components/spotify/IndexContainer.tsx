@@ -47,7 +47,7 @@ export default function IndexContainer({
             />
           }
         </div>
-        <div className="flex flex-col md:flex-row gap-6 m-4 ">
+        <div className="flex flex-col  gap-6 ">
           {playlist && (
             <>
               {/* <div className="flex items-center gap-6 md:m-4 ">

@@ -6,6 +6,7 @@ import type { CustomFlowbiteTheme } from "flowbite-react";
 import { Damon2Items, Playlist, Track } from "@/types/types";
 import { useState } from "react";
 import AddButton from "./AddButton";
+import DescriptionBar from "./DescriptionBar";
 
 interface Props {
   topTracks: Track[];
@@ -65,7 +66,11 @@ export default function VideoCarousel({
                 />
               }
             </div>
-            <div className="flex justify-center items-center gap-6 mt-2">
+            <DescriptionBar
+              track={topTracks[index]}
+              artist={topTracks[index].artists[0]}
+            />
+            {/* <div className="flex justify-center items-center gap-6 mt-2">
               {
                 <Image
                   src={topTracks[index].album?.images[0].url}
@@ -104,7 +109,7 @@ export default function VideoCarousel({
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         ))}
       </Carousel>

@@ -50,7 +50,8 @@ export default async function SearchResults({ params }: Props) {
       <SearchFilters />
 
       <div className="flex flex-col items-stretch -mt-8">
-        <h1 className="flex items-center justify-center border-t-2">Tracks</h1>
+      <div className="col-span-12 border-b border-zinc-500"></div>
+        <h1 className="flex items-center justify-center">Tracks</h1>
         <TracksTable
           playlists={playlists}
           tracks={searchResults.tracks.items}
@@ -63,7 +64,8 @@ export default async function SearchResults({ params }: Props) {
 
       {searchResults.artists.items.length > 0 && (
         <div>
-          <h1 className="flex items-center justify-center border-t-2">
+          <div className="col-span-12 border-b border-zinc-500"></div>
+          <h1 className="flex items-center justify-center">
             Artists
           </h1>
           <ArtistCards artists={searchResults.artists.items} />
@@ -72,7 +74,8 @@ export default async function SearchResults({ params }: Props) {
 
       {searchResults.albums.items.length > 0 && (
         <div>
-          <h1 className="flex items-center justify-center border-t-2">
+          <div className="col-span-12 border-b border-zinc-500"></div>
+          <h1 className="flex items-center justify-center">
             Albums
           </h1>
           <AlbumCards albums={searchResults.albums.items} />
@@ -81,7 +84,8 @@ export default async function SearchResults({ params }: Props) {
 
       {searchResults.playlists.items.length > 0 && (
         <div>
-          <h1 className="flex items-center justify-center border-t-2">
+          <div className="col-span-12 border-b border-zinc-500"></div>
+          <h1 className="flex items-center justify-center">
             Playlists
           </h1>
           <PlaylistCards playlists={searchResults.playlists.items} />

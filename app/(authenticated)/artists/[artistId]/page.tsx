@@ -69,7 +69,7 @@ export default async function ArtistPage({ params }: Props) {
                 alt={artist.name}
                 height={200}
                 width={200}
-                className="object-cover rounded-full md:w-52 w-20 md:h-52 h-20"
+                className="object-cover rounded-md md:w-52 w-20 md:h-52 h-20"
                 priority
               />
             ) : (

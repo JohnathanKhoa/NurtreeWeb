@@ -5,7 +5,7 @@ import SpotifyImage from "@/public/images/spotify_logo.png";
 import SearchInput from "./SearchInput";
 import Hamburger from "./Hamburger";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({preload: false});
+const fontFamily = Nunito_Sans({ preload: false });
 
 export default async function NavBar() {
   const session = await getAuthSession();
@@ -27,7 +27,12 @@ export default async function NavBar() {
           {/* <UserLibrary playlists={playlists} /> */}
           <div className="flex flex-row items-start gap-2">
             <Hamburger playlists={playlists} />
-            <div className={fontFamily.className + " text-xl font-semibold tracking-tight text-pretty text-white "}>
+            <div
+              className={
+                fontFamily.className +
+                " text-xl font-semibold tracking-tight text-pretty text-white "
+              }
+            >
               Nurtree
             </div>
           </div>

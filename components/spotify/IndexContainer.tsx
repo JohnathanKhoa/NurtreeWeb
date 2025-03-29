@@ -29,7 +29,7 @@ export default function IndexContainer({
 
   return (
     <>
-      <div className="flex flex-col ">
+      <div className="flex flex-col  bg-[#1f1f1f]">
         <div className="sticky h-1/3 aspect-video top-1/5 xl:max-h-[650px] 2xl:max-h-[1048px] ">
           {
             <Video
@@ -41,7 +41,7 @@ export default function IndexContainer({
             />
           }
         </div>
-        <div className="flex flex-col  gap-6 ">
+        <div className="flex flex-col  gap-6 bg-[#1f1f1f] ">
           {playlist && (
             <>
               {/* <div className="flex items-center gap-6 md:m-4 ">
@@ -103,7 +103,7 @@ export default function IndexContainer({
             </>
           )}
         </div>
-        <div className="relative w-full overflow-auto scrollbar-hide">
+        <div className="relative w-full overflow-auto scrollbar-hide bg-[#1f1f1f]">
           <TracksTable
             tracks={tracks}
             showAlbum

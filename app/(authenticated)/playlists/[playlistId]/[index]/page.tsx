@@ -64,7 +64,7 @@ export default async function PlaylistPage({ params }: Props) {
     const result = await getYoutubeVideoDamon(session, playlistTracks[index]);
 
     return (
-      <div className="scrollbar-hide">
+      <div className="scrollbar-hide ">
         <IndexContainer
           playlist={playlist}
           tracks={playlist?.tracks.items

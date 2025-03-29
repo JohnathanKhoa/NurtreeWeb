@@ -35,9 +35,7 @@ export default function CardItem({
             alt={altTitle}
             height={2000}
             width={2000}
-            className={`aspect-square object-cover w-full ${
-              imageRounded ? "rounded-full" : "rounded-md"
-            }`}
+            className={`aspect-square object-cover w-full rounded-md`}
           />
         ) : (
           <div className="w-full h-40">

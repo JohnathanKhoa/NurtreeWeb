@@ -38,10 +38,10 @@ export default function RootLayout({
         </Head>
 
         <body className="bg-black">
-          <Particles
+          {/* <Particles
             className="fixed inset-0 -z-10 animate-fade-in overflow-auto scrollbar-hide"
             quantity={200}
-          />
+          /> */}
 
           <div className={fontFamily.className + "overflow-auto scrollbar-hide"}>{children}</div>
         </body>

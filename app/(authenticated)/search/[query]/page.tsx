@@ -41,7 +41,7 @@ export default async function SearchResults({ params }: Props) {
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
   return (
-    <div className="mx-2 flex flex-col items-stretch gap-8">
+    <div className="mx-2 flex flex-col items-stretch  ">
       <SearchFilters />
 
       <div className="flex flex-col items-stretch -mt-8">

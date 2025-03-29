@@ -38,7 +38,7 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
           </MenuButton>
           <MenuItems
             anchor="bottom"
-            className="overflow-auto scrollbar-hide bg-zinc-800 rounded-xl opacity-80"
+            className="overflow-auto scrollbar-hide bg-zinc-500 bg-opacity-50 backdrop-blur-lg"
           >
             <div
               onClick={() => {

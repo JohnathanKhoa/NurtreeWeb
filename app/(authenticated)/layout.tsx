@@ -13,7 +13,7 @@ export default function RootLayout({
     <NextAuthProvider>
       <TrackPlayerProvider>
         <div className="grid grid-cols-10 gap-2 scrollbar-hide">
-          <div className="flex flex-col h-full col-span-full overflow-hidden rounded-lg bg-paper-700 scrollbar-hide">
+          <div className="flex flex-col h-full col-span-full overflow-hidden rounded-lg  scrollbar-hide">
             <NavBar />
 
             <main className={fontFamily.className}>{children}</main>

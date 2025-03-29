@@ -16,7 +16,7 @@ export default function LoginPageLayout({
   return (
     <>
       <NextAuthProvider>
-        <div className={fontFamily.className + " text-white bg-paper-700"}>
+        <div className={fontFamily.className + " text-white "}>
           {children}
         </div>
       </NextAuthProvider>

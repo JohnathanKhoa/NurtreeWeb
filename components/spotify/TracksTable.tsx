@@ -94,7 +94,7 @@ export default function TracksTable({
         )}
 
         {/* Table Rows */}
-        <div className="w-full col-span-12 mt-2">
+        <div className="w-full col-span-12 mt-2 ">
           {tracks?.map((track, index) => (
             <div key={keyCount++}>
               <div
@@ -102,7 +102,7 @@ export default function TracksTable({
                   handleClick(track, index);
                 }}
                 className={`z-49 grid py-2 px-4 grid-cols-12 cursor-pointer hover:bg-zinc-700 truncate ${
-                  index === i ? "bg-zinc-400 bg-opacity-50" : "bg-transparent"
+                  index === i ? "bg-zinc-700 bg-opacity-50" : "bg-transparent"
                 }`}
                 key={track.id + index + keyCount++}
                 onMouseEnter={() => setHoveredRow(index)}

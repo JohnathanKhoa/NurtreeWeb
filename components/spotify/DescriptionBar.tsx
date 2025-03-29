@@ -36,13 +36,34 @@ export default function DescriptionBar({ track, artist }: Props) {
           </h1>
           
         </div> */}
-
-        <Spotify
-          className="w-full bg-transparent opacity-80 hover:opacity-100 duration-300"
+        {/* `https://open.spotify.com/embed/track/${track.id}?utm_source=generator&theme=0` */}
+        <iframe
+          className="w-full "
+          src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator&theme=0`}
+          // src="https://open.spotify.com/embed/track/5D1QJgn1rP8docnVY6MRJ9?utm_source=generator&theme=0"
+          width="100%"
+          height="152"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+        {/* <iframe
+          className="fixed  w-full rounded-none"
+          src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator`}
+          // src="https://open.spotify.com/embed/track/5D1QJgn1rP8docnVY6MRJ9?utm_source=generator&theme=0"
+          width="100%"
+          height="152"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe> */}
+         {/* <Spotify
+          className="fixed z-10 w-full bg-transparent opacity-0 hover:opacity-100 duration-300"
           width="100%"
           height={152}
+          theme={0}
+          view="coverart"
           link={`https://open.spotify.com/track/${track.id}`}
-        />
+        />  */}
+        
       </div>
     </>
   );

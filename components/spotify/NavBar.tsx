@@ -40,7 +40,7 @@ export default async function NavBar() {
         <SearchInput />
         {/* <Image className="rounded-xl object-scale-down w-7 h-7 justify-self-center" src={NurtreeImage} alt="NurtreeImage"/> */}
         <div className="flex flex-row">
-          <div className="text-sm font-normal pr-2">powered by </div>
+          {/* <div className="text-sm font-normal pr-2">powered by </div> */}
           <a href="https://open.spotify.com">
             <Image className="w-20 h-full" src={SpotifyImage} alt={""} />
           </a>

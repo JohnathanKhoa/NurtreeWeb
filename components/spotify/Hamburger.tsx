@@ -14,7 +14,7 @@ import { signOut } from "next-auth/react";
 import UserLibrary from "./UserLibrary";
 import BuyMeACoffee from "../BuyMeACoffee";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({preload: false});
+const fontFamily = Nunito_Sans({ preload: false });
 require("dotenv").config();
 
 interface Props {
@@ -47,7 +47,10 @@ export default function Hamburger({ playlists }: Props) {
           </MenuButton>
           <MenuItems
             anchor="bottom"
-            className={fontFamily.className + "overflow-auto rounded-sm w-64 p-6  bg-zinc-500 bg-opacity-50 backdrop-blur-lg"}
+            className={
+              fontFamily.className +
+              "overflow-auto rounded-sm w-64 p-6  bg-zinc-500 bg-opacity-50 backdrop-blur-lg"
+            }
           >
             <MenuItem key={keycount++}>
               <div className="rounded-sm hover:text-zinc-400 transition duration-300">
@@ -65,13 +68,15 @@ export default function Hamburger({ playlists }: Props) {
             <MenuSeparator className="my-1 h-px bg-black" />
             <MenuItem key={keycount++}>
               <div className="rounded-sm hover:text-zinc-400 transition duration-300">
-                <button className={fontFamily.className} onClick={logout}>Logout</button>
+                <button className={fontFamily.className} onClick={logout}>
+                  Logout
+                </button>
               </div>
             </MenuItem>
             <MenuSeparator className="my-1 h-px bg-black" />
             <MenuItem key={keycount++}>
               <div className="rounded-sm hover:text-zinc-400 transition duration-300">
-                <BuyMeACoffee/>
+                <BuyMeACoffee />
               </div>
             </MenuItem>
           </MenuItems>

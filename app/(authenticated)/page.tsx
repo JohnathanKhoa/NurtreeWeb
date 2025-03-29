@@ -58,7 +58,7 @@ export default async function Home() {
   // topTracks.filter((item) => {
   //   item.popularity >= 70;
   // }).map((item) => mostPopular.push(item)) ;
-  if (topArtists.length > 3) {
+  if (topArtists.length > 3 && topTracks.length > 9) {
     const youtubeVideo: Damon2Items[] = [];
     // const videoTrack: Track[] = [];
     //   for (let i = 0; i < mostPopular.length; i++){
@@ -96,10 +96,10 @@ export default async function Home() {
 
       youtubeVideo.push(video);
     }
-
+    const rand = getRandomNumbers(min, 9, 9);
     for (let i = 0; i < 9; i++) {
       const randomNumbers = getRandomNumbers(min, max, count);
-      randomSuggestions.push(topTracks[randomNumbers[0]]);
+      randomSuggestions.push(topTracks[rand[i]]);
     }
     // const total = await getTotalPlaylists(session);
     // const publicPlaylists: Playlist[] = [];
@@ -184,6 +184,7 @@ export default async function Home() {
       <Heading>
         Good {getGreeting()}, {user.name}
       </Heading>
+      <div></div>
     </section>
   );
 }

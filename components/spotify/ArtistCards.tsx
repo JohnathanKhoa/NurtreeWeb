@@ -20,7 +20,6 @@ export default function ArtistCards({ artists }: Props) {
             altTitle={artist.name}
             subheading="Artist"
             type="artists"
-            
           />
         </div>
       ))}

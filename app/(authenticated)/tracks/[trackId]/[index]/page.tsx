@@ -57,12 +57,12 @@ export default async function TrackPage({ params }: Props) {
   }).then((data) => data)) as User;
   return (
     <div className="scrollbar-hide">
-      <div className="flex flex-col ">
+      <div className="flex flex-col bg-[#1f1f1f]">
         <div className="sticky h-1/3 aspect-video top-1/5 max-h-[1048px] ">
           {<Video tracksLength={0} id={result.id} index={0} play={1} />}
         </div>
         <DescriptionBar artist={artist} track={track} />
-        <div className="relative w-full overflow-auto scrollbar-hide">
+        <div className="relative w-full overflow-auto scrollbar-hide bg-[#1f1f1f]">
           <TracksTable
             user={currentUser.id}
             playlists={playlists}

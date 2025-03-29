@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 import { NextAuthProvider } from "@/providers/NextAuthProvider";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({preload: false});
+const fontFamily = Nunito_Sans({ preload: false });
 
 export const metadata = {
   title: "Login with Spotify",
@@ -16,9 +16,7 @@ export default function LoginPageLayout({
   return (
     <>
       <NextAuthProvider>
-        <div className={fontFamily.className + " text-white "}>
-          {children}
-        </div>
+        <div className={fontFamily.className + " text-white "}>{children}</div>
       </NextAuthProvider>
     </>
   );

@@ -55,7 +55,7 @@ export default function DescriptionBar({ track, artist }: Props) {
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe> */}
-         {/* <Spotify
+        {/* <Spotify
           className="fixed z-10 w-full bg-transparent opacity-0 hover:opacity-100 duration-300"
           width="100%"
           height={152}
@@ -63,7 +63,6 @@ export default function DescriptionBar({ track, artist }: Props) {
           view="coverart"
           link={`https://open.spotify.com/track/${track.id}`}
         />  */}
-        
       </div>
     </>
   );

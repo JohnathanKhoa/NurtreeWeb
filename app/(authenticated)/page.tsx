@@ -58,7 +58,7 @@ export default async function Home() {
   // topTracks.filter((item) => {
   //   item.popularity >= 70;
   // }).map((item) => mostPopular.push(item)) ;
-  if (topArtists.length > 0) {
+  if (topArtists.length > 3) {
     const youtubeVideo: Damon2Items[] = [];
     // const videoTrack: Track[] = [];
     //   for (let i = 0; i < mostPopular.length; i++){

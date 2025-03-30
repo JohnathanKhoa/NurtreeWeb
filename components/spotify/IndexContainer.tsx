@@ -5,6 +5,7 @@ import TracksTable from "./TracksTable";
 import Video from "./Video";
 import { Vibrant } from "node-vibrant/browser";
 import DescriptionBar from "./DescriptionBar";
+import { ArrowBigDownDash, ArrowBigUpDash } from "lucide-react";
 interface Props {
   tracks: Track[];
   track: string;
@@ -25,12 +26,13 @@ export default function IndexContainer({
   artist,
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  let v = new Vibrant(playlist.images[0].url);
+  // const [tableIsOpen, setTableIsOpen] = useState<boolean | null>(false);
+  // let v = new Vibrant(playlist.images[0].url);
 
   return (
     <>
       <div className="flex flex-col  bg-[#1f1f1f]">
-        <div className="sticky h-1/3 aspect-video top-1/5 xl:max-h-[650px] 2xl:max-h-[1048px] ">
+        <div className="relative h-1/3 aspect-video  xl:max-h-[650px] 2xl:max-h-[1048px] ">
           {
             <Video
               tracksLength={tracks.length}
@@ -41,7 +43,7 @@ export default function IndexContainer({
             />
           }
         </div>
-        <div className="flex flex-col  gap-6 bg-[#1f1f1f] ">
+        <div className="flex flex-col overflow-y-auto gap-6 bg-[#1f1f1f] ">
           {playlist && (
             <>
               {/* <div className="flex items-center gap-6 md:m-4 ">
@@ -98,12 +100,21 @@ export default function IndexContainer({
                  <div className="md:flex hidden self-center gap-6 m-4"><MdPlayArrow size={50}/></div> 
               </div> */}
               {/* <div  className="flex"></div> */}
-
-              <DescriptionBar artist={artist} track={tracks[index]} />
+              <div className="sticky top-0">
+                <DescriptionBar artist={artist} track={tracks[index]} />
+              </div>
             </>
           )}
         </div>
-        <div className="relative w-full overflow-auto scrollbar-hide bg-[#1f1f1f]">
+        {/* <div className={`${tableIsOpen ? "" : "bottom-0"} flex justify-center`}>
+        <div className="">
+          <button className="flex" onClick={() => setTableIsOpen(!tableIsOpen)}>
+            {tableIsOpen ? <ArrowBigDownDash /> : <ArrowBigUpDash />}
+          </button>
+        </div>
+      </div> */}
+        {/* <div className={`${tableIsOpen ? "visible" : "hidden"}`}> */}
+        <div className="relative w-full overflow-auto bg-[#1f1f1f]">
           <TracksTable
             tracks={tracks}
             showAlbum
@@ -118,6 +129,7 @@ export default function IndexContainer({
           />
         </div>
       </div>
+      {/* </div> */}
     </>
   );
 }

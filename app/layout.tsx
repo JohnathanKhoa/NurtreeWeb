@@ -6,7 +6,7 @@ import SpotifyImage from "@/public/images/spotify_logo.png";
 import YoutubeImage from "@/public/images/yt_logo_mono_dark.png";
 import NurtreeImage from "@/public/images/nurtree.png";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({preload: false});
+const fontFamily = Nunito_Sans({ preload: false });
 export const metadata: Metadata = {
   title: "Nurtree",
   description:
@@ -29,7 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <html lang="en" className="overflow-auto scrollbar-hide">
+      <html
+        lang="en"
+        className="overflow-auto scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-track-transparent scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 "
+      >
         <Head>
           <meta
             name="viewport"
@@ -43,7 +46,7 @@ export default function RootLayout({
             quantity={200}
           /> */}
 
-          <div className={fontFamily.className + "overflow-auto scrollbar-hide"}>{children}</div>
+          <div className={fontFamily.className}>{children}</div>
         </body>
       </html>
     </>

@@ -5,7 +5,8 @@ import { Plus } from "lucide-react";
 import { Fragment } from "react";
 import clsx from "clsx";
 import AddLibraryItemCard from "./AddLibraryItemCard";
-
+import { Nunito_Sans } from "next/font/google";
+const fontFamily = Nunito_Sans({ preload: false });
 interface Props {
   playlists: Playlist[];
   trackId: string;
@@ -29,7 +30,7 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
           <MenuButton as={Fragment}>
             {({ active }) => (
               <button onClick={() => {}} className={` ${clsx(active)}`}>
-                <div className="flex flex-row p-4 gap-2 items-center  justify-center ">
+                <div className="flex flex-row p-4 gap-2 items-center  justify-center rounded-sm bg-opacity-50 backdrop-blur-lg shadow-2xl hover:bg-zinc-50/50 cursor-pointer">
                   <Plus size={25} />
                   Add to Playlist
                 </div>
@@ -38,15 +39,18 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
           </MenuButton>
           <MenuItems
             anchor="bottom"
-            className="overflow-auto scrollbar-hide bg-zinc-500 bg-opacity-50 backdrop-blur-lg"
+            className={
+              fontFamily.className +
+              "overflow-auto w-1/2 scrollbar scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 scrollbar-track-transparent rounded-sm bg-opacity-50 backdrop-blur-lg  shadow-2xl"
+            }
           >
             <div
               onClick={() => {
                 handleClick(user, trackId);
               }}
-              className=" rounded-md text-white cursor-pointer  hover:bg-zinc-500"
+              className=" rounded-sm bg-opacity-50 backdrop-blur-lg shadow-2xl hover:bg-zinc-50/50 cursor-pointer"
             >
-              <div className="flex flex-row p-4 gap-2 items-center  ">
+              <div className="flex flex-row p-4 gap-2 items-center ">
                 <Plus size={25} />
                 New Playlist
               </div>

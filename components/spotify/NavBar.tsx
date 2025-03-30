@@ -20,12 +20,12 @@ export default async function NavBar() {
   ]);
 
   return (
-    <header className="md:sticky  items-center w-full ">
-      <div className="flex flex-row items-center justify-between p-4 rounded-lg bg-paper-700">
+    <header className="items-center w-full bg-[#1f1f1f]">
+      <div className="flex flex-row items-center justify-between p-4  ">
         <div className="flex flex-row">
           {/* <RouterButtons /> */}
           {/* <UserLibrary playlists={playlists} /> */}
-          <div className="flex flex-row items-start gap-2">
+          <div className="flex flex-row items-start gap-2 ">
             <Hamburger playlists={playlists} />
             <div
               className={

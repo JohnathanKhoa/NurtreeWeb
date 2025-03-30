@@ -46,15 +46,16 @@ export default function DescriptionBar({ track, artist }: Props) {
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
+        {/* <div className="z-8 absolute w-full h-40 bg-gradient-to-r from-purple-400/25 via-pink-500/25 to-red-500/25 "></div> */}
         {/* <iframe
-          className="fixed  w-full rounded-none"
+          className="z-8 absolute w-full  bg-gradient from-black opacity-25 "
           src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator`}
           // src="https://open.spotify.com/embed/track/5D1QJgn1rP8docnVY6MRJ9?utm_source=generator&theme=0"
           width="100%"
           height="152"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
-        ></iframe> */}
+        ></iframe>  */}
         {/* <Spotify
           className="fixed z-10 w-full bg-transparent opacity-0 hover:opacity-100 duration-300"
           width="100%"

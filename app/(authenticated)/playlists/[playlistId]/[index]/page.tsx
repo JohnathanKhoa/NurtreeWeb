@@ -27,8 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   const playlistId = (await params).playlistId;
   const playlist = await getPlaylistById(session, playlistId);
+  const index = Number((await params).index);
+  const playlistTracks: Track[] = playlist?.tracks.items
+    .filter((item: any) => item.track !== null)
+    .map((item: any) => item.track);
   return {
-    title: `Nurtree - ${playlist.name}`,
+    title: `${playlistTracks[index].name} - ${playlistTracks[index].artists[0].name}`,
   };
 }
 
@@ -64,7 +68,7 @@ export default async function PlaylistPage({ params }: Props) {
     const result = await getYoutubeVideoDamon(session, playlistTracks[index]);
 
     return (
-      <div className="scrollbar-hide ">
+      <div className="">
         <IndexContainer
           playlist={playlist}
           tracks={playlist?.tracks.items

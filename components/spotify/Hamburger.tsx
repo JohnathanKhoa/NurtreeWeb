@@ -6,6 +6,7 @@ import {
   MenuItems,
   MenuSeparator,
 } from "@headlessui/react";
+import Drawer from "rc-drawer";
 import { Playlist } from "@/types/types";
 import { Menu as MenuIcon } from "lucide-react";
 import { Fragment, useState } from "react";
@@ -14,6 +15,8 @@ import { signOut } from "next-auth/react";
 import UserLibrary from "./UserLibrary";
 import BuyMeACoffee from "../BuyMeACoffee";
 import { Nunito_Sans } from "next/font/google";
+import { redirect } from "next/dist/server/api-utils";
+import Link from "next/link";
 const fontFamily = Nunito_Sans({ preload: false });
 require("dotenv").config();
 
@@ -30,6 +33,26 @@ export default function Hamburger({ playlists }: Props) {
 
   const [tableIsOpen, setTableIsOpen] = useState<boolean | null>(false);
 
+  const actions = [
+    {
+      name: "home",
+      action: (
+        <a
+          className={
+            fontFamily.className +
+            "flex h-full w-full hover:text-zinc-400 hover:bg-white transition duration-300"
+          }
+          href="/"
+        >
+          Home
+        </a>
+      ),
+    },
+    {
+      name: "",
+    },
+  ];
+
   return (
     <div className={fontFamily.className}>
       <div className="">
@@ -38,9 +61,9 @@ export default function Hamburger({ playlists }: Props) {
             {({ active }) => (
               <button className={clsx(active)}>
                 {active === true ? (
-                  <MenuIcon height={25} />
+                  <MenuIcon className="cursor-pointer" height={25} />
                 ) : (
-                  <MenuIcon size={25} className="" />
+                  <MenuIcon className="cursor-pointer" size={25} />
                 )}
               </button>
             )}
@@ -49,34 +72,36 @@ export default function Hamburger({ playlists }: Props) {
             anchor="bottom"
             className={
               fontFamily.className +
-              "overflow-auto rounded-sm w-64 p-6  bg-zinc-500 bg-opacity-50 backdrop-blur-lg"
+              "overflow-auto rounded-sm w-1/2 h-screen p-6 gap-6 bg-opacity-50 backdrop-blur-lg shadow-2xl"
             }
           >
             <MenuItem key={keycount++}>
-              <div className="rounded-sm hover:text-zinc-400 transition duration-300">
-                <a className={fontFamily.className} href="/">
-                  Home
-                </a>
-              </div>
+              <Link
+                className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer"
+                href="/"
+              >
+                <div>Home</div>
+              </Link>
             </MenuItem>
-            <MenuSeparator className="my-1 h-px bg-black" />
+
+            <MenuSeparator className="my-1 h-px bg-white" />
             <MenuItem key={keycount++}>
-              <div className="rounded-sm hover:text-zinc-400 transition duration-300">
-                <UserLibrary playlists={playlists} />
-              </div>
-            </MenuItem>
-            <MenuSeparator className="my-1 h-px bg-black" />
-            <MenuItem key={keycount++}>
-              <div className="rounded-sm hover:text-zinc-400 transition duration-300">
+              <div className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer ">
                 <button className={fontFamily.className} onClick={logout}>
                   Logout
                 </button>
               </div>
             </MenuItem>
-            <MenuSeparator className="my-1 h-px bg-black" />
+            <MenuSeparator className="my-1 h-px bg-white" />
             <MenuItem key={keycount++}>
-              <div className="rounded-sm hover:text-zinc-400 transition duration-300">
+              <div className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer">
                 <BuyMeACoffee />
+              </div>
+            </MenuItem>
+            <MenuSeparator className="my-1 h-px bg-white" />
+            <MenuItem key={keycount++}>
+              <div className="flex mt-20">
+                <UserLibrary playlists={playlists} />
               </div>
             </MenuItem>
           </MenuItems>

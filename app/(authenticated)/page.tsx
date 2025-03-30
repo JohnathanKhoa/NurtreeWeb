@@ -5,16 +5,21 @@ import {
   getNewReleases,
   getTopItems,
   getUserAllPlaylists,
+  getUserPlaylists,
+  getUserPublicPlaylists,
   getYoutubeVideoDamon,
 } from "@/lib/actions";
+import Image from "next/image";
 import { Artist, Damon2Items, Track, User } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";
 import { redirect } from "next/navigation";
-import VideoCarousel from "@/components/spotify/VideoCarousel";
+// import VideoCarousel from "@/components/spotify/VideoCarousel";
 import getRandomNumbers from "@/components/Random";
-import ArtistCarousel from "@/components/spotify/ArtistCarousel";
-import TrackCarousel from "@/components/spotify/TrackCarousel";
+// import ArtistCarousel from "@/components/spotify/ArtistCarousel";
+// import TrackCarousel from "@/components/spotify/TrackCarousel";
 import { getGreeting } from "@/util/clientUtils";
+import PlaylistTable from "@/components/spotify/PlaylistTable";
+import UserLibrary from "@/components/spotify/UserLibrary";
 
 export const metadata = {
   title: "Nurtree - Powered by Spotify",
@@ -38,10 +43,12 @@ export default async function Home() {
     session,
   }).then((data) => data)) as User;
 
-  const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 100),
-    //getUserLikedSongs(session).then((data) => data.total),
-  ]);
+  // const userPlaylists = await getUserPublicPlaylists(session);
+  // console.log(userPlaylists);
+  // const [playlists] = await Promise.all([
+  //   getUserAllPlaylists(session, 100),
+  //   //getUserLikedSongs(session).then((data) => data.total),
+  // ]);
   // const mostPopular = topTracks.filter(item => item.popularity >= 84)
   //   .map((item) => item) as Track[];
   //   console.log(mostPopular)
@@ -52,7 +59,7 @@ export default async function Home() {
     type: "artists",
   }).then((data) => data.items)) as Artist[];
 
-  const newReleases = await getNewReleases(session);
+  // const newReleases = await getNewReleases(session);
 
   // const mostPopular:Track[] = [];
   // topTracks.filter((item) => {
@@ -127,51 +134,57 @@ export default async function Home() {
           Good {getGreeting()}, {user.name}
         </Heading> */}
 
-        {/* <h1 className="mb-5 text-xl font-bold">Greetings, {session?.user.name}!</h1> */}
+        {/* <h1 className="mb-5 text-xl font-bold">
+          Greetings, {session?.user.name}!
+        </h1> */}
         {/* <h1 className="flex items-center gap-3 px-2 my-1 text-gray">
       Choose a playlist from your library <MenuIcon className="md:flex hidden" height={25} /> to get the top music video for each track
       </h1>  */}
         {/* <h1 className="font-bold underline">Top music videos for you</h1> */}
-        <div className="">
+
+        {/* <div className="flex flex-col h-screen overflow-hidden ">
+          <HomeUserLibrary playlists={userPlaylists}/>
+        </div> */}
+        {/* <div className="">
           <VideoCarousel
             user={currentUser.id}
             playlists={playlists}
             topTracks={randomTracks}
             youtubeVideo={youtubeVideo}
           />
-        </div>
+        </div> */}
         {/* <Divider className="" /> */}
         {/* <div className="pt-4 flex flex-row w-full items-center justify-center gap-6 border-t-2">
       
-      <div className="flex flex-row items-center justify-center gap-6">
-      <div className="flex flex-shrink h-20 w-20 md:max-w-100 md:max-h-100">
-      <Image
-          src={currentUser.images[0].url}
-          alt={currentUser.display_name}
-          height={200}
-          width={200}
-          className={`aspect-square object-scale-down ${"rounded-full"
-          }`}
-        />
-      </div> 
-      <div className="items-center justify-center">
-      <h1 className="text-lg font-bold">{session?.user.name}</h1>
-      <div className="text-sm">Total Playlists: {total}</div>
-      <div className="text-sm">Followers: {currentUser.followers.total}</div>
-      
-      </div>
-      </div>
+      <div className="flex flex-row items-center justify-center gap-6"> */}
+        <div className="">
+          <Image
+            src={currentUser.images[0].url}
+            alt={currentUser.display_name}
+            height={2000}
+            width={2000}
+            className={`aspect-square object-cover w-full rounded-md`}
+          />
+        </div>
+        <div className="items-center justify-center">
+          <h1 className="text-lg font-bold">{session?.user.name}</h1>
+          {/* <div className="text-sm">Total Playlists: {total}</div> */}
+          <div className="text-sm">
+            Followers: {currentUser.followers.total}
+          </div>
+        </div>
+        {/* </div>  
       
       </div> */}
         {/* <div className="flex h-1/2 w-1/2 items-center justify-center">
         <PlaylistCards playlists={publicPlaylists}/>
-      </div> */}
-        <div className="flex w-1/2 items-center justify-center">
+      </div>*/}
+        {/* <div className="flex w-1/2 items-center justify-center">
           <ArtistCarousel artists={topArtists} />
         </div>
         <div className="my-16 flex  w-1/2 items-center justify-center">
           <TrackCarousel tracks={randomSuggestions} />
-        </div>
+        </div> */}
 
         {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite artists</h1> */}
 

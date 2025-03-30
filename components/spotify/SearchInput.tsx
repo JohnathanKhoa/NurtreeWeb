@@ -16,13 +16,13 @@ export default function SearchInput() {
 
   return (
     <form
-      className="flex items-center justify-between w-1/5  px-3 py-1.5 bg-zinc-500 bg-opacity-50 rounded-full hover:bg-zinc-300 transition duration-700"
+      className="flex items-center 1/3 justify-between md:w-1/5  px-3 py-1.5 bg-opacity-50 backdrop-blur-lg  shadow-2xl rounded-full bg-black  focus:bg-zinc-300 transition duration-700"
       onSubmit={handleSubmit}
     >
-      <Search className="text-paper-600" />
+      <Search className="min-w-5 text-zinc-300" />
 
       <input
-        className="flex-grow w-full text-sm font-normal bg-transparent text-white focus:outline-none"
+        className="flex-grow w-full  text-sm font-normal bg-transparent text-white focus:outline-none"
         placeholder=""
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}

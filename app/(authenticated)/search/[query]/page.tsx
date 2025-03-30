@@ -41,10 +41,10 @@ export default async function SearchResults({ params }: Props) {
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
   return (
-    <div className="mx-2 flex flex-col items-stretch  ">
+    <div className="mx-2 flex flex-col   ">
       <SearchFilters />
 
-      <div className="flex flex-col items-stretch -mt-8">
+      <div className="flex flex-col  -mt-8">
         <div className="col-span-12 border-b border-zinc-500"></div>
         <h1 className="flex items-center justify-center">Tracks</h1>
         <TracksTable

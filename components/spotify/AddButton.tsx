@@ -19,28 +19,29 @@ export default function AddButton({ playlists, trackId, user }: Props) {
         <Menu>
           <MenuButton as={Fragment}>
             {({ active }) => (
-              <button className={clsx(active)}>
+              <button className={clsx(active) + "text-start cursor-pointer "}>
                 {active === true ? (
                   <EllipsisVertical height={25} />
                 ) : (
-                  <EllipsisVertical size={25} className="" />
+                  <EllipsisVertical
+                    size={25}
+                    className="text-start cursor-pointer"
+                  />
                 )}
               </button>
             )}
           </MenuButton>
           <MenuItems
-            anchor="left"
-            className="overflow-auto scrollbar-hide border-4-black bg-zinc-800 hover:bg-white  hover:text-black "
+            anchor="bottom start"
+            className="flex items-center justify-center  scrollbar-hide rounded-sm bg-opacity-50 backdrop-blur-lg shadow-2xl "
           >
             <MenuItem key={keycount++}>
-              <div className="">
-                <div className="flex flex-row ">
-                  <AddLibrary
-                    user={user}
-                    trackId={trackId}
-                    playlists={playlists}
-                  />
-                </div>
+              <div className="items-center justify-center ">
+                <AddLibrary
+                  user={user}
+                  trackId={trackId}
+                  playlists={playlists}
+                />
               </div>
             </MenuItem>
           </MenuItems>

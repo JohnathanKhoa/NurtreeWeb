@@ -1,9 +1,10 @@
 "use client";
 
 import { Playlist } from "@/types/types";
+import { Nunito_Sans } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
+const fontFamily = Nunito_Sans({ preload: false });
 interface Props {
   playlistId: string;
   trackId: string;
@@ -32,7 +33,7 @@ export default function LibraryItemCard({
       onClick={() => {
         handleClick(playlistId, trackId);
       }}
-      className="flex items-center p-2 gap-3 rounded-md text-white cursor-pointer  hover:bg-zinc-500 "
+      className="flex items-center p-2 gap-3  rounded-md text-white cursor-pointer  hover:bg-zinc-50/50 "
     >
       <Image
         src={entity.images[0].url}
@@ -43,9 +44,7 @@ export default function LibraryItemCard({
       />
 
       <div className="truncate">
-        <h6 className="w-full text-sm font-semibold truncate hover:text-white">
-          {entity.name}
-        </h6>
+        <h6 className={fontFamily.className + "w-full "}>{entity.name}</h6>
       </div>
     </div>
   );

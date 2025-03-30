@@ -270,15 +270,11 @@ export const getUserAllPlaylists = async (
 export const getUserPublicPlaylists = async (
   session: AuthSession
 ): Promise<Playlist[]> => {
-  const currUrl = "https://api.spotify.com/v1/me/playlists?offset=";
+  const currUrl = "https://api.spotify.com/v1/me/playlists?offset=0&limit=20";
   let offset = 0;
 
-  const data = await customGet(currUrl + offset, session);
+  const data = await customGet(currUrl, session);
   const userData = data;
-
-  offset = offset + 50;
-  const nextdata = await customGet(currUrl + offset, session);
-  userData.items.push(...nextdata.items);
 
   return userData.items;
 };

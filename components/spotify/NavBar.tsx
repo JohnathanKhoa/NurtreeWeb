@@ -41,7 +41,7 @@ export default async function NavBar() {
         {/* <Image className="rounded-xl object-scale-down w-7 h-7 justify-self-center" src={NurtreeImage} alt="NurtreeImage"/> */}
         <div className="flex flex-row">
           {/* <div className="text-sm font-normal pr-2">powered by </div> */}
-          <a href="https://open.spotify.com">
+          <a href="https://open.spotify.com" target="_blank">
             <Image className="w-20 h-full" src={SpotifyImage} alt={""} />
           </a>
         </div>

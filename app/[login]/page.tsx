@@ -115,7 +115,7 @@ export default function Login() {
               </dl>
               <button
                 type="button"
-                className="rounded-md bg-indigo-500  px-3.5 py-2.5 mt-24 w-full text-sm font-semibold text-white shadow-xs hover:bg-indigo-600"
+                className="rounded-md bg-indigo-500  px-3.5 py-2.5 mt-24 w-full text-sm font-semibold text-white shadow-xs hover:bg-indigo-600 cursor-pointer"
                 onClick={handleLogin}
               >
                 Login

@@ -30,7 +30,7 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
           <MenuButton as={Fragment}>
             {({ active }) => (
               <button onClick={() => {}} className={` ${clsx(active)}`}>
-                <div className="flex flex-row p-4 gap-2 items-center  justify-center rounded-sm bg-opacity-50 backdrop-blur-lg shadow-2xl hover:bg-zinc-50/50 cursor-pointer">
+                <div className="flex flex-row p-4 gap-2 items-center  justify-center rounded-sm bg-zinc-700 bg-opacity-50 backdrop-blur-lg shadow-2xl hover:bg-zinc-50/50 cursor-pointer">
                   <Plus size={25} />
                   Add to Playlist
                 </div>

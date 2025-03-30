@@ -72,38 +72,57 @@ export default function Hamburger({ playlists }: Props) {
             anchor="bottom"
             className={
               fontFamily.className +
-              "overflow-auto rounded-sm w-1/2 h-screen p-6 gap-6 bg-opacity-50 backdrop-blur-lg shadow-2xl"
+              "overflow-auto rounded-sm w-screen md:w-1/2 h-screen mt-6 p-6 gap-6 bg-opacity-50 backdrop-blur-lg shadow-2xl"
             }
           >
-            <MenuItem key={keycount++}>
-              <Link
-                className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer"
-                href="/"
-              >
-                <div>Home</div>
-              </Link>
-            </MenuItem>
-
-            <MenuSeparator className="my-1 h-px bg-white" />
-            <MenuItem key={keycount++}>
-              <div className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer ">
-                <button className={fontFamily.className} onClick={logout}>
-                  Logout
-                </button>
+            <>
+              <div className="grid grid-cols-1 h-full content-between">
+                <div className="flex-col">
+                  <MenuItem key={keycount++}>
+                    <div className="">
+                      <UserLibrary playlists={playlists} />
+                    </div>
+                  </MenuItem>
+                  <MenuSeparator className="my-1 h-px bg-white" />
+                </div>
+                <div className="flex-col">
+                  <MenuItem key={keycount++}>
+                    <Link
+                      className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer"
+                      href="/"
+                    >
+                      <div>Home</div>
+                    </Link>
+                  </MenuItem>
+                  <MenuSeparator className="my-1 h-px bg-white" />
+                  <MenuItem key={keycount++}>
+                    <Link
+                      className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer"
+                      href="https://open.spotify.com/"
+                      target="_blank"
+                    >
+                      <div>Spotify</div>
+                    </Link>
+                  </MenuItem>
+                  <MenuSeparator className="my-1 h-px bg-white" />
+                  <MenuItem key={keycount++}>
+                    <div onClick={logout} className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer ">
+                      <button className={fontFamily.className} onClick={logout}>
+                        Logout
+                      </button>
+                    </div>
+                  </MenuItem>
+                  <div className="flex grow max-h-full"></div>
+                  <MenuSeparator className="my-1 h-px bg-white" />
+                  <MenuItem key={keycount++}>
+                    <div className=" rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer">
+                      {/* <div className="my-1 h-px bg-white"></div> */}
+                      <BuyMeACoffee />
+                    </div>
+                  </MenuItem>
+                </div>
               </div>
-            </MenuItem>
-            <MenuSeparator className="my-1 h-px bg-white" />
-            <MenuItem key={keycount++}>
-              <div className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer">
-                <BuyMeACoffee />
-              </div>
-            </MenuItem>
-            <MenuSeparator className="my-1 h-px bg-white" />
-            <MenuItem key={keycount++}>
-              <div className="flex mt-20">
-                <UserLibrary playlists={playlists} />
-              </div>
-            </MenuItem>
+            </>
           </MenuItems>
         </Menu>
       </div>

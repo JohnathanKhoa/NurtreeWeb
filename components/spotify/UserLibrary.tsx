@@ -42,7 +42,7 @@ export default function UserLibrary({ playlists }: Props) {
       </MenuButton>
       <MenuItems
         anchor="top"
-        className="w-1/2 overflow-auto scrollbar scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 scrollbar-track-transparent rounded-sm bg-opacity-50 backdrop-blur-lg  shadow-2xl"
+        className="w-screen md:w-1/2 overflow-auto scrollbar scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 scrollbar-track-transparent rounded-sm bg-opacity-50 backdrop-blur-lg  shadow-2xl"
       >
         {/* <div className="sticky top-0 bg-black text-center ">
               Your Playlist Library

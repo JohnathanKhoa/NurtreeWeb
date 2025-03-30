@@ -168,7 +168,7 @@ export default function TracksTable({
                 </div>
 
                 {showAlbum && (
-                  <div className="md:flex hidden items-center w-10/12 md:col-span-3  text-zinc-400">
+                  <div className="md:flex hidden items-center w-10/12 md:col-span-3  text-zinc-400 truncate">
                     <a
                     // href={`/albums/${track.album.id}`}
                     // className="truncate hover:text-white hover:underline z-50"

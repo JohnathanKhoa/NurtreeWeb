@@ -29,7 +29,7 @@ export default function LibraryItemCard({
       onClick={() => {
         handleClick(playlistId, trackId);
       }}
-      className="flex items-center p-2 gap-3  rounded-md text-white cursor-pointer  hover:bg-zinc-50/50 "
+      className="flex items-center p-2 gap-3  rounded-md text-white cursor-pointer  hover:bg-indigo-100/50 "
     >
       <Image
         src={entity.images[0].url}

@@ -18,7 +18,7 @@ export default function GoToArtist({ track }: Props) {
   return (
     <a
       href={`/artists/${track.artists[0].id}`}
-      className="flex w-full rounded-sm pl-2 py-3 hover:bg-zinc-50/50  text-start cursor-pointer"
+      className="flex w-full rounded-sm pl-2 py-3 hover:bg-indigo-100/50 text-start cursor-pointer"
     >
       <div className="flex w-full justify-between items-between">
         <p className={`flex flex-row items-center justify-center gap-2`}>

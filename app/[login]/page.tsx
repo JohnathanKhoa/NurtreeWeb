@@ -133,9 +133,10 @@ export default function Login() {
               </button>
               <a
                 type="button"
-                className="flex flex-row w-full py-3 my-3 mt-10 gap-2 rounded-md place-content-center  subpixel-antialiased bg-indigo-300 hover:bg-indigo-400 cursor-pointer shadow-2xl"
+                className="flex flex-row w-full py-3 my-3 mt-10 gap-2 rounded-md place-content-center  subpixel-antialiased border-1 border-[#1ED760] bg-[#1ED760] cursor-pointer shadow-2xl"
                 onClick={() => setClicked(true)}
                 href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F"
+                target="_blank"
               >
                 <div className="flex flex-row w-full mr-5 gap-2 items-end justify-end">
                   {clicked && <Disc3 className="animate-spin w-6" />}

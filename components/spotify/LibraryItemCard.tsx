@@ -26,7 +26,7 @@ export default function LibraryItemCard({ type, entity, subtitle }: Props) {
       href={`/${href}/0`}
       className={`${
         pathname === href ? "bg-paper-400" : ""
-      } flex items-center p-2 gap-3 rounded-md text-white cursor-pointer  hover:bg-zinc-100/50 `}
+      } flex items-center p-2 gap-3 rounded-md text-white cursor-pointer  hover:bg-indigo-100/50 `}
     >
       {isOpen && <LoadingDots />}
       <Image

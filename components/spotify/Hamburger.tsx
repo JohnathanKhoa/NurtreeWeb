@@ -59,7 +59,7 @@ export default function Hamburger({ playlists }: Props) {
                 <div className="flex-col">
                   <MenuItem key={keycount++}>
                     <Link
-                      className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer"
+                      className="flex rounded-sm pl-2 py-3 hover:bg-indigo-100/50 cursor-pointer"
                       href="/"
                     >
                       <div>Home</div>
@@ -68,7 +68,7 @@ export default function Hamburger({ playlists }: Props) {
                   <MenuSeparator className="my-1 h-px bg-white" />
                   <MenuItem key={keycount++}>
                     <Link
-                      className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer"
+                      className="flex rounded-sm pl-2 py-3 hover:bg-indigo-100/50 cursor-pointer"
                       href="https://open.spotify.com/"
                       target="_blank"
                     >
@@ -79,7 +79,7 @@ export default function Hamburger({ playlists }: Props) {
                   <MenuItem key={keycount++}>
                     <div
                       onClick={logout}
-                      className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer "
+                      className="flex rounded-sm pl-2 py-3 hover:bg-indigo-100/50 cursor-pointer "
                     >
                       <button onClick={logout}>Logout</button>
                     </div>
@@ -87,7 +87,7 @@ export default function Hamburger({ playlists }: Props) {
                   <div className="flex grow max-h-full"></div>
                   <MenuSeparator className="my-1 h-px bg-white" />
                   <MenuItem key={keycount++}>
-                    <div className=" rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer">
+                    <div className=" rounded-sm pl-2 py-3 hover:bg-indigo-100/50 cursor-pointer">
                       <BuyMeACoffee />
                     </div>
                   </MenuItem>

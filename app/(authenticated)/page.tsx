@@ -183,7 +183,7 @@ export default async function Home() {
                 </div> */}
                 <div>
                   <a
-                    className="flex flex-row w-full py-3 my-3 mt-10 px-5 gap-2 rounded-md place-content-center subpixel-antialiased  font-medium bg-[#1f1f1f] hover:bg-[#1ED760] transition duration-100 cursor-pointer shadow-2xl"
+                    className="flex flex-row w-full py-3 my-3 mt-10 px-5 gap-2 rounded-md place-content-center subpixel-antialiased  font-medium bg-black hover:bg-[#1ED760] transition duration-100 cursor-pointer shadow-2xl"
                     href="https://open.spotify.com/"
                     target="_blank"
                   >

@@ -20,7 +20,7 @@ export default function UserLibrary({ playlists }: Props) {
           <button
             className={
               clsx(active) +
-              `flex w-full rounded-sm pl-2 py-3 hover:bg-zinc-50/50  text-start cursor-pointer`
+              `flex w-full rounded-sm pl-2 py-3 hover:bg-indigo-100/50  text-start cursor-pointer`
             }
           >
             {active === true ? (

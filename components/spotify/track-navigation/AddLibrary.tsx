@@ -30,7 +30,7 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
             <button
               onClick={() => {}}
               className={` ${clsx(active)} +
-              "flex w-full rounded-sm pl-2 py-3 hover:bg-zinc-50/50  text-start cursor-pointer`}
+              "flex w-full rounded-sm pl-2 py-3 hover:bg-indigo-100/50  text-start cursor-pointer`}
             >
               <div
                 className={` flex w-full justify-between items-between`}
@@ -55,7 +55,7 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
             onClick={() => {
               handleClick(user, trackId);
             }}
-            className=" rounded-sm bg-opacity-50 backdrop-blur-lg shadow-2xl hover:bg-zinc-50/50 cursor-pointer"
+            className=" rounded-sm bg-opacity-50 backdrop-blur-lg shadow-2xl hover:bg-indigo-100/50 cursor-pointer"
           >
             <div
               className={` flex flex-row p-4 gap-2 items-center`}

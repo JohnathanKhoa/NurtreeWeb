@@ -18,5 +18,10 @@ https://github.com/user-attachments/assets/02ffef78-3e15-4b41-8f11-90f54f0201be
 
 https://github.com/user-attachments/assets/1082fbab-35ae-4a19-9ae2-a993b6729ade
 
+80% components made from scratch, hadwritten tailwindcss, logic separated on server components and model and states handles by client components
+
+Additional features: search songs, artists, albums, playlists, add tracks to playlist, etc
+
+App has yest to be approved by spotify, please request me to add your email to the development list if you waish to take a look firsthand
 
 

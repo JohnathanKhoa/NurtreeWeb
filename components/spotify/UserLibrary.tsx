@@ -5,8 +5,7 @@ import { Fragment } from "react";
 import { ChevronDown } from "lucide-react";
 import LibraryItemCard from "./LibraryItemCard";
 import clsx from "clsx";
-import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({ preload: true });
+
 interface Props {
   playlists: Playlist[];
 }
@@ -21,7 +20,7 @@ export default function UserLibrary({ playlists }: Props) {
           <button
             className={
               clsx(active) +
-              `${fontFamily.className} flex w-full rounded-sm pl-2 py-3 hover:bg-zinc-50/50  text-start cursor-pointer`
+              `flex w-full rounded-sm pl-2 py-3 hover:bg-zinc-50/50  text-start cursor-pointer`
             }
           >
             {active === true ? (

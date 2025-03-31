@@ -1,8 +1,7 @@
 "use client";
 import { Track } from "@/types/types";
 import { ArrowLeftFromLine } from "lucide-react";
-import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({ preload: true });
+
 interface Props {
   track: Track;
 }
@@ -22,9 +21,7 @@ export default function GoToArtist({ track }: Props) {
       className="flex w-full rounded-sm pl-2 py-3 hover:bg-zinc-50/50  text-start cursor-pointer"
     >
       <div className="flex w-full justify-between items-between">
-        <p
-          className={`${fontFamily.className} flex flex-row items-center justify-center gap-2`}
-        >
+        <p className={`flex flex-row items-center justify-center gap-2`}>
           <ArrowLeftFromLine size={25} />
           Go to Artist
         </p>

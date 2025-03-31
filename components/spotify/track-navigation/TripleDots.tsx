@@ -10,10 +10,9 @@ import { Playlist, Track } from "@/types/types";
 import { EllipsisVertical } from "lucide-react";
 import { Fragment } from "react";
 import clsx from "clsx";
-import { Nunito_Sans } from "next/font/google";
 import AddLibrary from "./AddLibrary";
 import GoToArtist from "./GoToArtist";
-const fontFamily = Nunito_Sans({ preload: true });
+
 require("dotenv").config();
 
 interface Props {
@@ -26,7 +25,7 @@ export default function TripleDots({ playlists, track, user }: Props) {
   let keycount = 0;
 
   return (
-    <div className={fontFamily.className}>
+    <div>
       <div className="">
         <Menu>
           <MenuButton as={Fragment}>

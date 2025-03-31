@@ -1,5 +1,3 @@
-import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({ preload: true });
 
 export default function BuyMeACoffee() {
   return (
@@ -8,7 +6,7 @@ export default function BuyMeACoffee() {
       target="_blank"
       className="flex gap-2"
     >
-      <div className={fontFamily.className}>Buy me a coffee?</div> ☕
+      <div>Buy me a coffee?</div> ☕
     </a>
   );
 }

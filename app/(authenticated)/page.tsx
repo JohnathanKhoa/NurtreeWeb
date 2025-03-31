@@ -21,10 +21,7 @@ import { getGreeting } from "@/util/clientUtils";
 // import PlaylistTable from "@/components/spotify/PlaylistTable";
 import UserLibrary from "@/components/spotify/UserLibrary";
 import Blur from "@/components/spotify/Blur";
-import { Nunito_Sans } from "next/font/google";
 import SpotifyIcon from "@/components/spotify/SpotifyIcon";
-import { Disc3 } from "lucide-react";
-const fontFamily = Nunito_Sans({ preload: true });
 
 export const metadata = {
   title: "Nurtree - Powered by Spotify",
@@ -178,12 +175,7 @@ export default async function Home() {
                 className={`aspect-square object-cover w-full rounded-md shadow-2xl`}
               />
 
-              <div
-                className={
-                  fontFamily.className +
-                  "place-content-center justify-items-center"
-                }
-              >
+              <div className={"place-content-center justify-items-center"}>
                 <h1 className="text-lg font-bold">{session?.user.name}</h1>
                 {/* <div className="text-sm">Total Playlists: {total}</div> */}
                 {/* <div className="text-sm">
@@ -196,7 +188,6 @@ export default async function Home() {
                     target="_blank"
                   >
                     <div className="flex flex-row  items-between justify-between">
-                      
                       <SpotifyIcon />
                     </div>
                     <p>Open Spotify</p>

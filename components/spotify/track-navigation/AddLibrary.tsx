@@ -5,8 +5,7 @@ import { ChevronDown, SquarePlus } from "lucide-react";
 import { Fragment } from "react";
 import clsx from "clsx";
 import AddLibraryItemCard from "./AddLibraryItemCard";
-import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({ preload: true });
+
 interface Props {
   playlists: Playlist[];
   trackId: string;
@@ -34,7 +33,7 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
               "flex w-full rounded-sm pl-2 py-3 hover:bg-zinc-50/50  text-start cursor-pointer`}
             >
               <div
-                className={`${fontFamily.className} flex w-full justify-between items-between`}
+                className={` flex w-full justify-between items-between`}
               >
                 <p className="flex flex-row items-center justify-center gap-2">
                   {" "}
@@ -59,7 +58,7 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
             className=" rounded-sm bg-opacity-50 backdrop-blur-lg shadow-2xl hover:bg-zinc-50/50 cursor-pointer"
           >
             <div
-              className={`${fontFamily.className} flex flex-row p-4 gap-2 items-center`}
+              className={` flex flex-row p-4 gap-2 items-center`}
             >
               <SquarePlus size={20} />
               New Playlist

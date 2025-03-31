@@ -2,17 +2,12 @@
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { MoveRight, Disc3 } from "lucide-react";
-import Image from "next/image";
-import SpotifyImage from "@/public/images/spotify_logo.png";
-import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import {
   MusicalNoteIcon,
   LockClosedIcon,
   ServerIcon,
 } from "@heroicons/react/20/solid";
 import SpotifyIcon from "@/components/spotify/SpotifyIcon";
-import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({ preload: true });
 require("dotenv").config();
 
 const features = [
@@ -38,10 +33,7 @@ export default function Login() {
   console.log(url);
   const [clicked, setClicked] = useState(false);
   const [clickedLogin, setClickedLogin] = useState(false);
-  const handleSpotify = () => {
-    setClicked(true);
-    signIn("spotify", { callbackUrl: url });
-  };
+
   const handleLogin = () => {
     setClickedLogin(true);
     signIn("spotify", { callbackUrl: url });
@@ -131,8 +123,11 @@ export default function Login() {
                 onClick={handleLogin}
               >
                 <p className="absolute">Login</p>{" "}
-                <div id="login"className="flex flex-row w-full mr-5 gap-2 items-end justify-end ">
-                {clickedLogin && <Disc3 className="animate-spin w-6"/>}
+                <div
+                  id="login"
+                  className="flex flex-row w-full mr-5 gap-2 items-end justify-end "
+                >
+                  {clickedLogin && <Disc3 className="animate-spin w-6" />}
                   <MoveRight />
                 </div>
               </button>
@@ -143,12 +138,10 @@ export default function Login() {
                 href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F"
               >
                 <div className="flex flex-row w-full mr-5 gap-2 items-end justify-end">
-                  
-                  {clicked && <Disc3 className="animate-spin w-6"/>}
+                  {clicked && <Disc3 className="animate-spin w-6" />}
                   <SpotifyIcon />
                 </div>{" "}
                 <p className={` absolute `}>Get Spotify Free</p>
-                
               </a>
             </div>
           </div>

@@ -134,7 +134,7 @@ export default function Login() {
               <a
                 type="button"
                 className="flex flex-row w-full py-3 my-3 mt-10 gap-2 rounded-md place-content-center  subpixel-antialiased border-1 border-[#1ED760] bg-[#1ED760] cursor-pointer shadow-2xl"
-                onClick={() => setClicked(true)}
+                // onClick={() => setClicked(true)}
                 href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F"
                 target="_blank"
               >

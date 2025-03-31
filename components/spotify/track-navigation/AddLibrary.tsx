@@ -33,7 +33,12 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
               className={` ${clsx(active)} +
               "flex w-full rounded-sm pl-2 py-3 hover:bg-zinc-50/50  text-start cursor-pointer`}
             >
-              <div className={  "flex w-full justify-between items-between" + fontFamily.className}>
+              <div
+                className={
+                  "flex w-full justify-between items-between" +
+                  fontFamily.className
+                }
+              >
                 <p className="flex flex-row items-center justify-center gap-2">
                   {" "}
                   <SquarePlus size={20} />

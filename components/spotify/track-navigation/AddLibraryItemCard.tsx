@@ -44,7 +44,13 @@ export default function LibraryItemCard({
       />
 
       <div className="truncate">
-        <h6 className={fontFamily.className + "w-full text-sm truncate hover:text-white"}>{entity.name}</h6>
+        <h6
+          className={
+            fontFamily.className + "w-full text-sm truncate hover:text-white"
+          }
+        >
+          {entity.name}
+        </h6>
       </div>
     </div>
   );

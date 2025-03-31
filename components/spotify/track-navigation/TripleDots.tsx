@@ -73,7 +73,6 @@ export default function TripleDots({ playlists, track, user }: Props) {
           <MenuItems
             anchor="top start"
             className={
-              
               " rounded-sm w-screen md:w-1/2  gap-6 bg-opacity-50 backdrop-blur-lg shadow-2xl"
             }
           >

@@ -31,16 +31,16 @@ export default function AddButton({ playlists, track, user }: Props) {
                 {active === true ? (
                   <EllipsisVertical size={25} />
                 ) : (
-                  <EllipsisVertical
-                    size={25}
-                    className="cursor-pointer"
-                  />
+                  <EllipsisVertical size={25} className="cursor-pointer" />
                 )}
               </button>
             )}
           </MenuButton>
-          <MenuItems  className={
-              "w-screen md:w-1/2 overflow-auto scrollbar scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 scrollbar-track-transparent rounded-sm bg-opacity-50 backdrop-blur-lg  shadow-2xl"}>
+          <MenuItems
+            className={
+              "w-screen md:w-1/2 overflow-auto scrollbar scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 scrollbar-track-transparent rounded-sm bg-opacity-50 backdrop-blur-lg  shadow-2xl"
+            }
+          >
             <MenuItem key={keycount++}>
               <div className="items-center justify-center ">
                 <AddLibrary

@@ -3,8 +3,8 @@
 import { Playlist } from "@/types/types";
 import { Nunito_Sans } from "next/font/google";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-const fontFamily = Nunito_Sans({ preload: false });
+
+const fontFamily = Nunito_Sans({ preload: true });
 interface Props {
   playlistId: string;
   trackId: string;
@@ -27,7 +27,6 @@ export default function LibraryItemCard({
   trackId,
   entity,
 }: Props) {
-  const router = useRouter();
   return (
     <div
       onClick={() => {
@@ -42,12 +41,9 @@ export default function LibraryItemCard({
         width={50}
         className="rounded-md aspect-square object-cover"
       />
-
       <div className="truncate">
         <h6
-          className={
-            fontFamily.className + "w-full text-sm truncate hover:text-white"
-          }
+          className={`${fontFamily.className} w-full text-sm truncate hover:text-white`}
         >
           {entity.name}
         </h6>

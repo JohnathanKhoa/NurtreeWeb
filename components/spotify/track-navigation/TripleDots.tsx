@@ -6,18 +6,14 @@ import {
   MenuItems,
   MenuSeparator,
 } from "@headlessui/react";
-import Drawer from "rc-drawer";
 import { Playlist, Track } from "@/types/types";
-import { EllipsisVertical, Menu as MenuIcon, X } from "lucide-react";
-import { Fragment, useState } from "react";
+import { EllipsisVertical } from "lucide-react";
+import { Fragment } from "react";
 import clsx from "clsx";
-import { signOut } from "next-auth/react";
 import { Nunito_Sans } from "next/font/google";
-import { redirect } from "next/dist/server/api-utils";
-import Link from "next/link";
 import AddLibrary from "./AddLibrary";
 import GoToArtist from "./GoToArtist";
-const fontFamily = Nunito_Sans({ preload: false });
+const fontFamily = Nunito_Sans({ preload: true });
 require("dotenv").config();
 
 interface Props {
@@ -28,32 +24,6 @@ interface Props {
 
 export default function TripleDots({ playlists, track, user }: Props) {
   let keycount = 0;
-  const url = process.env.NEXT_PUBLIC_LOCAL;
-  const logout = () => {
-    signOut({ callbackUrl: url + "/login" });
-  };
-
-  const [tableIsOpen, setTableIsOpen] = useState<boolean | null>(false);
-
-  const actions = [
-    {
-      name: "home",
-      action: (
-        <a
-          className={
-            fontFamily.className +
-            "flex h-full w-full hover:text-zinc-400 hover:bg-white transition duration-300"
-          }
-          href="/"
-        >
-          Home
-        </a>
-      ),
-    },
-    {
-      name: "",
-    },
-  ];
 
   return (
     <div className={fontFamily.className}>
@@ -93,11 +63,7 @@ export default function TripleDots({ playlists, track, user }: Props) {
                 <div className="flex-col">
                   <MenuItem key={keycount++}>
                     <div className="">
-                      <GoToArtist
-                        user={user}
-                        track={track}
-                        playlists={playlists}
-                      />
+                      <GoToArtist track={track} />
                     </div>
                   </MenuItem>
                 </div>

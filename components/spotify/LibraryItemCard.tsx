@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import LoadingDots from "./LoadingDots";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({ preload: false });
+const fontFamily = Nunito_Sans({ preload: true });
 interface Props {
   type: "artists" | "playlists" | "albums";
   entity: Album | Artist | Playlist;
@@ -43,9 +43,7 @@ export default function LibraryItemCard({ type, entity, subtitle }: Props) {
 
       <div className="truncate">
         <h6
-          className={
-            fontFamily.className + "w-full text-sm truncate hover:text-white"
-          }
+          className={`${fontFamily.className} w-full text-sm truncate hover:text-white`}
         >
           {entity.name}
         </h6>

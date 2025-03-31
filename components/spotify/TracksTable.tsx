@@ -7,8 +7,6 @@ import Image from "next/image";
 import { redirect, usePathname, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { MdPlayArrow } from "react-icons/md";
-import AddButton from "./track-navigation/AddButton";
-import LoadingDots from "./LoadingDots";
 import LoadingOverlay from "./LoadingOverlay";
 import ActiveTrackOverlay from "./ActiveTrackOverlay";
 import TripleDots from "./track-navigation/TripleDots";

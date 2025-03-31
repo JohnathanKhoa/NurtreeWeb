@@ -22,7 +22,9 @@ import { getGreeting } from "@/util/clientUtils";
 import UserLibrary from "@/components/spotify/UserLibrary";
 import Blur from "@/components/spotify/Blur";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({ preload: false });
+import SpotifyIcon from "@/components/spotify/SpotifyIcon";
+import { Disc3 } from "lucide-react";
+const fontFamily = Nunito_Sans({ preload: true });
 
 export const metadata = {
   title: "Nurtree - Powered by Spotify",
@@ -173,7 +175,7 @@ export default async function Home() {
                 width={2000}
                 quality={100}
                 priority={true}
-                className={`aspect-square object-scale-down w-45 h-45 rounded-md shadow-2xl`}
+                className={`aspect-square object-cover w-full rounded-md shadow-2xl`}
               />
 
               <div
@@ -184,8 +186,21 @@ export default async function Home() {
               >
                 <h1 className="text-lg font-bold">{session?.user.name}</h1>
                 {/* <div className="text-sm">Total Playlists: {total}</div> */}
-                <div className="text-sm">
+                {/* <div className="text-sm">
                   Followers: {currentUser.followers.total}
+                </div> */}
+                <div>
+                  <a
+                    className="flex flex-row w-full py-3 my-3 mt-10 px-5 gap-2 rounded-md place-content-center subpixel-antialiased  font-medium bg-[#1f1f1f] hover:bg-[#1ED760] transition duration-100 cursor-pointer shadow-2xl"
+                    href="https://open.spotify.com/"
+                    target="_blank"
+                  >
+                    <div className="flex flex-row  items-between justify-between">
+                      
+                      <SpotifyIcon />
+                    </div>
+                    <p>Open Spotify</p>
+                  </a>
                 </div>
               </div>
             </div>

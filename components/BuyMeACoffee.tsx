@@ -1,5 +1,5 @@
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({ preload: false });
+const fontFamily = Nunito_Sans({ preload: true });
 
 export default function BuyMeACoffee() {
   return (

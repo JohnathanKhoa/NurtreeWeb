@@ -1,13 +1,18 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { signIn } from "next-auth/react";
+import { MoveRight, Disc3 } from "lucide-react";
 import Image from "next/image";
 import SpotifyImage from "@/public/images/spotify_logo.png";
+import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import {
   MusicalNoteIcon,
   LockClosedIcon,
   ServerIcon,
 } from "@heroicons/react/20/solid";
+import SpotifyIcon from "@/components/spotify/SpotifyIcon";
+import { Nunito_Sans } from "next/font/google";
+const fontFamily = Nunito_Sans({ preload: true });
 require("dotenv").config();
 
 const features = [
@@ -31,7 +36,14 @@ const features = [
 export default function Login() {
   const url = process.env.NEXT_PUBLIC_LOCAL;
   console.log(url);
+  const [clicked, setClicked] = useState(false);
+  const [clickedLogin, setClickedLogin] = useState(false);
+  const handleSpotify = () => {
+    setClicked(true);
+    signIn("spotify", { callbackUrl: url });
+  };
   const handleLogin = () => {
+    setClickedLogin(true);
     signIn("spotify", { callbackUrl: url });
   };
 
@@ -87,7 +99,7 @@ export default function Login() {
         <div className="mx-auto place-content-center justify-items-center max-w-2xl  gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none ">
           <div className="lg:pt-4 lg:pr-8">
             <div className="lg:max-w-lg">
-              <h2 className="text-base/7 font-semibold text-indigo-400">
+              <h2 className="text-base/7 font-semibold text-indigo-300">
                 Watch Music Videos
               </h2>
               <div className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
@@ -105,7 +117,7 @@ export default function Login() {
                     <dt className="inline font-semibold text-white">
                       <feature.icon
                         aria-hidden="true"
-                        className="absolute top-1 left-1 size-5 text-indigo-500"
+                        className="absolute top-1 left-1 size-5 text-indigo-300"
                       />
                       {feature.name}
                     </dt>{" "}
@@ -115,11 +127,29 @@ export default function Login() {
               </dl>
               <button
                 type="button"
-                className="rounded-md bg-indigo-500  px-3.5 py-2.5 mt-24 w-full text-sm font-semibold text-white shadow-xs hover:bg-indigo-600 cursor-pointer"
+                className="flex flex-row w-full py-3 my-3 mt-10 gap-2 rounded-md place-content-center  bg-indigo-300 hover:bg-indigo-400 cursor-pointer shadow-2xl"
                 onClick={handleLogin}
               >
-                Login
+                <p className="absolute">Login</p>{" "}
+                <div id="login"className="flex flex-row w-full mr-5 gap-2 items-end justify-end ">
+                {clickedLogin && <Disc3 className="animate-spin w-6"/>}
+                  <MoveRight />
+                </div>
               </button>
+              <a
+                type="button"
+                className="flex flex-row w-full py-3 my-3 mt-10 gap-2 rounded-md place-content-center  subpixel-antialiased bg-indigo-300 hover:bg-indigo-400 cursor-pointer shadow-2xl"
+                onClick={() => setClicked(true)}
+                href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F"
+              >
+                <div className="flex flex-row w-full mr-5 gap-2 items-end justify-end">
+                  
+                  {clicked && <Disc3 className="animate-spin w-6"/>}
+                  <SpotifyIcon />
+                </div>{" "}
+                <p className={` absolute `}>Get Spotify Free</p>
+                
+              </a>
             </div>
           </div>
           {/* <Image

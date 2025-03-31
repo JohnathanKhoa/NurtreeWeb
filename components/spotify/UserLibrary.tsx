@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 import LibraryItemCard from "./LibraryItemCard";
 import clsx from "clsx";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({ preload: false });
+const fontFamily = Nunito_Sans({ preload: true });
 interface Props {
   playlists: Playlist[];
 }
@@ -20,9 +20,8 @@ export default function UserLibrary({ playlists }: Props) {
         {({ active }) => (
           <button
             className={
-              fontFamily.className +
               clsx(active) +
-              "flex w-full rounded-sm pl-2 py-3 hover:bg-zinc-50/50  text-start cursor-pointer"
+              `${fontFamily.className} flex w-full rounded-sm pl-2 py-3 hover:bg-zinc-50/50  text-start cursor-pointer`
             }
           >
             {active === true ? (
@@ -32,7 +31,7 @@ export default function UserLibrary({ playlists }: Props) {
                 <ChevronDown height={25} />
               </div>
             ) : (
-              <div className="flex justify-between items-between">
+              <div className="flex w-full justify-between items-between">
                 <p>Playlists</p>
                 <ChevronDown height={25} />
               </div>
@@ -44,9 +43,6 @@ export default function UserLibrary({ playlists }: Props) {
         anchor="top"
         className="w-screen md:w-1/2 overflow-auto scrollbar scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 scrollbar-track-transparent rounded-sm bg-opacity-50 backdrop-blur-lg  shadow-2xl"
       >
-        {/* <div className="sticky top-0 bg-black text-center ">
-              Your Playlist Library
-            </div> */}
         {playlists?.map((playlist) => (
           <MenuItem key={keycount++}>
             <LibraryItemCard

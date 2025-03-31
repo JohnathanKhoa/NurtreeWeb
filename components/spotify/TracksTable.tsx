@@ -116,8 +116,6 @@ export default function TracksTable({
                 onMouseEnter={() => setHoveredRow(index)}
                 onMouseLeave={() => setHoveredRow(null)}
               >
-                {index === i && <ActiveTrackOverlay />}
-                {clicked && index === clickedIndex && <LoadingOverlay />}
                 {hoveredRow === index ? (
                   <span className="flex items-center col-span-1  text-zinc-400">
                     <MdPlayArrow />
@@ -191,14 +189,14 @@ export default function TracksTable({
                 <small className="md:flex hidden items-center md:col-span-1  font-medium text-zinc-400 ">
                   {fmtMSS(track.duration_ms)}
                 </small>
-                <div className="flex col-span-1 col-end-13 items-center   font-medium text-gray "></div>
+                <div className="flex col-span-1 col-end-13 items-center font-medium text-gray "></div>
+              </div>
+              <div className="absolute right-10 -translate-y-11">
+                {index === i && <ActiveTrackOverlay />}
+                {clicked && index === clickedIndex && <LoadingOverlay />}
               </div>
               <div className="absolute right-0 -translate-y-11">
-                <TripleDots
-                  user={user}
-                  track={track}
-                  playlists={playlists}
-                />
+                <TripleDots user={user} track={track} playlists={playlists} />
               </div>
             </div>
           ))}

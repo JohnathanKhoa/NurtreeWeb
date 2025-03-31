@@ -82,7 +82,7 @@ export default function Login() {
     //   </div>
     // </div>
     // </>
-    <div className="overflow-hidden  py-24 sm:py-32">
+    <div className="overflow-hidden  md:py-24 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto place-content-center justify-items-center max-w-2xl  gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none ">
           <div className="lg:pt-4 lg:pr-8">
@@ -91,7 +91,7 @@ export default function Login() {
                 Watch Music Videos
               </h2>
               <div className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
-                Nurtree 
+                Nurtree
                 {/* <div className="text-sm font-normal">powered by </div>
                 <Image className="w-20" src={SpotifyImage} alt={""} /> */}
               </div>

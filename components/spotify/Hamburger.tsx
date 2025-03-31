@@ -8,7 +8,7 @@ import {
 } from "@headlessui/react";
 import Drawer from "rc-drawer";
 import { Playlist } from "@/types/types";
-import { Menu as MenuIcon } from "lucide-react";
+import { Menu as MenuIcon, X } from "lucide-react";
 import { Fragment, useState } from "react";
 import clsx from "clsx";
 import { signOut } from "next-auth/react";
@@ -76,7 +76,7 @@ export default function Hamburger({ playlists }: Props) {
             }
           >
             <>
-              <div className="grid grid-cols-1 h-full content-between">
+              <div className={"grid grid-cols-1 h-full content-between"}>
                 <div className="flex-col">
                   <MenuItem key={keycount++}>
                     <div className="">
@@ -91,7 +91,7 @@ export default function Hamburger({ playlists }: Props) {
                       className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer"
                       href="/"
                     >
-                      <div>Home</div>
+                      <div className={fontFamily.className}>Home</div>
                     </Link>
                   </MenuItem>
                   <MenuSeparator className="my-1 h-px bg-white" />
@@ -101,12 +101,15 @@ export default function Hamburger({ playlists }: Props) {
                       href="https://open.spotify.com/"
                       target="_blank"
                     >
-                      <div>Spotify</div>
+                      <div className={fontFamily.className}>Spotify</div>
                     </Link>
                   </MenuItem>
                   <MenuSeparator className="my-1 h-px bg-white" />
                   <MenuItem key={keycount++}>
-                    <div onClick={logout} className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer ">
+                    <div
+                      onClick={logout}
+                      className="flex rounded-sm pl-2 py-3 hover:bg-zinc-50/50 cursor-pointer "
+                    >
                       <button className={fontFamily.className} onClick={logout}>
                         Logout
                       </button>

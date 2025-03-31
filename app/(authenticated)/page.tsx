@@ -18,8 +18,11 @@ import getRandomNumbers from "@/components/Random";
 // import ArtistCarousel from "@/components/spotify/ArtistCarousel";
 // import TrackCarousel from "@/components/spotify/TrackCarousel";
 import { getGreeting } from "@/util/clientUtils";
-import PlaylistTable from "@/components/spotify/PlaylistTable";
+// import PlaylistTable from "@/components/spotify/PlaylistTable";
 import UserLibrary from "@/components/spotify/UserLibrary";
+import Blur from "@/components/spotify/Blur";
+import { Nunito_Sans } from "next/font/google";
+const fontFamily = Nunito_Sans({ preload: false });
 
 export const metadata = {
   title: "Nurtree - Powered by Spotify",
@@ -43,6 +46,7 @@ export default async function Home() {
     session,
   }).then((data) => data)) as User;
 
+  // const publicPlaylists = getUserPublicPlaylists(session, currentUser.id)
   // const userPlaylists = await getUserPublicPlaylists(session);
   // console.log(userPlaylists);
   // const [playlists] = await Promise.all([
@@ -74,40 +78,40 @@ export default async function Home() {
     //     videoTrack.push(mostPopular[i]);
     //   }
 
-    const min = 0;
-    const max = topArtists.length - 1;
-    const count = 3;
+    // const min = 0;
+    // const max = topArtists.length - 1;
+    // const count = 3;
 
-    const randomNumbers = getRandomNumbers(0, topArtists.length - 1, 3);
+    // const randomNumbers = getRandomNumbers(0, topArtists.length - 1, 3);
 
-    const randomTracks: Track[] = [];
-    const randomSuggestions: Track[] = [];
-    const randomArtists: Artist[] = [];
+    // const randomTracks: Track[] = [];
+    // const randomSuggestions: Track[] = [];
+    // const randomArtists: Artist[] = [];
 
-    for (let i = 0; i < count; i++) {
-      randomArtists.push(topArtists[randomNumbers[i]]);
+    // for (let i = 0; i < count; i++) {
+    //   randomArtists.push(topArtists[randomNumbers[i]]);
 
-      // const result = await getYoutubeVideoDamon(session, topTracks[randomNumbers[0]]);
-      // youtubeVideo.push(result);
-      // randomTracks.push(topTracks[randomNumbers[0]]);
-    }
+    //   // const result = await getYoutubeVideoDamon(session, topTracks[randomNumbers[0]]);
+    //   // youtubeVideo.push(result);
+    //   // randomTracks.push(topTracks[randomNumbers[0]]);
+    // }
 
-    for (let i = 0; i < randomArtists.length; i++) {
-      const topResult = await getArtistTopTrack(session, randomArtists[i].id);
-      const randomTopTrack = getRandomNumbers(0, 2, 1);
-      const video = await getYoutubeVideoDamon(
-        session,
-        topResult[0].tracks[randomTopTrack[0]]
-      );
-      randomTracks.push(topResult[0].tracks[randomTopTrack[0]]);
+    // for (let i = 0; i < randomArtists.length; i++) {
+    //   const topResult = await getArtistTopTrack(session, randomArtists[i].id);
+    //   const randomTopTrack = getRandomNumbers(0, 2, 1);
+    //   const video = await getYoutubeVideoDamon(
+    //     session,
+    //     topResult[0].tracks[randomTopTrack[0]]
+    //   );
+    //   randomTracks.push(topResult[0].tracks[randomTopTrack[0]]);
 
-      youtubeVideo.push(video);
-    }
-    const rand = getRandomNumbers(min, 9, 9);
-    for (let i = 0; i < 9; i++) {
-      const randomNumbers = getRandomNumbers(min, max, count);
-      randomSuggestions.push(topTracks[rand[i]]);
-    }
+    //   youtubeVideo.push(video);
+    // }
+    // const rand = getRandomNumbers(min, 9, 9);
+    // for (let i = 0; i < 9; i++) {
+    //   const randomNumbers = getRandomNumbers(min, max, count);
+    //   randomSuggestions.push(topTracks[rand[i]]);
+    // }
     // const total = await getTotalPlaylists(session);
     // const publicPlaylists: Playlist[] = [];
     // const total = await getTotalPlaylists(session);
@@ -129,67 +133,81 @@ export default async function Home() {
     // console.log(publicPlaylists)
 
     return (
-      <section className="flex flex-col items-center">
-        {/* <Heading className="m-4">
-          Good {getGreeting()}, {user.name}
-        </Heading> */}
+      <>
+        <section className="flex flex-row">
+          <Blur img={currentUser.images[0].url} />
 
-        {/* <h1 className="mb-5 text-xl font-bold">
-          Greetings, {session?.user.name}!
-        </h1> */}
-        {/* <h1 className="flex items-center gap-3 px-2 my-1 text-gray">
-      Choose a playlist from your library <MenuIcon className="md:flex hidden" height={25} /> to get the top music video for each track
-      </h1>  */}
-        {/* <h1 className="font-bold underline">Top music videos for you</h1> */}
+          {/* <Heading className="m-4">
+      Good {getGreeting()}, {user.name}
+    </Heading> */}
 
-        {/* <div className="flex flex-col h-screen overflow-hidden ">
-          <HomeUserLibrary playlists={userPlaylists}/>
-        </div> */}
-        {/* <div className="">
-          <VideoCarousel
-            user={currentUser.id}
-            playlists={playlists}
-            topTracks={randomTracks}
-            youtubeVideo={youtubeVideo}
-          />
-        </div> */}
-        {/* <Divider className="" /> */}
-        {/* <div className="pt-4 flex flex-row w-full items-center justify-center gap-6 border-t-2">
-      
-      <div className="flex flex-row items-center justify-center gap-6"> */}
-        <div className="">
-          <Image
-            src={currentUser.images[0].url}
-            alt={currentUser.display_name}
-            height={2000}
-            width={2000}
-            className={`aspect-square object-cover w-full rounded-md`}
-          />
-        </div>
-        <div className="items-center justify-center">
-          <h1 className="text-lg font-bold">{session?.user.name}</h1>
-          {/* <div className="text-sm">Total Playlists: {total}</div> */}
-          <div className="text-sm">
-            Followers: {currentUser.followers.total}
+          {/* <h1 className="mb-5 text-xl font-bold">
+      Greetings, {session?.user.name}!
+    </h1> */}
+          {/* <h1 className="flex items-center gap-3 px-2 my-1 text-gray">
+  Choose a playlist from your library <MenuIcon className="md:flex hidden" height={25} /> to get the top music video for each track
+  </h1>  */}
+          {/* <h1 className="font-bold underline">Top music videos for you</h1> */}
+
+          {/* <div className="flex flex-col h-screen overflow-hidden ">
+      <HomeUserLibrary playlists={userPlaylists}/>
+    </div> */}
+          {/* <div className="">
+      <VideoCarousel
+        user={currentUser.id}
+        playlists={playlists}
+        topTracks={randomTracks}
+        youtubeVideo={youtubeVideo}
+      />
+    </div> */}
+          {/* <Divider className="" /> */}
+          {/* <div className="pt-4 flex flex-row w-full items-center justify-center gap-6 border-t-2">
+  
+  <div className="flex flex-row items-center justify-center gap-6"> */}
+          <div className="flex flex-col w-full h-1/2 items-center justify-center ">
+            <div className="fixed items-center justify-center translate-y-2/3">
+              <Image
+                src={currentUser.images[0].url}
+                alt={currentUser.display_name}
+                height={2000}
+                width={2000}
+                quality={100}
+                priority={true}
+                className={`aspect-square object-scale-down w-45 h-45 rounded-md shadow-2xl`}
+              />
+
+              <div
+                className={
+                  fontFamily.className +
+                  "place-content-center justify-items-center"
+                }
+              >
+                <h1 className="text-lg font-bold">{session?.user.name}</h1>
+                {/* <div className="text-sm">Total Playlists: {total}</div> */}
+                <div className="text-sm">
+                  Followers: {currentUser.followers.total}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        {/* </div>  
-      
-      </div> */}
-        {/* <div className="flex h-1/2 w-1/2 items-center justify-center">
-        <PlaylistCards playlists={publicPlaylists}/>
-      </div>*/}
-        {/* <div className="flex w-1/2 items-center justify-center">
-          <ArtistCarousel artists={topArtists} />
-        </div>
-        <div className="my-16 flex  w-1/2 items-center justify-center">
-          <TrackCarousel tracks={randomSuggestions} />
-        </div> */}
+          {/* </div>
+  
+  </div> */}
+          {/* <div className="flex h-1/2 w-1/2 items-center justify-center">
+    <PlaylistCards playlists={publicPlaylists}/>
+  </div>*/}
+          {/* <div className="flex w-1/2 items-center justify-center">
+      <ArtistCarousel artists={topArtists} />
+    </div>
+    <div className="my-16 flex  w-1/2 items-center justify-center">
+      <TrackCarousel tracks={randomSuggestions} />
+    </div> */}
 
-        {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite artists</h1> */}
+          {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite artists</h1> */}
 
-        {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite tracks</h1> */}
-      </section>
+          {/* <h1 className="mt-4 flex items-center justify-center w-screen ">Your favorite tracks</h1> */}
+        </section>
+      </>
     );
   }
   return (

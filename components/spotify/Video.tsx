@@ -48,9 +48,8 @@ export default function Video({
             cc_load_policy: 0,
             fs: 1,
             iv_load_policy: 0,
-            modestbranding: 0,
-            rel: 0,
-            showinfo: 0,
+
+            playsinline: 1,
           },
         }}
       />

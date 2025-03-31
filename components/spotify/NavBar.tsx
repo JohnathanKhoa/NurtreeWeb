@@ -2,9 +2,12 @@ import { getUserAllPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import Image from "next/image";
 import SpotifyImage from "@/public/images/spotify_logo.png";
+import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import SearchInput from "./SearchInput";
 import Hamburger from "./Hamburger";
 import { Nunito_Sans } from "next/font/google";
+import ResponsiveSpotifyLogo from "./ResponsiveSpotifyLogo";
+
 const fontFamily = Nunito_Sans({ preload: false });
 
 export default async function NavBar() {
@@ -38,13 +41,8 @@ export default async function NavBar() {
           </div>
         </div>
         <SearchInput />
+        <ResponsiveSpotifyLogo />
         {/* <Image className="rounded-xl object-scale-down w-7 h-7 justify-self-center" src={NurtreeImage} alt="NurtreeImage"/> */}
-        <div className="flex flex-row">
-          {/* <div className="text-sm font-normal pr-2">powered by </div> */}
-          <a href="https://open.spotify.com" target="_blank">
-            <Image className="w-20 h-full" src={SpotifyImage} alt={""} />
-          </a>
-        </div>
       </div>
     </header>
   );

@@ -4,6 +4,18 @@ import authOptions from "@/lib/configs/auth/authOptions";
 import { AuthSession } from "@/types/types";
 import { getServerSession } from "next-auth/next";
 
+export const customGetPublic = async (
+  url: string,
+  session: AuthSession | null
+) => {
+  if (!session) {
+    return null;
+  }
+  const res = await fetch(url).then((res) => res.json());
+
+  return res;
+};
+
 export const customGet = async (url: string, session: AuthSession | null) => {
   if (!session) {
     return null;

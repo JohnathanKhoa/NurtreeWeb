@@ -4,6 +4,7 @@ import TracksTable from "@/components/spotify/TracksTable";
 import {
   getArtistById,
   getArtistDiscography,
+  getArtistFullById,
   getMe,
   getUserAllPlaylists,
 } from "@/lib/actions";
@@ -57,7 +58,9 @@ export default async function ArtistPage({ params }: Props) {
     artistCompilation,
     relatedArtists,
   ] = await getArtistDiscography(session, artistId);
-
+  const artistFull = await getArtistFullById(session, artistId);
+  console.log(artist);
+  console.log(artistFull);
   return (
     <div className="mx-2">
       <div className="flex items-end gap-6">
@@ -98,7 +101,7 @@ export default async function ArtistPage({ params }: Props) {
       </div>
 
       <div className="my-8">
-      <div className="col-span-12 border-b border-zinc-500"></div>
+        <div className="col-span-12 border-b border-zinc-500"></div>
         <h1 className="flex items-center justify-center">Popular</h1>
         <div className="my-2">
           <TracksTable
@@ -113,9 +116,7 @@ export default async function ArtistPage({ params }: Props) {
       {artistAlbums?.items.length > 0 && (
         <div className="mt-12">
           <div className="col-span-12 border-b border-zinc-500"></div>
-          <h1 className="flex items-center justify-center">
-            Albums
-          </h1>
+          <h1 className="flex items-center justify-center">Albums</h1>
           <AlbumCards albums={artistAlbums.items} />
         </div>
       )}
@@ -123,9 +124,7 @@ export default async function ArtistPage({ params }: Props) {
       {artistSingles?.items.length > 0 && (
         <div className="mt-12">
           <div className="col-span-12 border-b border-zinc-500"></div>
-          <h1 className="flex items-center justify-center">
-            Singles
-          </h1>
+          <h1 className="flex items-center justify-center">Singles</h1>
           <AlbumCards albums={artistSingles.items} />
         </div>
       )}
@@ -133,9 +132,7 @@ export default async function ArtistPage({ params }: Props) {
       {artistAppearsOn?.items.length > 0 && (
         <div className="mt-12">
           <div className="col-span-12 border-b border-zinc-500"></div>
-          <h1 className="flex items-center justify-center">
-            Appears on
-          </h1>
+          <h1 className="flex items-center justify-center">Appears on</h1>
           <AlbumCards albums={artistAppearsOn.items} />
         </div>
       )}
@@ -150,9 +147,7 @@ export default async function ArtistPage({ params }: Props) {
       {relatedArtists?.artists.length > 0 && (
         <div className="mt-12">
           <div className="col-span-12 border-b border-zinc-500"></div>
-          <h1 className="flex items-center justify-center">
-            Fans also like
-          </h1>
+          <h1 className="flex items-center justify-center">Fans also like</h1>
           <ArtistCards artists={relatedArtists.artists} />
         </div>
       )}

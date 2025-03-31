@@ -62,7 +62,7 @@ export default async function TrackPage({ params }: Props) {
           {<Video tracksLength={0} id={result.id} index={0} play={1} />}
         </div>
         <DescriptionBar artist={artist} track={track} />
-        <div className="relative w-full overflow-auto scrollbar-hide bg-[#1f1f1f]">
+        <div className="relative w-full h-screen bg-[#1f1f1f]">
           <TracksTable
             user={currentUser.id}
             playlists={playlists}

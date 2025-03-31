@@ -16,7 +16,7 @@ export default function SearchInput() {
 
   return (
     <form
-      className="flex items-center 1/3 justify-between md:w-1/5  px-3 py-1.5 bg-opacity-50 backdrop-blur-lg  shadow-2xl rounded-full bg-black  focus:bg-zinc-300 transition duration-700"
+      className="flex items-center 1/3 justify-between md:w-1/5  mx-3 px-3 py-1.5 bg-opacity-50 backdrop-blur-lg  shadow-2xl rounded-full bg-black  focus:bg-zinc-300 transition duration-700"
       onSubmit={handleSubmit}
     >
       <Search className="min-w-5 text-zinc-300" />

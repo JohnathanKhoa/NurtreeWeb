@@ -114,7 +114,7 @@ export default function IndexContainer({
         </div>
       </div> */}
         {/* <div className={`${tableIsOpen ? "visible" : "hidden"}`}> */}
-        <div className="relative w-full overflow-auto bg-[#1f1f1f]">
+        <div className="relative w-full  bg-[#1f1f1f]">
           <TracksTable
             tracks={tracks}
             showAlbum

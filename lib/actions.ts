@@ -12,7 +12,7 @@ import {
   Data,
   Snapshot,
 } from "@/types/types";
-import { customGet, customPost } from "@/util/serverUtils";
+import { customGet, customGetPublic, customPost } from "@/util/serverUtils";
 const { YTSearcher } = require("ytsearcher");
 const YTKey = process.env.YOUTUBE_API_KEY;
 const searcher = new YTSearcher(YTKey);
@@ -98,6 +98,16 @@ export const getArtistById = async (
   artistId: string
 ): Promise<Artist> => {
   return customGet(`https://api.spotify.com/v1/artists/${artistId}`, session);
+};
+
+export const getArtistFullById = async (
+  session: AuthSession,
+  artistId: string
+): Promise<Artist> => {
+  return customGet(
+    `https://api.spotify.com/v1/artists/${artistId}?locale*`,
+    session
+  );
 };
 
 export const getArtistDiscography = async (
@@ -268,9 +278,10 @@ export const getUserAllPlaylists = async (
 };
 
 export const getUserPublicPlaylists = async (
-  session: AuthSession
+  session: AuthSession,
+  user: String
 ): Promise<Playlist[]> => {
-  const currUrl = "https://api.spotify.com/v1/me/playlists?offset=0&limit=20";
+  const currUrl = `https://open.spotify.com/user/${user}/playlists`;
   let offset = 0;
 
   const data = await customGet(currUrl, session);

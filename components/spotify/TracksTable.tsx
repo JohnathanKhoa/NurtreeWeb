@@ -5,9 +5,13 @@ import { fmtMSS } from "@/util/clientUtils";
 import { Clock3, Music } from "lucide-react";
 import Image from "next/image";
 import { redirect, usePathname, useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { MdPlayArrow } from "react-icons/md";
-import AddButton from "./AddButton";
+import AddButton from "./track-navigation/AddButton";
+import LoadingDots from "./LoadingDots";
+import LoadingOverlay from "./LoadingOverlay";
+import ActiveTrackOverlay from "./ActiveTrackOverlay";
+import TripleDots from "./track-navigation/TripleDots";
 
 interface Props {
   tracks: Track[];
@@ -36,11 +40,17 @@ export default function TracksTable({
   const pathname = usePathname();
   const router = useRouter();
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
+  const [clicked, setClicked] = useState(false);
+  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
   const [tableIsOpen, setTableIsOpen] = useState<boolean | null>(false);
-
+  useEffect(() => {
+    setClicked(false);
+  }, [pathname]);
   let keyCount = 0;
 
   function handleClick(track: Track, index: number) {
+    setClickedIndex(index);
+    setClicked(true);
     if (pathname.includes("/playlists")) {
       redirect(`${index}`);
     } else {
@@ -67,7 +77,7 @@ export default function TracksTable({
       <>
         {showHeader && (
           <>
-            <div className="h-full w-full drop-shadow-2xl">
+            <div className="sticky w-full drop-shadow-2xl text-zinc-400">
               <header className="grid grid-cols-12 gap-2 p-4 pb-1 text-gray font-thin tracking-tight text-left ">
                 <div className="col-span-1 font-thin tracking-wider text-left uppercase ">
                   #
@@ -102,12 +112,14 @@ export default function TracksTable({
                   handleClick(track, index);
                 }}
                 className={`z-49 grid py-2 px-4 grid-cols-12 cursor-pointer hover:bg-zinc-700 truncate ${
-                  index === i ? "bg-zinc-700 bg-opacity-50" : "bg-transparent"
-                }`}
+                  index === i ? `bg-zinc-700 bg-opacity-50` : "bg-transparent"
+                } `}
                 key={track.id + index + keyCount++}
                 onMouseEnter={() => setHoveredRow(index)}
                 onMouseLeave={() => setHoveredRow(null)}
               >
+                {index === i && <ActiveTrackOverlay />}
+                {clicked && index === clickedIndex && <LoadingOverlay />}
                 {hoveredRow === index ? (
                   <span className="flex items-center col-span-1  text-zinc-400">
                     <MdPlayArrow />
@@ -184,9 +196,9 @@ export default function TracksTable({
                 <div className="flex col-span-1 col-end-13 items-center   font-medium text-gray "></div>
               </div>
               <div className="absolute right-0 -translate-y-11">
-                <AddButton
+                <TripleDots
                   user={user}
-                  trackId={track.id}
+                  track={track}
                   playlists={playlists}
                 />
               </div>

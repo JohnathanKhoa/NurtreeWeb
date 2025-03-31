@@ -31,7 +31,7 @@ const features = [
 export default function Login() {
   const url = process.env.NEXT_PUBLIC_LOCAL;
   console.log(url);
-  const [clicked, setClicked] = useState(false);
+  // const [clicked, setClicked] = useState(false);
   const [clickedLogin, setClickedLogin] = useState(false);
 
   const handleLogin = () => {
@@ -119,10 +119,10 @@ export default function Login() {
               </dl>
               <button
                 type="button"
-                className="flex flex-row w-full py-3 my-3 mt-10 gap-2 rounded-md place-content-center  bg-indigo-300 hover:bg-indigo-400 cursor-pointer shadow-2xl"
+                className="flex flex-row w-full py-3 my-3 mt-10 gap-2 rounded-md place-content-center  bg-indigo-500 hover:bg-indigo-400 cursor-pointer shadow-2xl"
                 onClick={handleLogin}
               >
-                <p className="absolute">Login</p>{" "}
+                <p className="absolute tracking-widest">Login</p>{" "}
                 <div
                   id="login"
                   className="flex flex-row w-full mr-5 gap-2 items-end justify-end "
@@ -139,10 +139,10 @@ export default function Login() {
                 target="_blank"
               >
                 <div className="flex flex-row w-full mr-5 gap-2 items-end justify-end">
-                  {clicked && <Disc3 className="animate-spin w-6" />}
+                  {/* {clicked && <Disc3 className="animate-spin w-6" />} */}
                   <SpotifyIcon />
                 </div>{" "}
-                <p className={` absolute `}>Get Spotify Free</p>
+                <p className={` absolute tracking-widest`}>Get Spotify Free</p>
               </a>
             </div>
           </div>

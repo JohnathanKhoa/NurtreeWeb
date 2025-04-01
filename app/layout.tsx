@@ -6,7 +6,7 @@ import SpotifyImage from "@/public/images/spotify_logo.png";
 import YoutubeImage from "@/public/images/yt_logo_mono_dark.png";
 import NurtreeImage from "@/public/images/nurtree.png";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({ preload: true });
+const fontFamily = Nunito_Sans({subsets: ['latin'], preload: true})
 export const metadata: Metadata = {
   title: "Nurtree",
   description:
@@ -43,7 +43,7 @@ export default function RootLayout({
         <body className={` bg-black`}>
           
 
-          <div>{children}</div>
+          <div className={fontFamily.className}>{children}</div>
         </body>
       </html>
     </>

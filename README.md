@@ -1,3 +1,5 @@
+*****App has yet to be approved by spotify, please request me to add your email to the development list if you waish to take a look firsthand*****
+
 Generate Music Video Playlists based on your personal Spotify Playlists
 
 Vercel, NextJS 15.2.4,Node ^22.13.14, React ^19.1.0, TypeScript ^5.8.2, JavaScript ECMAScript 2023, HTML 5, Tailwind/CSS 4
@@ -24,6 +26,8 @@ https://github.com/user-attachments/assets/1082fbab-35ae-4a19-9ae2-a993b6729ade
 
 80% components made from scratch, hadwritten tailwindcss, logic separated on server components and model and states handles by client components
 
+Animated loaders, Object cards, Index containers, Track tables, User libraries, Responsive videos, Embeds and Iframes, Searchable input, Custom design
+
 Additional features: search songs, artists, albums, playlists, add tracks to playlist, etc
 
 Dynamic page router and automated caching for commonly reused paths
@@ -34,4 +38,4 @@ Features accommodate Spotify Guidelines and Developer License Agreement
 
 
 
-*****App has yet to be approved by spotify, please request me to add your email to the development list if you waish to take a look firsthand*****
+

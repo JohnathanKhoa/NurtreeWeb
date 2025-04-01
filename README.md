@@ -12,7 +12,7 @@ Authenticate with your Spotify account and populate website data with your liste
 
 ![image](https://github.com/user-attachments/assets/24a097af-402a-47c0-993b-1abd5a9c7a3a)
 
-Automatically play the top music video for each track listed on your selected playlist
+Automatically play the top music video for each track listed on your selected playlist, when video ends, app event trigger will render the next dynamically generated page for the next track
 
 ![image](https://github.com/user-attachments/assets/f81f38fd-3b0e-4f16-ab0c-9c6be75ff25c)
 

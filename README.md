@@ -22,6 +22,12 @@ https://github.com/user-attachments/assets/1082fbab-35ae-4a19-9ae2-a993b6729ade
 
 Additional features: search songs, artists, albums, playlists, add tracks to playlist, etc
 
-App has yest to be approved by spotify, please request me to add your email to the development list if you waish to take a look firsthand
+Dynamic page router and automated caching for commonly reused paths
 
 https://vimeo.com/1071236365/c196fcfd07?share=copy -- Link to long demonstration
+
+
+
+
+
+*****App has yet to be approved by spotify, please request me to add your email to the development list if you waish to take a look firsthand*****

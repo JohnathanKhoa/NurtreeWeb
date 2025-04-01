@@ -26,7 +26,7 @@ Dynamic page router and automated caching for commonly reused paths
 
 https://vimeo.com/1071236365/c196fcfd07?share=copy -- Link to long demonstration
 
-
+Features accommodate Spotify Guidelines and Developer License Agreement
 
 
 

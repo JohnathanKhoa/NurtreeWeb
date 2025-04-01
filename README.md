@@ -1,6 +1,6 @@
 Generate Music Video Playlists based on your personal Spotify Playlists
 
-Vercel, NextJS 15.2.4,Node ^22.13.14, React ^19.1.0, TypeScript ^5.8.2, JavaScript, HTML 5, Tailwind/CSS 4
+Vercel, NextJS 15.2.4,Node ^22.13.14, React ^19.1.0, TypeScript ^5.8.2, JavaScript ECMAScript 2023, HTML 5, Tailwind/CSS 4
 
 NextAuth ^4.24.11, Spotify Provider
 

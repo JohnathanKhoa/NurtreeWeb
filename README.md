@@ -24,6 +24,8 @@ https://github.com/user-attachments/assets/1082fbab-35ae-4a19-9ae2-a993b6729ade
 
 80% components made from scratch, hadwritten tailwindcss, logic separated on server components and model and states handles by client components
 
+Animated loaders, Object cards, Index containers, Track tables, User libraries, Responsive videos, Embeds and Iframes, Searchable input, Custom design
+
 Additional features: search songs, artists, albums, playlists, add tracks to playlist, etc
 
 Dynamic page router and automated caching for commonly reused paths

@@ -24,4 +24,4 @@ Additional features: search songs, artists, albums, playlists, add tracks to pla
 
 App has yest to be approved by spotify, please request me to add your email to the development list if you waish to take a look firsthand
 
-
+https://vimeo.com/1071236365/c196fcfd07?share=copy -- Link to long demonstration

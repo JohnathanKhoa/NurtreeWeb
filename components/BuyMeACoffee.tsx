@@ -6,7 +6,7 @@ export default function BuyMeACoffee() {
       target="_blank"
       className="flex gap-2"
     >
-      <div>Buy me a coffee?</div> ☕
+      <div>Buy me a coffee?</div> <div className="underline">Support the Developer</div> ☕
     </a>
   );
 }

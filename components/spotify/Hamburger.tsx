@@ -49,15 +49,7 @@ export default function Hamburger({ playlists }: Props) {
             <>
               <div className={"grid grid-cols-1 h-full content-between"}>
                 <div className="flex-col">
-                  <MenuItem key={keycount++}>
-                    <div className="">
-                      <UserLibrary playlists={playlists} />
-                    </div>
-                  </MenuItem>
-                  <MenuSeparator className="my-1 h-px bg-white" />
-                </div>
-                <div className="flex-col">
-                  <MenuItem key={keycount++}>
+                <MenuItem key={keycount++}>
                     <Link
                       className="flex rounded-sm pl-2 py-3 hover:bg-indigo-100/50 cursor-pointer"
                       href="/"
@@ -67,6 +59,14 @@ export default function Hamburger({ playlists }: Props) {
                   </MenuItem>
                   <MenuSeparator className="my-1 h-px bg-white" />
                   <MenuItem key={keycount++}>
+                    <div className="">
+                      <UserLibrary playlists={playlists} />
+                    </div>
+                  </MenuItem>
+                  
+                  
+                  <MenuSeparator className="my-1 h-px bg-white" />
+                  {/* <MenuItem key={keycount++}>
                     <Link
                       className="flex rounded-sm pl-2 py-3 hover:bg-indigo-100/50 cursor-pointer"
                       href="https://open.spotify.com/"
@@ -75,7 +75,7 @@ export default function Hamburger({ playlists }: Props) {
                       <div>Spotify</div>
                     </Link>
                   </MenuItem>
-                  <MenuSeparator className="my-1 h-px bg-white" />
+                  <MenuSeparator className="my-1 h-px bg-white" /> */}
                   <MenuItem key={keycount++}>
                     <div
                       onClick={logout}
@@ -86,6 +86,9 @@ export default function Hamburger({ playlists }: Props) {
                   </MenuItem>
                   <div className="flex grow max-h-full"></div>
                   <MenuSeparator className="my-1 h-px bg-white" />
+                </div>
+                <div className="flex-col">
+                  
                   <MenuItem key={keycount++}>
                     <div className=" rounded-sm pl-2 py-3 hover:bg-indigo-100/50 cursor-pointer">
                       <BuyMeACoffee />

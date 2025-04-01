@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Particles from "@/components/particles";
 import Head from "next/head";
 import SpotifyImage from "@/public/images/spotify_logo.png";
 import YoutubeImage from "@/public/images/yt_logo_mono_dark.png";
 import NurtreeImage from "@/public/images/nurtree.png";
 import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({subsets: ['latin'], preload: true})
+const fontFamily = Nunito_Sans({
+  subsets: ["latin"],
+  preload: true,
+  variable: "--Nunito_Sans",
+});
 export const metadata: Metadata = {
   title: "Nurtree",
   description:
@@ -31,7 +34,7 @@ export default function RootLayout({
     <>
       <html
         lang="en"
-        className={"overflow-auto scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-track-transparent scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 "}
+        className={` ${fontFamily.variable} "overflow-auto scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-track-transparent scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 "`}
       >
         <Head>
           <meta
@@ -40,10 +43,8 @@ export default function RootLayout({
           />
         </Head>
 
-        <body className={` bg-black`}>
-          
-
-          <div className={fontFamily.className}>{children}</div>
+        <body className="bg-black`">
+          <div>{children}</div>
         </body>
       </html>
     </>

@@ -181,7 +181,7 @@ export default async function Home() {
                 {/* <div className="text-sm">
                   Followers: {currentUser.followers.total}
                 </div> */}
-                <div>
+                {/* <div>
                   <a
                     className="flex flex-row w-full py-3 my-3 mt-10 px-5 gap-2 rounded-md place-content-center subpixel-antialiased  font-medium bg-black hover:bg-[#1ED760] transition duration-100 cursor-pointer shadow-2xl"
                     href="https://open.spotify.com/"
@@ -192,7 +192,7 @@ export default async function Home() {
                     </div>
                     <p>Open Spotify</p>
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-*****App has yet to be approved by spotify, please request me to add your email to the development list if you waish to take a look firsthand*****
+*****App has yet to be approved by spotify, please request me to add your email to the development list if you wish to take a look firsthand*****
 
 Generate Music Video Playlists based on your personal Spotify Playlists
 
@@ -14,11 +14,11 @@ Authenticate with your Spotify account and populate website data with your liste
 
 ![image](https://github.com/user-attachments/assets/24a097af-402a-47c0-993b-1abd5a9c7a3a)
 
-Automatically play the top music video for each track listed on your selected playlist. The player acts autonomously and automatically as it should. When video ends, app event trigger will call the server component to dynamically render the next page slug for the next track
+Automatically play the top music video for each track listed on your selected playlist. The player acts autonomously and automatically as it should. When video ends, app event trigger will call the server component to dynamically render the next page slug (NextJS App router and navigation feature) for the next track
 
 ![image](https://github.com/user-attachments/assets/f81f38fd-3b0e-4f16-ab0c-9c6be75ff25c)
 
-Responsive web page with to suit every window size mobile, tablet, desktop using TailwindCSS4
+Responsive web pages to suit every window size mobile, tablet, desktop with the help of Tailwind/CSS 4
 
 ![www nurtree com_playlists_0ppiqKethMfq5GFaJJNckg_0(iPhone SE)](https://github.com/user-attachments/assets/6b46d7ad-a662-46ed-9ad8-63b60f9dc080) ![www nurtree com_playlists_0ppiqKethMfq5GFaJJNckg_0(iPad Mini)](https://github.com/user-attachments/assets/c4203c04-5a95-4a69-a738-9785230b6707) ![www nurtree com_playlists_0ppiqKethMfq5GFaJJNckg_0](https://github.com/user-attachments/assets/d6acbbf9-7de7-4b0e-a36c-59435ce395f4) ![www nurtree com_playlists_0ppiqKethMfq5GFaJJNckg_0 (1)](https://github.com/user-attachments/assets/d5feb092-04ff-4c23-a4df-f93b736cfb5a)
 

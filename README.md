@@ -7,7 +7,8 @@
 Tree (Biology): A perennial plant with an elongated trunk or stem, supporting branches and leaves. Trees typically grow tall, and many produce fruits, flowers, or seeds.
 > "He climbed the tallest **tree** in the forest to get a better view of the horizon."
 
-This application blends together Youtube and Spotify API, matching the top Music Videos to the songs based on your personal Spotify Playlists. Nurtree brings together two creative platforms that engourage music lovers to explore and connect with their favorite songs through visually engaging and personalized experiences.
+Nurtree brings together two creative platforms that engourage music lovers to explore and connect with their favorite songs through visually engaging and personalized experiences.
+Blending together Youtube and Spotify API, Nurtree matches the top Music Videos to your chosen songs and will provide a curated music video playlist based on your personal Spotify Playlists. 
 
 
 > [!IMPORTANT]

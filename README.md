@@ -1,8 +1,9 @@
 # Nurtree
+## Generate Music Video Playlists based on your personal Spotify Playlists
+### Dependencies
+Vercel, NextJS 15.2.4, NextAuth ^4.24.11, Node ^22.13.14, React ^19.1.0, TypeScript ^5.8.2, JavaScript ECMAScript 2023, HTML 5, Tailwind/CSS 4
 > [!IMPORTANT]
 > App has yet to be approved by Spotify, please request me to add your email to the developer/private list if you wish to add your personal Spotify account
-## Generate Music Video Playlists based on your personal Spotify Playlists
-#### Vercel, NextJS 15.2.4, NextAuth ^4.24.11, Node ^22.13.14, React ^19.1.0, TypeScript ^5.8.2, JavaScript ECMAScript 2023, HTML 5, Tailwind/CSS 4
 
 www.nurtree.com
 

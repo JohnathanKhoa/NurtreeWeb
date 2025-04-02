@@ -1,9 +1,6 @@
-> [!IMPORTANT]
-> App has yet to be approved by spotify, please request me to add your email to the development list if you wish to take a look firsthand
-
 # Nurtree
 > [!IMPORTANT]
-> App has yet to be approved by spotify, please request me to add your email to the development list if you wish to take a look firsthand
+> App has yet to be approved by Spotify, please request me to add your email to the developer/private list if you wish to add your personal Spotify account
 ## Generate Music Video Playlists based on your personal Spotify Playlists
 #### Vercel, NextJS 15.2.4, NextAuth ^4.24.11, Node ^22.13.14, React ^19.1.0, TypeScript ^5.8.2, JavaScript ECMAScript 2023, HTML 5, Tailwind/CSS 4
 
@@ -17,11 +14,12 @@ A guest spotify account is available to use if you wish not to share your person
   > Username: guest-user@jkn95.dev
   > Password: !spotify1234
 
-
+# Login with Spotify
 Authenticate with your Spotify account and populate website data with your listening history, following, and playlist data
 
 ![image](https://github.com/user-attachments/assets/24a097af-402a-47c0-993b-1abd5a9c7a3a)
 
+# Usage
 Automatically play the top music video for each track listed on your selected playlist. The player acts autonomously and automatically as it should. When video ends, app event trigger will call the server component to dynamically render the next page slug (NextJS App router and navigation feature) for the next track
 
 ![image](https://github.com/user-attachments/assets/f81f38fd-3b0e-4f16-ab0c-9c6be75ff25c)

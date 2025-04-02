@@ -6,15 +6,19 @@ Generate Music Video Playlists based on your personal Spotify Playlists
 www.nurtree.com
 
 # Guest credentials
-> [!NOTE]
-> This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data
+
+
+
+
+# Login with Spotify
+Authenticate with your Spotify account and populate website data with your listening history, following, and playlist data
 
 A guest spotify account is available to use if you wish not to share your personal email.
   > - Username: guest-user@jkn95.dev
   > - Password: !spotify1234
 
-# Login with Spotify
-Authenticate with your Spotify account and populate website data with your listening history, following, and playlist data
+> [!NOTE]
+> This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data
 
 ![image](https://github.com/user-attachments/assets/24a097af-402a-47c0-993b-1abd5a9c7a3a)
 

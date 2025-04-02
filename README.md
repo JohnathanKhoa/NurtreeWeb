@@ -5,11 +5,6 @@ Generate Music Video Playlists based on your personal Spotify Playlists
 
 www.nurtree.com
 
-# Guest credentials
-
-
-
-
 # Login with Spotify
 Authenticate with your Spotify account and populate website data with your listening history, following, and playlist data
 

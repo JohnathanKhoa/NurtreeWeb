@@ -2,17 +2,17 @@
 > App has yet to be approved by spotify, please request me to add your email to the development list if you wish to take a look firsthand
 
 # Nurtree
+> [!IMPORTANT]
+> App has yet to be approved by spotify, please request me to add your email to the development list if you wish to take a look firsthand
 ## Generate Music Video Playlists based on your personal Spotify Playlists
-### Vercel, NextJS 15.2.4,Node ^22.13.14, React ^19.1.0, TypeScript ^5.8.2, JavaScript ECMAScript 2023, HTML 5, Tailwind/CSS 4
-### NextAuth ^4.24.11, Spotify Provider
-### Spotify, Youtube API
+#### Vercel, NextJS 15.2.4, NextAuth ^4.24.11, Node ^22.13.14, React ^19.1.0, TypeScript ^5.8.2, JavaScript ECMAScript 2023, HTML 5, Tailwind/CSS 4
 
 www.nurtree.com
 
-#Guest credentials
+# Guest credentials
 A guest spotify account is available to use if you wish not to share your personal email.
-  Username: guest-user@jkn95.dev
-  Password: !spotify1234
+  > Username: guest-user@jkn95.dev
+  > Password: !spotify1234
 > [!CAUTION]
 > This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data
 

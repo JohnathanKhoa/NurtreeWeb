@@ -1,10 +1,5 @@
 # Nurtree 
 Generate Music Video Playlists based on your personal Spotify Playlists
-### Tools and Dependencies
-Vercel, NextJS@15.2.4, NextAuth^4.24.11, 
-Node^22.13.14, React^19.1.0, TypeScript^5.8.2, 
-JavaScript-ECMAScript2023, HTML5, Tailwind/CSS4
-
 > [!IMPORTANT]
 > App has yet to be approved by Spotify, please request me to add your email to the developer/private list if you wish to add your personal Spotify account
 
@@ -15,8 +10,8 @@ www.nurtree.com
 > This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data
 
 A guest spotify account is available to use if you wish not to share your personal email.
-  > Username: guest-user@jkn95.dev
-  > Password: !spotify1234
+  > - Username: guest-user@jkn95.dev
+  > - Password: !spotify1234
 
 # Login with Spotify
 Authenticate with your Spotify account and populate website data with your listening history, following, and playlist data

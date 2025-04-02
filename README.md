@@ -30,9 +30,15 @@ https://github.com/user-attachments/assets/906ff664-c582-4713-887b-399cf74ba00d
 
 80% components made from scratch, with all reusable UI functionality separated into their respective tsx files. Logic separated on server components,and hooks and states handled by client components
 
-Featuring Animated loaders, Image cards, Index containers, Track tables, User libraries, Responsive videos, Embeds and Iframes, Searchable input, Custom design
+Featuring Animated loaders, Image cards, Index containers, Track tables, User libraries, Responsive videos, Embeds and Iframes, Searchable input
 
-Dynamic page router, API routes, automated caching for commonly reused paths
+Authentication with NextAuth and Spotify Provider
+
+Interfaced types for Spotify API responses
+
+lib folder with modular fetch API
+
+Dynamic page slugs, API routes, automated caching for commonly reused paths
 
 Key Metadata attribution for maximum exposure as well as accommodate REQUIRED Spotify Guidelines and Developer License Agreement
 

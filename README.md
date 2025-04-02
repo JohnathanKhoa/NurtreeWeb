@@ -24,7 +24,7 @@ A guest Spotify account is available to use if you wish not to share your person
   > - Password: !spotify1234
 
 > [!NOTE]
-> This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data
+> This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests until this application is approved. Be careful not to share any personal data
 
 ![image](https://github.com/user-attachments/assets/24a097af-402a-47c0-993b-1abd5a9c7a3a)
 

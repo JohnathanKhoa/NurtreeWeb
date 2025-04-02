@@ -1,40 +1,40 @@
-*****App has yet to be approved by spotify, please request me to add your email to the development list if you waish to take a look firsthand*****
-
+# Nurtree 
 Generate Music Video Playlists based on your personal Spotify Playlists
-
-Vercel, NextJS 15.2.4,Node ^22.13.14, React ^19.1.0, TypeScript ^5.8.2, JavaScript ECMAScript 2023, HTML 5, Tailwind/CSS 4
-
-NextAuth ^4.24.11, Spotify Provider
-
-Spotify, Youtube API
+> [!IMPORTANT]
+> App is under review by Spotify for an extension request and will take some time to get approved for public usage, please request me to add your email to the developer/private list if you currently wish to add your personal Spotify account
 
 www.nurtree.com
 
-Authenticate with your Spotify account and populate website data with your listening history, following, and playlist data
+# Login with Spotify
+Authenticate with your Spotify account
+
+A guest Spotify account is available to use if you wish not to share your personal email.
+  > - Username: guest-user@jkn95.dev
+  > - Password: !spotify1234
+
+> [!NOTE]
+> This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data
 
 ![image](https://github.com/user-attachments/assets/24a097af-402a-47c0-993b-1abd5a9c7a3a)
 
-Automatically play the top music video for each track listed on your selected playlist, when video ends, app event trigger will render the next dynamically generated page for the next track
+# Usage
+Play the top music video for each track listed on your selected playlist. The player acts autonomously and automatically as it should. When video ends, app event trigger will send a dynamic slug route to the server component (NextJS App router and navigation feature) with next video and track details and render the new page
 
 ![image](https://github.com/user-attachments/assets/f81f38fd-3b0e-4f16-ab0c-9c6be75ff25c)
 
-Responsive web page to suit every window size mobile, tablet, desktop
+Responsive web pages to suit every window size mobile, tablet, desktop with the help of Tailwind/CSS 4
 
-https://github.com/user-attachments/assets/02ffef78-3e15-4b41-8f11-90f54f0201be
+https://github.com/user-attachments/assets/45d51eaa-bec9-45da-994a-104a261405b5
 
-https://github.com/user-attachments/assets/1082fbab-35ae-4a19-9ae2-a993b6729ade
+https://github.com/user-attachments/assets/906ff664-c582-4713-887b-399cf74ba00d
 
-80% components made from scratch, hadwritten tailwindcss, logic separated on server components and model and states handles by client components
+80% components made from scratch, with all reusable UI functionality separated into their respective tsx files. Logic separated on server components,and hooks and states handled by client components
 
-Animated loaders, Object cards, Index containers, Track tables, User libraries, Responsive videos, Embeds and Iframes, Searchable input, Custom design
+Featuring Animated loaders, Image cards, Index containers, Track tables, User libraries, Responsive videos, Embeds and Iframes, Searchable input, Custom design
 
-Additional features: search songs, artists, albums, playlists, add tracks to playlist, etc
+Dynamic page router, API routes, automated caching for commonly reused paths
 
-Dynamic page router and automated caching for commonly reused paths
-
-https://vimeo.com/1071236365/c196fcfd07?share=copy -- Link to long demonstration
-
-Features accommodate Spotify Guidelines and Developer License Agreement
+Key Metadata attribution for maximum exposure as well as accommodate REQUIRED Spotify Guidelines and Developer License Agreement
 
 
 

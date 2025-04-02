@@ -10,11 +10,13 @@
 www.nurtree.com
 
 # Guest credentials
+> [!CAUTION]
+> This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data
+
 A guest spotify account is available to use if you wish not to share your personal email.
   > Username: guest-user@jkn95.dev
   > Password: !spotify1234
-> [!CAUTION]
-> This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data
+
 
 Authenticate with your Spotify account and populate website data with your listening history, following, and playlist data
 

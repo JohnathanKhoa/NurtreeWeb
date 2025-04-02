@@ -1,14 +1,14 @@
 # Nurtree 
 Generate Music Video Playlists based on your personal Spotify Playlists
 > [!IMPORTANT]
-> App has yet to be approved by Spotify, please request me to add your email to the developer/private list if you wish to add your personal Spotify account
+> App is under review by Spotify for an extension request and will take some time to get approved for public usage, please request me to add your email to the developer/private list if you currently wish to add your personal Spotify account
 
 www.nurtree.com
 
 # Login with Spotify
 Authenticate with your Spotify account
 
-A guest spotify account is available to use if you wish not to share your personal email.
+A guest Spotify account is available to use if you wish not to share your personal email.
   > - Username: guest-user@jkn95.dev
   > - Password: !spotify1234
 
@@ -24,21 +24,15 @@ Play the top music video for each track listed on your selected playlist. The pl
 
 Responsive web pages to suit every window size mobile, tablet, desktop with the help of Tailwind/CSS 4
 
-![www nurtree com_playlists_0ppiqKethMfq5GFaJJNckg_0(iPhone SE)](https://github.com/user-attachments/assets/6b46d7ad-a662-46ed-9ad8-63b60f9dc080) ![www nurtree com_playlists_0ppiqKethMfq5GFaJJNckg_0(iPad Mini)](https://github.com/user-attachments/assets/c4203c04-5a95-4a69-a738-9785230b6707) ![www nurtree com_playlists_0ppiqKethMfq5GFaJJNckg_0](https://github.com/user-attachments/assets/d6acbbf9-7de7-4b0e-a36c-59435ce395f4) ![www nurtree com_playlists_0ppiqKethMfq5GFaJJNckg_0 (1)](https://github.com/user-attachments/assets/d5feb092-04ff-4c23-a4df-f93b736cfb5a)
+https://github.com/user-attachments/assets/45d51eaa-bec9-45da-994a-104a261405b5
 
-https://github.com/user-attachments/assets/02ffef78-3e15-4b41-8f11-90f54f0201be
-
-https://github.com/user-attachments/assets/1082fbab-35ae-4a19-9ae2-a993b6729ade
+https://github.com/user-attachments/assets/906ff664-c582-4713-887b-399cf74ba00d
 
 80% components made from scratch, with all reusable UI functionality separated into their respective tsx files. Logic separated on server components,and hooks and states handled by client components
 
-Animated loaders, Image cards, Index containers, Track tables, User libraries, Responsive videos, Embeds and Iframes, Searchable input, Custom design
-
-Additional features: search songs, artists, albums, playlists, add tracks to playlist, etc
+Featuring Animated loaders, Image cards, Index containers, Track tables, User libraries, Responsive videos, Embeds and Iframes, Searchable input, Custom design
 
 Dynamic page router, API routes, automated caching for commonly reused paths
-
-https://vimeo.com/1071236365/c196fcfd07?share=copy -- Link to long demonstration
 
 Key Metadata attribution for maximum exposure as well as accommodate REQUIRED Spotify Guidelines and Developer License Agreement
 

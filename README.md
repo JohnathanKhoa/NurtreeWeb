@@ -6,7 +6,7 @@ Generate Music Video Playlists based on your personal Spotify Playlists
 www.nurtree.com
 
 # Guest credentials
-> [!CAUTION]
+> [!NOTE]
 > This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data
 
 A guest spotify account is available to use if you wish not to share your personal email.

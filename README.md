@@ -1,4 +1,5 @@
-[!IMPORTANT](App has yet to be approved by spotify, please request me to add your email to the development list if you wish to take a look firsthand)
+[!IMPORTANT]
+App has yet to be approved by spotify, please request me to add your email to the development list if you wish to take a look firsthand
 
 Generate Music Video Playlists based on your personal Spotify Playlists
 
@@ -13,7 +14,8 @@ www.nurtree.com
 yes, a guest spotify account is available to use if you wish not to share your personal email.
 Username: guest-user@jkn95.dev
 Password: !spotify1234
-[!CAUTION](This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data)
+[!CAUTION]
+This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests. Be careful not to share any personal data
 
 Authenticate with your Spotify account and populate website data with your listening history, following, and playlist data
 

@@ -12,7 +12,7 @@ export default async function NavBar() {
   }
 
   const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 100),
+    getUserAllPlaylists(session, 20),
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
 

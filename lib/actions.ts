@@ -12,7 +12,7 @@ import {
   Data,
   Snapshot,
 } from "@/types/types";
-import { customGet, customGetPublic, customPost } from "@/util/serverUtils";
+import { customGet, customPost } from "@/util/serverUtils";
 const { YTSearcher } = require("ytsearcher");
 const YTKey = process.env.YOUTUBE_API_KEY;
 const searcher = new YTSearcher(YTKey);
@@ -259,7 +259,7 @@ export const getUserAllPlaylists = async (
   //const total = await getTotalPlaylists(session);
 
   let offset = 0;
-  let limit = 50;
+  let limit = 20;
   while (offset < total) {
     let playlists: Playlist[] = await getUserLikedPlaylists(
       session,

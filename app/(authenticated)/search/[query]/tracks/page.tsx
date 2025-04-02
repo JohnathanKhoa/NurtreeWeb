@@ -13,9 +13,17 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const query = (await params).query;
+  const session = await getAuthSession();
+  if (!session) {
+    redirect("/login");
+  }
+  const query = decodeURI((await params).query);
+  const tracks = (await getSearchItems(session, "track", query, 20).then(
+    (data) => data.tracks.items
+  )) as Track[];
   return {
-    title: `Tracks related to "${query}"`,
+    title: `Songs related to "${query}"`,
+    description: `Track Metadata: ${JSON.stringify(tracks)}`
   };
 }
 
@@ -25,7 +33,7 @@ export default async function TrackSearchResultPage({ params }: Props) {
     redirect("/login");
   }
   const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 100),
+    getUserAllPlaylists(session, 20),
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
   const query = (await params).query;
@@ -34,7 +42,7 @@ export default async function TrackSearchResultPage({ params }: Props) {
     session,
   }).then((data) => data)) as User;
 
-  const tracks = (await getSearchItems(session, "track", query, 50).then(
+  const tracks = (await getSearchItems(session, "track", query, 20).then(
     (data) => data.tracks.items
   )) as Track[];
 

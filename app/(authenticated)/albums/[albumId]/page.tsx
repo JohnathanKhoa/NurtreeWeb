@@ -24,7 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const albumId = (await params).albumId;
   const album = await getAlbumById(session, albumId);
   return {
-    title: `Nurtree - ${album.name}`,
+    title: `Album - ${album.name}`,
+    description: `Album Metadata: ${JSON.stringify(album)}`
   };
 }
 
@@ -40,7 +41,7 @@ export default async function AlbumPage({ params }: Props) {
   const albumId = (await params).albumId;
   const album = await getAlbumById(session, albumId);
   const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 100),
+    getUserAllPlaylists(session, 20),
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
   return (

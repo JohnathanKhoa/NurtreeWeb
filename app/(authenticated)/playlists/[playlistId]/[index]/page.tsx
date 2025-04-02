@@ -33,6 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .map((item: any) => item.track);
   return {
     title: `${playlistTracks[index].name} - ${playlistTracks[index].artists[0].name}`,
+    description: `Playlist Metadata: ${JSON.stringify(playlistTracks)}`
+    
   };
 }
 
@@ -52,7 +54,7 @@ export default async function PlaylistPage({ params }: Props) {
     .filter((item: any) => item.track !== null)
     .map((item: any) => item.track);
   const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 100),
+    getUserAllPlaylists(session, 20),
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
   const artist = await getArtistById(

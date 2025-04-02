@@ -13,9 +13,15 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const query = (await params).query;
+  const session = await getAuthSession();
+  if (!session) {
+    redirect("/login");
+  }
+  const query = decodeURI((await params).query);
+  const albumResponse = await getSearchItems(session, "album", query, 20);
   return {
     title: `Albums related to "${query}"`,
+    description: `Search Metadata: ${JSON.stringify(albumResponse)}`
   };
 }
 
@@ -27,7 +33,7 @@ export default async function AlbumsSearchResultPage({ params }: Props) {
 
   const query = decodeURI((await params).query);
 
-  const albumResponse = await getSearchItems(session, "album", query, 50);
+  const albumResponse = await getSearchItems(session, "album", query, 20);
 
   const albums = albumResponse.albums.items as Album[];
 

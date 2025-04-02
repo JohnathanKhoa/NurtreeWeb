@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 
 interface Props {
   params: Promise<{
-    userId: string;
+    // userId: string;
   }>;
 }
 
@@ -14,13 +14,13 @@ export default async function Page({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
-  const data = await params;
-  const userId = data.userId;
-  const publicPlaylists = await getUserPlaylists(session, userId);
+  // const data = await params;
+  // const userId = data.userId;
+  // const publicPlaylists = await getUserPlaylists(session, userId);
 
   return (
     <div className="flex h-1/2 w-1/2 items-center justify-center">
-      <PlaylistCards playlists={publicPlaylists} />
+      {/* <PlaylistCards playlists={publicPlaylists} /> */}
     </div>
   );
 }

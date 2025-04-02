@@ -31,7 +31,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const artistId = (await params).artistId;
   const artist = await getArtistById(session, artistId);
   return {
-    title: `Nurtree - ${artist.name}`,
+    title: `Artist - ${artist.name}`,
+    description: `Artist Metadata: ${JSON.stringify(artist)}`
   };
 }
 
@@ -46,7 +47,7 @@ export default async function ArtistPage({ params }: Props) {
   }).then((data) => data)) as User;
   const artistId = (await params).artistId;
   const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 100),
+    getUserAllPlaylists(session, 20),
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
   const [

@@ -21,7 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const trackId = (await params).trackId;
   const track = await getTrackById(session, trackId);
   return {
-    title: `Nurtree - ${track.name}`,
+    title: `${track.name} - ${track.artists[0].name}`,
+    description: `Track Metadata: ${JSON.stringify(track)}`
   };
 }
 

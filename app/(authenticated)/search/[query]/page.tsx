@@ -17,9 +17,18 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const query = (await params).query;
+  const session = await getAuthSession();
+
+  if (!session) {
+    redirect("/login");
+  }
+  
+  const query = decodeURI((await params).query);
+
+  const searchResults = await getSearchItems(session, "all", query);
   return {
     title: `Search results for "${query}"`,
+    description: `Search Metadata: ${JSON.stringify(searchResults)}`
   };
 }
 
@@ -37,7 +46,7 @@ export default async function SearchResults({ params }: Props) {
     session,
   }).then((data) => data)) as User;
   const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 100),
+    getUserAllPlaylists(session, 20),
     //getUserLikedSongs(session).then((data) => data.total),
   ]);
   return (

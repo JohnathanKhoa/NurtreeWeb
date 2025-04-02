@@ -15,11 +15,11 @@ export default async function BrowseCategoriesPage() {
     redirect("/login");
   }
 
-  const categories = await getCategories(session);
+  // const categories = await getCategories(session);
 
   return (
     <>
-      <h1>Browse Categories</h1>
+      {/* <h1>Browse Categories</h1>
 
       <CardItemGrid>
         {categories.map((category) => (
@@ -32,7 +32,7 @@ export default async function BrowseCategoriesPage() {
             type="categories"
           />
         ))}
-      </CardItemGrid>
+      </CardItemGrid> */}
     </>
   );
 }

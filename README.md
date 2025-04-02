@@ -20,7 +20,7 @@ A guest Spotify account is available to use if you wish not to share your person
 # Usage
 Play the top music video for each track listed on your selected playlist. The player acts autonomously and automatically as it should. When video ends, app event trigger will send a dynamic slug route to the server component (NextJS App router and navigation feature) with next video and track details and render the new page
 
-![image](https://github.com/user-attachments/assets/f81f38fd-3b0e-4f16-ab0c-9c6be75ff25c)
+![image](https://github.com/user-attachments/assets/920b7369-e8a3-4f14-9cda-81e4180f1c01)
 
 Responsive web pages to suit every window size mobile, tablet, desktop with the help of Tailwind/CSS 4
 

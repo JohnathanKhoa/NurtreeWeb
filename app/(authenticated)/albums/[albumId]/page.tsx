@@ -41,6 +41,7 @@ export default async function AlbumPage({ params }: Props) {
   }).then((data) => data)) as User;
   const albumId = (await params).albumId;
   const album = await getAlbumById(session, albumId);
+  console.log(album.tracks.items)
   const [playlists] = await Promise.all([
     getUserAllPlaylists(session, 20),
     //getUserLikedSongs(session).then((data) => data.total),

@@ -12,7 +12,6 @@ import { Fragment } from "react";
 import clsx from "clsx";
 import AddLibrary from "./AddLibrary";
 import OpenSpotify from "./OpenSpotify";
-import GoToAlbum from "./GoToAlbum";
 import GoToArtists from "./GoToArtists";
 require("dotenv").config();
 
@@ -22,7 +21,7 @@ interface Props {
   user: string;
 }
 
-export default function TripleDots({ playlists, track, user }: Props) {
+export default function TripleDotsAlbum({ playlists, track, user }: Props) {
   let keycount = 0;
 
   return (
@@ -62,14 +61,6 @@ export default function TripleDots({ playlists, track, user }: Props) {
               <MenuItem key={keycount++}>
                 <div className="">
                   <GoToArtists track={track} />
-                </div>
-              </MenuItem>
-            </div>
-            <MenuSeparator className="my-1 h-px bg-white" />
-            <div className="flex-col">
-              <MenuItem key={keycount++}>
-                <div className="">
-                  <GoToAlbum track={track} />
                 </div>
               </MenuItem>
             </div>

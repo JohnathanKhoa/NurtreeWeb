@@ -1,6 +1,5 @@
 "use client";
 import { Track } from "@/types/types";
-import { ArrowLeftFromLine } from "lucide-react";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import Image from "next/image";
 interface Props {

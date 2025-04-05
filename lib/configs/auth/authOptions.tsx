@@ -27,11 +27,6 @@ const authOptions: NextAuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      // if (session.expires as unknown as Date <= new Date()){
-      //   token.accessToken = token.refreshToken;
-      //   session.user = token;
-      //   return session;
-      // }
       session.user = token;
       return session;
     },

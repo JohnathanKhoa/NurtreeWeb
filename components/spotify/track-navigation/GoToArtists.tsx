@@ -1,10 +1,9 @@
 "use client";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { Playlist, Track } from "@/types/types";
+import { Track } from "@/types/types";
 import { ChevronDown, UserRoundSearch } from "lucide-react";
 import { Fragment } from "react";
 import clsx from "clsx";
-import AddLibraryItemCard from "./AddLibraryItemCard";
 import GoToArtist from "./GoToArtist";
 
 interface Props {

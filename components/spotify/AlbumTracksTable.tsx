@@ -12,6 +12,7 @@ import ActiveTrackOverlay from "./ActiveTrackOverlay";
 import TripleDots from "./track-navigation/TripleDots";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import OpenSpotifyLink from "./OpenSpotifyLink";
+import TripleDotsAlbum from "./track-navigation/TripleDotsAlbum";
 interface Props {
   album: Album;
   tracks: Track[];
@@ -213,7 +214,11 @@ export default function AlbumTracksTable({
                 {clicked && index === clickedIndex && <LoadingOverlay />}
               </div>
               <div className="absolute right-0 -translate-y-11">
-                <TripleDots user={user} track={track} playlists={playlists} />
+                <TripleDotsAlbum
+                  user={user}
+                  track={track}
+                  playlists={playlists}
+                />
               </div>
             </div>
           ))}

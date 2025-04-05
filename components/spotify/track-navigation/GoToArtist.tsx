@@ -1,5 +1,5 @@
 "use client";
-import { Artist, Track } from "@/types/types";
+import { Artist } from "@/types/types";
 import { UserRound } from "lucide-react";
 
 interface Props {

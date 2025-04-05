@@ -1,4 +1,7 @@
 # Nurtree 
+
+The goal of this project was to demonstrate the advanced capabilities of the NextJS framework by applying it to a practical use-case scenario involving dynamic rendering with a substantial data set.
+
 ![nurtree](https://github.com/user-attachments/assets/8baa728f-1faa-4b67-97f7-076465fc868a)
 
 "Nurture" is a verb that means to care for and support the growth, development, or improvement of someone or something. It involves fostering an environment or providing the necessary resources to help that person, idea, or object thrive.

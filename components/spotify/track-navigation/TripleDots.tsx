@@ -13,6 +13,8 @@ import clsx from "clsx";
 import AddLibrary from "./AddLibrary";
 import GoToArtist from "./GoToArtist";
 import OpenSpotify from "./OpenSpotify";
+import GoToAlbum from "./GoToAlbum";
+import GoToArtists from "./GoToArtists";
 require("dotenv").config();
 
 interface Props {
@@ -60,7 +62,15 @@ export default function TripleDots({ playlists, track, user }: Props) {
             <div className="flex-col">
               <MenuItem key={keycount++}>
                 <div className="">
-                  <GoToArtist track={track} />
+                  <GoToArtists track={track} />
+                </div>
+              </MenuItem>
+            </div>
+            <MenuSeparator className="my-1 h-px bg-white" />
+            <div className="flex-col">
+              <MenuItem key={keycount++}>
+                <div className="">
+                  <GoToAlbum track={track} />
                 </div>
               </MenuItem>
             </div>

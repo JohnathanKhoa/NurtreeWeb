@@ -43,9 +43,9 @@ export default function LibraryItemCard({ type, entity, subtitle }: Props) {
         <h6 className={`w-full text-sm truncate hover:text-white`}>
           {entity.name}
         </h6>
-        {/* {type !== "artists" && (
+        {type !== "artists" && (
           <span className="mt-1 text-xs font-medium text-gray">{subtitle}</span>
-        )} */}
+        )}
       </div>
     </a>
   );

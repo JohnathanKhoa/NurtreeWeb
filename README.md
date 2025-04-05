@@ -16,8 +16,6 @@ Features of NextJS include but are not limited to:
 Nurtree brings together two creative platforms that encourage music lovers to explore and connect with their favorite songs through visually engaging and personalized experiences.
 Blending together Youtube and Spotify API, Nurtree matches the top Music Videos to your chosen songs and will provide a curated music video playlist based on your personal Spotify Playlists. 
 
-![nurtree](https://github.com/user-attachments/assets/8baa728f-1faa-4b67-97f7-076465fc868a)
-
 > [!IMPORTANT]
 > App is under review by Spotify for an extension request and will take some time to get approved for public usage, please request me to add your email to the developer/private list if you currently wish to add your personal Spotify account
 
@@ -73,6 +71,8 @@ lib folder with modular fetch API
 Dynamic page slugs, API routes, automated caching for commonly reused paths
 
 Key Metadata attribution for maximum exposure as well as accommodate REQUIRED Spotify Guidelines and Developer License Agreement
+
+![nurtree](https://github.com/user-attachments/assets/8baa728f-1faa-4b67-97f7-076465fc868a)
 
 "Nurture" is a verb that means to care for and support the growth, development, or improvement of someone or something. It involves fostering an environment or providing the necessary resources to help that person, idea, or object thrive.
 > "It’s important to **nurture** a creative spirit, as it can lead to innovative ideas and unique solutions."

@@ -38,13 +38,17 @@ A guest Spotify account is available to use if you wish not to share your person
 # Usage
 Search for a song, artist, album, from the search bar, or select a playlist from your library. The application will generate a page based on the track details, and retrieve the top matching music video from youtube. The player acts autonomously and automatically as it should. When the video ends, an app event will trigger and send a request for a dynamic slug route to the server component (NextJS App router and navigation feature) with the next video and track details, and render the new page. This rendering is lazily loaded, only getting the video iframe and spotify embed details when its route is active.
 
-![image](https://github.com/user-attachments/assets/920b7369-e8a3-4f14-9cda-81e4180f1c01)
+![www nurtree com_playlists_2SipcZ6RkkcQ0zVP2Z6BSP_2(iPhone SE)](https://github.com/user-attachments/assets/3fa97a5f-4a66-4f40-9b08-5e89385bb0df)
 
 Web Pages are responsive to suit every window size, mobile, tablet, desktop, etc with the help of Tailwind/CSS 4
 
 https://github.com/user-attachments/assets/45d51eaa-bec9-45da-994a-104a261405b5
 
 https://github.com/user-attachments/assets/906ff664-c582-4713-887b-399cf74ba00d
+
+Dynamic buttons Add to Playlist, Go To Album, Go to Artist, Open in Spotify
+
+![www nurtree com_playlists_2SipcZ6RkkcQ0zVP2Z6BSP_2(iPhone SE) (2)](https://github.com/user-attachments/assets/cdda68b2-d567-4074-9ba4-0c008bc00b43)
 
 80% components made from scratch, with all reusable UI functionality modular and separated into their respective tsx files. Logic defined on server components, while hooks and states handled by client components
 

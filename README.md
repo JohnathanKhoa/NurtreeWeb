@@ -2,6 +2,17 @@
 
 The goal of this project was to demonstrate the advanced capabilities of the NextJS framework by applying it to a practical use-case scenario involving dynamic rendering with a substantial data set.
 
+Features of NextJS include but are not limited to:
+
+| **Feature**       | **Description**                                                                                                                                                |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Routing**        | A file-system based router built on top of Server Components that supports layouts, nested routing, loading states, error handling, and more.                |
+| **Rendering**      | Client-side and Server-side Rendering with Client and Server Components. Further optimized with Static and Dynamic Rendering on the server with Next.js. Streaming on Edge and Node.js runtimes. |
+| **Data Fetching**  | Simplified data fetching with async/await in Server Components, and an extended fetch API for request memoization, data caching, and revalidation.            |
+| **Styling**        | Support for your preferred styling methods, including CSS Modules, Tailwind CSS, and CSS-in-JS.                                                               |
+| **Optimizations**  | Image, Fonts, and Script Optimizations to improve your application's Core Web Vitals and User Experience.                                                     |
+| **TypeScript**     | Improved support for TypeScript, with better type checking and more efficient compilation, as well as custom TypeScript Plugin and type checker.              |
+
 Nurtree brings together two creative platforms that encourage music lovers to explore and connect with their favorite songs through visually engaging and personalized experiences.
 Blending together Youtube and Spotify API, Nurtree matches the top Music Videos to your chosen songs and will provide a curated music video playlist based on your personal Spotify Playlists. 
 

@@ -218,7 +218,7 @@ export const getUserPlaylists = async (
 
   const data = await customGet(currUrl, session);
   const userData = data;
-  console.log(userData);
+  // console.log(userData);
   return userData.items;
 };
 

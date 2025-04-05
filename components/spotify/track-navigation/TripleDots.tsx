@@ -12,6 +12,7 @@ import { Fragment } from "react";
 import clsx from "clsx";
 import AddLibrary from "./AddLibrary";
 import GoToArtist from "./GoToArtist";
+import OpenSpotify from "./OpenSpotify";
 require("dotenv").config();
 
 interface Props {
@@ -54,12 +55,20 @@ export default function TripleDots({ playlists, track, user }: Props) {
                   />
                 </div>
               </MenuItem>
-              <MenuSeparator className="my-1 h-px bg-white" />
             </div>
+            <MenuSeparator className="my-1 h-px bg-white" />
             <div className="flex-col">
               <MenuItem key={keycount++}>
                 <div className="">
                   <GoToArtist track={track} />
+                </div>
+              </MenuItem>
+            </div>
+            <MenuSeparator className="my-1 h-px bg-white" />
+            <div className="flex-col">
+              <MenuItem key={keycount++}>
+                <div className="">
+                  <OpenSpotify track={track} />
                 </div>
               </MenuItem>
             </div>

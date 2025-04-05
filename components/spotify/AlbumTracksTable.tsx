@@ -1,6 +1,6 @@
 "use client";
 
-import { Playlist, Track } from "@/types/types";
+import { Album, Playlist, Track } from "@/types/types";
 import { fmtMSS } from "@/util/clientUtils";
 import { Clock3, Music } from "lucide-react";
 import Image from "next/image";
@@ -13,6 +13,7 @@ import TripleDots from "./track-navigation/TripleDots";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import OpenSpotifyLink from "./OpenSpotifyLink";
 interface Props {
+  album: Album
   tracks: Track[];
   showHeader?: boolean;
   showCover?: boolean;
@@ -26,7 +27,8 @@ interface Props {
   user: string;
 }
 
-export default function TracksTable({
+export default function AlbumTracksTable({
+  album,
   tracks,
   showSubtitle = false,
   showCover = false,
@@ -144,11 +146,11 @@ export default function TracksTable({
                 >
                   <div className="flex items-center  gap-4">
                     {showCover &&
-                      (track.album.images && track.album.images.length > 0 ? (
+                      (album.images && album.images.length > 0 ? (
                         <div className="flex-shrink-0 w-10 h-10">
                           <Image
-                            src={track.album.images?.[0].url as string}
-                            alt={track.name}
+                            src={album.images?.[0].url as string}
+                            alt={album.name}
                             height={40}
                             width={40}
                             className="object-contain w-10 h-10 rounded"
@@ -191,7 +193,7 @@ export default function TracksTable({
                     // href={`/albums/${track.album.id}`}
                     // className="truncate hover:text-white hover:underline z-50"
                     >
-                      {track.album.name}
+                      {album.name}
                     </a>
                   </div>
                 )}

@@ -1,6 +1,7 @@
 import { Music } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 
 interface Props {
   images: any;
@@ -24,11 +25,13 @@ export default function CardItem({
   let keycount = 0;
 
   return (
+    <>
+    <div className="h-full p-4">
     <Link
       key={keycount++}
       href={type === "playlists" ? `/${type}/${id}/0` : `/${type}/${id}`}
     >
-      <div className="h-full p-4 transition duration-300 rounded-lg bg-paper-500 hover:opacity-80">
+      <div className="  transition duration-300 rounded-lg bg-paper-500 hover:opacity-80">
         {images.length > 0 ? (
           <Image
             src={images[0].url}
@@ -48,7 +51,46 @@ export default function CardItem({
             {subheading}
           </h6>
         )}
+        
       </div>
     </Link>
+    {type === "playlists" ? (
+      <>
+      <a href={`https://open.spotify.com/playlist/${id}`} target="_blank" className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1">
+        <p className="">Open Spotify</p>
+        <Image
+          className="object-contain w-6 h-6 rounded invert"
+          src={SpotifyPrimaryImage}
+          alt={altTitle}
+        />
+        </a>
+      </>
+    ) : null}
+    {type === "artists" ? (
+      <>
+      <a href={`https://open.spotify.com/artist/${id}`} target="_blank" className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1">
+        <p className="">Open Spotify</p>
+        <Image
+          className="object-contain w-6 h-6 rounded invert"
+          src={SpotifyPrimaryImage}
+          alt={altTitle}
+        />
+        </a>
+      </>
+    ) : null}
+    {type === "albums" ? (
+      <>
+      <a href={`https://open.spotify.com/album/${id}`} target="_blank" className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1">
+        <p className="">Open Spotify</p>
+        <Image
+          className="object-contain w-6 h-6 rounded invert"
+          src={SpotifyPrimaryImage}
+          alt={altTitle}
+        />
+        </a>
+      </>
+    ) : null}
+    </div>
+    </>
   );
 }

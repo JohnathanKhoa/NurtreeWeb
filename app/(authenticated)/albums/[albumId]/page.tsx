@@ -1,3 +1,4 @@
+import AlbumTracksTable from "@/components/spotify/AlbumTracksTable";
 import TracksTable from "@/components/spotify/TracksTable";
 import { getAlbumById, getMe, getUserAllPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
@@ -90,12 +91,16 @@ export default async function AlbumPage({ params }: Props) {
         )}
       </div>
 
-      <TracksTable
+      <AlbumTracksTable
+      album={album}
         user={currentUser.id}
         playlists={playlists}
         tracks={album.tracks.items}
         showHeader
         showSubtitle
+        showAlbum
+        showCover
+        
       />
     </>
   );

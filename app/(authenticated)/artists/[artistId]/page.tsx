@@ -1,6 +1,8 @@
 import AlbumCards from "@/components/spotify/AlbumCards";
 import ArtistCards from "@/components/spotify/ArtistCards";
 import TracksTable from "@/components/spotify/TracksTable";
+import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
+
 import {
   getArtistById,
   getArtistDiscography,
@@ -59,15 +61,17 @@ export default async function ArtistPage({ params }: Props) {
     artistCompilation,
     relatedArtists,
   ] = await getArtistDiscography(session, artistId);
-  const artistFull = await getArtistFullById(session, artistId);
-  console.log(artist);
-  console.log(artistFull);
+  // const artistFull = await getArtistFullById(session, artistId);
+  // console.log(artist);
+  // console.log(artistFull);
   return (
     <div className="mx-2">
       <div className="flex items-end gap-6">
         {artist && (
           <>
             {artist.images.length > 0 ? (
+              <>
+              <div>
               <Image
                 src={artist.images[1].url}
                 alt={artist.name}
@@ -76,6 +80,17 @@ export default async function ArtistPage({ params }: Props) {
                 className="object-cover rounded-md md:w-52 w-20 md:h-52 h-20"
                 priority
               />
+              
+      <a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank" className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1">
+        <p className="">Open Spotify</p>
+        <Image
+          className="object-contain w-6 h-6 rounded invert"
+          src={SpotifyPrimaryImage}
+          alt={`Open Spotify`}
+        />
+        </a>
+        </div>
+      </>
             ) : (
               <div className="w-full h-40">
                 <Music size={160} className="w-full h-full bg-paper " />
@@ -97,6 +112,7 @@ export default async function ArtistPage({ params }: Props) {
                 ))}
               </div>
             </div>
+            
           </>
         )}
       </div>
@@ -104,12 +120,14 @@ export default async function ArtistPage({ params }: Props) {
       <div className="my-8">
         <div className="col-span-12 border-b border-zinc-500"></div>
         <h1 className="flex items-center justify-center">Popular</h1>
-        <div className="my-2">
+        <div className="relative w-full">
           <TracksTable
             user={currentUser.id}
             playlists={playlists}
             tracks={artistTopTracks.tracks}
-            showCover
+            showAlbum
+          showCover
+          showSubtitle
           />
         </div>
       </div>

@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   )) as Track[];
   return {
     title: `Songs related to "${query}"`,
-    description: `Track Metadata: ${JSON.stringify(tracks)}`
+    description: `Track Metadata: ${JSON.stringify(tracks)}`,
   };
 }
 
@@ -55,6 +55,7 @@ export default async function TrackSearchResultPage({ params }: Props) {
         tracks={tracks}
         showCover
         showSubtitle
+        showAlbum
       />
     </>
   );

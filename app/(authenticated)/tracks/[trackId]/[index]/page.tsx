@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const track = await getTrackById(session, trackId);
   return {
     title: `Nurtree - ${track.name}`,
-    description: `Track Metadata: ${JSON.stringify(track)}`
+    description: `Track Metadata: ${JSON.stringify(track)}`,
   };
 }
 
@@ -48,9 +48,7 @@ export default async function TrackPage({ params }: Props) {
   const result = await getYoutubeVideoDamon(session, track);
   const tracks: Track[] = [];
   tracks.push(track);
-  const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 20),
-  ]);
+  const [playlists] = await Promise.all([getUserAllPlaylists(session, 20)]);
   const artist = await getArtistById(session, track.artists[0].id);
   const currentUser = (await getMe({
     session,
@@ -69,6 +67,8 @@ export default async function TrackPage({ params }: Props) {
             tracks={tracks}
             showHeader
             showSubtitle
+            showAlbum
+            showCover
           />
         </div>
       </div>

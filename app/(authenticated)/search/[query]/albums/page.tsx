@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const albumResponse = await getSearchItems(session, "album", query, 20);
   return {
     title: `Albums related to "${query}"`,
-    description: `Search Metadata: ${JSON.stringify(albumResponse)}`
+    description: `Search Metadata: ${JSON.stringify(albumResponse)}`,
   };
 }
 

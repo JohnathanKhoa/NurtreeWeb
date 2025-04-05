@@ -1,4 +1,3 @@
-
 import { getAuthSession } from "@/util/serverUtils";
 import { redirect } from "next/navigation";
 

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const album = await getAlbumById(session, albumId);
   return {
     title: `Album - ${album.name}`,
-    description: `Album Metadata: ${JSON.stringify(album)}`
+    description: `Album Metadata: ${JSON.stringify(album)}`,
   };
 }
 
@@ -92,7 +92,7 @@ export default async function AlbumPage({ params }: Props) {
       </div>
 
       <AlbumTracksTable
-      album={album}
+        album={album}
         user={currentUser.id}
         playlists={playlists}
         tracks={album.tracks.items}
@@ -100,7 +100,6 @@ export default async function AlbumPage({ params }: Props) {
         showSubtitle
         showAlbum
         showCover
-        
       />
     </>
   );

@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const artist = await getArtistById(session, artistId);
   return {
     title: `Artist - ${artist.name}`,
-    description: `Artist Metadata: ${JSON.stringify(artist)}`
+    description: `Artist Metadata: ${JSON.stringify(artist)}`,
   };
 }
 
@@ -71,26 +71,30 @@ export default async function ArtistPage({ params }: Props) {
           <>
             {artist.images.length > 0 ? (
               <>
-              <div>
-              <Image
-                src={artist.images[1].url}
-                alt={artist.name}
-                height={200}
-                width={200}
-                className="object-cover rounded-md md:w-52 w-20 md:h-52 h-20"
-                priority
-              />
-              
-      <a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank" className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1 hover:invert duration-200">
-        {/* <p className="">Open Spotify</p> */}
-        <Image
-          className="object-contain w-6 h-6 rounded invert"
-          src={SpotifyPrimaryImage}
-          alt={`Open Spotify`}
-        />
-        </a>
-        </div>
-      </>
+                <div>
+                  <Image
+                    src={artist.images[1].url}
+                    alt={artist.name}
+                    height={200}
+                    width={200}
+                    className="object-cover rounded-md md:w-52 w-20 md:h-52 h-20"
+                    priority
+                  />
+
+                  <a
+                    href={`https://open.spotify.com/artist/${artist.id}`}
+                    target="_blank"
+                    className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1 hover:invert duration-200"
+                  >
+                    {/* <p className="">Open Spotify</p> */}
+                    <Image
+                      className="object-contain w-6 h-6 rounded invert"
+                      src={SpotifyPrimaryImage}
+                      alt={`Open Spotify`}
+                    />
+                  </a>
+                </div>
+              </>
             ) : (
               <div className="w-full h-40">
                 <Music size={160} className="w-full h-full bg-paper " />
@@ -112,7 +116,6 @@ export default async function ArtistPage({ params }: Props) {
                 ))}
               </div>
             </div>
-            
           </>
         )}
       </div>
@@ -126,8 +129,8 @@ export default async function ArtistPage({ params }: Props) {
             playlists={playlists}
             tracks={artistTopTracks.tracks}
             showAlbum
-          showCover
-          showSubtitle
+            showCover
+            showSubtitle
           />
         </div>
       </div>

@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const track = await getTrackById(session, trackId);
   return {
     title: `${track.name} - ${track.artists[0].name}`,
-    description: `Track Metadata: ${JSON.stringify(track)}`
+    description: `Track Metadata: ${JSON.stringify(track)}`,
   };
 }
 

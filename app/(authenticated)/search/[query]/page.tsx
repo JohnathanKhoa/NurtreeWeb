@@ -22,13 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!session) {
     redirect("/login");
   }
-  
+
   const query = decodeURI((await params).query);
 
   const searchResults = await getSearchItems(session, "all", query);
   return {
     title: `Search results for "${query}"`,
-    description: `Search Metadata: ${JSON.stringify(searchResults)}`
+    description: `Search Metadata: ${JSON.stringify(searchResults)}`,
   };
 }
 

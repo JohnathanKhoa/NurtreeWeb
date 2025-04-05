@@ -51,7 +51,7 @@ export default function Hamburger({ playlists }: Props) {
             <>
               <div className={"grid grid-cols-1 h-full content-between"}>
                 <div className="flex-col">
-                <MenuItem key={keycount++}>
+                  <MenuItem key={keycount++}>
                     <Link
                       className="flex rounded-sm pl-2 py-3 hover:bg-indigo-100/50 cursor-pointer"
                       href="/"
@@ -65,20 +65,23 @@ export default function Hamburger({ playlists }: Props) {
                       <UserLibrary playlists={playlists} />
                     </div>
                   </MenuItem>
-                  
-                  
+
                   <MenuSeparator className="my-1 h-px bg-white" />
-                   <MenuItem key={keycount++}>
+                  <MenuItem key={keycount++}>
                     <Link
                       className="flex rounded-sm pl-2 py-3 items-center gap-2 hover:bg-indigo-100/50 cursor-pointer"
                       href="https://open.spotify.com/"
                       target="_blank"
                     >
                       <div>Open Spotify</div>
-                      <Image src={SpotifyPrimaryImage} alt="Open Spotify" className="w-5 h-5" />
+                      <Image
+                        src={SpotifyPrimaryImage}
+                        alt="Open Spotify"
+                        className="w-5 h-5"
+                      />
                     </Link>
                   </MenuItem>
-                  <MenuSeparator className="my-1 h-px bg-white" /> 
+                  <MenuSeparator className="my-1 h-px bg-white" />
                   <MenuItem key={keycount++}>
                     <div
                       onClick={logout}
@@ -91,7 +94,6 @@ export default function Hamburger({ playlists }: Props) {
                   <MenuSeparator className="my-1 h-px bg-white" />
                 </div>
                 <div className="flex-col">
-                  
                   <MenuItem key={keycount++}>
                     <div className=" rounded-sm pl-2 py-3 hover:bg-indigo-100/50 cursor-pointer">
                       <BuyMeACoffee />

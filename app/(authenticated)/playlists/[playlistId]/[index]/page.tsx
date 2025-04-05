@@ -33,8 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .map((item: any) => item.track);
   return {
     title: `${playlistTracks[index].name} - ${playlistTracks[index].artists[0].name}`,
-    description: `Playlist Metadata: ${JSON.stringify(playlistTracks)}`
-    
+    description: `Playlist Metadata: ${JSON.stringify(playlistTracks)}`,
   };
 }
 

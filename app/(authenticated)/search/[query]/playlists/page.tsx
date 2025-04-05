@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Playlists related to "${query}"`,
-    description: `Search Metadata: ${JSON.stringify(playlistResponse)}`
+    description: `Search Metadata: ${JSON.stringify(playlistResponse)}`,
   };
 }
 

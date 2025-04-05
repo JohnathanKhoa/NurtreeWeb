@@ -13,7 +13,7 @@ import TripleDots from "./track-navigation/TripleDots";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import OpenSpotifyLink from "./OpenSpotifyLink";
 interface Props {
-  album: Album
+  album: Album;
   tracks: Track[];
   showHeader?: boolean;
   showCover?: boolean;

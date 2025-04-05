@@ -30,8 +30,7 @@ NextJS features API routes, NextAuth, and Providers to implement secure authoriz
 
 ![image](https://github.com/user-attachments/assets/7ff8ce0a-bb8a-44af-bede-dd44acee98eb)
 
-![image](https://github.com/user-attachments/assets/08a5e8ba-28a0-4579-a547-864efd341922)
-
+![accounts spotify com_en_login_continue=https%3A%2F%2Faccounts spotify com%2Fauthorize%3Fscope%3Duser-read-recently-played%2Buser-read-playback-state%2Buser-top-read%2Buser-modify-playback-state%2Buser-read-curre](https://github.com/user-attachments/assets/92245ea0-f9a5-4dff-96eb-731a303f6a9b)
 
 A guest Spotify account is available to use if you wish not to share your personal email.
   > - Username: guest-user@jkn95.dev

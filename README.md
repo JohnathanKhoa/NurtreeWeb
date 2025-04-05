@@ -22,7 +22,6 @@ Blending together Youtube and Spotify API, Nurtree matches the top Music Videos 
 www.nurtree.com
 
 # Login with Spotify
-Authenticate with your Spotify account
 
 A guest Spotify account is available to use if you wish not to share your personal email.
   > - Username: guest-user@jkn95.dev
@@ -32,6 +31,8 @@ A guest Spotify account is available to use if you wish not to share your person
 > This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests until this application is approved. Be careful not to share any personal data
 
 ![image](https://github.com/user-attachments/assets/24a097af-402a-47c0-993b-1abd5a9c7a3a)
+
+# Authentication
 
 NextJS features API routes, NextAuth, and Providers to implement secure authorization flow using jwt, sessions, and callbacks:
 

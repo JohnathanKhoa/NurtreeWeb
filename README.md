@@ -36,9 +36,13 @@ A guest Spotify account is available to use if you wish not to share your person
 ![image](https://github.com/user-attachments/assets/24a097af-402a-47c0-993b-1abd5a9c7a3a)
 
 # Usage
-Search for a song, artist, album, from the search bar, or select a playlist from your library. The application will generate a page based on the track details, and retrieve the top matching music video from youtube. The player acts autonomously and automatically as it should. When the video ends, an app event will trigger and send a request for a dynamic slug route to the server component (NextJS App router and navigation feature) with the next video and track details, and render the new page. This rendering is lazily loaded, only getting the video iframe and spotify embed details when its route is active.
+Search for a song, artist, album, from the search bar, or select a playlist from your library. 
 
 ![www nurtree com_playlists_2SipcZ6RkkcQ0zVP2Z6BSP_2(iPhone SE)](https://github.com/user-attachments/assets/3fa97a5f-4a66-4f40-9b08-5e89385bb0df)
+
+The application will generate a page based on the track details, and retrieve the top matching music video from youtube. The player acts autonomously and automatically as it should. When the video ends, an app event will trigger and send a request for a dynamic slug route to the server component (NextJS App router and navigation feature) with the next video and track details, and render the new page. This rendering is lazily loaded, only getting the video iframe and spotify embed details when its route is active.
+
+![image](https://github.com/user-attachments/assets/f8572468-e5aa-4003-ba71-df79429cf63b)
 
 Web Pages are responsive to suit every window size, mobile, tablet, desktop, etc with the help of Tailwind/CSS 4
 

@@ -26,12 +26,6 @@ www.nurtree.com
 # Login with Spotify
 Authenticate with your Spotify account
 
-NextJS features API routes, NextAuth, and Providers to implement secure authorization flow using jwt, sessions, and callbacks:
-
-![image](https://github.com/user-attachments/assets/7ff8ce0a-bb8a-44af-bede-dd44acee98eb)
-
-![accounts spotify com_en_login_continue=https%3A%2F%2Faccounts spotify com%2Fauthorize%3Fscope%3Duser-read-recently-played%2Buser-read-playback-state%2Buser-top-read%2Buser-modify-playback-state%2Buser-read-curre](https://github.com/user-attachments/assets/92245ea0-f9a5-4dff-96eb-731a303f6a9b)
-
 A guest Spotify account is available to use if you wish not to share your personal email.
   > - Username: guest-user@jkn95.dev
   > - Password: !spotify1234
@@ -40,6 +34,12 @@ A guest Spotify account is available to use if you wish not to share your person
 > This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests until this application is approved. Be careful not to share any personal data
 
 ![image](https://github.com/user-attachments/assets/24a097af-402a-47c0-993b-1abd5a9c7a3a)
+
+NextJS features API routes, NextAuth, and Providers to implement secure authorization flow using jwt, sessions, and callbacks:
+
+![image](https://github.com/user-attachments/assets/7ff8ce0a-bb8a-44af-bede-dd44acee98eb)
+
+![accounts spotify com_en_login_continue=https%3A%2F%2Faccounts spotify com%2Fauthorize%3Fscope%3Duser-read-recently-played%2Buser-read-playback-state%2Buser-top-read%2Buser-modify-playback-state%2Buser-read-curre](https://github.com/user-attachments/assets/92245ea0-f9a5-4dff-96eb-731a303f6a9b)
 
 # Usage
 Search for a song, artist, album, from the search bar, or select a playlist from your library. 

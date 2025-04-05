@@ -26,6 +26,13 @@ www.nurtree.com
 # Login with Spotify
 Authenticate with your Spotify account
 
+NextJS features API routes, NextAuth, and Providers to implement secure authorization flow using jwt, sessions, and callbacks:
+
+![image](https://github.com/user-attachments/assets/7ff8ce0a-bb8a-44af-bede-dd44acee98eb)
+
+![image](https://github.com/user-attachments/assets/08a5e8ba-28a0-4579-a547-864efd341922)
+
+
 A guest Spotify account is available to use if you wish not to share your personal email.
   > - Username: guest-user@jkn95.dev
   > - Password: !spotify1234

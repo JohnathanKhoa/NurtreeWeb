@@ -14,6 +14,8 @@ import { signOut } from "next-auth/react";
 import UserLibrary from "./UserLibrary";
 import BuyMeACoffee from "../BuyMeACoffee";
 import Link from "next/link";
+import Image from "next/image";
+import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 require("dotenv").config();
 
 interface Props {
@@ -66,16 +68,17 @@ export default function Hamburger({ playlists }: Props) {
                   
                   
                   <MenuSeparator className="my-1 h-px bg-white" />
-                  {/* <MenuItem key={keycount++}>
+                   <MenuItem key={keycount++}>
                     <Link
-                      className="flex rounded-sm pl-2 py-3 hover:bg-indigo-100/50 cursor-pointer"
+                      className="flex rounded-sm pl-2 py-3 items-center gap-2 hover:bg-indigo-100/50 cursor-pointer"
                       href="https://open.spotify.com/"
                       target="_blank"
                     >
-                      <div>Spotify</div>
+                      <div>Open Spotify</div>
+                      <Image src={SpotifyPrimaryImage} alt="Open Spotify" className="w-5 h-5" />
                     </Link>
                   </MenuItem>
-                  <MenuSeparator className="my-1 h-px bg-white" /> */}
+                  <MenuSeparator className="my-1 h-px bg-white" /> 
                   <MenuItem key={keycount++}>
                     <div
                       onClick={logout}

@@ -1,4 +1,4 @@
-# Nurtree 
+# Nurtree - Play all the top music videos using your own curated Spotify playlists
 
 The goal of this project was to demonstrate the advanced capabilities of the NextJS framework by applying it to a practical use-case scenario involving dynamic rendering with a substantial data set.
 

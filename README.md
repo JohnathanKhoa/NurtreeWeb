@@ -59,6 +59,8 @@ Dynamic buttons Add to Playlist, Go To Album, Go to Artist, Open in Spotify
 
 ![www nurtree com_playlists_2SipcZ6RkkcQ0zVP2Z6BSP_2(iPhone SE) (2)](https://github.com/user-attachments/assets/cdda68b2-d567-4074-9ba4-0c008bc00b43)
 
+Global state management with Redux, ensuring consistent state behavior across the application
+
 Components made from scratch, with all reusable UI functionality modular and separated into their respective tsx files. Logic defined on server components, while hooks and states handled by client components
 
 Featuring Animated loaders, Image cards, Index containers, Track tables, User libraries, Responsive videos, Embeds and Iframes, Searchable input

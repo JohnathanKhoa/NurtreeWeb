@@ -6,9 +6,8 @@ import { ChevronDown } from "lucide-react";
 import LibraryItemCard from "./LibraryItemCard";
 import clsx from "clsx";
 import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch, AppState, RootState } from "@/providers/redux/store"; // Adjust the path to your store file
+import { AppDispatch, AppState } from "@/providers/redux/store";
 import { fetchUserData } from "@/providers/redux/userSlice";
-//import { getUserContext, useAsyncStore } from "@/providers/zustand";
 
 export default function UserLibrary() {
   let keycount = 0;

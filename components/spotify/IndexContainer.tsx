@@ -4,13 +4,12 @@ import { useState } from "react";
 import TracksTable from "./TracksTable";
 import Video from "./Video";
 import DescriptionBar from "./DescriptionBar";
+import PlaylistBar from "./PlaylistBar";
 interface Props {
   tracks: Track[];
   track: string;
   playlist: Playlist;
   index: number;
-
-  artist: Artist;
 }
 
 export default function IndexContainer({
@@ -18,7 +17,6 @@ export default function IndexContainer({
   tracks,
   track,
   index,
-  artist,
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   // const [tableIsOpen, setTableIsOpen] = useState<boolean | null>(false);
@@ -32,7 +30,6 @@ export default function IndexContainer({
               tracksLength={tracks.length}
               id={track}
               index={index}
-              currentIndex={setCurrentIndex}
               play={1}
             />
           }
@@ -40,62 +37,9 @@ export default function IndexContainer({
         <div className="flex flex-col overflow-y-auto gap-6 bg-[#1f1f1f] ">
           {playlist && (
             <>
-              {/* <div className="flex items-center gap-6 md:m-4 ">
-                {playlist.images.length > 0 ? (
-                  <Image
-                    src={playlist.images[0].url}
-                    alt={playlist.name}
-                    height={240}
-                    width={240}
-                    className="shadow-2xl object-contain rounded-3xl md:w-40 w-20 md:h-40 h-20"
-                    priority
-                  />
-                ) : (
-                  <div className="w-full h-40">
-                    <Music size={160} className="w-full h-full bg-paper " />
-                  </div>
-                )}
-
-                <div className="visible flex flex-col ">
-                  <h5 className="text-xs font-bold uppercase shadow-2xl">
-                    Spotify {playlist.type}
-                  </h5>
-                  <h2 className="md:text-4xl text-xl font-bold">
-                    {playlist.name}
-                  </h2>
-
-                  {playlist.description && (
-                    <p className={styles.description + " font-medium mt-3"}>
-                      {parse(playlist.description)}
-                    </p>
-                  )}
-
-                  <div className="md:flex hidden items-center md:font-semibold md:text-sm text-xs ">
-                    <span>{playlist.owner?.display_name}</span>
-                    {playlist.followers.total > 0 && (
-                      <>
-                        <Dot />
-                        <span>
-                          {playlist.followers.total.toLocaleString()}{" "}
-                          {playlist.followers.total > 1 ? "likes" : "like"}
-                        </span>
-                      </>
-                    )}
-                    {playlist.tracks.items.length > 0 && (
-                      <>
-                        <Dot />
-                        <span>
-                          {playlist.tracks.total.toLocaleString()} songs
-                        </span>
-                      </>
-                    )}
-                  </div>
-                </div>
-                 <div className="md:flex hidden self-center gap-6 m-4"><MdPlayArrow size={50}/></div> 
-              </div> */}
-              {/* <div  className="flex"></div> */}
               <div className="sticky top-0">
-                <DescriptionBar artist={artist} track={tracks[index]} />
+                <DescriptionBar track={tracks[index]} />
+                <PlaylistBar playlist={playlist} />
               </div>
             </>
           )}

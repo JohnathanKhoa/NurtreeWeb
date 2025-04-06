@@ -1,9 +1,8 @@
 import AlbumTracksTable from "@/components/spotify/AlbumTracksTable";
-import { getAlbumById, getMe, getUserAllPlaylists } from "@/lib/actions";
+import { getAlbumById } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Dot, Music } from "lucide-react";
 import { Metadata } from "next";
-import { User } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";

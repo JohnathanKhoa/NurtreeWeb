@@ -21,7 +21,6 @@ interface Props {
   i?: number;
   trackIndex?: number;
   currentIndex?: Dispatch<SetStateAction<number>>;
-  
 }
 
 export default function AlbumTracksTable({
@@ -32,11 +31,10 @@ export default function AlbumTracksTable({
   showHeader = false,
   showAlbum = false,
   i,
-  
 }: Props) {
   const pathname = usePathname();
   const router = useRouter();
- 
+
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   const [clicked, setClicked] = useState(false);
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
@@ -210,11 +208,7 @@ export default function AlbumTracksTable({
                 {clicked && index === clickedIndex && <LoadingOverlay />}
               </div>
               <div className="absolute right-0 -translate-y-11">
-                <TripleDotsAlbum
-                  
-                  track={track}
-                  
-                />
+                <TripleDotsAlbum track={track} />
               </div>
             </div>
           ))}

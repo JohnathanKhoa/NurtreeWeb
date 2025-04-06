@@ -7,7 +7,6 @@ interface Props {
   tracksLength: number;
   index: number;
   id: string;
-  currentIndex?: Dispatch<SetStateAction<number>>;
   play: number;
   setSlideState?: Dispatch<SetStateAction<boolean>>;
 }
@@ -16,7 +15,6 @@ export default function Video({
   tracksLength,
   index,
   id,
-  currentIndex,
   play,
   setSlideState,
 }: Props) {
@@ -48,12 +46,10 @@ export default function Video({
             cc_load_policy: 0,
             fs: 1,
             iv_load_policy: 0,
-
             playsinline: 1,
           },
         }}
       />
-      <div></div>
     </div>
   );
 }

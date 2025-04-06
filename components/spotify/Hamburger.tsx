@@ -17,8 +17,6 @@ import Image from "next/image";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 require("dotenv").config();
 
-
-
 export default function Hamburger() {
   let keycount = 0;
   const url = process.env.NEXT_PUBLIC_LOCAL;
@@ -62,7 +60,6 @@ export default function Hamburger() {
                       <UserLibrary />
                     </div>
                   </MenuItem>
-
                   <MenuSeparator className="my-1 h-px bg-white" />
                   <MenuItem key={keycount++}>
                     <Link

@@ -7,9 +7,7 @@ import { useParams, usePathname } from "next/navigation";
 export default function SearchFilters() {
   const pathname = usePathname();
   const params = useParams();
-
   const query = params.query as string;
-
   const activeStyles = "bg-white text-black";
   const inactiveStyles = "bg-paper-600 hover:bg-paper-400 text-white";
 

@@ -1,15 +1,12 @@
 import Video from "@/components/spotify/Video";
 import {
-  getArtistById,
-  getMe,
   getTrackById,
-  getUserAllPlaylists,
   getYoutubeVideoDamon,
 } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { Track, User } from "@/types/types";
+import { Track } from "@/types/types";
 import TracksTable from "@/components/spotify/TracksTable";
 import DescriptionBar from "@/components/spotify/DescriptionBar";
 
@@ -49,7 +46,6 @@ export default async function TrackPage({ params }: Props) {
   const tracks: Track[] = [];
   tracks.push(track);
 
-  const artist = await getArtistById(session, track.artists[0].id);
 
   return (
     <div className="scrollbar-hide">
@@ -57,7 +53,7 @@ export default async function TrackPage({ params }: Props) {
         <div className="sticky h-1/3 aspect-video max-h-[1048px] ">
           {<Video tracksLength={0} id={result.id} index={0} play={1} />}
         </div>
-        <DescriptionBar artist={artist} track={track} />
+        <DescriptionBar track={track} />
         <div className="relative w-full h-screen bg-[#1f1f1f]">
           <TracksTable
             tracks={tracks}

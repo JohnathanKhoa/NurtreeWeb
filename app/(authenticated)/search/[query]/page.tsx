@@ -3,8 +3,7 @@ import ArtistCards from "@/components/spotify/ArtistCards";
 import PlaylistCards from "@/components/spotify/PlaylistCards";
 import SearchFilters from "@/components/spotify/SearchFilters";
 import TracksTable from "@/components/spotify/TracksTable";
-import { getMe, getSearchItems, getUserAllPlaylists } from "@/lib/actions";
-import { User } from "@/types/types";
+import { getSearchItems } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 

@@ -25,12 +25,10 @@ export default async function Home() {
   if (!session) {
     redirect("/login");
   }
-  const user = session.user;
 
   const currentUser = (await getMe({
     session,
   }).then((data) => data)) as User;
-
   const nurtreePlaylist = await getPlaylistById(
     session,
     "2SipcZ6RkkcQ0zVP2Z6BSP"
@@ -40,7 +38,7 @@ export default async function Home() {
   return (
     <>
       <section className="flex ">
-        <Blur img={currentUser.images[0].url} />
+         <Blur img={currentUser.images[0].url}/> 
         <div className="flex flex-row w-full h-full place-content-center justify-items-center ">
           <div className="fixed md:translate-y-1/2">
             <div className="">

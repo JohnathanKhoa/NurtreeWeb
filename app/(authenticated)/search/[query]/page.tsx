@@ -42,13 +42,7 @@ export default async function SearchResults({ params }: Props) {
   const query = decodeURI((await params).query);
 
   const searchResults = await getSearchItems(session, "all", query);
-  const currentUser = (await getMe({
-    session,
-  }).then((data) => data)) as User;
-  const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 20),
-    //getUserLikedSongs(session).then((data) => data.total),
-  ]);
+
   return (
     <div className="mx-2 flex flex-col   ">
       <SearchFilters />
@@ -57,12 +51,10 @@ export default async function SearchResults({ params }: Props) {
         <div className="col-span-12 border-b border-zinc-500"></div>
         <h1 className="flex items-center justify-center">Tracks</h1>
         <TracksTable
-          playlists={playlists}
           tracks={searchResults.tracks.items}
           showAlbum
           showCover
           showSubtitle
-          user={currentUser.id}
         />
       </div>
 

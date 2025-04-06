@@ -6,7 +6,7 @@ import {
   MenuItems,
   MenuSeparator,
 } from "@headlessui/react";
-import { Playlist, Track } from "@/types/types";
+import { Track } from "@/types/types";
 import { EllipsisVertical } from "lucide-react";
 import { Fragment } from "react";
 import clsx from "clsx";
@@ -17,11 +17,9 @@ require("dotenv").config();
 
 interface Props {
   track: Track;
-  playlists: Playlist[];
-  user: string;
 }
 
-export default function TripleDotsAlbum({ playlists, track, user }: Props) {
+export default function TripleDotsAlbum({ track }: Props) {
   let keycount = 0;
 
   return (
@@ -48,11 +46,7 @@ export default function TripleDotsAlbum({ playlists, track, user }: Props) {
             <div className="flex-col">
               <MenuItem key={keycount++}>
                 <div className="">
-                  <AddLibrary
-                    user={user}
-                    trackId={track.id}
-                    playlists={playlists}
-                  />
+                  <AddLibrary trackId={track.id} />
                 </div>
               </MenuItem>
             </div>

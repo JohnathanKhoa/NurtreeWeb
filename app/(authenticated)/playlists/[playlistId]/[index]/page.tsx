@@ -52,17 +52,17 @@ export default async function PlaylistPage({ params }: Props) {
   const playlistTracks: Track[] = playlist?.tracks.items
     .filter((item: any) => item.track !== null)
     .map((item: any) => item.track);
-  const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 20),
-    //getUserLikedSongs(session).then((data) => data.total),
-  ]);
+  // const [playlists] = await Promise.all([
+  //   getUserAllPlaylists(session, 20),
+  //   //getUserLikedSongs(session).then((data) => data.total),
+  // ]);
   const artist = await getArtistById(
     session,
     playlistTracks[index].artists[0].id
   );
-  const currentUser = (await getMe({
-    session,
-  }).then((data) => data)) as User;
+  // const currentUser = (await getMe({
+  //   session,
+  // }).then((data) => data)) as User;
 
   if (index !== undefined) {
     const result = await getYoutubeVideoDamon(session, playlistTracks[index]);
@@ -77,8 +77,6 @@ export default async function PlaylistPage({ params }: Props) {
           track={result.id}
           artist={artist}
           index={index}
-          playlists={playlists}
-          user={currentUser.id}
         />
       </div>
     );

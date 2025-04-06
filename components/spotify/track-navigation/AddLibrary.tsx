@@ -6,10 +6,12 @@ import { Fragment } from "react";
 import clsx from "clsx";
 import AddLibraryItemCard from "./AddLibraryItemCard";
 
+import { AppDispatch, AppState } from "@/providers/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserData } from "@/providers/redux/userSlice";
+
 interface Props {
-  playlists: Playlist[];
   trackId: string;
-  user: string;
 }
 
 async function handleClick(user: string, trackId: string) {
@@ -20,7 +22,17 @@ async function handleClick(user: string, trackId: string) {
     },
   });
 }
-export default function AddLibrary({ playlists, trackId, user }: Props) {
+export default function AddLibrary({ trackId }: Props) {
+  const dispatch: AppDispatch = useDispatch();
+  const userPlaylists = useSelector(
+    (state: AppState) => state.userData.data.playlists
+  ) as Playlist[];
+  const userId = useSelector(
+    (state: AppState) => state.userData.data.user.id
+  ) as string;
+  const handleFetchData = () => {
+    dispatch(fetchUserData());
+  };
   let keycount = 0;
   return (
     <>
@@ -28,7 +40,7 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
         <MenuButton as={Fragment}>
           {({ active }) => (
             <button
-              onClick={() => {}}
+              onClick={() => handleFetchData()}
               className={` ${clsx(active)} +
               "flex w-full rounded-sm pl-2 py-3 hover:bg-indigo-100/50  text-start cursor-pointer`}
             >
@@ -44,14 +56,14 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
           )}
         </MenuButton>
         <MenuItems
-          anchor="bottom"
+          anchor="top"
           className={
             "w-screen md:w-1/2 overflow-auto scrollbar scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 scrollbar-track-transparent rounded-sm bg-opacity-50 backdrop-blur-lg  shadow-2xl"
           }
         >
           <div
             onClick={() => {
-              handleClick(user, trackId);
+              handleClick(userId, trackId);
             }}
             className=" rounded-sm bg-opacity-50 backdrop-blur-lg shadow-2xl hover:bg-indigo-100/50 cursor-pointer"
           >
@@ -60,12 +72,11 @@ export default function AddLibrary({ playlists, trackId, user }: Props) {
               New Playlist
             </div>
           </div>
-          {playlists.map((playlist) => (
+          {userPlaylists.map((playlist) => (
             <MenuItem key={keycount++}>
               <AddLibraryItemCard
                 key={playlist.id + keycount++}
-                entity={playlist}
-                playlistId={playlist.id}
+                playlist={playlist}
                 trackId={trackId}
               />
             </MenuItem>

@@ -18,11 +18,9 @@ require("dotenv").config();
 
 interface Props {
   track: Track;
-  playlists: Playlist[];
-  user: string;
 }
 
-export default function TripleDots({ playlists, track, user }: Props) {
+export default function TripleDots({ track }: Props) {
   let keycount = 0;
 
   return (
@@ -49,11 +47,7 @@ export default function TripleDots({ playlists, track, user }: Props) {
             <div className="flex-col">
               <MenuItem key={keycount++}>
                 <div className="">
-                  <AddLibrary
-                    user={user}
-                    trackId={track.id}
-                    playlists={playlists}
-                  />
+                  <AddLibrary trackId={track.id} />
                 </div>
               </MenuItem>
             </div>

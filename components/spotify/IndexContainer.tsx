@@ -9,8 +9,7 @@ interface Props {
   track: string;
   playlist: Playlist;
   index: number;
-  playlists: Playlist[];
-  user: string;
+
   artist: Artist;
 }
 
@@ -19,8 +18,6 @@ export default function IndexContainer({
   tracks,
   track,
   index,
-  playlists,
-  user,
   artist,
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -119,10 +116,8 @@ export default function IndexContainer({
             showHeader
             showSubtitle
             i={index}
-            playlists={playlists}
             currentIndex={setCurrentIndex}
             trackIndex={currentIndex}
-            user={user}
           />
         </div>
       </div>

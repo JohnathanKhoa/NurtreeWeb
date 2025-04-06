@@ -32,15 +32,8 @@ export default async function TrackSearchResultPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
-  const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 20),
-    //getUserLikedSongs(session).then((data) => data.total),
-  ]);
-  const query = (await params).query;
 
-  const currentUser = (await getMe({
-    session,
-  }).then((data) => data)) as User;
+  const query = (await params).query;
 
   const tracks = (await getSearchItems(session, "track", query, 20).then(
     (data) => data.tracks.items
@@ -49,14 +42,7 @@ export default async function TrackSearchResultPage({ params }: Props) {
   return (
     <>
       <SearchFilters />
-      <TracksTable
-        user={currentUser.id}
-        playlists={playlists}
-        tracks={tracks}
-        showCover
-        showSubtitle
-        showAlbum
-      />
+      <TracksTable tracks={tracks} showCover showSubtitle showAlbum />
     </>
   );
 }

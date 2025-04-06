@@ -30,7 +30,7 @@ const features = [
 
 export default function Login() {
   const url = process.env.NEXT_PUBLIC_LOCAL;
-  console.log(url);
+
   // const [clicked, setClicked] = useState(false);
   const [clickedLogin, setClickedLogin] = useState(false);
 

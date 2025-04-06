@@ -1,6 +1,6 @@
 "use client";
 
-import { Playlist, Track } from "@/types/types";
+import { Track } from "@/types/types";
 import { fmtMSS } from "@/util/clientUtils";
 import { Clock3, Music } from "lucide-react";
 import Image from "next/image";
@@ -20,8 +20,6 @@ interface Props {
   i?: number;
   trackIndex?: number;
   currentIndex?: Dispatch<SetStateAction<number>>;
-  playlists: Playlist[];
-  user: string;
 }
 
 export default function TracksTable({
@@ -31,8 +29,6 @@ export default function TracksTable({
   showHeader = false,
   showAlbum = false,
   i,
-  playlists,
-  user,
 }: Props) {
   const pathname = usePathname();
   const router = useRouter();
@@ -209,7 +205,7 @@ export default function TracksTable({
                 {clicked && index === clickedIndex && <LoadingOverlay />}
               </div>
               <div className="absolute right-0 -translate-y-11">
-                <TripleDots user={user} track={track} playlists={playlists} />
+                <TripleDots track={track} />
               </div>
             </div>
           ))}

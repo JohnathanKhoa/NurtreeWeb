@@ -6,7 +6,6 @@ import {
   MenuItems,
   MenuSeparator,
 } from "@headlessui/react";
-import { Playlist } from "@/types/types";
 import { Menu as MenuIcon } from "lucide-react";
 import { Fragment } from "react";
 import clsx from "clsx";
@@ -18,11 +17,9 @@ import Image from "next/image";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 require("dotenv").config();
 
-interface Props {
-  playlists: Playlist[];
-}
 
-export default function Hamburger({ playlists }: Props) {
+
+export default function Hamburger() {
   let keycount = 0;
   const url = process.env.NEXT_PUBLIC_LOCAL;
   const logout = () => {
@@ -62,7 +59,7 @@ export default function Hamburger({ playlists }: Props) {
                   <MenuSeparator className="my-1 h-px bg-white" />
                   <MenuItem key={keycount++}>
                     <div className="">
-                      <UserLibrary playlists={playlists} />
+                      <UserLibrary />
                     </div>
                   </MenuItem>
 

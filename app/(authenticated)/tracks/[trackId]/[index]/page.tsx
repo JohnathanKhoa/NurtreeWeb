@@ -48,11 +48,9 @@ export default async function TrackPage({ params }: Props) {
   const result = await getYoutubeVideoDamon(session, track);
   const tracks: Track[] = [];
   tracks.push(track);
-  const [playlists] = await Promise.all([getUserAllPlaylists(session, 20)]);
+
   const artist = await getArtistById(session, track.artists[0].id);
-  const currentUser = (await getMe({
-    session,
-  }).then((data) => data)) as User;
+
   return (
     <div className="scrollbar-hide">
       <div className="flex flex-col bg-[#1f1f1f]">
@@ -62,8 +60,6 @@ export default async function TrackPage({ params }: Props) {
         <DescriptionBar artist={artist} track={track} />
         <div className="relative w-full h-screen bg-[#1f1f1f]">
           <TracksTable
-            user={currentUser.id}
-            playlists={playlists}
             tracks={tracks}
             showHeader
             showSubtitle

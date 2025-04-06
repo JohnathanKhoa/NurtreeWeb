@@ -216,7 +216,7 @@ export const getUserPlaylists = async (
 
   const data = await customGet(currUrl, session);
   const userData = data;
-  // console.log(userData);
+
   return userData.items;
 };
 
@@ -347,11 +347,6 @@ export const getTrackById = async (
   return customGet(`https://api.spotify.com/v1/tracks/${trackId}`, session);
 };
 
-
-
-
-
-
 export const getYoutubeVideoDamon = async (
   session: AuthSession,
   track: Track
@@ -369,5 +364,3 @@ export const getYoutubeVideoDamon = async (
 
   return await items;
 };
-
-

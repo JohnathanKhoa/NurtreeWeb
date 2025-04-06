@@ -35,16 +35,10 @@ export default async function AlbumPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
-  const currentUser = (await getMe({
-    session,
-  }).then((data) => data)) as User;
+
   const albumId = (await params).albumId;
   const album = await getAlbumById(session, albumId);
-  console.log(album.tracks.items);
-  const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 20),
-    //getUserLikedSongs(session).then((data) => data.total),
-  ]);
+
   return (
     <>
       <div className="mx-2 flex items-end gap-6">
@@ -93,8 +87,6 @@ export default async function AlbumPage({ params }: Props) {
 
       <AlbumTracksTable
         album={album}
-        user={currentUser.id}
-        playlists={playlists}
         tracks={album.tracks.items}
         showHeader
         showSubtitle

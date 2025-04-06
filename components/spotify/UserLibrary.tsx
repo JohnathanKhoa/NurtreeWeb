@@ -5,19 +5,27 @@ import { Fragment } from "react";
 import { ChevronDown } from "lucide-react";
 import LibraryItemCard from "./LibraryItemCard";
 import clsx from "clsx";
+import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch, AppState, RootState } from "@/providers/redux/store"; // Adjust the path to your store file
+import { fetchUserData } from "@/providers/redux/userSlice";
+//import { getUserContext, useAsyncStore } from "@/providers/zustand";
 
-interface Props {
-  playlists: Playlist[];
-}
-
-export default function UserLibrary({ playlists }: Props) {
+export default function UserLibrary() {
   let keycount = 0;
+  const dispatch: AppDispatch = useDispatch();
+  const userPlaylists = useSelector(
+    (state: AppState) => state.userData.data.playlists
+  ) as Playlist[];
+  const handleFetchData = () => {
+    dispatch(fetchUserData());
+  };
 
   return (
     <Menu>
       <MenuButton as={Fragment}>
         {({ active }) => (
           <button
+            onClick={handleFetchData}
             className={
               clsx(active) +
               `flex w-full rounded-sm pl-2 py-3 hover:bg-indigo-100/50  text-start cursor-pointer`
@@ -39,10 +47,10 @@ export default function UserLibrary({ playlists }: Props) {
         )}
       </MenuButton>
       <MenuItems
-        anchor="top"
+        anchor="bottom"
         className="w-screen md:w-1/2 overflow-auto scrollbar scrollbar-thumb-rounded-full scrollbar-thumb-zinc-300 scrollbar-track-transparent rounded-sm bg-opacity-50 backdrop-blur-lg  shadow-2xl"
       >
-        {playlists?.map((playlist) => (
+        {userPlaylists?.map((playlist) => (
           <MenuItem key={keycount++}>
             <LibraryItemCard
               key={playlist.id + keycount++}

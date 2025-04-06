@@ -42,14 +42,14 @@ export default async function ArtistPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
-  const currentUser = (await getMe({
-    session,
-  }).then((data) => data)) as User;
+  // const currentUser = (await getMe({
+  //   session,
+  // }).then((data) => data)) as User;
   const artistId = (await params).artistId;
-  const [playlists] = await Promise.all([
-    getUserAllPlaylists(session, 20),
-    //getUserLikedSongs(session).then((data) => data.total),
-  ]);
+  // const [playlists] = await Promise.all([
+  //   getUserAllPlaylists(session, 20),
+  //   //getUserLikedSongs(session).then((data) => data.total),
+  // ]);
   const [
     artist,
     artistTopTracks,
@@ -121,8 +121,6 @@ export default async function ArtistPage({ params }: Props) {
         <h1 className="flex items-center justify-center">Popular</h1>
         <div className="relative w-full">
           <TracksTable
-            user={currentUser.id}
-            playlists={playlists}
             tracks={artistTopTracks.tracks}
             showAlbum
             showCover

@@ -78,4 +78,3 @@ export default function TripleDotsAlbum({ playlists, track, user }: Props) {
     </Menu>
   );
 }
-3;

@@ -3,9 +3,7 @@ import { Track, Playlist, Artist } from "@/types/types";
 import { useState } from "react";
 import TracksTable from "./TracksTable";
 import Video from "./Video";
-import { Vibrant } from "node-vibrant/browser";
 import DescriptionBar from "./DescriptionBar";
-import { ArrowBigDownDash, ArrowBigUpDash } from "lucide-react";
 interface Props {
   tracks: Track[];
   track: string;
@@ -27,7 +25,6 @@ export default function IndexContainer({
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   // const [tableIsOpen, setTableIsOpen] = useState<boolean | null>(false);
-  // let v = new Vibrant(playlist.images[0].url);
 
   return (
     <>

@@ -10,7 +10,6 @@ import { MdPlayArrow } from "react-icons/md";
 import LoadingOverlay from "./LoadingOverlay";
 import ActiveTrackOverlay from "./ActiveTrackOverlay";
 import TripleDots from "./track-navigation/TripleDots";
-import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import OpenSpotifyLink from "./OpenSpotifyLink";
 interface Props {
   tracks: Track[];
@@ -19,7 +18,6 @@ interface Props {
   showAlbum?: boolean;
   showSubtitle?: boolean;
   i?: number;
-  //color: Promise<string>;
   trackIndex?: number;
   currentIndex?: Dispatch<SetStateAction<number>>;
   playlists: Playlist[];

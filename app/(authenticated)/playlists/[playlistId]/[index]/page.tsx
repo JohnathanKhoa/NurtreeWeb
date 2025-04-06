@@ -48,7 +48,7 @@ export default async function PlaylistPage({ params }: Props) {
   const playlistId = param.playlistId;
   const index = Number(param.index);
   const playlist = await getPlaylistById(session, playlistId);
-  //const track = await getTrackById(session, trackId);
+
   const playlistTracks: Track[] = playlist?.tracks.items
     .filter((item: any) => item.track !== null)
     .map((item: any) => item.track);
@@ -65,7 +65,6 @@ export default async function PlaylistPage({ params }: Props) {
   }).then((data) => data)) as User;
 
   if (index !== undefined) {
-    //const track = await getTrackById(session, trackId);
     const result = await getYoutubeVideoDamon(session, playlistTracks[index]);
 
     return (

@@ -2,18 +2,11 @@
 import { Track } from "@/types/types";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import Image from "next/image";
+
 interface Props {
   track: Track;
 }
 
-// async function handleClick(user: string, track: Track) {
-//   const response = await fetch(`/api/users/${user}/playlists/${trackId}`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-// }
 export default function OpenSpotify({ track }: Props) {
   return (
     <a

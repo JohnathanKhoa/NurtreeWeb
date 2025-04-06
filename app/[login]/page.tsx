@@ -40,52 +40,6 @@ export default function Login() {
   };
 
   return (
-    // <>
-    // <div className="flex flex-col py-10 items-center content-center  h-screen md:gap-10 gap-4">
-    //   <div className="md:h-1/4"></div>
-    //   <div className="text-center text-balance flex flex-col items-center justify-center">
-    //   Play all the top music videos using your own curated Spotify playlists
-    //   </div>
-    //    <div className="flex md:h-full md:w-full flex-col w-screen items-center justify-center gap-x-6">
-    //     Nurtree, a blend of
-    //     <Image
-    //       src={SpotifyImage}
-    //       alt="spotify logo"
-    //       width={320}
-    //       height={96}
-    //       className="md:h-[96px] md:w-[320px] h-1/2 w-1/2"
-    //     />
-    //   <a className="flex flex-col items-center justify-center text-3xl">
-    //     +
-    //   </a>
-    //     <Image
-    //       src={YoutubeImage}
-    //       alt="youtube logo"
-    //       width={320}
-
-    //       className="md:h-auto md:w-[320px] h-1/2 w-1/2"
-    //     />
-
-    //   </div>
-    //   <button
-    //     className="hover:underline flex px-12 pt-20 text-3xl tracking-widest uppercase rounded-full focus:outline-none bg-primary hover:bg-opacity-80"
-    //     onClick={handleLogin}
-    //   >
-    //     Login
-    //   </button>
-    //   <div className="">
-    //     with Premium Spotify.
-    //   </div>
-    //   <div>
-    //   {/* <div className="text-center text-balance flex-col items-center justify-center">
-    //     Don't have an account? <Link className="underline" href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F">Sign up</Link> on their official website
-    //   </div>
-    //   <div className="text-center text-balance pt-10">
-    //     <BuyMeACoffee/>
-    //   </div>  */}
-    //   </div>
-    // </div>
-    // </>
     <div className="overflow-hidden  md:py-24 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto place-content-center justify-items-center max-w-2xl  gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none ">
@@ -146,13 +100,6 @@ export default function Login() {
               </a>
             </div>
           </div>
-          {/* <Image
-            alt="Product screenshot"
-            src={AppSS}
-            width={2432}
-            height={1442}
-            className="w-screen -ml-6 max-w-none rounded-xl  shadow-xl  sm:w-[57rem] md:-ml-4 lg:-ml-0"
-          /> */}
         </div>
       </div>
     </div>

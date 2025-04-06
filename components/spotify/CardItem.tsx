@@ -1,11 +1,9 @@
 "use client";
-import { Play, CirclePlay, Music, Disc3 } from "lucide-react";
+import { Play, Music, Disc3 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import { useState } from "react";
-import PlayButton from "./PlayButton";
-import LoadingOverlay from "./LoadingOverlay";
 
 interface Props {
   images: any;
@@ -23,7 +21,6 @@ export default function CardItem({
   altTitle,
   heading,
   subheading,
-  imageRounded = false,
   type,
 }: Props) {
   let keycount = 0;

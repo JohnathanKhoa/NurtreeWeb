@@ -1,12 +1,11 @@
 import { Artist, Track } from "@/types/types";
-import { Spotify } from "react-spotify-embed";
 
 interface Props {
   artist: Artist;
   track: Track;
 }
 
-export default function DescriptionBar({ track, artist }: Props) {
+export default function DescriptionBar({ track }: Props) {
   return (
     <>
       {/* <Image src={artist.images[1].url} alt={artist.name} quality={100} height={1920} width={1920} className=""/> */}

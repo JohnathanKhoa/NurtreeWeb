@@ -2,11 +2,9 @@ import AlbumCards from "@/components/spotify/AlbumCards";
 import ArtistCards from "@/components/spotify/ArtistCards";
 import TracksTable from "@/components/spotify/TracksTable";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
-
 import {
   getArtistById,
   getArtistDiscography,
-  getArtistFullById,
   getMe,
   getUserAllPlaylists,
 } from "@/lib/actions";
@@ -61,9 +59,7 @@ export default async function ArtistPage({ params }: Props) {
     artistCompilation,
     relatedArtists,
   ] = await getArtistDiscography(session, artistId);
-  // const artistFull = await getArtistFullById(session, artistId);
-  // console.log(artist);
-  // console.log(artistFull);
+
   return (
     <div className="mx-2">
       <div className="flex items-end gap-6">

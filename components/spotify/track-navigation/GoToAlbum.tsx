@@ -6,14 +6,6 @@ interface Props {
   track: Track;
 }
 
-// async function handleClick(user: string, track: Track) {
-//   const response = await fetch(`/api/users/${user}/playlists/${trackId}`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-// }
 export default function GoToAlbum({ track }: Props) {
   return (
     <a

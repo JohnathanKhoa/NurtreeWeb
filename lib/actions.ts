@@ -5,8 +5,6 @@ import {
   Category,
   Playlist,
   Track,
-  TrackAnalysis,
-  YTSearch,
   Damon2Items,
   User,
   Data,
@@ -349,67 +347,10 @@ export const getTrackById = async (
   return customGet(`https://api.spotify.com/v1/tracks/${trackId}`, session);
 };
 
-export const getTrackAnalysis = async (
-  session: AuthSession,
-  trackId: string
-): Promise<TrackAnalysis> => {
-  return customGet(
-    `https://api.spotify.com/v1/audio-features/${trackId}`,
-    session
-  );
-};
 
-export const getTrackRecommendations = async (
-  session: AuthSession,
-  trackId: string
-): Promise<Track[]> => {
-  const trackAnalysis = await getTrackAnalysis(session, trackId);
 
-  const trackFeatures = {
-    acousticness: 1,
-    danceability: 1,
-    energy: 1,
-    instrumentalness: 1,
-    key: 1,
-    liveness: 1,
-    loudness: 1,
-    mode: 1,
-    speechiness: 1,
-    tempo: 1,
-    valence: 1,
-  };
 
-  const track = await getTrackById(session, trackId);
-  const artist = await getArtistById(session, track.artists[0].id);
 
-  let endpoint = `https://api.spotify.com/v1/recommendations?limit=30&seed_artists=${artist.id}&seed_tracks=${trackId}`;
-
-  Object.entries(trackAnalysis).forEach(([key, value]) => {
-    if (trackFeatures.hasOwnProperty(key)) {
-      endpoint += `&target_${key}=${value}`;
-    }
-  });
-
-  const data = await customGet(endpoint, session);
-
-  return data.tracks;
-};
-
-export const getYoutubeVideo = async (
-  session: AuthSession,
-  track: Track
-): Promise<YTSearch> => {
-  const name = track.name;
-  const artist = track.artists[0].name;
-
-  const result = searcher.search(
-    name + " " + artist + " " + "official music video",
-    { type: "video" },
-    { maxResults: 1 }
-  );
-
-  return await result;
-};
 
 export const getYoutubeVideoDamon = async (
   session: AuthSession,
@@ -429,14 +370,4 @@ export const getYoutubeVideoDamon = async (
   return await items;
 };
 
-export const getYoutubeVideoDamonDetails = async (
-  session: AuthSession,
-  id: string
-): Promise<any> => {
-  const videoId = id;
 
-  const res = await youtubesearchapi.GetVideoDetails(videoId);
-  const items = await res;
-
-  return await items;
-};

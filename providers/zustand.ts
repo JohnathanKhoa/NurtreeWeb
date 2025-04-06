@@ -1,25 +1,7 @@
-import { Track, YoutubeVideo } from "@/types/types";
+import { Track } from "@/types/types";
 import { create } from "zustand";
 
-interface ZustandStateV {
-  searchQuery: string;
-  setSearchQuery: (val: string) => void;
-  currentVideo: YoutubeVideo | null;
-  setCurrentVideo: (youtubeVideo: YoutubeVideo) => void;
-}
 
-export const useStoreV = create<ZustandStateV>((set) => ({
-  searchQuery: "",
-  setSearchQuery: (val: string) =>
-    set(() => ({
-      searchQuery: val,
-    })),
-  currentVideo: null,
-  setCurrentVideo: (youtubeVideo: YoutubeVideo) =>
-    set(() => ({
-      currentVideo: youtubeVideo,
-    })),
-}));
 
 interface ZustandState {
   searchQuery: string;

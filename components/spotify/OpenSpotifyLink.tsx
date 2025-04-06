@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
-import SpotifyImage from "@/public/images/spotify_logo.png";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
-import { useEffect } from "react";
 import { Track } from "@/types/types";
 
 interface Props {

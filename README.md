@@ -75,6 +75,8 @@ Dynamic page slugs, API routes, automated caching for commonly reused paths
 
 Key Metadata attribution for maximum exposure as well as accommodate REQUIRED Spotify Guidelines and Developer License Agreement
 
+Some design choices restricted under Spotify Design Guidelines
+
 ![nurtree](https://github.com/user-attachments/assets/8baa728f-1faa-4b67-97f7-076465fc868a)
 
 "Nurture" is a verb that means to care for and support the growth, development, or improvement of someone or something. It involves fostering an environment or providing the necessary resources to help that person, idea, or object thrive.

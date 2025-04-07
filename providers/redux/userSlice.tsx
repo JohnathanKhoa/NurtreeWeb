@@ -16,6 +16,7 @@ export const fetchUserData = createAsyncThunk(
     response.push(res1);
     const res2 = await getUserAllPlaylists(session, 20);
     response.push(res2);
+    console.log("response", response);
     return response;
   }
 );
@@ -44,7 +45,8 @@ const userDataSlice = createSlice({
       })
       .addCase(fetchUserData.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message ?? null;
+        state.error = action.error.message || "Failed to fetch user data";
+        console.error("Error fetching user data:", action.error.message);
       });
   },
 });

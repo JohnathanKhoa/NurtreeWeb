@@ -32,13 +32,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArtistPage({ params }: Props) {
   const session = await getAuthSession();
-
   if (!session) {
     redirect("/login");
   }
-
   const artistId = (await params).artistId;
-
   const [
     artist,
     artistTopTracks,
@@ -69,11 +66,11 @@ export default async function ArtistPage({ params }: Props) {
                   <a
                     href={`https://open.spotify.com/artist/${artist.id}`}
                     target="_blank"
-                    className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1 hover:invert duration-200"
+                    className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-zinc-800 rounded-2xl py-1 hover:invert duration-200"
                   >
                     {/* <p className="">Open Spotify</p> */}
                     <Image
-                      className="object-contain w-6 h-6 rounded invert"
+                      className="object-contain w-6 h-6 rounded "
                       src={SpotifyPrimaryImage}
                       alt={`Open Spotify`}
                     />

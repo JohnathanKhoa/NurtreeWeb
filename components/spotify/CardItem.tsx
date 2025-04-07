@@ -1,5 +1,6 @@
 "use client";
-import { Play, Music, Disc3 } from "lucide-react";
+import { Music, Disc3 } from "lucide-react";
+import { PlayFill } from "geist-icons";
 import Image from "next/image";
 import Link from "next/link";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
@@ -48,7 +49,7 @@ export default function CardItem({
                 className={`aspect-square object-cover w-full rounded-md`}
               />
             ) : (
-              <div className="w-full h-40">
+              <div className="w-full h-full">
                 <Music className="w-full h-full bg-paper " />
               </div>
             )}
@@ -75,13 +76,13 @@ export default function CardItem({
             <a
               href={`/playlists/${id}/0`}
               onClick={() => setClicked(true)}
-              className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1 hover:invert duration-200"
+              className="flex flex-row gap-2 items-center justify-center mt-2   bg-zinc-800 rounded-2xl py-1 hover:invert duration-200"
             >
-              {/* <p className="">Play</p> */}
+              {/* <p className="">Play</p>  */}
 
               {clicked === false ? (
                 <div className="">
-                  <Play className="w-6 h-6" />
+                  <PlayFill className="w-6 h-6" />
                 </div>
               ) : null}
               {clicked === true ? (
@@ -93,14 +94,14 @@ export default function CardItem({
             <a
               href={`https://open.spotify.com/playlist/${id}`}
               target="_blank"
-              className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1 hover:invert duration-200"
+              className="flex flex-row gap-2 items-center justify-center mt-2  font-medium bg-zinc-800 rounded-2xl py-1 hover:invert duration-200"
             >
-              {/* <p className="">Open Spotify</p> */}
               <Image
-                className="object-contain w-6 h-6 rounded invert"
+                className=" w-6 h-6"
                 src={SpotifyPrimaryImage}
                 alt={altTitle}
               />
+              <p className="">Open in Spotify</p>
             </a>
           </>
         ) : null}
@@ -109,11 +110,11 @@ export default function CardItem({
             <a
               href={`https://open.spotify.com/artist/${id}`}
               target="_blank"
-              className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1 hover:invert duration-200"
+              className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-zinc-800 rounded-2xl py-1 hover:invert duration-200"
             >
               {/* <p className="">Open Spotify</p> */}
               <Image
-                className="object-contain w-6 h-6 rounded invert"
+                className="object-contain w-6 h-6 rounded "
                 src={SpotifyPrimaryImage}
                 alt={altTitle}
               />
@@ -125,11 +126,11 @@ export default function CardItem({
             <a
               href={`https://open.spotify.com/album/${id}`}
               target="_blank"
-              className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-white rounded-2xl py-1 hover:invert duration-200"
+              className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-zinc-800 rounded-2xl py-1 hover:invert duration-200"
             >
               {/* <p className="">Open Spotify</p> */}
               <Image
-                className="object-contain w-6 h-6 rounded invert"
+                className="object-contain w-6 h-6 rounded "
                 src={SpotifyPrimaryImage}
                 alt={altTitle}
               />

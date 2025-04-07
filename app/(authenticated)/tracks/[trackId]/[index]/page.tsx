@@ -1,8 +1,5 @@
 import Video from "@/components/spotify/Video";
-import {
-  getTrackById,
-  getYoutubeVideoDamon,
-} from "@/lib/actions";
+import { getTrackById, getYoutubeVideoDamon } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
@@ -36,16 +33,12 @@ export default async function TrackPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
-
   const param = await params;
-
   const trackId = param.trackId;
   const track = await getTrackById(session, trackId);
-
   const result = await getYoutubeVideoDamon(session, track);
   const tracks: Track[] = [];
   tracks.push(track);
-
 
   return (
     <div className="scrollbar-hide">

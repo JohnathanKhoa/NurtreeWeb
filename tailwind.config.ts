@@ -1,16 +1,13 @@
 import type { Config } from "tailwindcss";
-import scrollbarHide from 'tailwind-scrollbar-hide'
-
+import scrollbarHide from "tailwind-scrollbar-hide";
 
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    
   ],
   theme: {
-    
     extend: {
       colors: {
         background: "var(--background)",
@@ -18,10 +15,6 @@ export default {
       },
     },
   },
-  
-  plugins: [
-    scrollbarHide,
-    require('daisyui'),
-    
-  ],
+
+  plugins: [scrollbarHide],
 } satisfies Config;

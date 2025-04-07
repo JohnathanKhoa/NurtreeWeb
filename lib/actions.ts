@@ -11,9 +11,6 @@ import {
   Snapshot,
 } from "@/types/types";
 import { customGet, customPost } from "@/util/serverUtils";
-const { YTSearcher } = require("ytsearcher");
-const YTKey = process.env.YOUTUBE_API_KEY;
-const searcher = new YTSearcher(YTKey);
 const youtubesearchapi = require("youtube-search-api");
 
 export const getMe = async ({

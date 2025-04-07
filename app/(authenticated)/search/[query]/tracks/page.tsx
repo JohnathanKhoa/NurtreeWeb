@@ -32,9 +32,7 @@ export default async function TrackSearchResultPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
-
   const query = (await params).query;
-
   const tracks = (await getSearchItems(session, "track", query, 20).then(
     (data) => data.tracks.items
   )) as Track[];

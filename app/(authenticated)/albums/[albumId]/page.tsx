@@ -30,11 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function AlbumPage({ params }: Props) {
   const session = await getAuthSession();
-
   if (!session) {
     redirect("/login");
   }
-
   const albumId = (await params).albumId;
   const album = await getAlbumById(session, albumId);
 

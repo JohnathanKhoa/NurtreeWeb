@@ -30,11 +30,8 @@ export default async function AlbumsSearchResultPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
-
   const query = decodeURI((await params).query);
-
   const albumResponse = await getSearchItems(session, "album", query, 20);
-
   const albums = albumResponse.albums.items as Album[];
 
   return (

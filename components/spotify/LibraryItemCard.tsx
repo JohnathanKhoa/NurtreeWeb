@@ -30,7 +30,7 @@ export default function LibraryItemCard({ type, entity, subtitle }: Props) {
     >
       {isOpen && <LoadingDots />}
       <Image
-        src={entity.images[0].url}
+        src={entity.images[0]?.url}
         alt={entity.name}
         height={50}
         width={50}

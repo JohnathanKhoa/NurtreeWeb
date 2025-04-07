@@ -17,14 +17,12 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const session = await getAuthSession();
-
   if (!session) {
     redirect("/login");
   }
-
   const query = decodeURI((await params).query);
-
   const searchResults = await getSearchItems(session, "all", query);
+
   return {
     title: `Search results for "${query}"`,
     description: `Search Metadata: ${JSON.stringify(searchResults)}`,
@@ -33,13 +31,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SearchResults({ params }: Props) {
   const session = await getAuthSession();
-
   if (!session) {
     redirect("/login");
   }
-
   const query = decodeURI((await params).query);
-
   const searchResults = await getSearchItems(session, "all", query);
 
   return (

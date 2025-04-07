@@ -30,10 +30,7 @@ const features = [
 
 export default function Login() {
   const url = process.env.NEXT_PUBLIC_LOCAL;
-
-  // const [clicked, setClicked] = useState(false);
   const [clickedLogin, setClickedLogin] = useState(false);
-
   const handleLogin = () => {
     setClickedLogin(true);
     signIn("spotify", { callbackUrl: url });

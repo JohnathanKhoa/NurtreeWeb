@@ -1,7 +1,4 @@
-import {
-  getPlaylistById,
-  getYoutubeVideoDamon,
-} from "@/lib/actions";
+import { getPlaylistById, getYoutubeVideoDamon } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { Track } from "@/types/types";
@@ -39,17 +36,13 @@ export default async function PlaylistPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
-
   const param = await params;
-
   const playlistId = param.playlistId;
   const index = Number(param.index);
   const playlist = await getPlaylistById(session, playlistId);
-
   const playlistTracks: Track[] = playlist?.tracks.items
     .filter((item: any) => item.track !== null)
     .map((item: any) => item.track);
-
   if (index !== undefined) {
     const result = await getYoutubeVideoDamon(session, playlistTracks[index]);
 

@@ -21,11 +21,9 @@ export async function generateMetadata() {
 
 export default async function Home() {
   const session = await getAuthSession();
-
   if (!session) {
     redirect("/login");
   }
-
   const currentUser = (await getMe({
     session,
   }).then((data) => data)) as User;
@@ -35,10 +33,11 @@ export default async function Home() {
   );
   const playlistSet: Playlist[] = [];
   playlistSet.push(nurtreePlaylist);
+
   return (
     <>
       <section className="flex ">
-         <Blur img={currentUser.images[0].url}/> 
+        <Blur img={currentUser.images[0].url} />
         <div className="flex flex-row w-full h-full place-content-center justify-items-center ">
           <div className="fixed md:translate-y-1/2">
             <div className="">

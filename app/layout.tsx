@@ -4,11 +4,11 @@ import Head from "next/head";
 import SpotifyImage from "@/public/images/spotify_logo.png";
 import YoutubeImage from "@/public/images/yt_logo_mono_dark.png";
 import NurtreeImage from "@/public/images/nurtree.png";
-import { Nunito_Sans } from "next/font/google";
-const fontFamily = Nunito_Sans({
+import { Geist } from "next/font/google";
+const fontFamily = Geist({
   subsets: ["latin"],
   preload: true,
-  variable: "--Nunito_Sans",
+  variable: "--Geist",
 });
 export const metadata: Metadata = {
   title: "Nurtree",

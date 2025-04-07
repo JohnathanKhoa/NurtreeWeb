@@ -31,11 +31,8 @@ export default async function PlaylistSearchResultPage({ params }: Props) {
   if (!session) {
     redirect("/login");
   }
-
   const query = decodeURI((await params).query);
-
   const playlistResponse = await getSearchItems(session, "playlist", query, 20);
-
   const playlists = playlistResponse.playlists.items as Playlist[];
 
   return (

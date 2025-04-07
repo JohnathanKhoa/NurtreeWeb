@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
 import Head from "next/head";
 import SpotifyImage from "@/public/images/spotify_logo.png";
@@ -41,6 +42,7 @@ export default function RootLayout({
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
+          <Analytics />
         </Head>
 
         <body className="bg-black`">

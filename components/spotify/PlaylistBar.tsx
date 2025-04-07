@@ -8,7 +8,7 @@ interface Props {
 export default function PlaylistBar({ playlist }: Props) {
   return (
     <>
-      <div className="flex md:justify-start items-center gap-6 mx-4  ">
+      <div className="flex md:justify-start items-center gap-2 mx-4  ">
         <Image
           className="rounded-md"
           src={playlist.images[0].url}
@@ -16,7 +16,7 @@ export default function PlaylistBar({ playlist }: Props) {
           width={50}
           height={50}
         />
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col ">
           <h6 className={`text-sm text-white`}>{playlist.name}</h6>
           <p className={`text-xs text-zinc-400`}>{playlist.description}</p>
           <p className={`text-xs text-zinc-400`}>

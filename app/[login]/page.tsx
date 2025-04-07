@@ -22,7 +22,7 @@ const features = [
     icon: MusicalNoteIcon,
   },
   {
-    name: " Sit back and enjoy as your personal spotify playlists seamlessly playback the top music videos. ",
+    name: " Sit back and enjoy as your personal Spotify playlists seamlessly playback the top music videos. ",
     description: "",
     icon: ServerIcon,
   },

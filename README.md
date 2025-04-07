@@ -1,4 +1,6 @@
-# Nurtree 
+# Nurtree
+
+Play all the top music videos using your own curated Spotify playlists
 
 The goal of this project was to demonstrate the advanced capabilities of the NextJS framework by applying it to a practical use-case scenario involving dynamic rendering with a substantial data set.
 
@@ -36,8 +38,6 @@ A guest Spotify account is available to use if you wish not to share your person
 
 NextJS features API routes, NextAuth, and Providers to implement secure authorization flow using jwt, sessions, and callbacks:
 
-![image](https://github.com/user-attachments/assets/7ff8ce0a-bb8a-44af-bede-dd44acee98eb)
-
 ![accounts spotify com_en_login_continue=https%3A%2F%2Faccounts spotify com%2Fauthorize%3Fscope%3Duser-read-recently-played%2Buser-read-playback-state%2Buser-top-read%2Buser-modify-playback-state%2Buser-read-curre](https://github.com/user-attachments/assets/92245ea0-f9a5-4dff-96eb-731a303f6a9b)
 
 # Usage
@@ -58,6 +58,8 @@ https://github.com/user-attachments/assets/906ff664-c582-4713-887b-399cf74ba00d
 Dynamic buttons Add to Playlist, Go To Album, Go to Artist, Open in Spotify
 
 ![www nurtree com_playlists_2SipcZ6RkkcQ0zVP2Z6BSP_2(iPhone SE) (2)](https://github.com/user-attachments/assets/cdda68b2-d567-4074-9ba4-0c008bc00b43)
+
+Global state management with Redux, ensuring consistent state behavior across the application
 
 Components made from scratch, with all reusable UI functionality modular and separated into their respective tsx files. Logic defined on server components, while hooks and states handled by client components
 

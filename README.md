@@ -73,6 +73,9 @@ lib folder with modular fetch API
 
 Dynamic page slugs, API routes, automated caching for commonly reused paths
 
+![image](https://github.com/user-attachments/assets/6b33b78f-b889-4eeb-8d4e-26a3e829e6e4)
+
+
 Key Metadata attribution for maximum exposure as well as accommodate REQUIRED Spotify Guidelines and Developer License Agreement
 
 Some design choices restricted under Spotify Design Guidelines

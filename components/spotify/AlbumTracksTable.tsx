@@ -75,7 +75,7 @@ export default function AlbumTracksTable({
           <>
             <div className="sticky w-full drop-shadow-2xl text-zinc-400">
               <header className="grid grid-cols-12 gap-2 p-4 pb-1 text-gray font-thin tracking-tight text-left ">
-                <div className="col-span-1 font-thin tracking-wider text-left uppercase ">
+                {/* <div className="col-span-1 font-thin tracking-wider text-left uppercase ">
                   #
                 </div>
                 <div
@@ -94,14 +94,8 @@ export default function AlbumTracksTable({
                   <Clock3 size={16} />
                 </div>
                 <div className="md:visible invisible col-span-1 font-thin text-left">
-                  {/* <Image
-                    src={SpotifyPrimaryImage}
-                    alt="Spotify"
-                    height={20}
-                    width={20}
-                    // className="object-contain w-6 h-6 rounded"
-                    /> */}
-                </div>
+                  
+                </div> */}
               </header>
               <div className="col-span-12 border-b border-zinc-500 "></div>
             </div>

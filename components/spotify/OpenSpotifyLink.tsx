@@ -9,7 +9,7 @@ interface Props {
 
 export default function OpenSpotifyLink({ track }: Props) {
   return (
-    <div className="">
+    <div>
       <a href={`https://open.spotify.com/track/${track.id}`} target="_blank">
         <Image
           height={20}

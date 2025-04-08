@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const albumId = (await params).albumId;
   const album = await getAlbumById(session, albumId);
   return {
-    title: `Album - ${album.name}`,
+    title: `${album.name} - ${album.artists.map((artist) => artist.name)}`,
     description: `Album Metadata: ${JSON.stringify(album)}`,
   };
 }

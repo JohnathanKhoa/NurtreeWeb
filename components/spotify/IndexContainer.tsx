@@ -1,5 +1,5 @@
 "use client";
-import { Track, Playlist, Artist } from "@/types/types";
+import { Track, Playlist } from "@/types/types";
 import { useState } from "react";
 import TracksTable from "./TracksTable";
 import Video from "./Video";
@@ -19,7 +19,6 @@ export default function IndexContainer({
   index,
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  // const [tableIsOpen, setTableIsOpen] = useState<boolean | null>(false);
 
   return (
     <>
@@ -44,14 +43,7 @@ export default function IndexContainer({
             </>
           )}
         </div>
-        {/* <div className={`${tableIsOpen ? "" : "bottom-0"} flex justify-center`}>
-        <div className="">
-          <button className="flex" onClick={() => setTableIsOpen(!tableIsOpen)}>
-            {tableIsOpen ? <ArrowBigDownDash /> : <ArrowBigUpDash />}
-          </button>
-        </div>
-      </div> */}
-        {/* <div className={`${tableIsOpen ? "visible" : "hidden"}`}> */}
+
         <div className="relative w-full  bg-[#1f1f1f]">
           <TracksTable
             tracks={tracks}
@@ -65,7 +57,6 @@ export default function IndexContainer({
           />
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 }

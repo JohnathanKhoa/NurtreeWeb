@@ -26,7 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .filter((item: any) => item.track !== null)
     .map((item: any) => item.track);
   return {
-    title: `${playlistTracks[index].name} - ${playlistTracks[index].artists[0].name}`,
+    title: `${playlistTracks[index].name} - ${playlistTracks[index].artists.map(
+      (artist) => artist.name
+    )}`,
     description: `Playlist Metadata: ${JSON.stringify(playlistTracks)}`,
   };
 }
@@ -50,9 +52,7 @@ export default async function PlaylistPage({ params }: Props) {
       <div className="">
         <IndexContainer
           playlist={playlist}
-          tracks={playlist?.tracks.items
-            .filter((item: any) => item.track !== null)
-            .map((item: any) => item.track)}
+          tracks={playlistTracks}
           track={result.id}
           index={index}
         />

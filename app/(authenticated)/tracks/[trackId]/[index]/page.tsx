@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const trackId = (await params).trackId;
   const track = await getTrackById(session, trackId);
   return {
-    title: `Nurtree - ${track.name}`,
+    title: `${track.name} - ${track.artists.map((artist) => artist.name)}`,
     description: `Track Metadata: ${JSON.stringify(track)}`,
   };
 }
@@ -47,6 +47,7 @@ export default async function TrackPage({ params }: Props) {
           {<Video tracksLength={0} id={result.id} index={0} play={1} />}
         </div>
         <DescriptionBar track={track} />
+        <div className="py-4"></div>
         <div className="relative w-full h-screen bg-[#1f1f1f]">
           <TracksTable
             tracks={tracks}

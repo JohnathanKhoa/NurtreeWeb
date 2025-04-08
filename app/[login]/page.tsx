@@ -8,6 +8,7 @@ import {
   ServerIcon,
 } from "@heroicons/react/20/solid";
 import SpotifyIcon from "@/components/spotify/SpotifyIcon";
+import ComeBackSoon from "@/components/ComeBackSoon";
 require("dotenv").config();
 
 const features = [
@@ -40,6 +41,7 @@ export default function Login() {
     <div className="overflow-hidden  md:py-24 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto place-content-center justify-items-center max-w-2xl  gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none ">
+          <ComeBackSoon/>
           <div className="lg:pt-4 lg:pr-8">
             <div className="lg:max-w-lg">
               <h2 className="text-base/7 font-semibold text-indigo-300">

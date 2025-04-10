@@ -35,7 +35,7 @@ export default function CardItem({
           href={type === "playlists" ? `/${type}/${id}/0` : `/${type}/${id}`}
         >
           <div
-            className=" rounded-lg bg-paper-500 "
+            className=" rounded bg-paper-500 "
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onClick={() => setClicked(true)}
@@ -46,7 +46,7 @@ export default function CardItem({
                 alt={altTitle}
                 height={2000}
                 width={2000}
-                className={`aspect-square object-cover w-full rounded-md`}
+                className={`aspect-square object-cover w-full rounded-xs md:rounded`}
               />
             ) : (
               <div className="w-full h-full">

@@ -31,7 +31,7 @@ export default function TrackCards({ tracks }: Props) {
                     alt={track.name}
                     height={2000}
                     width={2000}
-                    className=" object-cover w-full rounded-md aspect-square"
+                    className=" object-cover w-full rounded-xs md:rounded aspect-square"
                   />
                 ) : (
                   <div className="w-full h-40">

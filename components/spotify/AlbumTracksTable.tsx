@@ -85,11 +85,11 @@ export default function AlbumTracksTable({
                 onMouseLeave={() => setHoveredRow(null)}
               >
                 {hoveredRow === index ? (
-                  <span className="flex items-center col-span-1  text-zinc-400">
+                  <span className="flex items-center   text-zinc-400">
                     <MdPlayArrow />
                   </span>
                 ) : (
-                  <span className="flex items-center col-span-1  text-zinc-400">
+                  <span className="flex items-center   text-zinc-400">
                     {index + 1}
                   </span>
                 )}

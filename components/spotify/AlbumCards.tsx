@@ -27,7 +27,7 @@ export default function AlbumCards({ albums }: Props) {
           <a
             href={`https://open.spotify.com/`}
             target="_blank"
-            className="flex flex-row w-full h-full col-span-12 items-center justify-center gap-2 font-medium bg-zinc-800 rounded-2xl hover:invert duration-200 py-4"
+            className="flex flex-row w-full h-full col-span-12 items-center justify-center gap-2 font-medium bg-zinc-800 rounded hover:invert duration-200 py-4"
           >
             <Image
               className="object-contain w-6 h-6 rounded"

@@ -1,8 +1,8 @@
-import AlbumCards from "@/components/spotify/AlbumCards";
-import ArtistCards from "@/components/spotify/ArtistCards";
-import PlaylistCards from "@/components/spotify/PlaylistCards";
-import SearchFilters from "@/components/spotify/SearchFilters";
-import TracksTable from "@/components/spotify/TracksTable";
+import AlbumCards from "@/components/spotify/cards/AlbumCards";
+import ArtistCards from "@/components/spotify/cards/ArtistCards";
+import PlaylistCards from "@/components/spotify/cards/PlaylistCards";
+import SearchFilters from "@/components/spotify/header-navigation/SearchFilters";
+import TracksTable from "@/components/spotify/media-page-container/TracksTable";
 import { getSearchItems } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";

@@ -30,7 +30,7 @@ export const customPost = async (
     headers: {
       Authorization: `Bearer ${session.user.accessToken}`,
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Origin": `${process.env.NEXT_PUBLIC_LOCAL}`,
     },
     body: JSON.stringify(data),
   }).then((res) => res.json());

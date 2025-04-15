@@ -2,7 +2,7 @@ import { getPlaylistById, getYoutubeVideoDamon } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { Track } from "@/types/types";
-import IndexContainer from "@/components/spotify/IndexContainer";
+import IndexContainer from "@/components/spotify/media-page-container/IndexContainer";
 import { redirect } from "next/navigation";
 
 interface Props {

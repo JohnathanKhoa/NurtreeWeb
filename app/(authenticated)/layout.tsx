@@ -1,7 +1,7 @@
 "use client";
 import "@/app/globals.css";
 import { NextAuthProvider } from "@/providers/NextAuthProvider";
-import NavBar from "@/components/spotify/NavBar";
+import NavBar from "@/components/spotify/header-navigation/NavBar";
 import ReduxProvider from "@/providers/redux/ReduxProvider";
 
 export default function RootLayout({

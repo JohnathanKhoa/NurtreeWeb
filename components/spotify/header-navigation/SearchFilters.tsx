@@ -1,8 +1,16 @@
 "use client";
 
-import { searchFilterTags } from "@/util/clientUtils";
+
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
+
+const searchFilterTags = [
+  { link: "", label: "All" },
+  { link: "/tracks", label: "Songs" },
+  { link: "/albums", label: "Albums" },
+  { link: "/artists", label: "Artists" },
+  { link: "/playlists", label: "Playlists" },
+];
 
 export default function SearchFilters() {
   const pathname = usePathname();

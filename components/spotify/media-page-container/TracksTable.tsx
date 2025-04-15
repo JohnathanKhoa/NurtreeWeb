@@ -9,7 +9,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { MdPlayArrow } from "react-icons/md";
 import LoadingOverlay from "./LoadingOverlay";
 import ActiveTrackOverlay from "./ActiveTrackOverlay";
-import TripleDots from "./track-navigation/TripleDots";
+import TripleDots from "../track-navigation/TripleDots";
 import OpenSpotifyLink from "./OpenSpotifyLink";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 interface Props {

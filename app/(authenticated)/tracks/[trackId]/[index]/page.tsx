@@ -1,11 +1,11 @@
-import Video from "@/components/spotify/Video";
+import Video from "@/components/spotify/media-page-container/Video";
 import { getTrackById, getYoutubeVideoDamon } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { Track } from "@/types/types";
-import TracksTable from "@/components/spotify/TracksTable";
-import DescriptionBar from "@/components/spotify/DescriptionBar";
+import TracksTable from "@/components/spotify/media-page-container/TracksTable";
+import DescriptionBar from "@/components/spotify/media-page-container/DescriptionBar";
 
 interface Props {
   params: Promise<{

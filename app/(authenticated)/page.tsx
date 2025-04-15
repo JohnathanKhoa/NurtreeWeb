@@ -1,9 +1,17 @@
-import { getMe, getPlaylistById } from "@/lib/actions";
-import { Playlist, User } from "@/types/types";
+import {
+  getMe,
+  getPlaylistById,
+  getRecentlyPlayedTracks,
+  getTopItems,
+  getUserAllPlaylists,
+} from "@/lib/actions";
+import { Artist, Playlist, Track, User } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";
 import { redirect } from "next/navigation";
 import Blur from "@/components/spotify/Blur";
-import CardItem from "@/components/spotify/CardItem";
+import CardItem from "@/components/spotify/cards/CardItem";
+import ArtistCards from "@/components/spotify/cards/ArtistCards";
+import PlaylistCards from "@/components/spotify/cards/PlaylistCards";
 
 export async function generateMetadata() {
   const session = await getAuthSession();
@@ -24,21 +32,47 @@ export default async function Home() {
   if (!session) {
     redirect("/login");
   }
-  const currentUser = (await getMe({
-    session,
-  }).then((data) => data)) as User;
-  const nurtreePlaylist = await getPlaylistById(
-    session,
-    "2SipcZ6RkkcQ0zVP2Z6BSP"
-  );
-  const playlistSet: Playlist[] = [];
-  playlistSet.push(nurtreePlaylist);
+  const res = await getUserAllPlaylists(session, 20);
+  if (res.length > 0 || res != null) {
+    return (
+      <>
+        <section className="flex flex-col items-center">
+          {/* <Blur img={currentUser.images[0].url} /> */}
+          <h1 className="mt-16">Recent Playlists</h1>
+          <PlaylistCards playlists={res} />
+          {/* <div className="flex flex-row w-full h-full place-content-center justify-items-center ">
+            <div className="fixed md:translate-y-1/2">
+              <div className="">
+                <CardItem
+                  key={nurtreePlaylist.id}
+                  id={nurtreePlaylist.id}
+                  heading={nurtreePlaylist.name}
+                  subheading={nurtreePlaylist.description}
+                  altTitle={nurtreePlaylist.name}
+                  images={nurtreePlaylist.images}
+                  type="playlists"
+                />
+              </div>
+            </div>
+          </div> */}
+        </section>
+      </>
+    );
+  } else {
+    return (
+      <div className="flex flex-col items-center">
+        No playlists found. Try creating some playlists!
+      </div>
+    )
+  }
 
   return (
     <>
-      <section className="flex ">
-        <Blur img={currentUser.images[0].url} />
-        <div className="flex flex-row w-full h-full place-content-center justify-items-center ">
+      <section className="flex flex-col items-center">
+        {/* <Blur img={currentUser.images[0].url} /> */}
+        <h1 className="mt-16">Recent Playlists</h1>
+        <PlaylistCards playlists={res} />
+        {/* <div className="flex flex-row w-full h-full place-content-center justify-items-center ">
           <div className="fixed md:translate-y-1/2">
             <div className="">
               <CardItem
@@ -52,7 +86,7 @@ export default async function Home() {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   );

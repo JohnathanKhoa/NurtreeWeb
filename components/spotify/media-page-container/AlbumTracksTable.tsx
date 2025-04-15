@@ -12,7 +12,7 @@ import ActiveTrackOverlay from "./ActiveTrackOverlay";
 import OpenSpotifyLink from "./OpenSpotifyLink";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 
-import TripleDotsAlbum from "./track-navigation/TripleDotsAlbum";
+import TripleDotsAlbum from "../track-navigation/TripleDotsAlbum";
 interface Props {
   album: Album;
   tracks: Track[];

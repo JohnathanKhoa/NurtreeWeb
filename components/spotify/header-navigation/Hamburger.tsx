@@ -11,7 +11,7 @@ import { Fragment } from "react";
 import clsx from "clsx";
 import { signOut } from "next-auth/react";
 import UserLibrary from "./UserLibrary";
-import BuyMeACoffee from "../BuyMeACoffee";
+import BuyMeACoffee from "../../BuyMeACoffee";
 import Link from "next/link";
 import Image from "next/image";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";

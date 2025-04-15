@@ -1,5 +1,5 @@
-import SearchFilters from "@/components/spotify/SearchFilters";
-import TracksTable from "@/components/spotify/TracksTable";
+import SearchFilters from "@/components/spotify/header-navigation/SearchFilters";
+import TracksTable from "@/components/spotify/media-page-container/TracksTable";
 import { getSearchItems } from "@/lib/actions";
 import { Track } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";

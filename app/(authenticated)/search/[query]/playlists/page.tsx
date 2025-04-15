@@ -1,5 +1,5 @@
-import PlaylistCards from "@/components/spotify/PlaylistCards";
-import SearchFilters from "@/components/spotify/SearchFilters";
+import PlaylistCards from "@/components/spotify/cards/PlaylistCards";
+import SearchFilters from "@/components/spotify/header-navigation/SearchFilters";
 import { getSearchItems } from "@/lib/actions";
 import { Playlist } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";

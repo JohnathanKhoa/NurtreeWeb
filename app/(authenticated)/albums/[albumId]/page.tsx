@@ -1,4 +1,4 @@
-import AlbumTracksTable from "@/components/spotify/AlbumTracksTable";
+import AlbumTracksTable from "@/components/spotify/media-page-container/AlbumTracksTable";
 import { getAlbumById } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Dot, Music } from "lucide-react";

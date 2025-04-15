@@ -3,7 +3,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { Playlist } from "@/types/types";
 import { Fragment } from "react";
 import { ChevronDown } from "lucide-react";
-import LibraryItemCard from "./LibraryItemCard";
+import LibraryItemCard from "../cards/LibraryItemCard";
 import clsx from "clsx";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, AppState } from "@/providers/redux/store";

@@ -1,6 +1,6 @@
-import AlbumCards from "@/components/spotify/AlbumCards";
-import ArtistCards from "@/components/spotify/ArtistCards";
-import TracksTable from "@/components/spotify/TracksTable";
+import AlbumCards from "@/components/spotify/cards/AlbumCards";
+import ArtistCards from "@/components/spotify/cards/ArtistCards";
+import TracksTable from "@/components/spotify/media-page-container/TracksTable";
 import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import { getArtistById, getArtistDiscography } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";

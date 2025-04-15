@@ -1,5 +1,5 @@
-import ArtistCards from "@/components/spotify/ArtistCards";
-import SearchFilters from "@/components/spotify/SearchFilters";
+import ArtistCards from "@/components/spotify/cards/ArtistCards";
+import SearchFilters from "@/components/spotify/header-navigation/SearchFilters";
 import { getSearchItems } from "@/lib/actions";
 import { Artist } from "@/types/types";
 import { getAuthSession } from "@/util/serverUtils";

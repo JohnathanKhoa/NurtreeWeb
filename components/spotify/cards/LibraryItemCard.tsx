@@ -3,7 +3,7 @@ import { Album, Artist, Playlist } from "@/types/types";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import LoadingDots from "./LoadingDots";
+import LoadingDots from "../LoadingDots";
 
 interface Props {
   type: "artists" | "playlists" | "albums";

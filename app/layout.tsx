@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
+import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Head from "next/head";
 import SpotifyImage from "@/public/images/spotify_logo.png";
 import YoutubeImage from "@/public/images/yt_logo_mono_dark.png";
@@ -43,7 +43,6 @@ export default function RootLayout({
             name="viewport"
             content="width=device-width, initial-scale=1.0, user-scalable=no"
           />
-          
         </Head>
 
         <body className="bg-black`">

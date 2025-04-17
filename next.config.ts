@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   images: {
-    
     remotePatterns: [
       { protocol: "https", hostname: "i.scdn.co" },
       { protocol: "https", hostname: "t.scdn.co" },
@@ -19,10 +18,9 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "lineup-images.scdn.co" },
       { protocol: "https", hostname: "thisis-images.scdn.co" },
       { protocol: "https", hostname: "image-cdn-ak.spotifycdn.com" },
-      { protocol: "https", hostname: "image-cdn-fa.spotifycdn.com" }
-    ]
-  }
-  
+      { protocol: "https", hostname: "image-cdn-fa.spotifycdn.com" },
+    ],
+  },
 };
 
 export default nextConfig;

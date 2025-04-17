@@ -34,7 +34,6 @@ export default function ArtistCards({ artists }: Props) {
           <Image
             className="object-contain w-6 h-6 rounded"
             width={20}
-            
             src={SpotifyPrimaryImage}
             alt={"Open Spotify"}
           />

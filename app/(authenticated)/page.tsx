@@ -1,16 +1,6 @@
-import {
-  getMe,
-  getPlaylistById,
-  getRecentlyPlayedTracks,
-  getTopItems,
-  getUserAllPlaylists,
-} from "@/lib/actions";
-import { Artist, Playlist, Track, User } from "@/types/types";
+import { getUserAllPlaylists } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { redirect } from "next/navigation";
-import Blur from "@/components/spotify/Blur";
-import CardItem from "@/components/spotify/cards/CardItem";
-import ArtistCards from "@/components/spotify/cards/ArtistCards";
 import PlaylistCards from "@/components/spotify/cards/PlaylistCards";
 
 export async function generateMetadata() {
@@ -38,23 +28,8 @@ export default async function Home() {
       <>
         <section className="flex flex-col items-center">
           {/* <Blur img={currentUser.images[0].url} /> */}
-          <h1 className="mt-16">Recent Playlists</h1>
+          <h1 className="mt-4">Recent Playlists</h1>
           <PlaylistCards playlists={res} />
-          {/* <div className="flex flex-row w-full h-full place-content-center justify-items-center ">
-            <div className="fixed md:translate-y-1/2">
-              <div className="">
-                <CardItem
-                  key={nurtreePlaylist.id}
-                  id={nurtreePlaylist.id}
-                  heading={nurtreePlaylist.name}
-                  subheading={nurtreePlaylist.description}
-                  altTitle={nurtreePlaylist.name}
-                  images={nurtreePlaylist.images}
-                  type="playlists"
-                />
-              </div>
-            </div>
-          </div> */}
         </section>
       </>
     );
@@ -63,31 +38,6 @@ export default async function Home() {
       <div className="flex flex-col items-center">
         No playlists found. Try creating some playlists!
       </div>
-    )
+    );
   }
-
-  return (
-    <>
-      <section className="flex flex-col items-center">
-        {/* <Blur img={currentUser.images[0].url} /> */}
-        <h1 className="mt-16">Recent Playlists</h1>
-        <PlaylistCards playlists={res} />
-        {/* <div className="flex flex-row w-full h-full place-content-center justify-items-center ">
-          <div className="fixed md:translate-y-1/2">
-            <div className="">
-              <CardItem
-                key={nurtreePlaylist.id}
-                id={nurtreePlaylist.id}
-                heading={nurtreePlaylist.name}
-                subheading={nurtreePlaylist.description}
-                altTitle={nurtreePlaylist.name}
-                images={nurtreePlaylist.images}
-                type="playlists"
-              />
-            </div>
-          </div>
-        </div> */}
-      </section>
-    </>
-  );
 }

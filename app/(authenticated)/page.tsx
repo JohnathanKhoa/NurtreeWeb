@@ -27,7 +27,6 @@ export default async function Home() {
     return (
       <>
         <section className="flex flex-col items-center">
-          {/* <Blur img={currentUser.images[0].url} /> */}
           <h1 className="mt-4">Recent Playlists</h1>
           <PlaylistCards playlists={res} />
         </section>

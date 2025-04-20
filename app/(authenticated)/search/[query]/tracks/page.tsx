@@ -14,33 +14,35 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const session = await getAuthSession();
-  if (!session) {
-    redirect("/login");
-  }
-  const query = decodeURI((await params).query);
-  const tracks = (await getSearchItems(session, "track", query, 20).then(
-    (data) => data.tracks.items
-  )) as Track[];
-  return {
-    title: `Songs related to "${query}"`,
-    description: `Track Metadata: ${JSON.stringify(tracks)}`,
-  };
+  return !session
+    ? (redirect("/login"), { title: "Redirecting to login..." })
+    : (async () => {
+        const query = decodeURI((await params).query);
+        const tracks = (await getSearchItems(session, "track", query, 20).then(
+          (data) => data?.tracks?.items || []
+        )) as Track[];
+        return {
+          title: `Songs related to "${query}"`,
+          description: `Track Metadata: ${JSON.stringify(tracks)}`,
+        };
+      })();
 }
 
 export default async function TrackSearchResultPage({ params }: Props) {
   const session = await getAuthSession();
-  if (!session) {
-    redirect("/login");
-  }
-  const query = (await params).query;
-  const tracks = (await getSearchItems(session, "track", query, 20).then(
-    (data) => data.tracks.items
-  )) as Track[];
+  return !session
+    ? (redirect("/login"), null)
+    : (async () => {
+        const query = decodeURI((await params).query);
+        const tracks = (await getSearchItems(session, "track", query, 20).then(
+          (data) => data?.tracks?.items || []
+        )) as Track[];
 
-  return (
-    <>
-      <SearchFilters />
-      <TracksTable tracks={tracks} showCover showSubtitle showAlbum />
-    </>
-  );
+        return (
+          <>
+            <SearchFilters />
+            <TracksTable tracks={tracks} showCover showSubtitle showAlbum />
+          </>
+        );
+      })();
 }

@@ -12,10 +12,8 @@ export default function LoginPageLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <NextAuthProvider>
-        <div className={"text-white "}>{children}</div>
-      </NextAuthProvider>
-    </>
+    <NextAuthProvider>
+      <div className="text-white">{children}</div>
+    </NextAuthProvider>
   );
 }

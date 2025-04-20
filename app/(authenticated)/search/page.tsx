@@ -7,10 +7,5 @@ export const metadata = {
 
 export default async function BrowseCategoriesPage() {
   const session = await getAuthSession();
-
-  if (!session) {
-    redirect("/login");
-  }
-
-  return <></>;
+  return !session ? (redirect("/login"), null) : <></>;
 }

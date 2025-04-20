@@ -13,7 +13,7 @@ export default function RootLayout({
     <NextAuthProvider>
       <ReduxProvider>
         <div className="grid grid-cols-10 gap-2 scrollbar-hide">
-          <div className="flex flex-col h-full col-span-full overflow-hidden rounded-lg  scrollbar scrollbar-track-black">
+          <div className="flex flex-col h-full col-span-full overflow-hidden rounded-lg scrollbar scrollbar-track-black">
             <NavBar />
             <main>{children}</main>
           </div>

@@ -5,38 +5,29 @@ import { redirect } from "next/navigation";
 
 export async function POST(
   req: Request,
-  { params }: { params: { userId: string; trackId: string } }
+  {
+    params,
+  }: {
+    params: Promise<{
+      userId: string;
+      trackId: string;
+    }>;
+  }
 ) {
   const session = await getAuthSession();
-
-  // Redirect to login if the user is not authenticated
   if (!session) {
-    return redirect("/login");
+    redirect("/login");
   }
 
-  const { userId, trackId } = await params;
-
-  try {
-    // Fetch track details
-    const track = await getTrackById(session, trackId);
-    if (!track) {
-      return new Response("Track not found", { status: 404 });
-    }
-
-    // Create new playlist
-    const playlistBody = { name: track.name };
-    const newPlaylist = await addNewPlaylist(session, userId, playlistBody);
-
-    // Add track to the newly created playlist
-    const trackBody: Data = { uris: [track.uri] };
-    const addTrackResult = await addTrack(session, newPlaylist.id, trackBody);
-
-    // Return the result
-    return new Response(JSON.stringify({ addTrackResult }), {
-      headers: { "Content-Type": "application/json" },
-    });
-  } catch (error) {
-    console.error("Error in POST /playlists/:trackId:", error);
-    return new Response("Internal Server Error", { status: 500 });
-  }
+  const data = params;
+  const userId = (await data).userId;
+  const trackId = (await data).trackId;
+  const track = await getTrackById(session!, trackId);
+  const name = track.name;
+  const body: Object = { name: name };
+  const uri = track.uri;
+  const trackBody: Data = { uris: [uri] };
+  const result = await addNewPlaylist(session!, userId, body);
+  const nextResult = await addTrack(session!, result.id, trackBody);
+  return Response.json({ nextResult });
 }

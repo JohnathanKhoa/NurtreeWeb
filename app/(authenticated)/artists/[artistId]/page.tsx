@@ -1,13 +1,13 @@
 import AlbumCards from "@/components/spotify/cards/AlbumCards";
 import ArtistCards from "@/components/spotify/cards/ArtistCards";
 import TracksTable from "@/components/spotify/media-page-container/TracksTable";
-import SpotifyPrimaryImage from "@/public/images/Spotify_Primary_Logo_RGB_White.png";
 import { getArtistById, getArtistDiscography } from "@/lib/actions";
 import { getAuthSession } from "@/util/serverUtils";
 import { Music } from "lucide-react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { Metadata } from "next/types";
+import SpotifyIcon from "@/components/spotify/SpotifyIcon";
 
 interface Props {
   params: Promise<{
@@ -66,11 +66,7 @@ export default async function ArtistPage({ params }: Props) {
                         target="_blank"
                         className="flex flex-row gap-2 items-center justify-center mt-2 text-black font-semibold bg-zinc-800 rounded-2xl py-1 hover:invert duration-200"
                       >
-                        <Image
-                          className="object-contain w-6 h-6 rounded"
-                          src={SpotifyPrimaryImage}
-                          alt={`Open Spotify`}
-                        />
+                        <SpotifyIcon />
                       </a>
                     </div>
                   ) : (

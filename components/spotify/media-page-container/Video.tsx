@@ -1,6 +1,5 @@
 "use client";
 import { redirect } from "next/navigation";
-import { Dispatch, SetStateAction } from "react";
 import YouTube from "react-youtube";
 
 interface Props {
@@ -8,38 +7,24 @@ interface Props {
   index: number;
   id: string;
   play: number;
-  setSlideState?: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Video({
-  tracksLength,
-  index,
-  id,
-  play,
-  setSlideState,
-}: Props) {
+export default function Video({ tracksLength, index, id, play }: Props) {
+  const handleVideoEnd = () =>
+    play === 1
+      ? redirect(`${index + 1 >= tracksLength ? 0 : index + 1}`)
+      : undefined;
+
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center">
       <YouTube
-        id="#audioElmId"
         videoId={id}
-        className="absolute size-full content-center "
-        onEnd={() =>
-          play === 1 ? (
-            index + 1 >= tracksLength ? (
-              redirect(`${0}`)
-            ) : (
-              redirect(`${index + 1}`)
-            )
-          ) : (
-            <></>
-          )
-        }
-        onPlay={() => (setSlideState ? setSlideState(false) : undefined)}
+        className="absolute size-full content-center"
+        onEnd={handleVideoEnd}
         opts={{
           width: "100%",
           height: "100%",
-          title: "",
+          title: { id },
           playerVars: {
             autoplay: play,
             controls: 1,

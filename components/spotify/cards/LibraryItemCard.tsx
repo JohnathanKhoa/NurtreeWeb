@@ -1,51 +1,36 @@
 "use client";
-import { Album, Artist, Playlist } from "@/types/types";
+
+import { Playlist } from "@/types/types";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import LoadingDots from "../LoadingDots";
 
 interface Props {
-  type: "artists" | "playlists" | "albums";
-  entity: Album | Artist | Playlist;
-  subtitle?: string;
+  playlist: Playlist;
 }
 
-export default function LibraryItemCard({ type, entity, subtitle }: Props) {
-  const pathname = usePathname();
-
-  const href = `${type}/${entity.id}`;
-  const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+export default function LibraryItemCard({ playlist }: Props) {
+  const href = `/playlists/${playlist.id}/0`;
 
   return (
     <a
-      onClick={() => setIsOpen(true)}
-      href={`/${href}/0`}
-      className={`${
-        pathname === href ? "bg-paper-400" : ""
-      } flex items-center p-2 gap-3 rounded-md text-white cursor-pointer  hover:bg-indigo-100/50 `}
+      href={href}
+      className={`flex items-center gap-3 p-2 rounded-md text-white hover:bg-indigo-100/50 cursor-pointer`}
     >
-      {isOpen && <LoadingDots />}
       <Image
-        src={entity.images[0]?.url}
-        alt={entity.name}
+        src={playlist.images[0]?.url || "/default-image.jpg"} // Fallback for missing images
+        alt={playlist.name}
         height={50}
         width={50}
-        className={`${
-          type === "artists" ? "rounded-full" : "rounded-md"
-        } aspect-square object-cover`}
+        className="aspect-square object-cover rounded-xs md:rounded"
       />
 
       <div className="truncate">
-        <h6 className={`w-full text-sm truncate hover:text-white`}>
-          {entity.name}
+        <h6 className="w-full text-sm truncate hover:text-white">
+          {playlist.name}
         </h6>
-        {type !== "artists" && (
-          <span className="mt-1 text-xs font-medium text-gray">{subtitle}</span>
-        )}
+
+        <span className="mt-1 text-xs font-medium text-gray">
+          {playlist.owner.display_name}
+        </span>
       </div>
     </a>
   );

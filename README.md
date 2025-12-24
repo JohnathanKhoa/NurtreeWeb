@@ -1,3 +1,5 @@
+No longer managed - 12/24/25
+
 # Nurtree
 
 Play all the top music videos using your own curated Spotify playlists
@@ -24,13 +26,6 @@ Blending together Youtube and Spotify API, Nurtree matches the top Music Videos 
 www.nurtree.com
 
 # Login with Spotify
-
-A guest Spotify account is available to use if you wish not to share your personal email.
-  > - Username: guest-user@jkn95.dev
-  > - Password: !spotify1234
-
-> [!NOTE]
-> This is a free, public shared spotify account for the sole purpose of featuring Nurtree to guests until this application is approved. Be careful not to share any personal data
 
 ![image](https://github.com/user-attachments/assets/24a097af-402a-47c0-993b-1abd5a9c7a3a)
 
